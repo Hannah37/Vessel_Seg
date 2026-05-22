@@ -141,7 +141,7 @@ def competitive_grow_gpu(candidate, sma_seed, vein_seed, max_iter=800, device="c
 
         n_new = int(sma_new.sum().item() + vein_new.sum().item())
         if n_new == 0:
-            print(f"Converged at iteration {i}")
+            print(f"\nConverged at iteration {i}")
             break
 
         sma_cur |= sma_new
@@ -192,7 +192,7 @@ def main():
         default="/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00002/00001/00002_00001_3.nii.gz",
     )
     parser.add_argument("--seg", default="sma_smv.nii.gz")
-    parser.add_argument("--out", default="branches_tree.nii.gz")
+    parser.add_argument("--out", default="branches_tree_scale1.8.nii.gz")
 
     parser.add_argument("--hu_min", type=float, default=80)
     parser.add_argument("--hu_max", type=float, default=350)
@@ -266,7 +266,7 @@ def main():
         vessel=artery_tree,
         sma=sma_valid,
         axis=2,
-        scale=1.2,
+        scale=1.8,
     )
 
     # 3) SMA와 연결된 tree만 유지
@@ -285,17 +285,21 @@ def main():
     # topology refinement
     skeleton = skeletonize_3d(artery_tree)
 
+    # centerline을 조금 확장하되, 원래 vessel candidate 안에서만 복원
     artery_tree = binary_dilation(
         skeleton,
-        ball(1)
+        ball(2)
     )
+
+    artery_tree = artery_tree & candidate
+    artery_tree = artery_tree & artery_territory
 
     artery_tree = keep_connected_to_seed(
         candidate=artery_tree | sma_valid,
         seed=sma_valid
     )
 
-    artery_tree = artery_tree | sma_valid   
+    artery_tree = artery_tree | sma_valid
         
     result = np.zeros(sma.shape, dtype=np.uint8)
     result[slices] = artery_tree.astype(np.uint8)
