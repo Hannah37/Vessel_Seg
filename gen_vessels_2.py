@@ -7,7 +7,7 @@ from skimage.filters import frangi
 import torch
 import torch.nn.functional as F
 import time
-
+from skimage.morphology import skeletonize_3d
 
 def load_nifti(path):
     nii = nib.load(path)
@@ -48,32 +48,51 @@ def keep_connected_to_seed(candidate, seed):
 
 def make_vessel_candidate(
     ct_crop,
+    sma_valid,
+    vein_valid,
     hu_min=50,
     hu_max=450,
-    vesselness_thr=0.005,
-    max_radius_vox=10,
-    use_frangi=False,
+    vesselness_thr=0.003,
+    use_frangi=True,
+    territory_ratio=1.05,
+    dilate_radius=1,
 ):
     ct_f = ct_crop.astype(np.float32)
 
-    # branch 살리려면 HU mask를 기본 candidate로 사용
     candidate = (ct_f >= hu_min) & (ct_f <= hu_max)
 
     if use_frangi:
         print("Computing Frangi vesselness...")
         vness = frangi(
             ct_f,
-            sigmas=[0.5, 1, 2, 3],
+            sigmas=[0.3, 0.5, 1, 2],
             black_ridges=False,
         )
-        vesselness_mask = vness >= vesselness_thr
-        candidate = candidate & vesselness_mask
+        candidate = candidate & (vness >= vesselness_thr)
 
-    # 너무 큰 장기 blob만 약하게 제거
-    dist = ndi.distance_transform_edt(candidate)
-    candidate = candidate & (dist <= max_radius_vox)
+    dist_to_sma = ndi.distance_transform_edt(~sma_valid)
+    dist_to_vein = ndi.distance_transform_edt(~vein_valid)
 
-    return candidate
+    artery_territory = dist_to_sma < (dist_to_vein * territory_ratio)
+
+    candidate = candidate & artery_territory
+
+    # 끊긴 작은 artery 연결용: 아주 약하게만
+    if dilate_radius > 0:
+        candidate = binary_dilation(candidate, ball(1))
+
+        candidate = ndi.binary_closing(
+            candidate,
+            structure=ball(1)
+        )
+
+        candidate = candidate & artery_territory
+        candidate = candidate | sma_valid
+
+    # seed는 반드시 포함
+    candidate = candidate | sma_valid
+
+    return candidate, artery_territory
 
 def competitive_grow_gpu(candidate, sma_seed, vein_seed, max_iter=800, device="cuda"):
     if device == "cuda" and not torch.cuda.is_available():
@@ -86,13 +105,19 @@ def competitive_grow_gpu(candidate, sma_seed, vein_seed, max_iter=800, device="c
     # seed는 반드시 포함
     cand = cand | sma | vein
 
-    kernel = torch.zeros((1, 1, 3, 3, 3), device=device)
-    kernel[0,0,1,1,0] = 1
-    kernel[0,0,1,1,2] = 1
-    kernel[0,0,1,0,1] = 1
-    kernel[0,0,1,2,1] = 1
-    kernel[0,0,0,1,1] = 1
-    kernel[0,0,2,1,1] = 1
+    kernel = torch.ones((1,1,3,3,3), device=device)
+
+    # corner 제외
+    kernel[0,0,0,0,0] = 0
+    kernel[0,0,0,0,2] = 0
+    kernel[0,0,0,2,0] = 0
+    kernel[0,0,0,2,2] = 0
+    kernel[0,0,2,0,0] = 0
+    kernel[0,0,2,0,2] = 0
+    kernel[0,0,2,2,0] = 0
+    kernel[0,0,2,2,2] = 0
+
+    kernel[0,0,1,1,1] = 0
 
     sma_cur = sma[None, None]
     vein_cur = vein[None, None]
@@ -128,10 +153,11 @@ def competitive_grow_gpu(candidate, sma_seed, vein_seed, max_iter=800, device="c
         if i % 20 == 0:
             print(
                 f"\rIter {i} | SMA: {int(sma_cur.sum())} | SMV: {int(vein_cur.sum())}",
-                end=""
+                end="",
+                flush=True
             )
 
-    print()
+    print(flush=True)
     return sma_cur.squeeze().detach().cpu().numpy().astype(bool), vein_cur.squeeze().detach().cpu().numpy().astype(bool)
 
 def filter_by_sma_cross_section_area(vessel, sma, axis=2, scale=1.5):
@@ -157,11 +183,6 @@ def filter_by_sma_cross_section_area(vessel, sma, axis=2, scale=1.5):
 
     return filtered
 
-
-def filter_by_local_radius(mask, max_radius_vox=4):
-    dist = ndi.distance_transform_edt(mask)
-    return mask & (dist <= max_radius_vox)
-
 def main():
     start_time = time.time()
     parser = argparse.ArgumentParser()
@@ -171,7 +192,7 @@ def main():
         default="/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00002/00001/00002_00001_3.nii.gz",
     )
     parser.add_argument("--seg", default="sma_smv.nii.gz")
-    parser.add_argument("--out", default="branches.nii.gz")
+    parser.add_argument("--out", default="branches_tree.nii.gz")
 
     parser.add_argument("--hu_min", type=float, default=80)
     parser.add_argument("--hu_max", type=float, default=350)
@@ -202,29 +223,22 @@ def main():
     sma_valid = sma_crop & (ct_crop >= 0)
     vein_valid = vein_crop & (ct_crop >= 0)
 
-    print("SMA voxels:", sma_valid.sum())
+    print("Artery seed voxels:", sma_valid.sum())
     print("Vein seed voxels:", vein_valid.sum())
 
-    candidate = make_vessel_candidate(
+    candidate, artery_territory = make_vessel_candidate(
         ct_crop=ct_crop,
+        sma_valid=sma_valid,
+        vein_valid=vein_valid,
         hu_min=args.hu_min,
         hu_max=args.hu_max,
         vesselness_thr=args.vesselness_thr,
-        max_radius_vox=args.max_radius_vox,
-        use_frangi=False,
+        use_frangi=True,
+        territory_ratio=1.5,
+        dilate_radius=1,
     )
 
     print("Candidate voxels:", candidate.sum())
-
-    # 1. Grow vein-connected tree first
-    # print("Growing vein tree...")
-    # vein_tree = region_grow_gpu(
-    #     candidate=candidate,
-    #     seed=vein_valid,
-    #     exclude_mask=None,
-    #     max_iter=args.max_iter,
-    #     device=args.device,
-    # )
 
     vein_exclude = binary_dilation(
         vein_valid,
@@ -252,32 +266,37 @@ def main():
         vessel=artery_tree,
         sma=sma_valid,
         axis=2,
-        scale=2.0,
-    )
-
-    # 2) 너무 두꺼운 구조 제거
-    artery_tree = filter_by_local_radius(
-        artery_tree,
-        max_radius_vox=4,
+        scale=1.2,
     )
 
     # 3) SMA와 연결된 tree만 유지
     artery_tree = keep_connected_to_seed(
-        candidate=artery_tree | sma_valid,
-        seed=sma_valid,
-    )
+    candidate=artery_tree | sma_valid,
+    seed=sma_valid
+)
 
-    # 4) SMV에서 시작된 tree 제거
     artery_tree = artery_tree & (~vein_tree)
 
-    # 5) 작은 noise 제거 후 SMA 복구
     artery_tree = remove_small_objects(
         artery_tree.astype(bool),
-        min_size=args.min_size,
+        min_size=10
+    )
+
+    # topology refinement
+    skeleton = skeletonize_3d(artery_tree)
+
+    artery_tree = binary_dilation(
+        skeleton,
+        ball(1)
+    )
+
+    artery_tree = keep_connected_to_seed(
+        candidate=artery_tree | sma_valid,
+        seed=sma_valid
     )
 
     artery_tree = artery_tree | sma_valid   
-    
+        
     result = np.zeros(sma.shape, dtype=np.uint8)
     result[slices] = artery_tree.astype(np.uint8)
 
