@@ -9,6 +9,10 @@ import torch.nn.functional as F
 import time
 from skimage.morphology import skeletonize_3d
 
+from skimage.graph import route_through_array
+from scipy.spatial import cKDTree
+
+
 def load_nifti(path):
     nii = nib.load(path)
     arr = np.asanyarray(nii.dataobj)
@@ -54,7 +58,7 @@ def make_vessel_candidate(
     hu_max=450,
     vesselness_thr=0.003,
     use_frangi=True,
-    territory_ratio=1.05,
+    territory_ratio=1.8,
     dilate_radius=1,
 ):
     ct_f = ct_crop.astype(np.float32)
@@ -65,7 +69,7 @@ def make_vessel_candidate(
         print("Computing Frangi vesselness...")
         vness = frangi(
             ct_f,
-            sigmas=[0.3, 0.5, 1, 2],
+            sigmas=[0.2, 0.3, 0.5, 0.8, 1.2],
             black_ridges=False,
         )
         candidate = candidate & (vness >= vesselness_thr)
@@ -183,6 +187,95 @@ def filter_by_sma_cross_section_area(vessel, sma, axis=2, scale=1.5):
 
     return filtered
 
+def connect_nearby_branches_by_path(
+    artery_tree,
+    candidate,
+    ct_crop,
+    max_dist=20,
+    hu_min=40,
+    hu_max=500,
+    dilate_radius=1,
+    max_components=50,
+    max_comp_size=5000,
+):
+    passable = candidate | ((ct_crop >= hu_min) & (ct_crop <= hu_max))
+    passable = passable & (ct_crop >= 0)
+
+    labeled, n = ndi.label(candidate)
+    main = artery_tree.astype(bool)
+
+    main_coords = np.argwhere(main)
+    if len(main_coords) == 0:
+        return artery_tree
+
+    tree = cKDTree(main_coords)
+    out = main.copy()
+
+    objs = ndi.find_objects(labeled)
+    processed = 0
+
+    for lab, slc in enumerate(objs, start=1):
+        if slc is None:
+            continue
+
+        comp = labeled[slc] == lab
+        comp_size = comp.sum()
+
+        if comp_size < 3 or comp_size > max_comp_size:
+            continue
+
+        comp_global = np.argwhere(comp) + np.array([s.start for s in slc])
+
+        dists, idxs = tree.query(comp_global, k=1)
+        min_i = np.argmin(dists)
+        min_dist = dists[min_i]
+
+        if min_dist > max_dist:
+            continue
+
+        start = tuple(main_coords[idxs[min_i]])
+        end = tuple(comp_global[min_i])
+
+        # local box only
+        lo = np.maximum(np.minimum(start, end) - max_dist - 5, 0)
+        hi = np.minimum(np.maximum(start, end) + max_dist + 6, candidate.shape)
+
+        local_slices = tuple(slice(lo[d], hi[d]) for d in range(3))
+        local_passable = passable[local_slices]
+
+        local_start = tuple(np.array(start) - lo)
+        local_end = tuple(np.array(end) - lo)
+
+        cost = np.where(local_passable, 1.0, 1e5)
+
+        try:
+            path, cost_val = route_through_array(
+                cost,
+                local_start,
+                local_end,
+                fully_connected=True
+            )
+        except Exception:
+            continue
+
+        if cost_val > max_dist * 4:
+            continue
+
+        path = np.array(path) + lo
+        out[tuple(path.T)] = True
+        out[tuple(comp_global.T)] = True
+
+        processed += 1
+        if processed >= max_components:
+            break
+
+    if dilate_radius > 0:
+        out = binary_dilation(out, ball(dilate_radius))
+        out = out & passable
+
+    print("Connected components:", processed)
+    return out
+
 def main():
     start_time = time.time()
     parser = argparse.ArgumentParser()
@@ -192,7 +285,7 @@ def main():
         default="/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00002/00001/00002_00001_3.nii.gz",
     )
     parser.add_argument("--seg", default="sma_smv.nii.gz")
-    parser.add_argument("--out", default="branches_tree_scale1.8.nii.gz")
+    parser.add_argument("--out", default="branches_tree.nii.gz")
 
     parser.add_argument("--hu_min", type=float, default=80)
     parser.add_argument("--hu_max", type=float, default=350)
@@ -234,7 +327,7 @@ def main():
         hu_max=args.hu_max,
         vesselness_thr=args.vesselness_thr,
         use_frangi=True,
-        territory_ratio=1.5,
+        territory_ratio=1.8,
         dilate_radius=1,
     )
 
@@ -249,6 +342,8 @@ def main():
     vein_exclude = vein_exclude & (~sma_valid)
 
     print("Vein-exclude voxels:", vein_exclude.sum())
+    candidate = candidate & (~vein_exclude)
+    candidate = candidate | sma_valid
 
     # 2. Grow SMA-connected arterial tree while excluding vein tree
     print("Growing SMA arterial tree...")
@@ -279,7 +374,7 @@ def main():
 
     artery_tree = remove_small_objects(
         artery_tree.astype(bool),
-        min_size=10
+        min_size=args.min_size
     )
 
     # topology refinement
@@ -293,13 +388,24 @@ def main():
 
     artery_tree = artery_tree & candidate
     artery_tree = artery_tree & artery_territory
+    artery_tree = artery_tree | sma_valid
+
+    artery_tree = connect_nearby_branches_by_path(
+        artery_tree=artery_tree,
+        candidate=candidate,
+        ct_crop=ct_crop,
+        max_dist=10,
+        hu_min=90,
+        hu_max=400,
+        dilate_radius=0,
+        max_components=10,
+        max_comp_size=500,
+    )
 
     artery_tree = keep_connected_to_seed(
         candidate=artery_tree | sma_valid,
         seed=sma_valid
     )
-
-    artery_tree = artery_tree | sma_valid
         
     result = np.zeros(sma.shape, dtype=np.uint8)
     result[slices] = artery_tree.astype(np.uint8)
