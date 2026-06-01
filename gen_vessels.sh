@@ -12,10 +12,10 @@ source /vf/users/drdcad/Hyuna/projects/vessel_seg/seg/bin/activate
 
 cd /vf/users/drdcad/Hyuna/projects/vessel_seg/code/Vessel_Seg
 
-python -u gen_vessels_2.py  \
-  --hu_min 90 \
-  --hu_max 380 \
+python -u gen_vessels_2.py \
+  --hu_min 50 \
+  --hu_max 370 \
   --vesselness_thr 0.001 \
-  --margin 100 \
+  --margin 95 \
   --max_iter 700 \
-  --min_size 20
+  --min_size 25
