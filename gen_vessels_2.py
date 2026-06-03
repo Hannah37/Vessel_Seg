@@ -46,7 +46,6 @@ def keep_connected_to_seed(candidate, seed):
         return np.zeros_like(candidate, dtype=bool)
     return np.isin(labeled, seed_labels)
 
-
 def make_vessel_candidate(
     ct_crop,
     sma_valid,
@@ -57,9 +56,12 @@ def make_vessel_candidate(
     use_frangi=True,
     territory_ratio=1.8,
     dilate_radius=1,
+    air_hu=-500,
+    air_radius=2,
 ):
     ct_f = ct_crop.astype(np.float32)
-    candidate = (ct_f >= hu_min) & (ct_f <= hu_max)
+
+    candidate_core = (ct_f >= hu_min) & (ct_f <= hu_max)
 
     if use_frangi:
         print("Computing Frangi vesselness...")
@@ -68,22 +70,58 @@ def make_vessel_candidate(
             sigmas=[0.2, 0.3, 0.5, 0.8, 1.2],
             black_ridges=False,
         )
-        candidate = candidate & (vness >= vesselness_thr)
+        candidate_core = candidate_core & (vness >= vesselness_thr)
 
     dist_to_sma = ndi.distance_transform_edt(~sma_valid)
     dist_to_vein = ndi.distance_transform_edt(~vein_valid)
+
     artery_territory = dist_to_sma < (dist_to_vein * territory_ratio)
-    candidate = candidate & artery_territory
+    candidate_core = candidate_core & artery_territory
+
+    # Remove only long bowel-boundary-like components near air, not all bowel-adjacent vessels
+    candidate_core = remove_bowel_boundary_like_components(
+        mask=candidate_core,
+        ct_crop=ct_crop,
+        protected=sma_valid,
+        air_hu=air_hu,
+        air_radius=air_radius,
+        min_area=20,
+        min_long_axis=12,
+        min_aspect=2.5,
+        axis=2,
+    )
+
+    candidate_core = candidate_core | sma_valid
+
+    # Grow mask: slightly more permissive for connectivity
+    candidate_grow = candidate_core.copy()
 
     if dilate_radius > 0:
-        candidate = binary_dilation(candidate, ball(1))
-        candidate = ndi.binary_closing(candidate, structure=ball(1))
-        candidate = candidate & artery_territory
-        candidate = candidate | sma_valid
+        candidate_grow = binary_dilation(candidate_grow, ball(dilate_radius))
+        candidate_grow = ndi.binary_closing(candidate_grow, structure=ball(1))
+        candidate_grow = candidate_grow & artery_territory
 
-    candidate = candidate | sma_valid
-    return candidate.astype(bool), artery_territory.astype(bool)
+        # Apply the bowel-boundary filter again after dilation,
+        # because dilation can reconnect bowel-wall edges.
+        candidate_grow = remove_bowel_boundary_like_components(
+            mask=candidate_grow,
+            ct_crop=ct_crop,
+            protected=sma_valid,
+            air_hu=air_hu,
+            air_radius=air_radius,
+            min_area=20,
+            min_long_axis=12,
+            min_aspect=2.5,
+            axis=2,
+        )
 
+        candidate_grow = candidate_grow | sma_valid
+
+    return (
+        candidate_core.astype(bool),
+        candidate_grow.astype(bool),
+        artery_territory.astype(bool),
+    )
 
 def competitive_grow_gpu(candidate, sma_seed, vein_seed, max_iter=700, device="cuda"):
     if device == "cuda" and not torch.cuda.is_available():
@@ -235,16 +273,205 @@ def connect_nearby_branches_by_path(
 
     print("Connected components:", processed)
     return out
+def add_tube_path(out, path, radius=2):
+    tube = np.zeros_like(out, dtype=bool)
+    path = np.asarray(path)
+    tube[tuple(path.T)] = True
+    tube = binary_dilation(tube, ball(radius))
+    return out | tube
 
+
+def connect_valid_vessel_gaps(
+    artery_tree,
+    candidate,
+    ct_crop,
+    max_dist=8,
+    hu_min=-30,
+    hu_max=400,
+    min_align=0.5,
+):
+    skel = skeletonize_3d(artery_tree).astype(bool)
+
+    kernel = np.ones((3, 3, 3), dtype=np.uint8)
+    kernel[1, 1, 1] = 0
+
+    neighbor_count = ndi.convolve(
+        skel.astype(np.uint8),
+        kernel,
+        mode="constant",
+        cval=0,
+    )
+
+    endpoints = skel & (neighbor_count == 1)
+    ep_coords = np.argwhere(endpoints)
+
+    if len(ep_coords) < 2:
+        print("Valid vessel gap connections: 0")
+        return artery_tree
+
+    passable = candidate | ((ct_crop >= hu_min) & (ct_crop <= hu_max))
+    passable = passable & (ct_crop >= hu_min)
+
+    def endpoint_dir(p, r=5):
+        p = np.asarray(p)
+        lo = np.maximum(p - r, 0)
+        hi = np.minimum(p + r + 1, skel.shape)
+        slc = tuple(slice(lo[d], hi[d]) for d in range(3))
+
+        pts = np.argwhere(skel[slc]) + lo
+        if len(pts) < 3:
+            return None
+
+        pts0 = pts - p
+        cov = pts0.T @ pts0
+        vals, vecs = np.linalg.eigh(cov)
+        v = vecs[:, np.argmax(vals)]
+
+        mean_vec = pts0.mean(axis=0)
+        if np.dot(v, mean_vec) < 0:
+            v = -v
+
+        return v / (np.linalg.norm(v) + 1e-6)
+
+    dirs = [endpoint_dir(p) for p in ep_coords]
+
+    tree = cKDTree(ep_coords)
+    pairs = list(tree.query_pairs(r=max_dist))
+    pairs.sort(key=lambda ij: np.linalg.norm(ep_coords[ij[0]] - ep_coords[ij[1]]))
+
+    out = artery_tree.copy()
+    connected = 0
+
+    for i, j in pairs:
+        p1 = ep_coords[i]
+        p2 = ep_coords[j]
+
+        v1 = dirs[i]
+        v2 = dirs[j]
+
+        if v1 is None or v2 is None:
+            continue
+
+        gap = p2 - p1
+        dist = np.linalg.norm(gap)
+
+        if dist < 2 or dist > max_dist:
+            continue
+
+        gap_dir = gap / dist
+
+        if np.dot(v1, gap_dir) < min_align:
+            continue
+        if np.dot(v2, -gap_dir) < min_align:
+            continue
+
+        lo = np.maximum(np.minimum(p1, p2) - 5, 0)
+        hi = np.minimum(np.maximum(p1, p2) + 6, artery_tree.shape)
+
+        slc = tuple(slice(lo[d], hi[d]) for d in range(3))
+        local_passable = passable[slc]
+
+        start = tuple(p1 - lo)
+        end = tuple(p2 - lo)
+
+        cost = np.where(local_passable, 1.0, 1e6)
+
+        try:
+            path, cost_val = route_through_array(
+                cost,
+                start,
+                end,
+                fully_connected=True,
+            )
+        except Exception:
+            continue
+
+        if cost_val > max_dist * 2.5:
+            continue
+
+        path = np.array(path) + lo
+        out = add_tube_path(out, path, radius=2)
+        connected += 1
+
+    print("Valid vessel gap connections:", connected)
+    return out | artery_tree
+def remove_bowel_boundary_like_components(
+    mask,
+    ct_crop,
+    protected=None,
+    air_hu=-500,
+    air_radius=2,
+    min_area=20,
+    min_long_axis=12,
+    min_aspect=2.5,
+    axis=2,
+):
+    """
+    Remove long/linear components near air-filled bowel lumen.
+    This does NOT remove all vessels near bowel.
+    It removes only air-adjacent components that look like long bowel-wall boundaries in 2D slices.
+    """
+    air = ct_crop <= air_hu
+    near_air = binary_dilation(air, ball(air_radius))
+
+    suspect = mask & near_air
+
+    if protected is None:
+        protected = np.zeros_like(mask, dtype=bool)
+
+    remove = np.zeros_like(mask, dtype=bool)
+    structure2d = ndi.generate_binary_structure(2, 2)
+
+    for z in range(mask.shape[axis]):
+        s = np.take(suspect, z, axis=axis)
+        p = np.take(protected, z, axis=axis)
+
+        labeled, n = ndi.label(s, structure=structure2d)
+        remove_slice = np.zeros_like(s, dtype=bool)
+
+        for lab in range(1, n + 1):
+            comp = labeled == lab
+            area = int(comp.sum())
+            if area < min_area:
+                continue
+
+            coords = np.argwhere(comp)
+            if len(coords) == 0:
+                continue
+
+            span = coords.max(axis=0) - coords.min(axis=0) + 1
+            long_axis = int(span.max())
+            short_axis = int(max(span.min(), 1))
+            aspect = long_axis / short_axis
+
+            # bowel boundary: long, thin/arc-like component near air
+            if long_axis >= min_long_axis and aspect >= min_aspect:
+                remove_slice |= comp
+
+        # never remove protected seed voxels
+        remove_slice = remove_slice & (~p)
+
+        if axis == 0:
+            remove[z, :, :] = remove_slice
+        elif axis == 1:
+            remove[:, z, :] = remove_slice
+        else:
+            remove[:, :, z] = remove_slice
+
+    print("Bowel-boundary-like voxels removed:", int(remove.sum()))
+
+    out = mask & (~remove)
+    out = out | protected
+    return out
 
 def main():
     start_time = time.time()
     print("Start time:", datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--ct", default="/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00002/00001/00002_00001_3.nii.gz")
-    parser.add_argument("--seg", default="sma_smv.nii.gz")
-    parser.add_argument("--out", default="branches_tree_base_clean.nii.gz")
+    parser.add_argument("--ct", default="/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00004/00001/00004_00001_3.nii.gz")
+    parser.add_argument("--seg", default="00004_00001_3_sma_smv.nii.gz")
+    parser.add_argument("--out", default="00004_00001_3_gt_algo.nii.gz")
     parser.add_argument("--hu_min", type=float, default=95)
     parser.add_argument("--hu_max", type=float, default=370)
     parser.add_argument("--vesselness_thr", type=float, default=0.0012)
@@ -253,14 +480,21 @@ def main():
     parser.add_argument("--min_size", type=int, default=25)
     parser.add_argument("--vein_block_radius", type=int, default=3)
     parser.add_argument("--device", default="cuda")
-    parser.add_argument("--connect_branches", type=int, default=1)
+    parser.add_argument("--connect_branches", type=int, default=0)
+    parser.add_argument("--air_hu", type=float, default=-500)
+    parser.add_argument("--air_radius", type=int, default=2)
     args = parser.parse_args()
 
     ct, affine, header = load_nifti(args.ct)
+
+    print("shape:", ct.shape)
+    print("affine:")
+    print(affine)
+
     sma_smv, _, _ = load_nifti(args.seg)
 
     sma = sma_smv == 1
-    vein = sma_smv == 3
+    vein = (sma_smv == 2) | (sma_smv == 3)
 
     roi_mask = sma | vein
     slices = crop_bbox(roi_mask, margin=args.margin)
@@ -268,13 +502,14 @@ def main():
     sma_crop = sma[slices]
     vein_crop = vein[slices]
 
+
     sma_valid = sma_crop & (ct_crop >= 0)
     vein_valid = vein_crop & (ct_crop >= 0)
 
     print("Artery seed voxels:", int(sma_valid.sum()))
     print("Vein seed voxels:", int(vein_valid.sum()))
 
-    candidate, artery_territory = make_vessel_candidate(
+    candidate_core, candidate, artery_territory = make_vessel_candidate(
         ct_crop=ct_crop,
         sma_valid=sma_valid,
         vein_valid=vein_valid,
@@ -282,10 +517,14 @@ def main():
         hu_max=args.hu_max,
         vesselness_thr=args.vesselness_thr,
         use_frangi=True,
-        territory_ratio=1.8,
+        territory_ratio=2.0,
         dilate_radius=1,
+        air_hu=args.air_hu,
+        air_radius=args.air_radius,
     )
-    print("Candidate voxels:", int(candidate.sum()))
+
+    print("Candidate core voxels:", int(candidate_core.sum()))
+    print("Candidate grow voxels:", int(candidate.sum()))
 
     vein_exclude = binary_dilation(vein_valid, ball(args.vein_block_radius))
     vein_exclude = vein_exclude & (~sma_valid)
@@ -293,6 +532,9 @@ def main():
 
     candidate = candidate & (~vein_exclude)
     candidate = candidate | sma_valid
+
+    candidate_core = candidate_core & (~vein_exclude)
+    candidate_core = candidate_core | sma_valid
 
     print("Growing SMA arterial tree with competitive vein growth...")
     artery_tree, vein_tree = competitive_grow_gpu(
@@ -322,30 +564,64 @@ def main():
     artery_tree = artery_tree | sma_valid
     print("After vein/small-object removal voxels:", int(artery_tree.sum()))
 
-    skeleton = skeletonize_3d(artery_tree).astype(bool)
-    artery_tree = binary_dilation(skeleton, ball(2))
-    artery_tree = artery_tree & candidate
-    artery_tree = artery_tree & artery_territory
+    # ============================================================
+    # Strict cleanup only
+    # No skeleton refinement, no endpoint gap fill, no branch connection
+    # ============================================================
+
+    strict_mask = candidate_core & artery_territory
+    strict_mask = strict_mask & (~vein_exclude)
+    strict_mask = strict_mask | sma_valid
+
+    # Do not add new voxels.
+    # Only keep the already-grown artery inside the strict candidate mask.
+    artery_tree = artery_tree & strict_mask
     artery_tree = artery_tree | sma_valid
-    print("After skeleton refinement voxels:", int(artery_tree.sum()))
 
-    if args.connect_branches:
-        artery_tree = connect_nearby_branches_by_path(
-            artery_tree=artery_tree,
-            candidate=candidate,
-            ct_crop=ct_crop,
-            max_dist=10,
-            hu_min=90,
-            hu_max=400,
-            dilate_radius=0,
-            max_components=10,
-            max_comp_size=500,
-        )
-        print("After conservative branch connection voxels:", int(artery_tree.sum()))
+    artery_tree = remove_small_objects(
+        artery_tree.astype(bool),
+        min_size=args.min_size
+    )
+    artery_tree = remove_bowel_boundary_like_components(
+        mask=artery_tree,
+        ct_crop=ct_crop,
+        protected=sma_valid,
+        air_hu=args.air_hu,
+        air_radius=args.air_radius,
+        min_area=20,
+        min_long_axis=12,
+        min_aspect=2.5,
+        axis=2,
+    )
 
+    artery_tree = artery_tree | sma_valid
+    
+    print("After strict cleanup voxels:", int(artery_tree.sum()))
     artery_tree = keep_connected_to_seed(candidate=artery_tree | sma_valid, seed=sma_valid)
-
+    
     structure6 = ndi.generate_binary_structure(3, 1)
+    labeled, n = ndi.label(artery_tree, structure=structure6)
+
+    sizes = np.bincount(labeled.ravel())
+    sizes[0] = 0
+
+    main_label = sizes.argmax()
+    artery_tree = labeled == main_label
+
+    # 1) 먼저 SMA seed 포함
+    artery_tree = artery_tree | sma_valid
+
+    # 2) 그다음 largest component만 유지
+    structure6 = ndi.generate_binary_structure(3, 1)
+    labeled, n = ndi.label(artery_tree, structure=structure6)
+
+    sizes = np.bincount(labeled.ravel())
+    sizes[0] = 0
+
+    main_label = sizes.argmax()
+    artery_tree = labeled == main_label
+
+    # 3) 여기서는 다시 artery_tree | sma_valid 하지 말기
     _, n6 = ndi.label(artery_tree, structure=structure6)
     print("Final connected components 6-connectivity:", n6)
 
