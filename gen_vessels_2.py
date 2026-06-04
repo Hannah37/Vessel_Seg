@@ -754,6 +754,242 @@ def prune_terminal_boundary_branches(
     out = out | sma_valid
     return out
 
+def remove_bowel_interior_only(
+    artery_tree,
+    bowel_crop,
+    sma_valid,
+    interior_radius=2,
+):
+    """
+    Remove only voxels inside the small-bowel interior.
+    Keep vessels touching or adjacent to the bowel wall.
+    """
+
+    if bowel_crop is None:
+        return artery_tree
+
+    bowel_mask = bowel_crop.astype(bool)
+
+    if interior_radius > 0:
+        bowel_interior = ndi.binary_erosion(
+            bowel_mask,
+            structure=ball(interior_radius)
+        )
+    else:
+        bowel_interior = bowel_mask
+
+    # protect SMA seed
+    remove = artery_tree & bowel_interior & (~sma_valid)
+
+    out = artery_tree & (~remove)
+    out = out | sma_valid
+
+    print("Bowel interior voxels removed:", int(remove.sum()))
+
+    return out
+def prune_bowel_wall_edges_keep_vessel_contacts(
+    artery_tree,
+    bowel_crop,
+    sma_valid,
+    interior_radius=2,
+    wall_radius=1,
+    protect_radius=2,
+    min_area=20,
+    min_long_axis=10,
+    min_aspect=2.0,
+    axes=(2,),
+):
+    """
+    Remove long bowel-wall edge-like false positives,
+    while keeping vessel endpoints that touch the bowel wall.
+
+    Logic:
+    - bowel_interior is removed elsewhere.
+    - bowel_wall_band is the shell around the bowel wall.
+    - long, thin components inside the wall band are likely bowel wall edges.
+    - contact zones connected to vessels outside the wall band are protected.
+    """
+
+    if bowel_crop is None:
+        return artery_tree
+
+    out = artery_tree.astype(bool).copy()
+    bowel_mask = bowel_crop.astype(bool)
+
+    # Bowel interior
+    if interior_radius > 0:
+        bowel_interior = ndi.binary_erosion(
+            bowel_mask,
+            structure=ball(interior_radius),
+        )
+    else:
+        bowel_interior = bowel_mask.copy()
+
+    # Bowel wall shell: bowel mask minus eroded interior
+    bowel_wall = bowel_mask & (~bowel_interior)
+
+    # Slightly expand wall shell to account for imperfect bowel segmentation
+    if wall_radius > 0:
+        bowel_wall_band = binary_dilation(bowel_wall, ball(wall_radius))
+    else:
+        bowel_wall_band = bowel_wall.copy()
+
+    # Do not include deep bowel interior in wall band
+    bowel_wall_band = bowel_wall_band & (~bowel_interior)
+
+    # Protect vessel segments that approach the bowel wall from outside
+    outside_wall_vessel = out & (~bowel_wall_band) & (~bowel_interior)
+    contact_protect = binary_dilation(outside_wall_vessel, ball(protect_radius)) & bowel_wall_band
+    contact_protect = contact_protect | sma_valid
+
+    total_remove = np.zeros_like(out, dtype=bool)
+    structure2d = ndi.generate_binary_structure(2, 2)
+
+    for axis in axes:
+        suspect = out & bowel_wall_band & (~sma_valid)
+
+        for z in range(out.shape[axis]):
+            s = np.take(suspect, z, axis=axis)
+            p = np.take(contact_protect, z, axis=axis)
+
+            labeled, n = ndi.label(s, structure=structure2d)
+            remove_slice = np.zeros_like(s, dtype=bool)
+
+            for lab in range(1, n + 1):
+                comp = labeled == lab
+                area = int(comp.sum())
+
+                if area < min_area:
+                    continue
+
+                coords = np.argwhere(comp)
+                if len(coords) < 3:
+                    continue
+
+                span = coords.max(axis=0) - coords.min(axis=0) + 1
+                long_axis = int(span.max())
+                short_axis = int(max(span.min(), 1))
+                aspect = long_axis / short_axis
+
+                # Long, thin component along bowel wall = likely bowel edge
+                if long_axis >= min_long_axis and aspect >= min_aspect:
+                    # Keep the local contact point where a real vessel reaches the bowel wall
+                    remove_slice |= (comp & (~p))
+
+            if axis == 0:
+                total_remove[z, :, :] |= remove_slice
+            elif axis == 1:
+                total_remove[:, z, :] |= remove_slice
+            else:
+                total_remove[:, :, z] |= remove_slice
+
+    # Never remove SMA seed
+    total_remove = total_remove & (~sma_valid)
+
+    out = out & (~total_remove)
+    out = out | sma_valid
+
+    print("Bowel wall edge-like voxels removed:", int(total_remove.sum()))
+
+    return out
+
+def prune_fragmented_air_lumen_rim_final(
+    artery_tree,
+    ct_crop,
+    sma_valid,
+    air_hu=-500,
+    air_radius=5,
+    protect_radius=1,
+    group_radius=1,
+    min_area=3,
+    min_long_axis=6,
+    min_aspect=1.5,
+    axes=(0, 1, 2),
+):
+    """
+    Final-only cleanup.
+    Remove fragmented air-lumen rim / bowel-edge false positives.
+
+    Key idea:
+    - fragmented red edge pieces may be too small individually
+    - group nearby suspect voxels first
+    - remove only original artery voxels inside grouped rim-like components
+    """
+
+    out = artery_tree.astype(bool).copy()
+
+    air = ct_crop <= air_hu
+    near_air = binary_dilation(air, ball(air_radius))
+
+    # True vessels may touch bowel wall.
+    # Protect only very local contact points from vessels coming from outside near-air zone.
+    outside_air_vessel = out & (~near_air)
+    if protect_radius > 0:
+        contact_protect = binary_dilation(outside_air_vessel, ball(protect_radius)) & near_air
+    else:
+        contact_protect = np.zeros_like(out, dtype=bool)
+
+    contact_protect = contact_protect | binary_dilation(sma_valid, ball(3))
+
+    suspect = out & near_air & (~sma_valid)
+
+    total_remove = np.zeros_like(out, dtype=bool)
+    structure2d = ndi.generate_binary_structure(2, 2)
+
+    for axis in axes:
+        for z in range(out.shape[axis]):
+            s = np.take(suspect, z, axis=axis)
+            p = np.take(contact_protect, z, axis=axis)
+
+            # Group fragmented rim pieces before shape analysis
+            grouped = s.copy()
+            if group_radius > 0:
+                for _ in range(group_radius):
+                    grouped = ndi.binary_dilation(grouped, structure=structure2d)
+                grouped = ndi.binary_closing(grouped, structure=structure2d)
+
+            labeled, n = ndi.label(grouped, structure=structure2d)
+            remove_slice = np.zeros_like(s, dtype=bool)
+
+            for lab in range(1, n + 1):
+                group = labeled == lab
+
+                # Only remove original artery voxels, not the dilated grouping mask
+                orig = s & group
+                area = int(orig.sum())
+
+                if area < min_area:
+                    continue
+
+                coords = np.argwhere(group)
+                if len(coords) < 3:
+                    continue
+
+                span = coords.max(axis=0) - coords.min(axis=0) + 1
+                long_axis = int(span.max())
+                short_axis = int(max(span.min(), 1))
+                aspect = long_axis / short_axis
+
+                # fragmented lumen rim: grouped shape is elongated near air
+                if long_axis >= min_long_axis and aspect >= min_aspect:
+                    remove_slice |= (orig & (~p))
+
+            if axis == 0:
+                total_remove[z, :, :] |= remove_slice
+            elif axis == 1:
+                total_remove[:, z, :] |= remove_slice
+            else:
+                total_remove[:, :, z] |= remove_slice
+
+    total_remove = total_remove & (~sma_valid)
+
+    out = out & (~total_remove)
+    out = out | sma_valid
+
+    print("Fragmented air-lumen rim voxels removed:", int(total_remove.sum()))
+
+    return out
+
 def main():
     start_time = time.time()
     print("Start time:", datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
@@ -773,6 +1009,8 @@ def main():
     parser.add_argument("--connect_branches", type=int, default=0)
     parser.add_argument("--air_hu", type=float, default=-500)
     parser.add_argument("--air_radius", type=int, default=2)
+    parser.add_argument("--bowel_seg", default=None)
+    parser.add_argument("--bowel_interior_radius", type=int, default=2)
     args = parser.parse_args()
 
     ct, affine, header = load_nifti(args.ct)
@@ -792,6 +1030,13 @@ def main():
     sma_crop = sma[slices]
     vein_crop = vein[slices]
 
+    bowel_crop = None
+
+    if args.bowel_seg is not None:
+        bowel_seg, _, _ = load_nifti(args.bowel_seg)
+        bowel = bowel_seg > 0
+        bowel_crop = bowel[slices]
+        print("Bowel voxels in crop:", int(bowel_crop.sum()))
 
     sma_valid = sma_crop & (ct_crop >= 0)
     vein_valid = vein_crop & (ct_crop >= 0)
@@ -922,18 +1167,46 @@ def main():
         max_components=10,
     )
 
-    artery_tree = prune_terminal_boundary_branches(
+    print("After detached component connection voxels:", int(artery_tree.sum()))
+
+    # Remove only bowel interior, not bowel wall-adjacent vessels
+    artery_tree = remove_bowel_interior_only(
         artery_tree=artery_tree,
+        bowel_crop=bowel_crop,
         sma_valid=sma_valid,
-        min_branch_size=80,
-        max_branch_size=5000,
-        endpoint_dilate_radius=2,
-        neck_radius=1,
+        interior_radius=args.bowel_interior_radius,
     )
 
-    print("After terminal branch pruning voxels:", int(artery_tree.sum()))
+    print("After bowel interior removal voxels:", int(artery_tree.sum()))
+    artery_tree = prune_bowel_wall_edges_keep_vessel_contacts(
+        artery_tree=artery_tree,
+        bowel_crop=bowel_crop,
+        sma_valid=sma_valid,
+        interior_radius=args.bowel_interior_radius,
+        wall_radius=1,
+        protect_radius=2,
+        min_area=20,
+        min_long_axis=10,
+        min_aspect=2.0,
+        axes=(2,),
+    )
 
-    print("After detached component connection voxels:", int(artery_tree.sum()))
+    print("After bowel wall-edge cleanup voxels:", int(artery_tree.sum()))
+    artery_tree = prune_fragmented_air_lumen_rim_final(
+        artery_tree=artery_tree,
+        ct_crop=ct_crop,
+        sma_valid=sma_valid,
+        air_hu=args.air_hu,
+        air_radius=5,
+        protect_radius=1,
+        group_radius=1,
+        min_area=3,
+        min_long_axis=6,
+        min_aspect=1.5,
+        axes=(0, 1, 2),
+    )
+    print("After fragmented air-lumen rim cleanup voxels:", int(artery_tree.sum()))
+
     artery_tree = keep_connected_to_seed_6(
         candidate=artery_tree | sma_valid,
         seed=sma_valid
