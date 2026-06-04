@@ -463,6 +463,296 @@ def remove_bowel_boundary_like_components(
     out = mask & (~remove)
     out = out | protected
     return out
+def bridge_tiny_gaps_with_grow_candidate(
+    artery_tree,
+    candidate_grow,
+    candidate_core,
+    artery_territory,
+    vein_exclude,
+    sma_valid,
+    ct_crop,
+    air_hu=-500,
+    air_radius=2,
+    n_iter=1,
+):
+    """
+    Recover only tiny gaps using candidate_grow.
+    This does NOT use broad endpoint filling.
+    It only adds voxels created by local closing within the already bowel-filtered grow candidate.
+    """
+
+    out = artery_tree.astype(bool).copy()
+
+    safe_mask = candidate_grow & artery_territory
+    safe_mask = safe_mask & (~vein_exclude)
+    safe_mask = safe_mask | sma_valid
+
+    # 다시 한 번 bowel boundary-like component 제거
+    safe_mask = remove_bowel_boundary_like_components(
+        mask=safe_mask,
+        ct_crop=ct_crop,
+        protected=sma_valid,
+        air_hu=air_hu,
+        air_radius=air_radius,
+        min_area=20,
+        min_long_axis=12,
+        min_aspect=2.5,
+        axis=2,
+    )
+
+    total_added = 0
+
+    for _ in range(n_iter):
+        # ball(1)만 사용: 끝이 뭉툭해지는 것을 최소화
+        closed = ndi.binary_closing(out, structure=ball(1))
+
+        bridge = closed & safe_mask & (~out)
+
+        # 너무 멀리 퍼지는 것 방지
+        bridge = bridge & binary_dilation(out, ball(1))
+
+        # candidate_core 밖의 voxel도 허용하되, grow_candidate 안에서만 허용
+        # 즉, 진짜 작은 gap bridge만 추가
+        added = int(bridge.sum())
+        out = out | bridge
+        total_added += added
+
+        if added == 0:
+            break
+
+    out = out | sma_valid
+    print("Tiny bridge voxels added:", total_added)
+
+    return out
+def keep_connected_to_seed_6(candidate, seed):
+    structure6 = ndi.generate_binary_structure(3, 1)
+    labeled, _ = ndi.label(candidate.astype(bool), structure=structure6)
+
+    seed_labels = np.unique(labeled[seed.astype(bool)])
+    seed_labels = seed_labels[seed_labels != 0]
+
+    if len(seed_labels) == 0:
+        return np.zeros_like(candidate, dtype=bool)
+
+    return np.isin(labeled, seed_labels)
+
+
+def connect_detached_large_components(
+    artery_tree,
+    candidate_grow,
+    artery_territory,
+    vein_exclude,
+    sma_valid,
+    ct_crop,
+    air_hu=-500,
+    air_radius=2,
+    min_comp_size=100,
+    max_dist=25,
+    max_components=5,
+):
+    """
+    Connect only sizeable detached vessel components to the SMA tree.
+    This avoids broad endpoint/gap filling and does not dilate the whole tree.
+    """
+
+    structure6 = ndi.generate_binary_structure(3, 1)
+
+    safe_mask = candidate_grow & artery_territory
+    safe_mask = safe_mask & (~vein_exclude)
+    safe_mask = safe_mask | sma_valid
+
+    safe_mask = remove_bowel_boundary_like_components(
+        mask=safe_mask,
+        ct_crop=ct_crop,
+        protected=sma_valid,
+        air_hu=air_hu,
+        air_radius=air_radius,
+        min_area=20,
+        min_long_axis=12,
+        min_aspect=2.5,
+        axis=2,
+    )
+
+    out = artery_tree.astype(bool).copy()
+
+    labeled, n = ndi.label(out, structure=structure6)
+    sizes = np.bincount(labeled.ravel())
+    sizes[0] = 0
+
+    seed_labels = np.unique(labeled[sma_valid.astype(bool)])
+    seed_labels = seed_labels[seed_labels != 0]
+
+    if len(seed_labels) == 0:
+        print("Connected detached components: 0")
+        return out
+
+    main_label = seed_labels[np.argmax(sizes[seed_labels])]
+    main = labeled == main_label
+    main_coords = np.argwhere(main)
+
+    if len(main_coords) == 0:
+        print("Connected detached components: 0")
+        return out
+
+    connected = 0
+
+    # 큰 component부터 연결 시도
+    comp_labels = np.argsort(sizes)[::-1]
+
+    for lab in comp_labels:
+        if lab == 0 or lab == main_label:
+            continue
+
+        comp_size = int(sizes[lab])
+        if comp_size < min_comp_size:
+            continue
+
+        comp = labeled == lab
+        comp_coords = np.argwhere(comp)
+
+        tree = cKDTree(main_coords)
+        dists, idxs = tree.query(comp_coords, k=1)
+
+        min_i = int(np.argmin(dists))
+        min_dist = float(dists[min_i])
+
+        print(f"Detached comp label={lab}, size={comp_size}, min_dist={min_dist:.2f}")
+
+        if min_dist > max_dist:
+            print("  skipped: too far")
+            continue
+
+        start = tuple(main_coords[idxs[min_i]])
+        end = tuple(comp_coords[min_i])
+
+        lo = np.maximum(np.minimum(start, end) - max_dist - 3, 0)
+        hi = np.minimum(np.maximum(start, end) + max_dist + 4, out.shape)
+
+        slc = tuple(slice(lo[d], hi[d]) for d in range(3))
+
+        local_safe = safe_mask[slc]
+        local_start = tuple(np.array(start) - lo)
+        local_end = tuple(np.array(end) - lo)
+
+        cost = np.where(local_safe, 1.0, 1e6)
+
+        try:
+            path, cost_val = route_through_array(
+                cost,
+                local_start,
+                local_end,
+                fully_connected=False,
+            )
+        except Exception as e:
+            print("  skipped: no path", e)
+            continue
+
+        print(f"  path cost={cost_val:.2f}")
+
+        if cost_val > max_dist * 2.5:
+            print("  skipped: path cost too high")
+            continue
+
+        path = np.array(path) + lo
+
+        out[tuple(path.T)] = True
+        out[comp] = True
+        out = out | sma_valid
+
+        # main 갱신
+        main = keep_connected_to_seed_6(out, sma_valid)
+        main_coords = np.argwhere(main)
+
+        connected += 1
+
+        if connected >= max_components:
+            break
+
+    print("Connected detached components:", connected)
+
+    # out = keep_connected_to_seed_6(out, sma_valid)
+    out = out | sma_valid
+
+    return out
+def prune_terminal_boundary_branches(
+    artery_tree,
+    sma_valid,
+    min_branch_size=80,
+    max_branch_size=5000,
+    endpoint_dilate_radius=2,
+    neck_radius=1,
+):
+    """
+    Remove terminal false-positive branches that are attached to the main tree by a thin neck.
+    This is useful for bowel-wall/boundary-like structures that remain connected to the vessel tree.
+    """
+
+    out = artery_tree.astype(bool).copy()
+
+    # skeletonize current tree
+    skel = skeletonize_3d(out).astype(bool)
+
+    kernel = np.ones((3, 3, 3), dtype=np.uint8)
+    kernel[1, 1, 1] = 0
+
+    neighbor_count = ndi.convolve(
+        skel.astype(np.uint8),
+        kernel,
+        mode="constant",
+        cval=0,
+    )
+
+    endpoints = skel & (neighbor_count == 1)
+    endpoints = endpoints & (~binary_dilation(sma_valid, ball(3)))
+
+    ep_zone = binary_dilation(endpoints, ball(endpoint_dilate_radius))
+
+    # Candidate terminal parts near endpoints
+    terminal_zone = out & ep_zone
+
+    # Remove a small neck around the main tree, then identify terminal blobs
+    neck = binary_dilation(skel & (neighbor_count >= 2), ball(neck_radius))
+    terminal_candidates = out & (~neck)
+
+    structure26 = ndi.generate_binary_structure(3, 3)
+    labeled, n = ndi.label(terminal_candidates, structure=structure26)
+
+    remove = np.zeros_like(out, dtype=bool)
+
+    for lab in range(1, n + 1):
+        comp = labeled == lab
+        size = int(comp.sum())
+
+        if size < min_branch_size or size > max_branch_size:
+            continue
+
+        # Only remove terminal components that touch endpoints
+        if not np.any(comp & ep_zone):
+            continue
+
+        # Never remove SMA seed
+        if np.any(comp & sma_valid):
+            continue
+
+        coords = np.argwhere(comp)
+        if len(coords) < 3:
+            continue
+
+        # shape check: boundary-like pieces tend to be wide/flat or irregular,
+        # not a compact round vessel segment
+        span = coords.max(axis=0) - coords.min(axis=0) + 1
+        long_axis = span.max()
+        short_axis = max(span.min(), 1)
+        aspect = long_axis / short_axis
+
+        if aspect >= 3.0:
+            remove |= comp
+
+    print("Terminal boundary-like branch voxels removed:", int(remove.sum()))
+
+    out = out & (~remove)
+    out = out | sma_valid
+    return out
 
 def main():
     start_time = time.time()
@@ -569,7 +859,12 @@ def main():
     # No skeleton refinement, no endpoint gap fill, no branch connection
     # ============================================================
 
-    strict_mask = candidate_core & artery_territory
+    # candidate_core는 최종용으로 유지하되,
+    # 이미 자라난 artery_tree 주변 1 voxel 안에서는 candidate_grow도 허용
+    near_tree = binary_dilation(artery_tree, ball(1))
+
+    strict_mask = candidate_core | (candidate & near_tree)
+    strict_mask = strict_mask & artery_territory
     strict_mask = strict_mask & (~vein_exclude)
     strict_mask = strict_mask | sma_valid
 
@@ -595,10 +890,64 @@ def main():
     )
 
     artery_tree = artery_tree | sma_valid
-    
+
     print("After strict cleanup voxels:", int(artery_tree.sum()))
-    artery_tree = keep_connected_to_seed(candidate=artery_tree | sma_valid, seed=sma_valid)
-    
+
+    artery_tree = bridge_tiny_gaps_with_grow_candidate(
+        artery_tree=artery_tree,
+        candidate_grow=candidate,
+        candidate_core=candidate_core,
+        artery_territory=artery_territory,
+        vein_exclude=vein_exclude,
+        sma_valid=sma_valid,
+        ct_crop=ct_crop,
+        air_hu=args.air_hu,
+        air_radius=args.air_radius,
+        n_iter=2,
+    )
+
+    print("After tiny gap bridge voxels:", int(artery_tree.sum()))
+
+    artery_tree = connect_detached_large_components(
+        artery_tree=artery_tree,
+        candidate_grow=candidate,
+        artery_territory=artery_territory,
+        vein_exclude=vein_exclude,
+        sma_valid=sma_valid,
+        ct_crop=ct_crop,
+        air_hu=args.air_hu,
+        air_radius=args.air_radius,
+        min_comp_size=100,
+        max_dist=35,
+        max_components=10,
+    )
+
+    artery_tree = prune_terminal_boundary_branches(
+        artery_tree=artery_tree,
+        sma_valid=sma_valid,
+        min_branch_size=80,
+        max_branch_size=5000,
+        endpoint_dilate_radius=2,
+        neck_radius=1,
+    )
+
+    print("After terminal branch pruning voxels:", int(artery_tree.sum()))
+
+    print("After detached component connection voxels:", int(artery_tree.sum()))
+    artery_tree = keep_connected_to_seed_6(
+        candidate=artery_tree | sma_valid,
+        seed=sma_valid
+    )
+    structure6 = ndi.generate_binary_structure(3, 1)
+    labeled6, n6_pre = ndi.label(artery_tree, structure=structure6)
+
+    sizes6 = np.bincount(labeled6.ravel())
+    sizes6[0] = 0
+    top_sizes6 = sorted(sizes6[sizes6 > 0], reverse=True)[:10]
+
+    print("Before final 6-connectivity components:", n6_pre)
+    print("Top 10 component sizes before final:", top_sizes6)
+
     structure6 = ndi.generate_binary_structure(3, 1)
     labeled, n = ndi.label(artery_tree, structure=structure6)
 
