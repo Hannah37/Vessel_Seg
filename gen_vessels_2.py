@@ -328,10 +328,16 @@ def connect_valid_vessel_gaps(
         v = vecs[:, np.argmax(vals)]
 
         mean_vec = pts0.mean(axis=0)
+    
         if np.dot(v, mean_vec) < 0:
             v = -v
 
+        # v는 endpoint에서 혈관 내부로 향하는 방향.
+        # gap 연결에는 바깥으로 나가는 방향이 필요하므로 뒤집는다.
+        v = -v
+
         return v / (np.linalg.norm(v) + 1e-6)
+    
 
     dirs = [endpoint_dir(p) for p in ep_coords]
 
@@ -649,13 +655,24 @@ def connect_detached_large_components(
 
         print(f"  path cost={cost_val:.2f}")
 
-        if cost_val > max_dist * 2.5:
-            print("  skipped: path cost too high")
+        if comp_size >= 800 and min_dist <= 5:
+            allowed_cost = max(max_dist * 6.0, 160)
+        elif comp_size >= 300 and min_dist <= 5:
+            allowed_cost = max(max_dist * 4.0, 100)
+        else:
+            allowed_cost = max_dist * 2.5
+
+        if cost_val > allowed_cost:
+            print(f"  skipped: path cost too high > {allowed_cost:.2f}")
             continue
 
         path = np.array(path) + lo
+        tube = np.zeros_like(out, dtype=bool)
+        tube[tuple(path.T)] = True
+        tube = binary_dilation(tube, ball(1))
+        tube = tube & safe_mask
 
-        out[tuple(path.T)] = True
+        out = out | tube
         out[comp] = True
         out = out | sma_valid
 
@@ -989,6 +1006,186 @@ def prune_fragmented_air_lumen_rim_final(
     print("Fragmented air-lumen rim voxels removed:", int(total_remove.sum()))
 
     return out
+def connect_local_endpoint_gaps_safe(
+    artery_tree,
+    candidate_core,
+    candidate_grow,
+    artery_territory,
+    vein_exclude,
+    sma_valid,
+    ct_crop,
+    bowel_crop=None,
+    bowel_interior_radius=2,
+    max_dist=16,
+    min_align=0.25,
+    max_cost_factor=5.0,
+    max_connections=30,
+    path_radius=0,
+):
+    """
+    Connect short local gaps between vessel endpoints.
+    This is different from connecting detached components.
+    It is designed for visually broken vessels within the same vessel tree.
+    """
+
+    out = artery_tree.astype(bool).copy()
+
+    # Safe path mask: prefer core candidate, allow grow candidate only locally.
+    safe_mask = (candidate_core | candidate_grow)
+    safe_mask = safe_mask & artery_territory
+    safe_mask = safe_mask & (~vein_exclude)
+    safe_mask = safe_mask | sma_valid
+
+    # Do not pass through bowel interior.
+    if bowel_crop is not None:
+        bowel_mask = bowel_crop.astype(bool)
+        if bowel_interior_radius > 0:
+            bowel_interior = ndi.binary_erosion(
+                bowel_mask,
+                structure=ball(bowel_interior_radius),
+            )
+        else:
+            bowel_interior = bowel_mask
+
+        safe_mask = safe_mask & (~bowel_interior)
+        safe_mask = safe_mask | sma_valid
+
+    skel = skeletonize_3d(out).astype(bool)
+
+    kernel = np.ones((3, 3, 3), dtype=np.uint8)
+    kernel[1, 1, 1] = 0
+
+    neighbor_count = ndi.convolve(
+        skel.astype(np.uint8),
+        kernel,
+        mode="constant",
+        cval=0,
+    )
+
+    endpoints = skel & (neighbor_count == 1)
+    endpoints = endpoints & (~binary_dilation(sma_valid, ball(3)))
+
+    ep_coords = np.argwhere(endpoints)
+
+    if len(ep_coords) < 2:
+        print("Local endpoint gap connections:", 0)
+        return out
+
+    def endpoint_dir(p, r=5):
+        p = np.asarray(p)
+        lo = np.maximum(p - r, 0)
+        hi = np.minimum(p + r + 1, skel.shape)
+        slc = tuple(slice(lo[d], hi[d]) for d in range(3))
+
+        pts = np.argwhere(skel[slc]) + lo
+        if len(pts) < 3:
+            return None
+
+        pts0 = pts - p
+        cov = pts0.T @ pts0
+        vals, vecs = np.linalg.eigh(cov)
+        v = vecs[:, np.argmax(vals)]
+
+        mean_vec = pts0.mean(axis=0)
+
+        if np.dot(v, mean_vec) < 0:
+            v = -v
+
+        # v는 endpoint에서 혈관 내부 방향.
+        # gap 연결에는 endpoint에서 바깥으로 나가는 방향이 필요하므로 뒤집음.
+        v = -v
+
+        return v / (np.linalg.norm(v) + 1e-6)
+
+    dirs = [endpoint_dir(p) for p in ep_coords]
+
+    tree = cKDTree(ep_coords)
+    pairs = list(tree.query_pairs(r=max_dist))
+    pairs.sort(key=lambda ij: np.linalg.norm(ep_coords[ij[0]] - ep_coords[ij[1]]))
+
+    used = set()
+    connected = 0
+
+    for i, j in pairs:
+        if i in used or j in used:
+            continue
+
+        p1 = ep_coords[i]
+        p2 = ep_coords[j]
+
+        v1 = dirs[i]
+        v2 = dirs[j]
+
+        if v1 is None or v2 is None:
+            continue
+
+        gap = p2 - p1
+        dist = np.linalg.norm(gap)
+
+        if dist < 2 or dist > max_dist:
+            continue
+
+        gap_dir = gap / (dist + 1e-6)
+
+        # Endpoint directions should face each other.
+        if np.dot(v1, gap_dir) < min_align:
+            continue
+        if np.dot(v2, -gap_dir) < min_align:
+            continue
+
+        lo = np.maximum(np.minimum(p1, p2) - max_dist - 3, 0)
+        hi = np.minimum(np.maximum(p1, p2) + max_dist + 4, out.shape)
+
+        slc = tuple(slice(lo[d], hi[d]) for d in range(3))
+
+        local_core = candidate_core[slc]
+        local_grow = candidate_grow[slc]
+        local_safe = safe_mask[slc]
+
+        local_start = tuple(p1 - lo)
+        local_end = tuple(p2 - lo)
+
+        # Prefer core candidate, allow grow candidate, forbid everything else.
+        cost = np.full(local_safe.shape, 1e6, dtype=np.float32)
+        cost[local_grow & local_safe] = 3.0
+        cost[local_core & local_safe] = 1.0
+
+        try:
+            path, cost_val = route_through_array(
+                cost,
+                local_start,
+                local_end,
+                fully_connected=False,  # 6-connectivity path
+            )
+        except Exception:
+            continue
+
+        if cost_val > dist * max_cost_factor:
+            continue
+
+        path = np.array(path) + lo
+
+        if path_radius > 0:
+            tube = np.zeros_like(out, dtype=bool)
+            tube[tuple(path.T)] = True
+            tube = binary_dilation(tube, ball(path_radius))
+            tube = tube & safe_mask
+            out = out | tube
+        else:
+            out[tuple(path.T)] = True
+
+        used.add(i)
+        used.add(j)
+        connected += 1
+
+        if connected >= max_connections:
+            break
+
+    out = out | sma_valid
+
+    print("Local endpoint gap connections:", connected)
+
+    return out
 
 def main():
     start_time = time.time()
@@ -1162,12 +1359,31 @@ def main():
         ct_crop=ct_crop,
         air_hu=args.air_hu,
         air_radius=args.air_radius,
-        min_comp_size=100,
-        max_dist=35,
-        max_components=10,
+        min_comp_size=200,
+        max_dist=25,
+        max_components=5,
     )
 
     print("After detached component connection voxels:", int(artery_tree.sum()))
+
+    # artery_tree = connect_local_endpoint_gaps_safe(
+    #     artery_tree=artery_tree,
+    #     candidate_core=candidate_core,
+    #     candidate_grow=candidate,
+    #     artery_territory=artery_territory,
+    #     vein_exclude=vein_exclude,
+    #     sma_valid=sma_valid,
+    #     ct_crop=ct_crop,
+    #     bowel_crop=bowel_crop,
+    #     bowel_interior_radius=args.bowel_interior_radius,
+    #     max_dist=25,
+    #     min_align=0.25,
+    #     max_cost_factor=5.0,
+    #     max_connections=30,
+    #     path_radius=0,
+    # )
+
+    # print("After local endpoint gap connection voxels:", int(artery_tree.sum()))
 
     # Remove only bowel interior, not bowel wall-adjacent vessels
     artery_tree = remove_bowel_interior_only(
@@ -1206,6 +1422,108 @@ def main():
         axes=(0, 1, 2),
     )
     print("After fragmented air-lumen rim cleanup voxels:", int(artery_tree.sum()))
+
+    artery_tree = connect_detached_large_components(
+        artery_tree=artery_tree,
+        candidate_grow=candidate,
+        artery_territory=artery_territory,
+        vein_exclude=vein_exclude,
+        sma_valid=sma_valid,
+        ct_crop=ct_crop,
+        air_hu=args.air_hu,
+        air_radius=args.air_radius,
+        min_comp_size=500,
+        max_dist=25,
+        max_components=5,
+    )
+
+    print("After post-cleanup detached component connection voxels:", int(artery_tree.sum()))
+
+    artery_tree = connect_local_endpoint_gaps_safe(
+        artery_tree=artery_tree,
+        candidate_core=candidate_core,
+        candidate_grow=candidate,
+        artery_territory=artery_territory,
+        vein_exclude=vein_exclude,
+        sma_valid=sma_valid,
+        ct_crop=ct_crop,
+        bowel_crop=bowel_crop,
+        bowel_interior_radius=args.bowel_interior_radius,
+        max_dist=22,
+        min_align=0.15,
+        max_cost_factor=8.0,
+        max_connections=15,
+        path_radius=1,
+    )
+
+    print("After post-cleanup local endpoint gap connection voxels:", int(artery_tree.sum()))
+
+    # ============================================================
+    # FINAL cleanup again after all connection steps
+    # Do not run any connection after this block
+    # ============================================================
+
+    artery_tree = remove_bowel_interior_only(
+        artery_tree=artery_tree,
+        bowel_crop=bowel_crop,
+        sma_valid=sma_valid,
+        interior_radius=args.bowel_interior_radius,
+    )
+
+    artery_tree = prune_bowel_wall_edges_keep_vessel_contacts(
+        artery_tree=artery_tree,
+        bowel_crop=bowel_crop,
+        sma_valid=sma_valid,
+        interior_radius=args.bowel_interior_radius,
+        wall_radius=2,
+        protect_radius=1,
+        min_area=10,
+        min_long_axis=8,
+        min_aspect=1.5,
+        axes=(0, 1, 2),
+    )
+    artery_tree = prune_fragmented_air_lumen_rim_final(
+        artery_tree=artery_tree,
+        ct_crop=ct_crop,
+        sma_valid=sma_valid,
+        air_hu=args.air_hu,
+        air_radius=5,
+        protect_radius=1,
+        group_radius=1,
+        min_area=3,
+        min_long_axis=6,
+        min_aspect=1.5,
+        axes=(0, 1, 2),
+    )
+
+    print("After FINAL bowel / lumen cleanup voxels:", int(artery_tree.sum()))
+
+    artery_tree = connect_detached_large_components(
+        artery_tree=artery_tree,
+        candidate_grow=candidate_core,  # 중요: candidate 말고 candidate_core 사용
+        artery_territory=artery_territory,
+        vein_exclude=vein_exclude,
+        sma_valid=sma_valid,
+        ct_crop=ct_crop,
+        air_hu=args.air_hu,
+        air_radius=args.air_radius,
+        min_comp_size=700,
+        max_dist=25,
+        max_components=3,
+    )
+
+    print("After FINAL safe detached connection voxels:", int(artery_tree.sum()))
+
+    structure6_dbg = ndi.generate_binary_structure(3, 1)
+
+    labeled_dbg, n_dbg = ndi.label(artery_tree, structure=structure6_dbg)
+
+    sizes_dbg = np.bincount(labeled_dbg.ravel())
+    sizes_dbg[0] = 0
+    top_dbg = sorted(sizes_dbg[sizes_dbg > 0], reverse=True)[:20]
+
+    print("Before keep_connected_to_seed_6 components:", n_dbg)
+    print("Top 20 sizes before keep_connected_to_seed_6:", top_dbg)
 
     artery_tree = keep_connected_to_seed_6(
         candidate=artery_tree | sma_valid,
@@ -1250,6 +1568,15 @@ def main():
     result = np.zeros(sma.shape, dtype=np.uint8)
     result[slices] = artery_tree.astype(np.uint8)
     save_nifti(result, affine, header, args.out)
+
+
+    debug_core = np.zeros(sma.shape, dtype=np.uint8)
+    debug_core[slices] = candidate_core.astype(np.uint8)
+    save_nifti(debug_core, affine, header, "debug_candidate_core.nii.gz")
+
+    debug_grow = np.zeros(sma.shape, dtype=np.uint8)
+    debug_grow[slices] = candidate.astype(np.uint8)
+    save_nifti(debug_grow, affine, header, "debug_candidate_grow.nii.gz")
 
     print("Saved:", args.out)
     print("Output voxels:", int(result.sum()))
