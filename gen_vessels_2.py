@@ -555,6 +555,10 @@ def connect_detached_large_components(
     min_comp_size=100,
     max_dist=25,
     max_components=5,
+    apply_bowel_filter=True,
+    direct_bridge_hu_min=30,
+    direct_bridge_hu_max=370,
+    hard_forbid=None,
 ):
     """
     Connect only sizeable detached vessel components to the SMA tree.
@@ -567,19 +571,24 @@ def connect_detached_large_components(
     safe_mask = safe_mask & (~vein_exclude)
     safe_mask = safe_mask | sma_valid
 
-    safe_mask = remove_bowel_boundary_like_components(
-        mask=safe_mask,
-        ct_crop=ct_crop,
-        protected=sma_valid,
-        air_hu=air_hu,
-        air_radius=air_radius,
-        min_area=20,
-        min_long_axis=12,
-        min_aspect=2.5,
-        axis=2,
-    )
-
+    if apply_bowel_filter:
+        safe_mask = remove_bowel_boundary_like_components(
+            mask=safe_mask,
+            ct_crop=ct_crop,
+            protected=sma_valid,
+            air_hu=air_hu,
+            air_radius=air_radius,
+            min_area=20,
+            min_long_axis=12,
+            min_aspect=2.5,
+            axis=2,
+        )
     out = artery_tree.astype(bool).copy()
+
+    if hard_forbid is None:
+        hard_forbid = np.zeros_like(out, dtype=bool)
+    else:
+        hard_forbid = hard_forbid.astype(bool)
 
     labeled, n = ndi.label(out, structure=structure6)
     sizes = np.bincount(labeled.ravel())
@@ -658,9 +667,158 @@ def connect_detached_large_components(
         if comp_size >= 800 and min_dist <= 5:
             allowed_cost = max(max_dist * 6.0, 160)
         elif comp_size >= 300 and min_dist <= 5:
-            allowed_cost = max(max_dist * 4.0, 100)
+            allowed_cost = max(max_dist * 4.0, 120)
         else:
             allowed_cost = max_dist * 2.5
+
+        if cost_val > allowed_cost and comp_size >= 300 and min_dist <= 4.0:
+            p0 = np.array(start)
+            p1 = np.array(end)
+
+            n_steps = int(np.ceil(np.linalg.norm(p1 - p0))) + 1
+            line = np.linspace(p0, p1, n_steps)
+            line = np.round(line).astype(int)
+            line = np.unique(line, axis=0)
+
+            valid = np.all((line >= 0) & (line < np.array(out.shape)), axis=1)
+            line = line[valid]
+
+            if len(line) > 0:
+                line_mask = np.zeros_like(out, dtype=bool)
+                line_mask[tuple(line.T)] = True
+                line_tube = binary_dilation(line_mask, ball(1))
+
+                direct_safe = (
+                    (ct_crop >= direct_bridge_hu_min) &
+                    (ct_crop <= direct_bridge_hu_max) &
+                    artery_territory &
+                    (~vein_exclude) &
+                    (~hard_forbid)
+                )
+
+                direct_tube = line_tube & direct_safe
+
+                # require that most of the direct line is passable
+                line_passable = direct_safe[tuple(line.T)]
+                pass_ratio = float(line_passable.mean()) if len(line_passable) > 0 else 0.0
+
+                required_ratio = 0.3 if min_dist <= 3.5 else 0.7
+
+                if pass_ratio >= required_ratio:
+                    test_out = out | direct_tube
+                    test_out[comp] = True
+                    test_out = test_out | sma_valid
+
+                    test_main = keep_connected_to_seed_6(test_out, sma_valid)
+
+                    if np.any(comp & test_main):
+                        print(
+                            f"  direct short bridge accepted and connected, "
+                            f"pass_ratio={pass_ratio:.2f}, required={required_ratio:.2f}"
+                        )
+
+                        out = test_out
+                        main = test_main
+                        main_coords = np.argwhere(main)
+
+                        connected += 1
+
+                        if connected >= max_components:
+                            break
+
+                        continue
+
+                    else:
+                        print(
+                            f"  direct short bridge accepted by ratio but NOT connected, "
+                            f"pass_ratio={pass_ratio:.2f}, required={required_ratio:.2f}"
+                        )
+
+                        # For extremely close gaps, try a slightly thicker direct bridge.
+                        # This is only allowed for very short gaps to avoid weird long connections.
+                        if min_dist <= 3.5:
+                            line_tube2 = binary_dilation(line_mask, ball(2))
+
+                            direct_tube2 = line_tube2 & direct_safe
+
+                            test_out2 = out | direct_tube2
+                            test_out2[comp] = True
+                            test_out2 = test_out2 | sma_valid
+
+                            test_main2 = keep_connected_to_seed_6(test_out2, sma_valid)
+                            if np.any(comp & test_main2):
+                                print("  thicker direct bridge accepted and connected")
+
+                                out = test_out2
+                                main = test_main2
+                                main_coords = np.argwhere(main)
+
+                                connected += 1
+
+                                if connected >= max_components:
+                                    break
+
+                                continue
+
+                            else:
+                                print("  thicker direct bridge also NOT connected")
+
+                                # Last resort: extremely short forced local bridge.
+                                # Only for very close gaps. This avoids long, weird connections.
+                                if min_dist <= 3.5:
+                                    force_tube = binary_dilation(line_mask, ball(2))
+
+                                    # Hard safety only:
+                                    # - do not pass through vein exclusion
+                                    # - do not pass through bowel interior / hard forbidden region
+                                    # - avoid obvious air/negative regions
+                                    force_safe = (
+                                        (ct_crop >= -50) &
+                                        (ct_crop <= direct_bridge_hu_max) &
+                                        (~vein_exclude) &
+                                        (~hard_forbid)
+                                    )
+
+                                    force_tube = force_tube & force_safe
+
+                                    # Require at least some support from original safe/candidate/tree/component
+                                    support = force_tube & (direct_safe | candidate_grow | out | comp)
+                                    support_ratio = float(support.sum()) / max(float(force_tube.sum()), 1.0)
+
+                                    test_out3 = out | force_tube
+                                    test_out3[comp] = True
+                                    test_out3 = test_out3 | sma_valid
+
+                                    test_main3 = keep_connected_to_seed_6(test_out3, sma_valid)
+
+                                    if support_ratio >= 0.15 and np.any(comp & test_main3):
+                                        print(
+                                            f"  forced very-short bridge accepted and connected, "
+                                            f"support_ratio={support_ratio:.2f}"
+                                        )
+
+                                        out = test_out3
+                                        main = test_main3
+                                        main_coords = np.argwhere(main)
+
+                                        connected += 1
+
+                                        if connected >= max_components:
+                                            break
+
+                                        continue
+
+                                    else:
+                                        print(
+                                            f"  forced very-short bridge rejected, "
+                                            f"support_ratio={support_ratio:.2f}"
+                                        )
+
+                else:
+                    print(
+                        f"  direct short bridge rejected, "
+                        f"pass_ratio={pass_ratio:.2f}, required={required_ratio:.2f}"
+                    )
 
         if cost_val > allowed_cost:
             print(f"  skipped: path cost too high > {allowed_cost:.2f}")
@@ -1366,25 +1524,6 @@ def main():
 
     print("After detached component connection voxels:", int(artery_tree.sum()))
 
-    # artery_tree = connect_local_endpoint_gaps_safe(
-    #     artery_tree=artery_tree,
-    #     candidate_core=candidate_core,
-    #     candidate_grow=candidate,
-    #     artery_territory=artery_territory,
-    #     vein_exclude=vein_exclude,
-    #     sma_valid=sma_valid,
-    #     ct_crop=ct_crop,
-    #     bowel_crop=bowel_crop,
-    #     bowel_interior_radius=args.bowel_interior_radius,
-    #     max_dist=25,
-    #     min_align=0.25,
-    #     max_cost_factor=5.0,
-    #     max_connections=30,
-    #     path_radius=0,
-    # )
-
-    # print("After local endpoint gap connection voxels:", int(artery_tree.sum()))
-
     # Remove only bowel interior, not bowel wall-adjacent vessels
     artery_tree = remove_bowel_interior_only(
         artery_tree=artery_tree,
@@ -1432,9 +1571,9 @@ def main():
         ct_crop=ct_crop,
         air_hu=args.air_hu,
         air_radius=args.air_radius,
-        min_comp_size=500,
+        min_comp_size=300,
         max_dist=25,
-        max_components=5,
+        max_components=10,
     )
 
     print("After post-cleanup detached component connection voxels:", int(artery_tree.sum()))
@@ -1498,20 +1637,97 @@ def main():
 
     print("After FINAL bowel / lumen cleanup voxels:", int(artery_tree.sum()))
 
+    near_final_tree = binary_dilation(artery_tree, ball(6))
+
+    # candidate에서 빠진 짧은 gap을 HU 기반으로만 보완
+    hu_bridge_min = max(30, args.hu_min - 40)
+
+    hu_bridge = (
+        (ct_crop >= hu_bridge_min) &
+        (ct_crop <= args.hu_max) &
+        near_final_tree
+    )
+
+    final_connect_candidate = (
+        candidate_core |
+        (candidate & near_final_tree) |
+        hu_bridge |
+        artery_tree |
+        sma_valid
+    )
+
+    final_connect_candidate = final_connect_candidate & artery_territory
+    final_connect_candidate = final_connect_candidate & (~vein_exclude)
+    final_connect_candidate = final_connect_candidate | artery_tree | sma_valid
+
+    bowel_interior_for_bridge = None
+
+    if bowel_crop is not None:
+        bowel_mask = bowel_crop.astype(bool)
+        bowel_interior_for_bridge = ndi.binary_erosion(
+            bowel_mask,
+            structure=ball(args.bowel_interior_radius),
+        )
+        final_connect_candidate = final_connect_candidate & (~bowel_interior_for_bridge)
+        final_connect_candidate = final_connect_candidate | artery_tree | sma_valid
+
+    # ITK-SNAP cursor coordinate
+    full_xyz = np.array([156, 268, 345])
+
+    starts = np.array([s.start for s in slices])
+    crop_xyz = full_xyz - starts
+
+    print("Full xyz:", full_xyz)
+    print("Crop starts:", starts)
+    print("Crop xyz:", crop_xyz)
+    print("Crop shape:", ct_crop.shape)
+
+    x, y, z = crop_xyz
+
+    if np.all(crop_xyz >= 0) and np.all(crop_xyz < np.array(ct_crop.shape)):
+        print("CT HU at cursor:", ct_crop[x, y, z])
+        print("candidate_core:", bool(candidate_core[x, y, z]))
+        print("candidate_grow:", bool(candidate[x, y, z]))
+        print("artery_territory:", bool(artery_territory[x, y, z]))
+        print("vein_exclude:", bool(vein_exclude[x, y, z]))
+
+        if bowel_crop is not None:
+            bowel_mask = bowel_crop.astype(bool)
+            bowel_interior = ndi.binary_erosion(
+                bowel_mask,
+                structure=ball(args.bowel_interior_radius),
+            )
+            print("bowel_crop:", bool(bowel_crop[x, y, z]))
+            print("bowel_interior:", bool(bowel_interior[x, y, z]))
+
+        near_final_tree = binary_dilation(artery_tree, ball(6))
+        print("near_final_tree:", bool(near_final_tree[x, y, z]))
+
+        hu_bridge_min = max(30, args.hu_min - 40)
+        hu_ok = (ct_crop[x, y, z] >= hu_bridge_min) and (ct_crop[x, y, z] <= args.hu_max)
+        print("hu_bridge_min:", hu_bridge_min)
+        print("HU bridge OK:", bool(hu_ok))
+    else:
+        print("Cursor is outside crop.")
+
     artery_tree = connect_detached_large_components(
         artery_tree=artery_tree,
-        candidate_grow=candidate_core,  # 중요: candidate 말고 candidate_core 사용
+        candidate_grow=final_connect_candidate,
         artery_territory=artery_territory,
         vein_exclude=vein_exclude,
         sma_valid=sma_valid,
         ct_crop=ct_crop,
         air_hu=args.air_hu,
         air_radius=args.air_radius,
-        min_comp_size=700,
+        min_comp_size=300,
         max_dist=25,
-        max_components=3,
+        max_components=8,
+        apply_bowel_filter=False,
+        direct_bridge_hu_min=30,
+        direct_bridge_hu_max=args.hu_max,
+        hard_forbid=bowel_interior_for_bridge,
     )
-
+    print("After FINAL safe detached connection voxels:", int(artery_tree.sum()))
     print("After FINAL safe detached connection voxels:", int(artery_tree.sum()))
 
     structure6_dbg = ndi.generate_binary_structure(3, 1)
@@ -1577,6 +1793,9 @@ def main():
     debug_grow = np.zeros(sma.shape, dtype=np.uint8)
     debug_grow[slices] = candidate.astype(np.uint8)
     save_nifti(debug_grow, affine, header, "debug_candidate_grow.nii.gz")
+
+    print("DEBUG artery_tree at cursor:", bool(artery_tree[x, y, z]))
+    print("DEBUG final_connect_candidate:", bool(final_connect_candidate[x, y, z]))
 
     print("Saved:", args.out)
     print("Output voxels:", int(result.sum()))
