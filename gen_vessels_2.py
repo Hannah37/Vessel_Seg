@@ -1345,6 +1345,89 @@ def connect_local_endpoint_gaps_safe(
 
     return out
 
+def absorb_small_candidate_gaps(
+    artery_tree,
+    final_connect_candidate,
+    sma_valid,
+    vein_exclude,
+    hard_forbid=None,
+    near_radius=3,
+    max_gap_size=300,
+    min_contact_voxels=2,
+    max_components=50,
+):
+    """
+    Add small missing candidate components that sit right next to the current artery tree.
+    This is for gaps that are already present in final_connect_candidate but missing in artery_tree.
+    """
+
+    out = artery_tree.astype(bool).copy()
+
+    if hard_forbid is None:
+        hard_forbid = np.zeros_like(out, dtype=bool)
+    else:
+        hard_forbid = hard_forbid.astype(bool)
+
+    main = keep_connected_to_seed_6(out | sma_valid, sma_valid)
+
+    near_tree = binary_dilation(main, ball(near_radius))
+
+    missing = (
+        final_connect_candidate &
+        (~out) &
+        near_tree &
+        (~vein_exclude) &
+        (~hard_forbid)
+    )
+
+    structure26 = ndi.generate_binary_structure(3, 3)
+    labeled, n = ndi.label(missing, structure=structure26)
+
+    sizes = np.bincount(labeled.ravel())
+    sizes[0] = 0
+
+    labels = np.argsort(sizes)[::-1]
+
+    added_total = 0
+    added_comps = 0
+
+    tree_touch_zone = binary_dilation(main, ball(1))
+
+    for lab in labels:
+        if lab == 0:
+            continue
+
+        size = int(sizes[lab])
+
+        if size == 0 or size > max_gap_size:
+            continue
+
+        comp = labeled == lab
+
+        contact = comp & tree_touch_zone
+        contact_voxels = int(contact.sum())
+
+        if contact_voxels < min_contact_voxels:
+            continue
+
+        test_out = out | comp | sma_valid
+        test_main = keep_connected_to_seed_6(test_out, sma_valid)
+
+        # Keep only if this candidate gap becomes part of the SMA-connected tree
+        if np.any(comp & test_main):
+            out = test_out
+            added_total += size
+            added_comps += 1
+
+        if added_comps >= max_components:
+            break
+
+    print(
+        f"Small candidate gaps absorbed: comps={added_comps}, voxels={added_total}"
+    )
+
+    return out
+
 def main():
     start_time = time.time()
     print("Start time:", datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
@@ -1386,6 +1469,18 @@ def main():
     vein_crop = vein[slices]
 
     bowel_crop = None
+
+    # ITK-SNAP cursor coordinate
+    full_xyz = np.array([156, 268, 345])
+    starts = np.array([s.start for s in slices])
+    crop_xyz = full_xyz - starts
+
+    cursor_inside = np.all(crop_xyz >= 0) and np.all(crop_xyz < np.array(ct_crop.shape))
+
+    if cursor_inside:
+        x, y, z = crop_xyz.astype(int)
+    else:
+        x, y, z = 0, 0, 0
 
     if args.bowel_seg is not None:
         bowel_seg, _, _ = load_nifti(args.bowel_seg)
@@ -1521,7 +1616,7 @@ def main():
         max_dist=25,
         max_components=5,
     )
-
+    print("DEBUG artery_tree at cursor after final detached connection:", bool(artery_tree[x, y, z]))
     print("After detached component connection voxels:", int(artery_tree.sum()))
 
     # Remove only bowel interior, not bowel wall-adjacent vessels
@@ -1575,7 +1670,7 @@ def main():
         max_dist=25,
         max_components=10,
     )
-
+    print("DEBUG artery_tree at cursor after final detached connection:", bool(artery_tree[x, y, z]))
     print("After post-cleanup detached component connection voxels:", int(artery_tree.sum()))
 
     artery_tree = connect_local_endpoint_gaps_safe(
@@ -1639,19 +1734,16 @@ def main():
 
     near_final_tree = binary_dilation(artery_tree, ball(6))
 
-    # candidate에서 빠진 짧은 gap을 HU 기반으로만 보완
     hu_bridge_min = max(30, args.hu_min - 40)
 
     hu_bridge = (
         (ct_crop >= hu_bridge_min) &
-        (ct_crop <= args.hu_max) &
-        near_final_tree
+        (ct_crop <= args.hu_max)
     )
 
+    # 핵심: candidate_core도 반드시 near_final_tree 안에서만 허용
     final_connect_candidate = (
-        candidate_core |
-        (candidate & near_final_tree) |
-        hu_bridge |
+        ((candidate_core | candidate | hu_bridge) & near_final_tree) |
         artery_tree |
         sma_valid
     )
@@ -1659,6 +1751,7 @@ def main():
     final_connect_candidate = final_connect_candidate & artery_territory
     final_connect_candidate = final_connect_candidate & (~vein_exclude)
     final_connect_candidate = final_connect_candidate | artery_tree | sma_valid
+
 
     bowel_interior_for_bridge = None
 
@@ -1671,18 +1764,46 @@ def main():
         final_connect_candidate = final_connect_candidate & (~bowel_interior_for_bridge)
         final_connect_candidate = final_connect_candidate | artery_tree | sma_valid
 
-    # ITK-SNAP cursor coordinate
-    full_xyz = np.array([156, 268, 345])
+    artery_tree = connect_local_endpoint_gaps_safe(
+        artery_tree=artery_tree,
+        candidate_core=final_connect_candidate,
+        candidate_grow=final_connect_candidate,
+        artery_territory=artery_territory,
+        vein_exclude=vein_exclude,
+        sma_valid=sma_valid,
+        ct_crop=ct_crop,
+        bowel_crop=bowel_crop,
+        bowel_interior_radius=args.bowel_interior_radius,
+        max_dist=14,
+        min_align=0.0,
+        max_cost_factor=12.0,
+        max_connections=30,
+        path_radius=1,
+    )
 
-    starts = np.array([s.start for s in slices])
-    crop_xyz = full_xyz - starts
+    print("After AUTO final endpoint gap filling voxels:", int(artery_tree.sum()))
+    
+    artery_tree = absorb_small_candidate_gaps(
+        artery_tree=artery_tree,
+        final_connect_candidate=final_connect_candidate,
+        sma_valid=sma_valid,
+        vein_exclude=vein_exclude,
+        hard_forbid=bowel_interior_for_bridge,
+        near_radius=3,
+        max_gap_size=800,
+        min_contact_voxels=1,
+        max_components=20,
+    )
+    print("DEBUG artery_tree at cursor after absorption:", bool(artery_tree[x, y, z]))
+    print("After small candidate gap absorption voxels:", int(artery_tree.sum()))
+
 
     print("Full xyz:", full_xyz)
     print("Crop starts:", starts)
     print("Crop xyz:", crop_xyz)
     print("Crop shape:", ct_crop.shape)
 
-    x, y, z = crop_xyz
+    
 
     if np.all(crop_xyz >= 0) and np.all(crop_xyz < np.array(ct_crop.shape)):
         print("CT HU at cursor:", ct_crop[x, y, z])
@@ -1729,6 +1850,7 @@ def main():
     )
     print("After FINAL safe detached connection voxels:", int(artery_tree.sum()))
     print("After FINAL safe detached connection voxels:", int(artery_tree.sum()))
+    print("DEBUG artery_tree at cursor after final detached connection:", bool(artery_tree[x, y, z]))
 
     structure6_dbg = ndi.generate_binary_structure(3, 1)
 
@@ -1793,6 +1915,10 @@ def main():
     debug_grow = np.zeros(sma.shape, dtype=np.uint8)
     debug_grow[slices] = candidate.astype(np.uint8)
     save_nifti(debug_grow, affine, header, "debug_candidate_grow.nii.gz")
+
+    debug_final = np.zeros(sma.shape, dtype=np.uint8)
+    debug_final[slices] = final_connect_candidate.astype(np.uint8)
+    save_nifti(debug_final, affine, header, "debug_final_connect_candidate.nii.gz")
 
     print("DEBUG artery_tree at cursor:", bool(artery_tree[x, y, z]))
     print("DEBUG final_connect_candidate:", bool(final_connect_candidate[x, y, z]))
