@@ -1,0 +1,188 @@
+nnUNet_raw=/data/drdcad/datasets_nnUNet/nnUNet_raw
+nnUNet_preprocessed=/data/drdcad/datasets_nnUNet/nnUNet_preprocessed
+nnUNet_results=/data/drdcad/datasets_nnUNet/nnUNet_results
+Dataset100_SmallBowelObstruction
+Dataset101_SBOvessel
+Dataset123_KidneyLesionSegmentationWithKiTs23Dataset
+Dataset235_PANORAMA
+Dataset543_PancreasSubRegionSegmentation
+Dataset780_NIH_LN_CT_withPriors_755volumes_3Doses_SynthNonCon
+Dataset784_NIH_LN_CT_onlyFullDose_withPriors_151volumes
+Dataset785_NIH_LN_CT_FullReducedDose_OrigResampledSynthNonCon_withPriors
+Dataset786_NIH_LN_CT_FullReducedDose_AbdRadPaper2025
+Dataset787_NIH_LN_CT_onlyFullDose_AbdRadPaper2025
+Dataset788_NIH_LN_CT_onlyPCCT_CECT_VNC_432volumes
+Dataset789_NIH_LN_CT_bothOldCTAndPCCT_583volumes
+Dataset905_couinaudSegmentation_bodySynthNonCon_MSDHepVess_NIHSplenomgalyAscitesHAE
+Dataset906_segCouinaudPortalVeinHepaticVeinTumor_Round1_MSDHepVess_301volumes
+dataset.json
+imagesTr
+imagesTs
+labelsTr
+Fingerprint extraction...
+Dataset101_SBOvessel
+Using <class 'nnunetv2.imageio.simpleitk_reader_writer.SimpleITKIO'> as reader/writer
+
+####################
+verify_dataset_integrity Done. 
+If you didn't see any error messages then your dataset is most likely OK!
+####################
+
+Using <class 'nnunetv2.imageio.simpleitk_reader_writer.SimpleITKIO'> as reader/writer
+Experiment planning...
+
+############################
+INFO: You are using the old nnU-Net default planner. We have updated our recommendations. Please consider using those instead! Read more here: https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/resenc_presets.md
+############################
+
+Attempting to find 3d_lowres config. 
+Current spacing: [1.03       0.81675781 0.81675781]. 
+Current patch size: (128, 128, 128). 
+Current median shape: [600.97087379 497.08737864 504.85436893]
+Attempting to find 3d_lowres config. 
+Current spacing: [1.0609     0.84126055 0.84126055]. 
+Current patch size: (128, 128, 128). 
+Current median shape: [583.46686775 482.60910548 490.14987275]
+Attempting to find 3d_lowres config. 
+Current spacing: [1.092727   0.86649836 0.86649836]. 
+Current patch size: (128, 128, 128). 
+Current median shape: [566.47268714 468.55252959 475.87366286]
+Attempting to find 3d_lowres config. 
+Current spacing: [1.12550881 0.89249331 0.89249331]. 
+Current patch size: (128, 128, 128). 
+Current median shape: [549.97348266 454.90536853 462.01326492]
+Attempting to find 3d_lowres config. 
+Current spacing: [1.15927407 0.91926811 0.91926811]. 
+Current patch size: (128, 128, 128). 
+Current median shape: [533.95483753 441.6556976  448.55656788]
+Attempting to find 3d_lowres config. 
+Current spacing: [1.1940523  0.94684616 0.94684616]. 
+Current patch size: (128, 128, 128). 
+Current median shape: [518.40275489 428.79193942 435.49181348]
+Attempting to find 3d_lowres config. 
+Current spacing: [1.22987387 0.97525154 0.97525154]. 
+Current patch size: (128, 128, 128). 
+Current median shape: [503.30364552 416.30285381 422.8075859 ]
+Attempting to find 3d_lowres config. 
+Current spacing: [1.26677008 1.00450909 1.00450909]. 
+Current patch size: (128, 128, 128). 
+Current median shape: [488.64431604 404.17752797 410.49280184]
+Attempting to find 3d_lowres config. 
+Current spacing: [1.30477318 1.03464436 1.03464436]. 
+Current patch size: (128, 128, 128). 
+Current median shape: [474.41195732 392.40536696 398.53670082]
+Attempting to find 3d_lowres config. 
+Current spacing: [1.34391638 1.06568369 1.06568369]. 
+Current patch size: (128, 128, 128). 
+Current median shape: [460.59413332 380.97608443 386.92883575]
+Attempting to find 3d_lowres config. 
+Current spacing: [1.38423387 1.0976542  1.0976542 ]. 
+Current patch size: (128, 128, 128). 
+Current median shape: [447.17877021 369.87969362 375.65906383]
+Attempting to find 3d_lowres config. 
+Current spacing: [1.42576089 1.13058383 1.13058383]. 
+Current patch size: (128, 128, 128). 
+Current median shape: [434.15414584 359.10649866 364.7175377 ]
+Attempting to find 3d_lowres config. 
+Current spacing: [1.46853371 1.16450134 1.16450134]. 
+Current patch size: (128, 128, 128). 
+Current median shape: [421.50887946 348.64708608 354.0946968 ]
+Attempting to find 3d_lowres config. 
+Current spacing: [1.51258972 1.19943638 1.19943638]. 
+Current patch size: (128, 128, 128). 
+Current median shape: [409.2319218  338.49231658 343.78125903]
+Attempting to find 3d_lowres config. 
+Current spacing: [1.55796742 1.23541947 1.23541947]. 
+Current patch size: (128, 128, 128). 
+Current median shape: [397.31254544 328.63331707 333.76821265]
+Attempting to find 3d_lowres config. 
+Current spacing: [1.60470644 1.27248206 1.27248206]. 
+Current patch size: (128, 128, 128). 
+Current median shape: [385.74033538 319.06147288 324.04680839]
+Attempting to find 3d_lowres config. 
+Current spacing: [1.65284763 1.31065652 1.31065652]. 
+Current patch size: (128, 128, 128). 
+Current median shape: [374.50517998 309.76842027 314.60855184]
+Attempting to find 3d_lowres config. 
+Current spacing: [1.70243306 1.34997622 1.34997622]. 
+Current patch size: (128, 128, 128). 
+Current median shape: [363.59726211 300.7460391  305.44519596]
+Attempting to find 3d_lowres config. 
+Current spacing: [1.75350605 1.3904755  1.3904755 ]. 
+Current patch size: (128, 128, 128). 
+Current median shape: [353.0070506  291.98644573 296.54873394]
+Attempting to find 3d_lowres config. 
+Current spacing: [1.80611123 1.43218977 1.43218977]. 
+Current patch size: (128, 128, 128). 
+Current median shape: [342.72529184 283.48198614 287.91139218]
+Attempting to find 3d_lowres config. 
+Current spacing: [1.86029457 1.47515546 1.47515546]. 
+Current patch size: (128, 128, 128). 
+Current median shape: [332.74300179 275.22522927 279.52562347]
+Attempting to find 3d_lowres config. 
+Current spacing: [1.91610341 1.51941012 1.51941012]. 
+Current patch size: (128, 128, 128). 
+Current median shape: [323.05145805 267.20896045 271.38410046]
+Attempting to find 3d_lowres config. 
+Current spacing: [1.97358651 1.56499243 1.56499243]. 
+Current patch size: (128, 128, 128). 
+Current median shape: [313.64219228 259.4261752  263.47970918]
+Attempting to find 3d_lowres config. 
+Current spacing: [2.03279411 1.6119422  1.6119422 ]. 
+Current patch size: (128, 128, 128). 
+Current median shape: [304.50698279 251.87007301 255.8055429 ]
+Attempting to find 3d_lowres config. 
+Current spacing: [2.09377793 1.66030047 1.66030047]. 
+Current patch size: (128, 128, 128). 
+Current median shape: [295.63784737 244.53405146 248.35489602]
+Attempting to find 3d_lowres config. 
+Current spacing: [2.15659127 1.71010948 1.71010948]. 
+Current patch size: (128, 128, 128). 
+Current median shape: [287.02703628 237.41170045 241.12125827]
+Attempting to find 3d_lowres config. 
+Current spacing: [2.22128901 1.76141277 1.76141277]. 
+Current patch size: (128, 128, 128). 
+Current median shape: [278.66702552 230.49679655 234.098309  ]
+Attempting to find 3d_lowres config. 
+Current spacing: [2.28792768 1.81425515 1.81425515]. 
+Current patch size: (128, 128, 128). 
+Current median shape: [270.55051021 223.78329762 227.27991165]
+Attempting to find 3d_lowres config. 
+Current spacing: [2.35656551 1.8686828  1.8686828 ]. 
+Current patch size: (128, 128, 128). 
+Current median shape: [262.67039826 217.2653375  220.6601084 ]
+Attempting to find 3d_lowres config. 
+Current spacing: [2.42726247 1.92474329 1.92474329]. 
+Current patch size: (128, 128, 128). 
+Current median shape: [255.01980414 210.93722087 214.23311495]
+Attempting to find 3d_lowres config. 
+Current spacing: [2.50008035 1.98248559 1.98248559]. 
+Current patch size: (128, 128, 128). 
+Current median shape: [247.59204285 204.79341832 207.99331548]
+Attempting to find 3d_lowres config. 
+Current spacing: [2.57508276 2.04196015 2.04196015]. 
+Current patch size: (128, 128, 128). 
+Current median shape: [240.38062413 198.82856148 201.93525775]
+Attempting to find 3d_lowres config. 
+Current spacing: [2.65233524 2.10321896 2.10321896]. 
+Current patch size: (128, 128, 128). 
+Current median shape: [233.37924673 193.03743833 196.0536483 ]
+Attempting to find 3d_lowres config. 
+Current spacing: [2.7319053  2.16631553 2.16631553]. 
+Current patch size: (128, 128, 128). 
+Current median shape: [226.58179294 187.41498867 190.34334787]
+2D U-Net configuration:
+{'data_identifier': 'nnUNetPlans_2d', 'preprocessor_name': 'DefaultPreprocessor', 'batch_size': 10, 'patch_size': (512, 640), 'median_image_size_in_voxels': array([512., 520.]), 'spacing': array([0.79296875, 0.79296875]), 'normalization_schemes': ['CTNormalization'], 'use_mask_for_norm': [False], 'resampling_fn_data': 'resample_data_or_seg_to_shape', 'resampling_fn_seg': 'resample_data_or_seg_to_shape', 'resampling_fn_data_kwargs': {'is_seg': False, 'order': 3, 'order_z': 0, 'force_separate_z': None}, 'resampling_fn_seg_kwargs': {'is_seg': True, 'order': 1, 'order_z': 0, 'force_separate_z': None}, 'resampling_fn_probabilities': 'resample_data_or_seg_to_shape', 'resampling_fn_probabilities_kwargs': {'is_seg': False, 'order': 1, 'order_z': 0, 'force_separate_z': None}, 'architecture': {'network_class_name': 'dynamic_network_architectures.architectures.unet.PlainConvUNet', 'arch_kwargs': {'n_stages': 8, 'features_per_stage': (32, 64, 128, 256, 512, 512, 512, 512), 'conv_op': 'torch.nn.modules.conv.Conv2d', 'kernel_sizes': ((3, 3), (3, 3), (3, 3), (3, 3), (3, 3), (3, 3), (3, 3), (3, 3)), 'strides': ((1, 1), (2, 2), (2, 2), (2, 2), (2, 2), (2, 2), (2, 2), (2, 2)), 'n_conv_per_stage': (2, 2, 2, 2, 2, 2, 2, 2), 'n_conv_per_stage_decoder': (2, 2, 2, 2, 2, 2, 2), 'conv_bias': True, 'norm_op': 'torch.nn.modules.instancenorm.InstanceNorm2d', 'norm_op_kwargs': {'eps': 1e-05, 'affine': True}, 'dropout_op': None, 'dropout_op_kwargs': None, 'nonlin': 'torch.nn.LeakyReLU', 'nonlin_kwargs': {'inplace': True}}, '_kw_requires_import': ('conv_op', 'norm_op', 'dropout_op', 'nonlin')}, 'batch_dice': True}
+
+Using <class 'nnunetv2.imageio.simpleitk_reader_writer.SimpleITKIO'> as reader/writer
+3D lowres U-Net configuration:
+{'data_identifier': 'nnUNetPlans_3d_lowres', 'preprocessor_name': 'DefaultPreprocessor', 'batch_size': 2, 'patch_size': (128, 128, 128), 'median_image_size_in_voxels': (227, 187, 190), 'spacing': array([2.7319053 , 2.16631553, 2.16631553]), 'normalization_schemes': ['CTNormalization'], 'use_mask_for_norm': [False], 'resampling_fn_data': 'resample_data_or_seg_to_shape', 'resampling_fn_seg': 'resample_data_or_seg_to_shape', 'resampling_fn_data_kwargs': {'is_seg': False, 'order': 3, 'order_z': 0, 'force_separate_z': None}, 'resampling_fn_seg_kwargs': {'is_seg': True, 'order': 1, 'order_z': 0, 'force_separate_z': None}, 'resampling_fn_probabilities': 'resample_data_or_seg_to_shape', 'resampling_fn_probabilities_kwargs': {'is_seg': False, 'order': 1, 'order_z': 0, 'force_separate_z': None}, 'architecture': {'network_class_name': 'dynamic_network_architectures.architectures.unet.PlainConvUNet', 'arch_kwargs': {'n_stages': 6, 'features_per_stage': (32, 64, 128, 256, 320, 320), 'conv_op': 'torch.nn.modules.conv.Conv3d', 'kernel_sizes': ((3, 3, 3), (3, 3, 3), (3, 3, 3), (3, 3, 3), (3, 3, 3), (3, 3, 3)), 'strides': ((1, 1, 1), (2, 2, 2), (2, 2, 2), (2, 2, 2), (2, 2, 2), (2, 2, 2)), 'n_conv_per_stage': (2, 2, 2, 2, 2, 2), 'n_conv_per_stage_decoder': (2, 2, 2, 2, 2), 'conv_bias': True, 'norm_op': 'torch.nn.modules.instancenorm.InstanceNorm3d', 'norm_op_kwargs': {'eps': 1e-05, 'affine': True}, 'dropout_op': None, 'dropout_op_kwargs': None, 'nonlin': 'torch.nn.LeakyReLU', 'nonlin_kwargs': {'inplace': True}}, '_kw_requires_import': ('conv_op', 'norm_op', 'dropout_op', 'nonlin')}, 'batch_dice': False, 'next_stage': '3d_cascade_fullres'}
+
+3D fullres U-Net configuration:
+{'data_identifier': 'nnUNetPlans_3d_fullres', 'preprocessor_name': 'DefaultPreprocessor', 'batch_size': 2, 'patch_size': (128, 128, 128), 'median_image_size_in_voxels': array([619., 512., 520.]), 'spacing': array([1.        , 0.79296875, 0.79296875]), 'normalization_schemes': ['CTNormalization'], 'use_mask_for_norm': [False], 'resampling_fn_data': 'resample_data_or_seg_to_shape', 'resampling_fn_seg': 'resample_data_or_seg_to_shape', 'resampling_fn_data_kwargs': {'is_seg': False, 'order': 3, 'order_z': 0, 'force_separate_z': None}, 'resampling_fn_seg_kwargs': {'is_seg': True, 'order': 1, 'order_z': 0, 'force_separate_z': None}, 'resampling_fn_probabilities': 'resample_data_or_seg_to_shape', 'resampling_fn_probabilities_kwargs': {'is_seg': False, 'order': 1, 'order_z': 0, 'force_separate_z': None}, 'architecture': {'network_class_name': 'dynamic_network_architectures.architectures.unet.PlainConvUNet', 'arch_kwargs': {'n_stages': 6, 'features_per_stage': (32, 64, 128, 256, 320, 320), 'conv_op': 'torch.nn.modules.conv.Conv3d', 'kernel_sizes': ((3, 3, 3), (3, 3, 3), (3, 3, 3), (3, 3, 3), (3, 3, 3), (3, 3, 3)), 'strides': ((1, 1, 1), (2, 2, 2), (2, 2, 2), (2, 2, 2), (2, 2, 2), (2, 2, 2)), 'n_conv_per_stage': (2, 2, 2, 2, 2, 2), 'n_conv_per_stage_decoder': (2, 2, 2, 2, 2), 'conv_bias': True, 'norm_op': 'torch.nn.modules.instancenorm.InstanceNorm3d', 'norm_op_kwargs': {'eps': 1e-05, 'affine': True}, 'dropout_op': None, 'dropout_op_kwargs': None, 'nonlin': 'torch.nn.LeakyReLU', 'nonlin_kwargs': {'inplace': True}}, '_kw_requires_import': ('conv_op', 'norm_op', 'dropout_op', 'nonlin')}, 'batch_dice': True}
+
+Plans were saved to /data/drdcad/datasets_nnUNet/nnUNet_preprocessed/Dataset101_SBOvessel/nnUNetPlans.json
+Preprocessing...
+Preprocessing dataset Dataset101_SBOvessel
+Configuration: 3d_fullres...
+{'data_identifier': 'nnUNetPlans_3d_fullres', 'preprocessor_name': 'DefaultPreprocessor', 'batch_size': 2, 'patch_size': [128, 128, 128], 'median_image_size_in_voxels': [619.0, 512.0, 520.0], 'spacing': [1.0, 0.79296875, 0.79296875], 'normalization_schemes': ['CTNormalization'], 'use_mask_for_norm': [False], 'resampling_fn_data': 'resample_data_or_seg_to_shape', 'resampling_fn_seg': 'resample_data_or_seg_to_shape', 'resampling_fn_data_kwargs': {'is_seg': False, 'order': 3, 'order_z': 0, 'force_separate_z': None}, 'resampling_fn_seg_kwargs': {'is_seg': True, 'order': 1, 'order_z': 0, 'force_separate_z': None}, 'resampling_fn_probabilities': 'resample_data_or_seg_to_shape', 'resampling_fn_probabilities_kwargs': {'is_seg': False, 'order': 1, 'order_z': 0, 'force_separate_z': None}, 'architecture': {'network_class_name': 'dynamic_network_architectures.architectures.unet.PlainConvUNet', 'arch_kwargs': {'n_stages': 6, 'features_per_stage': [32, 64, 128, 256, 320, 320], 'conv_op': 'torch.nn.modules.conv.Conv3d', 'kernel_sizes': [[3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3, 3]], 'strides': [[1, 1, 1], [2, 2, 2], [2, 2, 2], [2, 2, 2], [2, 2, 2], [2, 2, 2]], 'n_conv_per_stage': [2, 2, 2, 2, 2, 2], 'n_conv_per_stage_decoder': [2, 2, 2, 2, 2], 'conv_bias': True, 'norm_op': 'torch.nn.modules.instancenorm.InstanceNorm3d', 'norm_op_kwargs': {'eps': 1e-05, 'affine': True}, 'dropout_op': None, 'dropout_op_kwargs': None, 'nonlin': 'torch.nn.LeakyReLU', 'nonlin_kwargs': {'inplace': True}}, '_kw_requires_import': ['conv_op', 'norm_op', 'dropout_op', 'nonlin']}, 'batch_dice': True}

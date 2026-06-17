@@ -1,0 +1,599 @@
+{
+    "description": "SBO vessel segmentation for Swin UNETR",
+    "labels": {
+        "0": "background",
+        "1": "vessel"
+    },
+    "fold": 2,
+    "numTraining": 94,
+    "numValidation": 23,
+    "training": [
+        {
+            "case_id": "00002_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00002/00001/00002_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00002_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00004_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00004/00001/00004_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00004_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00005_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00005/00001/00005_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00005_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00007_00001_4",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00007/00001/00007_00001_4.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00007_00001_4_gt.nii.gz"
+        },
+        {
+            "case_id": "00009_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00009/00001/00009_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00009_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00011_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00011/00001/00011_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00011_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00013_00001_17",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00013/00001/00013_00001_17.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00013_00001_17_gt.nii.gz"
+        },
+        {
+            "case_id": "00015_00001_5",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00015/00001/00015_00001_5.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00015_00001_5_gt.nii.gz"
+        },
+        {
+            "case_id": "00016_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00016/00001/00016_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00016_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00018_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00018/00001/00018_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00018_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00018_00002_7",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00018/00002/00018_00002_7.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00018_00002_7_gt.nii.gz"
+        },
+        {
+            "case_id": "00019_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00019/00001/00019_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00019_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00020_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00020/00001/00020_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00020_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00021_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00021/00001/00021_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00021_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00023_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00023/00001/00023_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00023_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00024_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00024/00001/00024_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00024_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00026_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00026/00001/00026_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00026_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00026_00002_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00026/00002/00026_00002_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00026_00002_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00027_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00027/00001/00027_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00027_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00028_00001_4",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00028/00001/00028_00001_4.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00028_00001_4_gt.nii.gz"
+        },
+        {
+            "case_id": "00029_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00029/00001/00029_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00029_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00031_00001_9",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00031/00001/00031_00001_9.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00031_00001_9_gt.nii.gz"
+        },
+        {
+            "case_id": "00032_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00032/00001/00032_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00032_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00033_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00033/00001/00033_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00033_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00035_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00035/00001/00035_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00035_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00036_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00036/00001/00036_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00036_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00037_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00037/00001/00037_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00037_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00039_00001_4",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00039/00001/00039_00001_4.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00039_00001_4_gt.nii.gz"
+        },
+        {
+            "case_id": "00040_00001_7",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00040/00001/00040_00001_7.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00040_00001_7_gt.nii.gz"
+        },
+        {
+            "case_id": "00043_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00043/00001/00043_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00043_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00044_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00044/00001/00044_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00044_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00045_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00045/00001/00045_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00045_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00047_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00047/00001/00047_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00047_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00048_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00048/00001/00048_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00048_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00049_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00049/00001/00049_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00049_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00050_00002_4",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00050/00002/00050_00002_4.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00050_00002_4_gt.nii.gz"
+        },
+        {
+            "case_id": "00051_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00051/00001/00051_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00051_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00052_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00052/00001/00052_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00052_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00053_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00053/00001/00053_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00053_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00055_00001_11",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00055/00001/00055_00001_11.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00055_00001_11_gt.nii.gz"
+        },
+        {
+            "case_id": "00056_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00056/00001/00056_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00056_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00057_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00057/00001/00057_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00057_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00059_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00059/00001/00059_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00059_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00060_00002_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00060/00002/00060_00002_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00060_00002_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00062_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00062/00001/00062_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00062_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00063_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00063/00001/00063_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00063_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00064_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00064/00001/00064_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00064_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00066_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00066/00001/00066_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00066_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00069_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00069/00001/00069_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00069_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00070_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00070/00001/00070_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00070_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00071_00001_5",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00071/00001/00071_00001_5.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00071_00001_5_gt.nii.gz"
+        },
+        {
+            "case_id": "00072_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00072/00001/00072_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00072_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00073_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00073/00001/00073_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00073_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00074_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00074/00001/00074_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00074_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00075_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00075/00001/00075_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00075_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00078_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00078/00001/00078_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00078_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00080_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00080/00001/00080_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00080_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00081_00001_8",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00081/00001/00081_00001_8.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00081_00001_8_gt.nii.gz"
+        },
+        {
+            "case_id": "00082_00002_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00082/00002/00082_00002_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00082_00002_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00083_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00083/00001/00083_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00083_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00085_00001_10",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00085/00001/00085_00001_10.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00085_00001_10_gt.nii.gz"
+        },
+        {
+            "case_id": "00086_00001_7",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00086/00001/00086_00001_7.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00086_00001_7_gt.nii.gz"
+        },
+        {
+            "case_id": "00087_00001_4",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00087/00001/00087_00001_4.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00087_00001_4_gt.nii.gz"
+        },
+        {
+            "case_id": "00089_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00089/00001/00089_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00089_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00090_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00090/00001/00090_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00090_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00092_00001_4",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00092/00001/00092_00001_4.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00092_00001_4_gt.nii.gz"
+        },
+        {
+            "case_id": "00092_00002_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00092/00002/00092_00002_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00092_00002_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00092_00003_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00092/00003/00092_00003_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00092_00003_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00094_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00094/00001/00094_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00094_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00095_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00095/00001/00095_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00095_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00097_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00097/00001/00097_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00097_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00098_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00098/00001/00098_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00098_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00098_00002_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00098/00002/00098_00002_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00098_00002_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00098_00003_4",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00098/00003/00098_00003_4.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00098_00003_4_gt.nii.gz"
+        },
+        {
+            "case_id": "00099_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00099/00001/00099_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00099_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00100_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00100/00001/00100_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00100_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00102_00001_4",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00102/00001/00102_00001_4.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00102_00001_4_gt.nii.gz"
+        },
+        {
+            "case_id": "00103_00001_6",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00103/00001/00103_00001_6.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00103_00001_6_gt.nii.gz"
+        },
+        {
+            "case_id": "00103_00002_4",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00103/00002/00103_00002_4.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00103_00002_4_gt.nii.gz"
+        },
+        {
+            "case_id": "00105_00002_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00105/00002/00105_00002_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00105_00002_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00106_00001_4",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00106/00001/00106_00001_4.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00106_00001_4_gt.nii.gz"
+        },
+        {
+            "case_id": "00107_00001_4",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00107/00001/00107_00001_4.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00107_00001_4_gt.nii.gz"
+        },
+        {
+            "case_id": "00108_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00108/00001/00108_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00108_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00109_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00109/00001/00109_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00109_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00110_00001_10",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00110/00001/00110_00001_10.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00110_00001_10_gt.nii.gz"
+        },
+        {
+            "case_id": "00114_00001_4",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00114/00001/00114_00001_4.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00114_00001_4_gt.nii.gz"
+        },
+        {
+            "case_id": "00115_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00115/00001/00115_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00115_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00117_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00117/00001/00117_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00117_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00118_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00118/00001/00118_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00118_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00119_00001_4",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00119/00001/00119_00001_4.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00119_00001_4_gt.nii.gz"
+        },
+        {
+            "case_id": "00120_00001_4",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00120/00001/00120_00001_4.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00120_00001_4_gt.nii.gz"
+        },
+        {
+            "case_id": "00121_00001_10",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00121/00001/00121_00001_10.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00121_00001_10_gt.nii.gz"
+        },
+        {
+            "case_id": "00121_00002_6",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00121/00002/00121_00002_6.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00121_00002_6_gt.nii.gz"
+        },
+        {
+            "case_id": "00122_00001_6",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00122/00001/00122_00001_6.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00122_00001_6_gt.nii.gz"
+        }
+    ],
+    "validation": [
+        {
+            "case_id": "00001_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00001/00001/00001_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00001_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00008_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00008/00001/00008_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00008_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00011_00002_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00011/00002/00011_00002_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00011_00002_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00012_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00012/00001/00012_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00012_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00016_00002_4",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00016/00002/00016_00002_4.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00016_00002_4_gt.nii.gz"
+        },
+        {
+            "case_id": "00022_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00022/00001/00022_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00022_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00023_00002_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00023/00002/00023_00002_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00023_00002_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00028_00002_7",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00028/00002/00028_00002_7.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00028_00002_7_gt.nii.gz"
+        },
+        {
+            "case_id": "00038_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00038/00001/00038_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00038_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00041_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00041/00001/00041_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00041_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00052_00002_9",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00052/00002/00052_00002_9.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00052_00002_9_gt.nii.gz"
+        },
+        {
+            "case_id": "00058_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00058/00001/00058_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00058_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00060_00003_5",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00060/00003/00060_00003_5.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00060_00003_5_gt.nii.gz"
+        },
+        {
+            "case_id": "00068_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00068/00001/00068_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00068_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00072_00002_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00072/00002/00072_00002_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00072_00002_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00076_00001_9",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00076/00001/00076_00001_9.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00076_00001_9_gt.nii.gz"
+        },
+        {
+            "case_id": "00077_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00077/00001/00077_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00077_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00082_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00082/00001/00082_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00082_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00084_00001_7",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00084/00001/00084_00001_7.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00084_00001_7_gt.nii.gz"
+        },
+        {
+            "case_id": "00088_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00088/00001/00088_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00088_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00093_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00093/00001/00093_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00093_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00096_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00096/00001/00096_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00096_00001_3_gt.nii.gz"
+        },
+        {
+            "case_id": "00116_00001_3",
+            "image": "/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/00116/00001/00116_00001_3.nii.gz",
+            "label": "/data/drdcad/Hyuna/projects/vessel_seg/data/gt_vessel_algo/00116_00001_3_gt.nii.gz"
+        }
+    ]
+}

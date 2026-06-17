@@ -1,0 +1,9 @@
+[+] Loading CUDA Toolkit  12.1.0  ... 
+/vf/users/drdcad/Hyuna/projects/vessel_seg/code/train_MedNeXt/train.py:425: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = torch.cuda.amp.GradScaler(enabled=args.amp)
+/vf/users/drdcad/Hyuna/projects/vessel_seg/code/train_MedNeXt/train.py:520: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=args.amp):
+/vf/users/drdcad/Hyuna/projects/vessel_seg/code/train_MedNeXt/train.py:465: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=args.amp):
+/vf/users/drdcad/Hyuna/projects/vessel_seg/code/train_MedNeXt/train.py:490: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=args.amp):

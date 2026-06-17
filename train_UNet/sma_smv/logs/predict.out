@@ -1,0 +1,429 @@
+
+#######################################################################
+Please cite the following paper when using nnU-Net:
+Isensee, F., Jaeger, P. F., Kohl, S. A., Petersen, J., & Maier-Hein, K. H. (2021). nnU-Net: a self-configuring method for deep learning-based biomedical image segmentation. Nature methods, 18(2), 203-211.
+#######################################################################
+
+There are 84 cases in the source folder
+I am processing 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 84 cases that I would like to predict
+
+Predicting 00015_00001_5:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00015_00001_5
+
+Predicting 00020_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00020_00001_3
+
+Predicting 00021_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00021_00001_3
+
+Predicting 00022_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00022_00001_3
+
+Predicting 00023_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00023_00001_3
+
+Predicting 00023_00002_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00023_00002_3
+
+Predicting 00024_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00024_00001_3
+
+Predicting 00026_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00026_00001_3
+
+Predicting 00026_00002_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00026_00002_3
+
+Predicting 00028_00002_7:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00028_00002_7
+
+Predicting 00029_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00029_00001_3
+
+Predicting 00031_00001_9:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00031_00001_9
+
+Predicting 00032_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00032_00001_3
+
+Predicting 00033_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00033_00001_3
+
+Predicting 00035_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00035_00001_3
+
+Predicting 00036_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00036_00001_3
+
+Predicting 00037_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00037_00001_3
+
+Predicting 00038_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00038_00001_3
+
+Predicting 00039_00001_4:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00039_00001_4
+
+Predicting 00040_00001_7:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00040_00001_7
+
+Predicting 00041_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00041_00001_3
+
+Predicting 00043_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00043_00001_3
+
+Predicting 00044_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00044_00001_3
+
+Predicting 00045_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00045_00001_3
+
+Predicting 00047_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00047_00001_3
+
+Predicting 00048_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00048_00001_3
+
+Predicting 00049_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00049_00001_3
+
+Predicting 00050_00002_4:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00050_00002_4
+
+Predicting 00051_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00051_00001_3
+
+Predicting 00052_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00052_00001_3
+
+Predicting 00052_00002_9:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00052_00002_9
+
+Predicting 00053_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00053_00001_3
+
+Predicting 00055_00001_11:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00055_00001_11
+
+Predicting 00056_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00056_00001_3
+
+Predicting 00057_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00057_00001_3
+
+Predicting 00059_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00059_00001_3
+
+Predicting 00060_00002_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00060_00002_3
+
+Predicting 00060_00003_5:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00060_00003_5
+
+Predicting 00062_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00062_00001_3
+
+Predicting 00063_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00063_00001_3
+
+Predicting 00064_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00064_00001_3
+
+Predicting 00066_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00066_00001_3
+
+Predicting 00068_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00068_00001_3
+
+Predicting 00069_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00069_00001_3
+
+Predicting 00070_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00070_00001_3
+
+Predicting 00072_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00072_00001_3
+
+Predicting 00072_00002_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00072_00002_3
+
+Predicting 00073_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00073_00001_3
+
+Predicting 00074_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00074_00001_3
+
+Predicting 00075_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00075_00001_3
+
+Predicting 00076_00001_9:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00076_00001_9
+
+Predicting 00078_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00078_00001_3
+
+Predicting 00080_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00080_00001_3
+
+Predicting 00082_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00082_00001_3
+
+Predicting 00082_00002_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00082_00002_3
+
+Predicting 00083_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00083_00001_3
+
+Predicting 00084_00001_7:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00084_00001_7
+
+Predicting 00086_00001_7:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00086_00001_7
+
+Predicting 00088_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00088_00001_3
+
+Predicting 00089_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00089_00001_3
+
+Predicting 00090_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00090_00001_3
+
+Predicting 00092_00001_4:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00092_00001_4
+
+Predicting 00092_00002_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00092_00002_3
+
+Predicting 00092_00003_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00092_00003_3
+
+Predicting 00093_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00093_00001_3
+
+Predicting 00094_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00094_00001_3
+
+Predicting 00095_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00095_00001_3
+
+Predicting 00096_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00096_00001_3
+
+Predicting 00097_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00097_00001_3
+
+Predicting 00098_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00098_00001_3
+
+Predicting 00098_00002_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00098_00002_3
+
+Predicting 00099_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00099_00001_3
+
+Predicting 00100_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00100_00001_3
+
+Predicting 00102_00001_4:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00102_00001_4
+
+Predicting 00103_00001_6:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00103_00001_6
+
+Predicting 00103_00002_4:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00103_00002_4
+
+Predicting 00105_00002_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00105_00002_3
+
+Predicting 00109_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00109_00001_3
+
+Predicting 00114_00001_4:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00114_00001_4
+
+Predicting 00115_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00115_00001_3
+
+Predicting 00116_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00116_00001_3
+
+Predicting 00117_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00117_00001_3
+
+Predicting 00118_00001_3:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00118_00001_3
+
+Predicting 00121_00002_6:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with 00121_00002_6

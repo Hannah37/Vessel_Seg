@@ -1,0 +1,1284 @@
+==========================================
+Swin UNETR SBO vessel training
+==========================================
+HOSTNAME=cn0094
+FOLD=1
+JSON_PATH=./jsons/sbo_vessel_fold1.json
+OUT_DIR=./runs/fold1
+CUDA_VISIBLE_DEVICES=0
+==========================================
+/vf/users/drdcad/Hyuna/projects/vessel_seg/seg/bin/python
+Python 3.10.8
+Tue Jun 16 16:42:21 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.126.09             Driver Version: 580.126.09     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-80GB          On  |   00000000:46:00.0 Off |                    0 |
+| N/A   37C    P0             62W /  400W |       0MiB /  81920MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+Fold: 1
+Train cases: 93
+Val cases: 24
+Preprocessed dir: /data/drdcad/datasets_nnUNet/nnUNet_preprocessed/Dataset101_SBOvessel/nnUNetPlans_3d_fullres
+Output dir: runs/fold1
+Total epochs: 1000
+Steps per epoch: 93
+Training started at: 2026-06-16 16:42:39
+Epoch 1/1000 finished | train_loss=1.121148 | lr=0.00039964 | epoch_time=00:01:16 | elapsed=00:01:16 | ETA=21:09:55 | estimated_finish=2026-06-17 13:53:51
+Epoch 2/1000 finished | train_loss=0.991326 | lr=0.00039928 | epoch_time=00:01:08 | elapsed=00:02:24 | ETA=20:05:12 | estimated_finish=2026-06-17 12:50:16
+Epoch 3/1000 finished | train_loss=0.924332 | lr=0.00039892 | epoch_time=00:01:03 | elapsed=00:03:29 | ETA=19:18:29 | estimated_finish=2026-06-17 12:04:38
+Epoch 4/1000 finished | train_loss=0.887093 | lr=0.00039856 | epoch_time=00:01:04 | elapsed=00:04:33 | ETA=18:56:26 | estimated_finish=2026-06-17 11:43:39
+Epoch 5/1000 finished | train_loss=0.854376 | lr=0.0003982 | epoch_time=00:01:04 | elapsed=00:05:38 | ETA=18:44:20 | estimated_finish=2026-06-17 11:32:39
+Quick validation epoch=5 | pseudo_dice=0.273564 | val_time=00:00:26
+New best model saved by quick validation | pseudo_dice=0.273564 | epoch=5
+Epoch 6/1000 finished | train_loss=0.865753 | lr=0.000397839 | epoch_time=00:01:05 | elapsed=00:07:12 | ETA=19:53:44 | estimated_finish=2026-06-17 12:43:36
+Epoch 7/1000 finished | train_loss=0.839115 | lr=0.000397479 | epoch_time=00:01:12 | elapsed=00:08:25 | ETA=19:54:21 | estimated_finish=2026-06-17 12:45:25
+Epoch 8/1000 finished | train_loss=0.800408 | lr=0.000397119 | epoch_time=00:01:06 | elapsed=00:09:31 | ETA=19:41:52 | estimated_finish=2026-06-17 12:34:03
+Epoch 9/1000 finished | train_loss=0.799027 | lr=0.000396759 | epoch_time=00:01:04 | elapsed=00:10:36 | ETA=19:28:18 | estimated_finish=2026-06-17 12:21:34
+Epoch 10/1000 finished | train_loss=0.821911 | lr=0.000396398 | epoch_time=00:01:06 | elapsed=00:11:43 | ETA=19:20:52 | estimated_finish=2026-06-17 12:15:15
+Quick validation epoch=10 | pseudo_dice=0.402406 | val_time=00:00:23
+New best model saved by quick validation | pseudo_dice=0.402406 | epoch=10
+Epoch 11/1000 finished | train_loss=0.805653 | lr=0.000396038 | epoch_time=00:01:05 | elapsed=00:13:13 | ETA=19:48:42 | estimated_finish=2026-06-17 12:44:35
+Epoch 12/1000 finished | train_loss=0.791129 | lr=0.000395677 | epoch_time=00:01:04 | elapsed=00:14:18 | ETA=19:37:59 | estimated_finish=2026-06-17 12:34:57
+Epoch 13/1000 finished | train_loss=0.770642 | lr=0.000395317 | epoch_time=00:01:09 | elapsed=00:15:28 | ETA=19:34:33 | estimated_finish=2026-06-17 12:32:41
+Epoch 14/1000 finished | train_loss=0.773598 | lr=0.000394956 | epoch_time=00:01:05 | elapsed=00:16:34 | ETA=19:26:58 | estimated_finish=2026-06-17 12:26:11
+Epoch 15/1000 finished | train_loss=0.799250 | lr=0.000394596 | epoch_time=00:01:05 | elapsed=00:17:39 | ETA=19:19:51 | estimated_finish=2026-06-17 12:20:10
+Quick validation epoch=15 | pseudo_dice=0.445034 | val_time=00:00:23
+New best model saved by quick validation | pseudo_dice=0.445034 | epoch=15
+Epoch 16/1000 finished | train_loss=0.763237 | lr=0.000394235 | epoch_time=00:01:03 | elapsed=00:19:07 | ETA=19:36:33 | estimated_finish=2026-06-17 12:38:20
+Epoch 17/1000 finished | train_loss=0.768793 | lr=0.000393875 | epoch_time=00:01:05 | elapsed=00:20:14 | ETA=19:30:03 | estimated_finish=2026-06-17 12:32:57
+Epoch 18/1000 finished | train_loss=0.762926 | lr=0.000393514 | epoch_time=00:01:06 | elapsed=00:21:20 | ETA=19:24:43 | estimated_finish=2026-06-17 12:28:43
+Epoch 19/1000 finished | train_loss=0.764416 | lr=0.000393153 | epoch_time=00:01:06 | elapsed=00:22:28 | ETA=19:20:12 | estimated_finish=2026-06-17 12:25:20
+Epoch 20/1000 finished | train_loss=0.729210 | lr=0.000392793 | epoch_time=00:01:05 | elapsed=00:23:34 | ETA=19:14:49 | estimated_finish=2026-06-17 12:21:02
+Quick validation epoch=20 | pseudo_dice=0.428360 | val_time=00:00:23
+Epoch 21/1000 finished | train_loss=0.737656 | lr=0.000392432 | epoch_time=00:01:07 | elapsed=00:25:05 | ETA=19:29:25 | estimated_finish=2026-06-17 12:37:09
+Epoch 22/1000 finished | train_loss=0.756530 | lr=0.000392071 | epoch_time=00:01:05 | elapsed=00:26:10 | ETA=19:23:39 | estimated_finish=2026-06-17 12:32:29
+Epoch 23/1000 finished | train_loss=0.775753 | lr=0.00039171 | epoch_time=00:01:06 | elapsed=00:27:17 | ETA=19:19:02 | estimated_finish=2026-06-17 12:28:59
+Epoch 24/1000 finished | train_loss=0.742538 | lr=0.00039135 | epoch_time=00:01:04 | elapsed=00:28:22 | ETA=19:13:51 | estimated_finish=2026-06-17 12:24:52
+Epoch 25/1000 finished | train_loss=0.727339 | lr=0.000390989 | epoch_time=00:01:04 | elapsed=00:29:27 | ETA=19:08:33 | estimated_finish=2026-06-17 12:20:39
+Quick validation epoch=25 | pseudo_dice=0.473021 | val_time=00:00:23
+New best model saved by quick validation | pseudo_dice=0.473021 | epoch=25
+Epoch 26/1000 finished | train_loss=0.725078 | lr=0.000390628 | epoch_time=00:01:04 | elapsed=00:30:55 | ETA=19:18:47 | estimated_finish=2026-06-17 12:32:22
+Epoch 27/1000 finished | train_loss=0.736862 | lr=0.000390267 | epoch_time=00:01:06 | elapsed=00:32:02 | ETA=19:14:47 | estimated_finish=2026-06-17 12:29:29
+Epoch 28/1000 finished | train_loss=0.742851 | lr=0.000389906 | epoch_time=00:01:06 | elapsed=00:33:09 | ETA=19:11:16 | estimated_finish=2026-06-17 12:27:06
+Epoch 29/1000 finished | train_loss=0.736615 | lr=0.000389545 | epoch_time=00:01:04 | elapsed=00:34:15 | ETA=19:06:49 | estimated_finish=2026-06-17 12:23:43
+Epoch 30/1000 finished | train_loss=0.726094 | lr=0.000389184 | epoch_time=00:01:07 | elapsed=00:35:22 | ETA=19:04:01 | estimated_finish=2026-06-17 12:22:03
+Quick validation epoch=30 | pseudo_dice=0.500749 | val_time=00:00:23
+New best model saved by quick validation | pseudo_dice=0.500749 | epoch=30
+Epoch 31/1000 finished | train_loss=0.721807 | lr=0.000388823 | epoch_time=00:01:05 | elapsed=00:36:52 | ETA=19:12:34 | estimated_finish=2026-06-17 12:32:06
+Epoch 32/1000 finished | train_loss=0.705544 | lr=0.000388461 | epoch_time=00:01:06 | elapsed=00:37:59 | ETA=19:09:11 | estimated_finish=2026-06-17 12:29:49
+Epoch 33/1000 finished | train_loss=0.717167 | lr=0.0003881 | epoch_time=00:01:05 | elapsed=00:39:05 | ETA=19:05:37 | estimated_finish=2026-06-17 12:27:22
+Epoch 34/1000 finished | train_loss=0.738258 | lr=0.000387739 | epoch_time=00:01:05 | elapsed=00:40:12 | ETA=19:02:13 | estimated_finish=2026-06-17 12:25:04
+Epoch 35/1000 finished | train_loss=0.730957 | lr=0.000387378 | epoch_time=00:01:04 | elapsed=00:41:16 | ETA=18:58:12 | estimated_finish=2026-06-17 12:22:08
+Quick validation epoch=35 | pseudo_dice=0.450068 | val_time=00:00:24
+Epoch 36/1000 finished | train_loss=0.729767 | lr=0.000387016 | epoch_time=00:01:04 | elapsed=00:42:46 | ETA=19:05:17 | estimated_finish=2026-06-17 12:30:43
+Epoch 37/1000 finished | train_loss=0.714657 | lr=0.000386655 | epoch_time=00:01:05 | elapsed=00:43:51 | ETA=19:01:37 | estimated_finish=2026-06-17 12:28:08
+Epoch 38/1000 finished | train_loss=0.739180 | lr=0.000386294 | epoch_time=00:01:06 | elapsed=00:44:59 | ETA=18:58:48 | estimated_finish=2026-06-17 12:26:27
+Epoch 39/1000 finished | train_loss=0.730219 | lr=0.000385932 | epoch_time=00:01:07 | elapsed=00:46:07 | ETA=18:56:27 | estimated_finish=2026-06-17 12:25:13
+Epoch 40/1000 finished | train_loss=0.701421 | lr=0.000385571 | epoch_time=00:01:07 | elapsed=00:47:14 | ETA=18:53:53 | estimated_finish=2026-06-17 12:23:47
+Quick validation epoch=40 | pseudo_dice=0.465440 | val_time=00:00:24
+Epoch 41/1000 finished | train_loss=0.736013 | lr=0.000385209 | epoch_time=00:01:08 | elapsed=00:48:47 | ETA=19:01:10 | estimated_finish=2026-06-17 12:32:36
+Epoch 42/1000 finished | train_loss=0.686801 | lr=0.000384848 | epoch_time=00:01:08 | elapsed=00:49:56 | ETA=18:59:08 | estimated_finish=2026-06-17 12:31:44
+Epoch 43/1000 finished | train_loss=0.696228 | lr=0.000384486 | epoch_time=00:01:05 | elapsed=00:51:02 | ETA=18:55:56 | estimated_finish=2026-06-17 12:29:37
+Epoch 44/1000 finished | train_loss=0.713422 | lr=0.000384125 | epoch_time=00:01:04 | elapsed=00:52:07 | ETA=18:52:25 | estimated_finish=2026-06-17 12:27:11
+Epoch 45/1000 finished | train_loss=0.730925 | lr=0.000383763 | epoch_time=00:01:03 | elapsed=00:53:11 | ETA=18:48:47 | estimated_finish=2026-06-17 12:24:38
+Quick validation epoch=45 | pseudo_dice=0.526973 | val_time=00:00:23
+New best model saved by quick validation | pseudo_dice=0.526973 | epoch=45
+Epoch 46/1000 finished | train_loss=0.727373 | lr=0.000383401 | epoch_time=00:01:05 | elapsed=00:54:41 | ETA=18:54:10 | estimated_finish=2026-06-17 12:31:31
+Epoch 47/1000 finished | train_loss=0.693294 | lr=0.00038304 | epoch_time=00:01:05 | elapsed=00:55:47 | ETA=18:51:13 | estimated_finish=2026-06-17 12:29:40
+Epoch 48/1000 finished | train_loss=0.703553 | lr=0.000382678 | epoch_time=00:01:05 | elapsed=00:56:53 | ETA=18:48:14 | estimated_finish=2026-06-17 12:27:47
+Epoch 49/1000 finished | train_loss=0.701597 | lr=0.000382316 | epoch_time=00:01:05 | elapsed=00:57:59 | ETA=18:45:28 | estimated_finish=2026-06-17 12:26:06
+Epoch 50/1000 finished | train_loss=0.694335 | lr=0.000381954 | epoch_time=00:01:06 | elapsed=00:59:05 | ETA=18:42:51 | estimated_finish=2026-06-17 12:24:36
+Quick validation epoch=50 | pseudo_dice=0.527963 | val_time=00:00:27
+New best model saved by quick validation | pseudo_dice=0.527963 | epoch=50
+Epoch 51/1000 finished | train_loss=0.681265 | lr=0.000381592 | epoch_time=00:01:08 | elapsed=01:00:42 | ETA=18:49:42 | estimated_finish=2026-06-17 12:33:04
+Epoch 52/1000 finished | train_loss=0.697804 | lr=0.00038123 | epoch_time=00:01:07 | elapsed=01:01:50 | ETA=18:47:33 | estimated_finish=2026-06-17 12:32:03
+Epoch 53/1000 finished | train_loss=0.685649 | lr=0.000380868 | epoch_time=00:01:05 | elapsed=01:02:56 | ETA=18:44:42 | estimated_finish=2026-06-17 12:30:18
+Epoch 54/1000 finished | train_loss=0.705550 | lr=0.000380506 | epoch_time=00:01:04 | elapsed=01:04:01 | ETA=18:41:42 | estimated_finish=2026-06-17 12:28:23
+Epoch 55/1000 finished | train_loss=0.711530 | lr=0.000380144 | epoch_time=00:01:06 | elapsed=01:05:08 | ETA=18:39:13 | estimated_finish=2026-06-17 12:27:00
+Quick validation epoch=55 | pseudo_dice=0.478199 | val_time=00:00:23
+Epoch 56/1000 finished | train_loss=0.725140 | lr=0.000379782 | epoch_time=00:01:06 | elapsed=01:06:39 | ETA=18:43:42 | estimated_finish=2026-06-17 12:33:01
+Epoch 57/1000 finished | train_loss=0.675221 | lr=0.00037942 | epoch_time=00:01:04 | elapsed=01:07:44 | ETA=18:40:45 | estimated_finish=2026-06-17 12:31:08
+Epoch 58/1000 finished | train_loss=0.737990 | lr=0.000379058 | epoch_time=00:01:07 | elapsed=01:08:52 | ETA=18:38:43 | estimated_finish=2026-06-17 12:30:15
+Epoch 59/1000 finished | train_loss=0.714866 | lr=0.000378696 | epoch_time=00:01:06 | elapsed=01:10:00 | ETA=18:36:30 | estimated_finish=2026-06-17 12:29:10
+Epoch 60/1000 finished | train_loss=0.706526 | lr=0.000378334 | epoch_time=00:01:04 | elapsed=01:11:04 | ETA=18:33:36 | estimated_finish=2026-06-17 12:27:20
+Quick validation epoch=60 | pseudo_dice=0.475765 | val_time=00:00:24
+Epoch 61/1000 finished | train_loss=0.686727 | lr=0.000377971 | epoch_time=00:01:06 | elapsed=01:12:36 | ETA=18:37:42 | estimated_finish=2026-06-17 12:32:57
+Epoch 62/1000 finished | train_loss=0.714650 | lr=0.000377609 | epoch_time=00:01:06 | elapsed=01:13:43 | ETA=18:35:17 | estimated_finish=2026-06-17 12:31:40
+Epoch 63/1000 finished | train_loss=0.689346 | lr=0.000377247 | epoch_time=00:01:06 | elapsed=01:14:49 | ETA=18:32:54 | estimated_finish=2026-06-17 12:30:23
+Epoch 64/1000 finished | train_loss=0.687086 | lr=0.000376884 | epoch_time=00:01:07 | elapsed=01:15:57 | ETA=18:30:57 | estimated_finish=2026-06-17 12:29:34
+Epoch 65/1000 finished | train_loss=0.677789 | lr=0.000376522 | epoch_time=00:01:06 | elapsed=01:17:04 | ETA=18:28:47 | estimated_finish=2026-06-17 12:28:31
+Quick validation epoch=65 | pseudo_dice=0.471736 | val_time=00:00:24
+Epoch 66/1000 finished | train_loss=0.663647 | lr=0.00037616 | epoch_time=00:01:06 | elapsed=01:18:36 | ETA=18:32:24 | estimated_finish=2026-06-17 12:33:39
+Epoch 67/1000 finished | train_loss=0.663610 | lr=0.000375797 | epoch_time=00:01:04 | elapsed=01:19:41 | ETA=18:29:46 | estimated_finish=2026-06-17 12:32:07
+Epoch 68/1000 finished | train_loss=0.649048 | lr=0.000375435 | epoch_time=00:01:05 | elapsed=01:20:47 | ETA=18:27:22 | estimated_finish=2026-06-17 12:30:49
+Epoch 69/1000 finished | train_loss=0.691159 | lr=0.000375072 | epoch_time=00:01:04 | elapsed=01:21:52 | ETA=18:24:46 | estimated_finish=2026-06-17 12:29:18
+Epoch 70/1000 finished | train_loss=0.696556 | lr=0.000374709 | epoch_time=00:01:05 | elapsed=01:22:58 | ETA=18:22:21 | estimated_finish=2026-06-17 12:27:58
+Quick validation epoch=70 | pseudo_dice=0.513652 | val_time=00:00:24
+Epoch 71/1000 finished | train_loss=0.674306 | lr=0.000374347 | epoch_time=00:01:06 | elapsed=01:24:28 | ETA=18:25:24 | estimated_finish=2026-06-17 12:32:33
+Epoch 72/1000 finished | train_loss=0.706403 | lr=0.000373984 | epoch_time=00:01:07 | elapsed=01:25:37 | ETA=18:23:31 | estimated_finish=2026-06-17 12:31:47
+Epoch 73/1000 finished | train_loss=0.663236 | lr=0.000373621 | epoch_time=00:01:04 | elapsed=01:26:42 | ETA=18:21:02 | estimated_finish=2026-06-17 12:30:23
+Epoch 74/1000 finished | train_loss=0.661960 | lr=0.000373259 | epoch_time=00:01:05 | elapsed=01:27:48 | ETA=18:18:50 | estimated_finish=2026-06-17 12:29:18
+Epoch 75/1000 finished | train_loss=0.659833 | lr=0.000372896 | epoch_time=00:01:10 | elapsed=01:28:59 | ETA=18:17:30 | estimated_finish=2026-06-17 12:29:09
+Quick validation epoch=75 | pseudo_dice=0.516169 | val_time=00:00:23
+Epoch 76/1000 finished | train_loss=0.706677 | lr=0.000372533 | epoch_time=00:01:08 | elapsed=01:30:32 | ETA=18:20:46 | estimated_finish=2026-06-17 12:33:58
+Epoch 77/1000 finished | train_loss=0.659830 | lr=0.00037217 | epoch_time=00:01:05 | elapsed=01:31:38 | ETA=18:18:26 | estimated_finish=2026-06-17 12:32:43
+Epoch 78/1000 finished | train_loss=0.673911 | lr=0.000371807 | epoch_time=00:01:06 | elapsed=01:32:45 | ETA=18:16:24 | estimated_finish=2026-06-17 12:31:49
+Epoch 79/1000 finished | train_loss=0.671536 | lr=0.000371444 | epoch_time=00:01:06 | elapsed=01:33:52 | ETA=18:14:22 | estimated_finish=2026-06-17 12:30:53
+Epoch 80/1000 finished | train_loss=0.672300 | lr=0.000371081 | epoch_time=00:01:05 | elapsed=01:34:58 | ETA=18:12:11 | estimated_finish=2026-06-17 12:29:49
+Quick validation epoch=80 | pseudo_dice=0.532776 | val_time=00:00:23
+New best model saved by quick validation | pseudo_dice=0.532776 | epoch=80
+Epoch 81/1000 finished | train_loss=0.684132 | lr=0.000370718 | epoch_time=00:01:06 | elapsed=01:36:29 | ETA=18:14:44 | estimated_finish=2026-06-17 12:33:53
+Epoch 82/1000 finished | train_loss=0.656844 | lr=0.000370355 | epoch_time=00:01:06 | elapsed=01:37:36 | ETA=18:12:47 | estimated_finish=2026-06-17 12:33:03
+Epoch 83/1000 finished | train_loss=0.659664 | lr=0.000369992 | epoch_time=00:01:08 | elapsed=01:38:45 | ETA=18:11:05 | estimated_finish=2026-06-17 12:32:29
+Epoch 84/1000 finished | train_loss=0.674324 | lr=0.000369629 | epoch_time=00:01:07 | elapsed=01:39:53 | ETA=18:09:16 | estimated_finish=2026-06-17 12:31:49
+Epoch 85/1000 finished | train_loss=0.693505 | lr=0.000369266 | epoch_time=00:01:06 | elapsed=01:41:00 | ETA=18:07:15 | estimated_finish=2026-06-17 12:30:54
+Quick validation epoch=85 | pseudo_dice=0.528334 | val_time=00:00:24
+Epoch 86/1000 finished | train_loss=0.672885 | lr=0.000368902 | epoch_time=00:01:07 | elapsed=01:42:32 | ETA=18:09:51 | estimated_finish=2026-06-17 12:35:03
+Epoch 87/1000 finished | train_loss=0.630276 | lr=0.000368539 | epoch_time=00:01:06 | elapsed=01:43:40 | ETA=18:07:56 | estimated_finish=2026-06-17 12:34:15
+Epoch 88/1000 finished | train_loss=0.672490 | lr=0.000368176 | epoch_time=00:01:07 | elapsed=01:44:48 | ETA=18:06:11 | estimated_finish=2026-06-17 12:33:39
+Epoch 89/1000 finished | train_loss=0.667240 | lr=0.000367813 | epoch_time=00:01:10 | elapsed=01:45:59 | ETA=18:04:56 | estimated_finish=2026-06-17 12:33:34
+Epoch 90/1000 finished | train_loss=0.673414 | lr=0.000367449 | epoch_time=00:01:09 | elapsed=01:47:09 | ETA=18:03:30 | estimated_finish=2026-06-17 12:33:19
+Quick validation epoch=90 | pseudo_dice=0.535653 | val_time=00:00:26
+New best model saved by quick validation | pseudo_dice=0.535653 | epoch=90
+Epoch 91/1000 finished | train_loss=0.680091 | lr=0.000367086 | epoch_time=00:01:11 | elapsed=01:48:48 | ETA=18:06:51 | estimated_finish=2026-06-17 12:38:18
+Epoch 92/1000 finished | train_loss=0.656022 | lr=0.000366722 | epoch_time=00:01:11 | elapsed=01:50:00 | ETA=18:05:40 | estimated_finish=2026-06-17 12:38:20
+Epoch 93/1000 finished | train_loss=0.642369 | lr=0.000366359 | epoch_time=00:01:12 | elapsed=01:51:13 | ETA=18:04:40 | estimated_finish=2026-06-17 12:38:33
+Epoch 94/1000 finished | train_loss=0.654231 | lr=0.000365995 | epoch_time=00:01:08 | elapsed=01:52:22 | ETA=18:03:03 | estimated_finish=2026-06-17 12:38:04
+Epoch 95/1000 finished | train_loss=0.630963 | lr=0.000365632 | epoch_time=00:01:08 | elapsed=01:53:31 | ETA=18:01:26 | estimated_finish=2026-06-17 12:37:37
+Quick validation epoch=95 | pseudo_dice=0.507929 | val_time=00:00:26
+Epoch 96/1000 finished | train_loss=0.677694 | lr=0.000365268 | epoch_time=00:01:07 | elapsed=01:55:05 | ETA=18:03:48 | estimated_finish=2026-06-17 12:41:33
+Epoch 97/1000 finished | train_loss=0.648945 | lr=0.000364904 | epoch_time=00:01:07 | elapsed=01:56:13 | ETA=18:01:55 | estimated_finish=2026-06-17 12:40:48
+Epoch 98/1000 finished | train_loss=0.653637 | lr=0.000364541 | epoch_time=00:01:06 | elapsed=01:57:20 | ETA=18:00:02 | estimated_finish=2026-06-17 12:40:02
+Epoch 99/1000 finished | train_loss=0.680644 | lr=0.000364177 | epoch_time=00:01:06 | elapsed=01:58:27 | ETA=17:58:03 | estimated_finish=2026-06-17 12:39:09
+Epoch 100/1000 finished | train_loss=0.649849 | lr=0.000363813 | epoch_time=00:01:05 | elapsed=01:59:33 | ETA=17:55:58 | estimated_finish=2026-06-17 12:38:10
+Quick validation epoch=100 | pseudo_dice=0.539986 | val_time=00:00:24
+New best model saved by quick validation | pseudo_dice=0.539986 | epoch=100
+Full validation epoch=100 | mean_dice=0.112724 | val_time=00:03:49
+New best full-validation model saved | dice=0.112724 | epoch=100
+Epoch 101/1000 finished | train_loss=0.632357 | lr=0.000363449 | epoch_time=00:01:08 | elapsed=02:04:56 | ETA=18:32:08 | estimated_finish=2026-06-17 13:19:44
+Epoch 102/1000 finished | train_loss=0.689077 | lr=0.000363085 | epoch_time=00:01:10 | elapsed=02:06:07 | ETA=18:30:21 | estimated_finish=2026-06-17 13:19:08
+Epoch 103/1000 finished | train_loss=0.663975 | lr=0.000362721 | epoch_time=00:01:06 | elapsed=02:07:14 | ETA=18:28:03 | estimated_finish=2026-06-17 13:17:56
+Epoch 104/1000 finished | train_loss=0.657082 | lr=0.000362357 | epoch_time=00:01:07 | elapsed=02:08:21 | ETA=18:25:55 | estimated_finish=2026-06-17 13:16:56
+Epoch 105/1000 finished | train_loss=0.667486 | lr=0.000361993 | epoch_time=00:01:08 | elapsed=02:09:31 | ETA=18:23:59 | estimated_finish=2026-06-17 13:16:10
+Quick validation epoch=105 | pseudo_dice=0.583646 | val_time=00:00:25
+New best model saved by quick validation | pseudo_dice=0.583646 | epoch=105
+Epoch 106/1000 finished | train_loss=0.635056 | lr=0.000361629 | epoch_time=00:01:06 | elapsed=02:11:03 | ETA=18:25:21 | estimated_finish=2026-06-17 13:19:04
+Epoch 107/1000 finished | train_loss=0.623813 | lr=0.000361265 | epoch_time=00:01:07 | elapsed=02:12:11 | ETA=18:23:16 | estimated_finish=2026-06-17 13:18:06
+Epoch 108/1000 finished | train_loss=0.669527 | lr=0.000360901 | epoch_time=00:01:06 | elapsed=02:13:18 | ETA=18:20:58 | estimated_finish=2026-06-17 13:16:55
+Epoch 109/1000 finished | train_loss=0.640743 | lr=0.000360537 | epoch_time=00:01:04 | elapsed=02:14:22 | ETA=18:18:29 | estimated_finish=2026-06-17 13:15:31
+Epoch 110/1000 finished | train_loss=0.631362 | lr=0.000360173 | epoch_time=00:01:07 | elapsed=02:15:31 | ETA=18:16:27 | estimated_finish=2026-06-17 13:14:37
+Quick validation epoch=110 | pseudo_dice=0.492072 | val_time=00:00:24
+Epoch 111/1000 finished | train_loss=0.656400 | lr=0.000359809 | epoch_time=00:01:06 | elapsed=02:17:01 | ETA=18:17:28 | estimated_finish=2026-06-17 13:17:09
+Epoch 112/1000 finished | train_loss=0.654614 | lr=0.000359444 | epoch_time=00:01:08 | elapsed=02:18:10 | ETA=18:15:32 | estimated_finish=2026-06-17 13:16:22
+Epoch 113/1000 finished | train_loss=0.629490 | lr=0.00035908 | epoch_time=00:01:06 | elapsed=02:19:17 | ETA=18:13:25 | estimated_finish=2026-06-17 13:15:22
+Epoch 114/1000 finished | train_loss=0.625721 | lr=0.000358716 | epoch_time=00:01:05 | elapsed=02:20:23 | ETA=18:11:06 | estimated_finish=2026-06-17 13:14:08
+Epoch 115/1000 finished | train_loss=0.671712 | lr=0.000358351 | epoch_time=00:01:08 | elapsed=02:21:31 | ETA=18:09:11 | estimated_finish=2026-06-17 13:13:22
+Quick validation epoch=115 | pseudo_dice=0.575629 | val_time=00:00:24
+Epoch 116/1000 finished | train_loss=0.618172 | lr=0.000357987 | epoch_time=00:01:06 | elapsed=02:23:02 | ETA=18:10:06 | estimated_finish=2026-06-17 13:15:48
+Epoch 117/1000 finished | train_loss=0.605921 | lr=0.000357622 | epoch_time=00:01:06 | elapsed=02:24:09 | ETA=18:07:57 | estimated_finish=2026-06-17 13:14:45
+Epoch 118/1000 finished | train_loss=0.649717 | lr=0.000357258 | epoch_time=00:01:06 | elapsed=02:25:16 | ETA=18:05:51 | estimated_finish=2026-06-17 13:13:46
+Epoch 119/1000 finished | train_loss=0.612305 | lr=0.000356893 | epoch_time=00:01:08 | elapsed=02:26:25 | ETA=18:03:58 | estimated_finish=2026-06-17 13:13:02
+Epoch 120/1000 finished | train_loss=0.630004 | lr=0.000356529 | epoch_time=00:01:08 | elapsed=02:27:33 | ETA=18:02:08 | estimated_finish=2026-06-17 13:12:21
+Quick validation epoch=120 | pseudo_dice=0.589627 | val_time=00:00:24
+New best model saved by quick validation | pseudo_dice=0.589627 | epoch=120
+Epoch 121/1000 finished | train_loss=0.674800 | lr=0.000356164 | epoch_time=00:01:06 | elapsed=02:29:05 | ETA=18:03:01 | estimated_finish=2026-06-17 13:14:45
+Epoch 122/1000 finished | train_loss=0.654269 | lr=0.000355799 | epoch_time=00:01:05 | elapsed=02:30:11 | ETA=18:00:50 | estimated_finish=2026-06-17 13:13:41
+Epoch 123/1000 finished | train_loss=0.643182 | lr=0.000355435 | epoch_time=00:01:06 | elapsed=02:31:18 | ETA=17:58:48 | estimated_finish=2026-06-17 13:12:45
+Epoch 124/1000 finished | train_loss=0.650996 | lr=0.00035507 | epoch_time=00:01:07 | elapsed=02:32:25 | ETA=17:56:51 | estimated_finish=2026-06-17 13:11:56
+Epoch 125/1000 finished | train_loss=0.645542 | lr=0.000354705 | epoch_time=00:01:06 | elapsed=02:33:32 | ETA=17:54:46 | estimated_finish=2026-06-17 13:10:58
+Quick validation epoch=125 | pseudo_dice=0.494785 | val_time=00:00:24
+Epoch 126/1000 finished | train_loss=0.636697 | lr=0.00035434 | epoch_time=00:01:07 | elapsed=02:35:04 | ETA=17:55:42 | estimated_finish=2026-06-17 13:13:26
+Epoch 127/1000 finished | train_loss=0.654645 | lr=0.000353975 | epoch_time=00:01:06 | elapsed=02:36:11 | ETA=17:53:38 | estimated_finish=2026-06-17 13:12:29
+Epoch 128/1000 finished | train_loss=0.635858 | lr=0.00035361 | epoch_time=00:01:08 | elapsed=02:37:20 | ETA=17:51:50 | estimated_finish=2026-06-17 13:11:49
+Epoch 129/1000 finished | train_loss=0.615545 | lr=0.000353245 | epoch_time=00:01:05 | elapsed=02:38:25 | ETA=17:49:43 | estimated_finish=2026-06-17 13:10:48
+Epoch 130/1000 finished | train_loss=0.619605 | lr=0.00035288 | epoch_time=00:01:04 | elapsed=02:39:30 | ETA=17:47:29 | estimated_finish=2026-06-17 13:09:39
+Quick validation epoch=130 | pseudo_dice=0.551379 | val_time=00:00:24
+Epoch 131/1000 finished | train_loss=0.617539 | lr=0.000352515 | epoch_time=00:01:07 | elapsed=02:41:03 | ETA=17:48:22 | estimated_finish=2026-06-17 13:12:04
+Epoch 132/1000 finished | train_loss=0.621995 | lr=0.00035215 | epoch_time=00:01:07 | elapsed=02:42:11 | ETA=17:46:32 | estimated_finish=2026-06-17 13:11:23
+Epoch 133/1000 finished | train_loss=0.666762 | lr=0.000351785 | epoch_time=00:01:08 | elapsed=02:43:20 | ETA=17:44:46 | estimated_finish=2026-06-17 13:10:46
+Epoch 134/1000 finished | train_loss=0.621395 | lr=0.00035142 | epoch_time=00:01:12 | elapsed=02:44:33 | ETA=17:43:27 | estimated_finish=2026-06-17 13:10:39
+Epoch 135/1000 finished | train_loss=0.634414 | lr=0.000351054 | epoch_time=00:01:08 | elapsed=02:45:42 | ETA=17:41:42 | estimated_finish=2026-06-17 13:10:03
+Quick validation epoch=135 | pseudo_dice=0.581072 | val_time=00:00:25
+Epoch 136/1000 finished | train_loss=0.640009 | lr=0.000350689 | epoch_time=00:01:09 | elapsed=02:47:17 | ETA=17:42:50 | estimated_finish=2026-06-17 13:12:47
+Epoch 137/1000 finished | train_loss=0.626387 | lr=0.000350324 | epoch_time=00:01:10 | elapsed=02:48:28 | ETA=17:41:19 | estimated_finish=2026-06-17 13:12:27
+Epoch 138/1000 finished | train_loss=0.665419 | lr=0.000349958 | epoch_time=00:01:08 | elapsed=02:49:37 | ETA=17:39:33 | estimated_finish=2026-06-17 13:11:49
+Epoch 139/1000 finished | train_loss=0.625754 | lr=0.000349593 | epoch_time=00:01:09 | elapsed=02:50:47 | ETA=17:37:56 | estimated_finish=2026-06-17 13:11:23
+Epoch 140/1000 finished | train_loss=0.615380 | lr=0.000349228 | epoch_time=00:01:09 | elapsed=02:51:57 | ETA=17:36:18 | estimated_finish=2026-06-17 13:10:55
+Quick validation epoch=140 | pseudo_dice=0.467797 | val_time=00:00:23
+Epoch 141/1000 finished | train_loss=0.623187 | lr=0.000348862 | epoch_time=00:01:07 | elapsed=02:53:29 | ETA=17:36:57 | estimated_finish=2026-06-17 13:13:06
+Epoch 142/1000 finished | train_loss=0.615126 | lr=0.000348497 | epoch_time=00:01:04 | elapsed=02:54:34 | ETA=17:34:50 | estimated_finish=2026-06-17 13:12:03
+Epoch 143/1000 finished | train_loss=0.626044 | lr=0.000348131 | epoch_time=00:01:10 | elapsed=02:55:45 | ETA=17:33:17 | estimated_finish=2026-06-17 13:11:41
+Epoch 144/1000 finished | train_loss=0.628230 | lr=0.000347765 | epoch_time=00:01:07 | elapsed=02:56:53 | ETA=17:31:29 | estimated_finish=2026-06-17 13:11:02
+Epoch 145/1000 finished | train_loss=0.608874 | lr=0.0003474 | epoch_time=00:01:06 | elapsed=02:58:00 | ETA=17:29:35 | estimated_finish=2026-06-17 13:10:14
+Quick validation epoch=145 | pseudo_dice=0.553698 | val_time=00:00:24
+Epoch 146/1000 finished | train_loss=0.632997 | lr=0.000347034 | epoch_time=00:01:06 | elapsed=02:59:31 | ETA=17:30:06 | estimated_finish=2026-06-17 13:12:17
+Epoch 147/1000 finished | train_loss=0.663245 | lr=0.000346668 | epoch_time=00:01:09 | elapsed=03:00:41 | ETA=17:28:29 | estimated_finish=2026-06-17 13:11:49
+Epoch 148/1000 finished | train_loss=0.612700 | lr=0.000346302 | epoch_time=00:01:06 | elapsed=03:01:48 | ETA=17:26:39 | estimated_finish=2026-06-17 13:11:07
+Epoch 149/1000 finished | train_loss=0.632922 | lr=0.000345937 | epoch_time=00:01:08 | elapsed=03:02:57 | ETA=17:24:56 | estimated_finish=2026-06-17 13:10:32
+Epoch 150/1000 finished | train_loss=0.625736 | lr=0.000345571 | epoch_time=00:01:07 | elapsed=03:04:04 | ETA=17:23:08 | estimated_finish=2026-06-17 13:09:52
+Quick validation epoch=150 | pseudo_dice=0.520862 | val_time=00:00:24
+Epoch 151/1000 finished | train_loss=0.599041 | lr=0.000345205 | epoch_time=00:01:07 | elapsed=03:05:38 | ETA=17:23:43 | estimated_finish=2026-06-17 13:12:01
+Epoch 152/1000 finished | train_loss=0.570167 | lr=0.000344839 | epoch_time=00:01:07 | elapsed=03:06:45 | ETA=17:21:56 | estimated_finish=2026-06-17 13:11:21
+Epoch 153/1000 finished | train_loss=0.658011 | lr=0.000344473 | epoch_time=00:01:08 | elapsed=03:07:54 | ETA=17:20:15 | estimated_finish=2026-06-17 13:10:49
+Epoch 154/1000 finished | train_loss=0.593681 | lr=0.000344107 | epoch_time=00:01:06 | elapsed=03:09:01 | ETA=17:18:25 | estimated_finish=2026-06-17 13:10:06
+Epoch 155/1000 finished | train_loss=0.673300 | lr=0.000343741 | epoch_time=00:01:08 | elapsed=03:10:10 | ETA=17:16:45 | estimated_finish=2026-06-17 13:09:34
+Quick validation epoch=155 | pseudo_dice=0.555653 | val_time=00:00:23
+Epoch 156/1000 finished | train_loss=0.620124 | lr=0.000343375 | epoch_time=00:01:06 | elapsed=03:11:41 | ETA=17:17:06 | estimated_finish=2026-06-17 13:11:26
+Epoch 157/1000 finished | train_loss=0.615043 | lr=0.000343008 | epoch_time=00:01:05 | elapsed=03:12:47 | ETA=17:15:08 | estimated_finish=2026-06-17 13:10:34
+Epoch 158/1000 finished | train_loss=0.621991 | lr=0.000342642 | epoch_time=00:01:05 | elapsed=03:13:52 | ETA=17:13:13 | estimated_finish=2026-06-17 13:09:45
+Epoch 159/1000 finished | train_loss=0.604745 | lr=0.000342276 | epoch_time=00:01:07 | elapsed=03:15:00 | ETA=17:11:27 | estimated_finish=2026-06-17 13:09:07
+Epoch 160/1000 finished | train_loss=0.665080 | lr=0.00034191 | epoch_time=00:01:06 | elapsed=03:16:07 | ETA=17:09:41 | estimated_finish=2026-06-17 13:08:28
+Quick validation epoch=160 | pseudo_dice=0.550978 | val_time=00:00:23
+Epoch 161/1000 finished | train_loss=0.648200 | lr=0.000341543 | epoch_time=00:01:08 | elapsed=03:17:40 | ETA=17:10:07 | estimated_finish=2026-06-17 13:10:26
+Epoch 162/1000 finished | train_loss=0.602630 | lr=0.000341177 | epoch_time=00:01:06 | elapsed=03:18:47 | ETA=17:08:17 | estimated_finish=2026-06-17 13:09:44
+Epoch 163/1000 finished | train_loss=0.608933 | lr=0.00034081 | epoch_time=00:01:07 | elapsed=03:19:55 | ETA=17:06:34 | estimated_finish=2026-06-17 13:09:09
+Epoch 164/1000 finished | train_loss=0.599713 | lr=0.000340444 | epoch_time=00:01:07 | elapsed=03:21:03 | ETA=17:04:54 | estimated_finish=2026-06-17 13:08:36
+Epoch 165/1000 finished | train_loss=0.605051 | lr=0.000340077 | epoch_time=00:01:06 | elapsed=03:22:10 | ETA=17:03:09 | estimated_finish=2026-06-17 13:07:59
+Quick validation epoch=165 | pseudo_dice=0.559662 | val_time=00:00:24
+Epoch 166/1000 finished | train_loss=0.619171 | lr=0.000339711 | epoch_time=00:01:05 | elapsed=03:23:41 | ETA=17:03:23 | estimated_finish=2026-06-17 13:09:44
+Epoch 167/1000 finished | train_loss=0.597090 | lr=0.000339344 | epoch_time=00:01:09 | elapsed=03:24:51 | ETA=17:01:51 | estimated_finish=2026-06-17 13:09:22
+Epoch 168/1000 finished | train_loss=0.628358 | lr=0.000338978 | epoch_time=00:01:08 | elapsed=03:26:00 | ETA=17:00:14 | estimated_finish=2026-06-17 13:08:54
+Epoch 169/1000 finished | train_loss=0.640706 | lr=0.000338611 | epoch_time=00:01:06 | elapsed=03:27:07 | ETA=16:58:26 | estimated_finish=2026-06-17 13:08:12
+Epoch 170/1000 finished | train_loss=0.620629 | lr=0.000338244 | epoch_time=00:01:09 | elapsed=03:28:16 | ETA=16:56:53 | estimated_finish=2026-06-17 13:07:49
+Quick validation epoch=170 | pseudo_dice=0.562559 | val_time=00:00:24
+Epoch 171/1000 finished | train_loss=0.593126 | lr=0.000337877 | epoch_time=00:01:07 | elapsed=03:29:48 | ETA=16:57:09 | estimated_finish=2026-06-17 13:09:37
+Epoch 172/1000 finished | train_loss=0.589392 | lr=0.000337511 | epoch_time=00:01:07 | elapsed=03:30:56 | ETA=16:55:27 | estimated_finish=2026-06-17 13:09:03
+Epoch 173/1000 finished | train_loss=0.587757 | lr=0.000337144 | epoch_time=00:01:07 | elapsed=03:32:04 | ETA=16:53:48 | estimated_finish=2026-06-17 13:08:31
+Epoch 174/1000 finished | train_loss=0.629982 | lr=0.000336777 | epoch_time=00:01:06 | elapsed=03:33:11 | ETA=16:52:03 | estimated_finish=2026-06-17 13:07:53
+Epoch 175/1000 finished | train_loss=0.633755 | lr=0.00033641 | epoch_time=00:01:07 | elapsed=03:34:19 | ETA=16:50:23 | estimated_finish=2026-06-17 13:07:21
+Quick validation epoch=175 | pseudo_dice=0.602093 | val_time=00:00:24
+New best model saved by quick validation | pseudo_dice=0.602093 | epoch=175
+Epoch 176/1000 finished | train_loss=0.619994 | lr=0.000336043 | epoch_time=00:01:08 | elapsed=03:35:53 | ETA=16:50:45 | estimated_finish=2026-06-17 13:09:18
+Epoch 177/1000 finished | train_loss=0.618429 | lr=0.000335676 | epoch_time=00:01:05 | elapsed=03:36:59 | ETA=16:48:58 | estimated_finish=2026-06-17 13:08:37
+Epoch 178/1000 finished | train_loss=0.609769 | lr=0.000335309 | epoch_time=00:01:07 | elapsed=03:38:07 | ETA=16:47:17 | estimated_finish=2026-06-17 13:08:04
+Epoch 179/1000 finished | train_loss=0.640497 | lr=0.000334941 | epoch_time=00:01:12 | elapsed=03:39:19 | ETA=16:45:59 | estimated_finish=2026-06-17 13:07:58
+Epoch 180/1000 finished | train_loss=0.630939 | lr=0.000334574 | epoch_time=00:01:08 | elapsed=03:40:28 | ETA=16:44:23 | estimated_finish=2026-06-17 13:07:31
+Quick validation epoch=180 | pseudo_dice=0.577117 | val_time=00:00:25
+Epoch 181/1000 finished | train_loss=0.619672 | lr=0.000334207 | epoch_time=00:01:09 | elapsed=03:42:03 | ETA=16:44:46 | estimated_finish=2026-06-17 13:09:28
+Epoch 182/1000 finished | train_loss=0.609784 | lr=0.00033384 | epoch_time=00:01:08 | elapsed=03:43:12 | ETA=16:43:10 | estimated_finish=2026-06-17 13:09:02
+Epoch 183/1000 finished | train_loss=0.630136 | lr=0.000333472 | epoch_time=00:01:07 | elapsed=03:44:20 | ETA=16:41:32 | estimated_finish=2026-06-17 13:08:31
+Epoch 184/1000 finished | train_loss=0.632689 | lr=0.000333105 | epoch_time=00:01:08 | elapsed=03:45:29 | ETA=16:39:58 | estimated_finish=2026-06-17 13:08:06
+Epoch 185/1000 finished | train_loss=0.607472 | lr=0.000332738 | epoch_time=00:01:10 | elapsed=03:46:39 | ETA=16:38:33 | estimated_finish=2026-06-17 13:07:52
+Quick validation epoch=185 | pseudo_dice=0.526947 | val_time=00:00:24
+Epoch 186/1000 finished | train_loss=0.600924 | lr=0.00033237 | epoch_time=00:01:08 | elapsed=03:48:13 | ETA=16:38:48 | estimated_finish=2026-06-17 13:09:41
+Epoch 187/1000 finished | train_loss=0.604506 | lr=0.000332003 | epoch_time=00:01:08 | elapsed=03:49:23 | ETA=16:37:16 | estimated_finish=2026-06-17 13:09:18
+Epoch 188/1000 finished | train_loss=0.649162 | lr=0.000331635 | epoch_time=00:01:10 | elapsed=03:50:33 | ETA=16:35:49 | estimated_finish=2026-06-17 13:09:02
+Epoch 189/1000 finished | train_loss=0.638211 | lr=0.000331267 | epoch_time=00:01:06 | elapsed=03:51:40 | ETA=16:34:08 | estimated_finish=2026-06-17 13:08:28
+Epoch 190/1000 finished | train_loss=0.591074 | lr=0.0003309 | epoch_time=00:01:05 | elapsed=03:52:46 | ETA=16:32:23 | estimated_finish=2026-06-17 13:07:49
+Quick validation epoch=190 | pseudo_dice=0.524864 | val_time=00:00:24
+Epoch 191/1000 finished | train_loss=0.624289 | lr=0.000330532 | epoch_time=00:01:11 | elapsed=03:54:23 | ETA=16:32:46 | estimated_finish=2026-06-17 13:09:49
+Epoch 192/1000 finished | train_loss=0.638875 | lr=0.000330164 | epoch_time=00:01:05 | elapsed=03:55:29 | ETA=16:31:00 | estimated_finish=2026-06-17 13:09:08
+Epoch 193/1000 finished | train_loss=0.610357 | lr=0.000329797 | epoch_time=00:01:07 | elapsed=03:56:36 | ETA=16:29:21 | estimated_finish=2026-06-17 13:08:37
+Epoch 194/1000 finished | train_loss=0.581694 | lr=0.000329429 | epoch_time=00:01:06 | elapsed=03:57:43 | ETA=16:27:37 | estimated_finish=2026-06-17 13:08:00
+Epoch 195/1000 finished | train_loss=0.604621 | lr=0.000329061 | epoch_time=00:01:06 | elapsed=03:58:49 | ETA=16:25:56 | estimated_finish=2026-06-17 13:07:25
+Quick validation epoch=195 | pseudo_dice=0.558630 | val_time=00:00:24
+Epoch 196/1000 finished | train_loss=0.614835 | lr=0.000328693 | epoch_time=00:01:05 | elapsed=04:00:19 | ETA=16:25:50 | estimated_finish=2026-06-17 13:08:49
+Epoch 197/1000 finished | train_loss=0.596253 | lr=0.000328325 | epoch_time=00:01:05 | elapsed=04:01:26 | ETA=16:24:07 | estimated_finish=2026-06-17 13:08:13
+Epoch 198/1000 finished | train_loss=0.574531 | lr=0.000327957 | epoch_time=00:01:07 | elapsed=04:02:33 | ETA=16:22:30 | estimated_finish=2026-06-17 13:07:44
+Epoch 199/1000 finished | train_loss=0.575664 | lr=0.000327589 | epoch_time=00:01:07 | elapsed=04:03:41 | ETA=16:20:53 | estimated_finish=2026-06-17 13:07:14
+Epoch 200/1000 finished | train_loss=0.585655 | lr=0.000327221 | epoch_time=00:01:05 | elapsed=04:04:47 | ETA=16:19:11 | estimated_finish=2026-06-17 13:06:38
+Quick validation epoch=200 | pseudo_dice=0.506249 | val_time=00:00:23
+Full validation epoch=200 | mean_dice=0.146284 | val_time=00:03:46
+New best full-validation model saved | dice=0.146284 | epoch=200
+Epoch 201/1000 finished | train_loss=0.589368 | lr=0.000326853 | epoch_time=00:01:08 | elapsed=04:10:07 | ETA=16:34:18 | estimated_finish=2026-06-17 13:27:05
+Epoch 202/1000 finished | train_loss=0.610463 | lr=0.000326485 | epoch_time=00:01:05 | elapsed=04:11:13 | ETA=16:32:28 | estimated_finish=2026-06-17 13:26:21
+Epoch 203/1000 finished | train_loss=0.555194 | lr=0.000326116 | epoch_time=00:01:07 | elapsed=04:12:21 | ETA=16:30:46 | estimated_finish=2026-06-17 13:25:46
+Epoch 204/1000 finished | train_loss=0.633625 | lr=0.000325748 | epoch_time=00:01:06 | elapsed=04:13:28 | ETA=16:29:01 | estimated_finish=2026-06-17 13:25:08
+Epoch 205/1000 finished | train_loss=0.629844 | lr=0.00032538 | epoch_time=00:01:08 | elapsed=04:14:36 | ETA=16:27:23 | estimated_finish=2026-06-17 13:24:39
+Quick validation epoch=205 | pseudo_dice=0.496598 | val_time=00:00:24
+Epoch 206/1000 finished | train_loss=0.593625 | lr=0.000325011 | epoch_time=00:01:06 | elapsed=04:16:08 | ETA=16:27:16 | estimated_finish=2026-06-17 13:26:04
+Epoch 207/1000 finished | train_loss=0.621231 | lr=0.000324643 | epoch_time=00:01:09 | elapsed=04:17:19 | ETA=16:25:45 | estimated_finish=2026-06-17 13:25:43
+Epoch 208/1000 finished | train_loss=0.597133 | lr=0.000324274 | epoch_time=00:01:07 | elapsed=04:18:26 | ETA=16:24:04 | estimated_finish=2026-06-17 13:25:09
+Epoch 209/1000 finished | train_loss=0.593436 | lr=0.000323906 | epoch_time=00:01:05 | elapsed=04:19:32 | ETA=16:22:17 | estimated_finish=2026-06-17 13:24:29
+Epoch 210/1000 finished | train_loss=0.609007 | lr=0.000323537 | epoch_time=00:01:05 | elapsed=04:20:38 | ETA=16:20:31 | estimated_finish=2026-06-17 13:23:49
+Quick validation epoch=210 | pseudo_dice=0.560437 | val_time=00:00:24
+Epoch 211/1000 finished | train_loss=0.631203 | lr=0.000323169 | epoch_time=00:01:04 | elapsed=04:22:08 | ETA=16:20:13 | estimated_finish=2026-06-17 13:25:00
+Epoch 212/1000 finished | train_loss=0.591247 | lr=0.0003228 | epoch_time=00:01:09 | elapsed=04:23:18 | ETA=16:18:43 | estimated_finish=2026-06-17 13:24:41
+Epoch 213/1000 finished | train_loss=0.620496 | lr=0.000322431 | epoch_time=00:01:05 | elapsed=04:24:25 | ETA=16:16:59 | estimated_finish=2026-06-17 13:24:03
+Epoch 214/1000 finished | train_loss=0.627607 | lr=0.000322063 | epoch_time=00:01:09 | elapsed=04:25:35 | ETA=16:15:29 | estimated_finish=2026-06-17 13:23:44
+Epoch 215/1000 finished | train_loss=0.579460 | lr=0.000321694 | epoch_time=00:01:09 | elapsed=04:26:45 | ETA=16:13:57 | estimated_finish=2026-06-17 13:23:21
+Quick validation epoch=215 | pseudo_dice=0.525487 | val_time=00:00:23
+Epoch 216/1000 finished | train_loss=0.595459 | lr=0.000321325 | epoch_time=00:01:08 | elapsed=04:28:18 | ETA=16:13:50 | estimated_finish=2026-06-17 13:24:48
+Epoch 217/1000 finished | train_loss=0.636047 | lr=0.000320956 | epoch_time=00:01:06 | elapsed=04:29:25 | ETA=16:12:08 | estimated_finish=2026-06-17 13:24:13
+Epoch 218/1000 finished | train_loss=0.578136 | lr=0.000320587 | epoch_time=00:01:08 | elapsed=04:30:34 | ETA=16:10:35 | estimated_finish=2026-06-17 13:23:48
+Epoch 219/1000 finished | train_loss=0.614383 | lr=0.000320218 | epoch_time=00:01:07 | elapsed=04:31:42 | ETA=16:08:57 | estimated_finish=2026-06-17 13:23:18
+Epoch 220/1000 finished | train_loss=0.575556 | lr=0.000319849 | epoch_time=00:01:05 | elapsed=04:32:48 | ETA=16:07:13 | estimated_finish=2026-06-17 13:22:40
+Quick validation epoch=220 | pseudo_dice=0.575163 | val_time=00:00:24
+Epoch 221/1000 finished | train_loss=0.573353 | lr=0.00031948 | epoch_time=00:01:06 | elapsed=04:34:19 | ETA=16:06:57 | estimated_finish=2026-06-17 13:23:55
+Epoch 222/1000 finished | train_loss=0.589841 | lr=0.000319111 | epoch_time=00:01:05 | elapsed=04:35:25 | ETA=16:05:12 | estimated_finish=2026-06-17 13:23:17
+Epoch 223/1000 finished | train_loss=0.573717 | lr=0.000318742 | epoch_time=00:01:06 | elapsed=04:36:31 | ETA=16:03:31 | estimated_finish=2026-06-17 13:22:42
+Epoch 224/1000 finished | train_loss=0.609672 | lr=0.000318372 | epoch_time=00:01:06 | elapsed=04:37:38 | ETA=16:01:50 | estimated_finish=2026-06-17 13:22:08
+Epoch 225/1000 finished | train_loss=0.592144 | lr=0.000318003 | epoch_time=00:01:06 | elapsed=04:38:45 | ETA=16:00:09 | estimated_finish=2026-06-17 13:21:34
+Quick validation epoch=225 | pseudo_dice=0.589713 | val_time=00:00:24
+Epoch 226/1000 finished | train_loss=0.596768 | lr=0.000317634 | epoch_time=00:01:06 | elapsed=04:40:16 | ETA=15:59:53 | estimated_finish=2026-06-17 13:22:49
+Epoch 227/1000 finished | train_loss=0.587741 | lr=0.000317265 | epoch_time=00:01:06 | elapsed=04:41:23 | ETA=15:58:12 | estimated_finish=2026-06-17 13:22:15
+Epoch 228/1000 finished | train_loss=0.626720 | lr=0.000316895 | epoch_time=00:01:07 | elapsed=04:42:31 | ETA=15:56:38 | estimated_finish=2026-06-17 13:21:49
+Epoch 229/1000 finished | train_loss=0.624304 | lr=0.000316526 | epoch_time=00:01:07 | elapsed=04:43:39 | ETA=15:55:01 | estimated_finish=2026-06-17 13:21:20
+Epoch 230/1000 finished | train_loss=0.595773 | lr=0.000316156 | epoch_time=00:01:06 | elapsed=04:44:46 | ETA=15:53:23 | estimated_finish=2026-06-17 13:20:50
+Quick validation epoch=230 | pseudo_dice=0.598568 | val_time=00:00:24
+Epoch 231/1000 finished | train_loss=0.615243 | lr=0.000315787 | epoch_time=00:01:07 | elapsed=04:46:18 | ETA=15:53:07 | estimated_finish=2026-06-17 13:22:05
+Epoch 232/1000 finished | train_loss=0.591915 | lr=0.000315417 | epoch_time=00:01:08 | elapsed=04:47:27 | ETA=15:51:35 | estimated_finish=2026-06-17 13:21:41
+Epoch 233/1000 finished | train_loss=0.626571 | lr=0.000315047 | epoch_time=00:01:06 | elapsed=04:48:34 | ETA=15:49:57 | estimated_finish=2026-06-17 13:21:10
+Epoch 234/1000 finished | train_loss=0.589191 | lr=0.000314678 | epoch_time=00:01:08 | elapsed=04:49:43 | ETA=15:48:24 | estimated_finish=2026-06-17 13:20:46
+Epoch 235/1000 finished | train_loss=0.595806 | lr=0.000314308 | epoch_time=00:01:07 | elapsed=04:50:51 | ETA=15:46:51 | estimated_finish=2026-06-17 13:20:22
+Quick validation epoch=235 | pseudo_dice=0.542694 | val_time=00:00:23
+Epoch 236/1000 finished | train_loss=0.574392 | lr=0.000313938 | epoch_time=00:01:06 | elapsed=04:52:22 | ETA=15:46:30 | estimated_finish=2026-06-17 13:21:32
+Epoch 237/1000 finished | train_loss=0.593262 | lr=0.000313568 | epoch_time=00:01:05 | elapsed=04:53:29 | ETA=15:44:50 | estimated_finish=2026-06-17 13:20:59
+Epoch 238/1000 finished | train_loss=0.583603 | lr=0.000313198 | epoch_time=00:01:06 | elapsed=04:54:36 | ETA=15:43:13 | estimated_finish=2026-06-17 13:20:29
+Epoch 239/1000 finished | train_loss=0.565917 | lr=0.000312828 | epoch_time=00:01:06 | elapsed=04:55:43 | ETA=15:41:35 | estimated_finish=2026-06-17 13:19:58
+Epoch 240/1000 finished | train_loss=0.588596 | lr=0.000312458 | epoch_time=00:01:08 | elapsed=04:56:51 | ETA=15:40:03 | estimated_finish=2026-06-17 13:19:34
+Quick validation epoch=240 | pseudo_dice=0.552159 | val_time=00:00:23
+Epoch 241/1000 finished | train_loss=0.567721 | lr=0.000312088 | epoch_time=00:01:06 | elapsed=04:58:22 | ETA=15:39:40 | estimated_finish=2026-06-17 13:20:42
+Epoch 242/1000 finished | train_loss=0.638041 | lr=0.000311718 | epoch_time=00:01:09 | elapsed=04:59:32 | ETA=15:38:12 | estimated_finish=2026-06-17 13:20:24
+Epoch 243/1000 finished | train_loss=0.671544 | lr=0.000311348 | epoch_time=00:01:08 | elapsed=05:00:40 | ETA=15:36:41 | estimated_finish=2026-06-17 13:20:01
+Epoch 244/1000 finished | train_loss=0.627655 | lr=0.000310978 | epoch_time=00:01:06 | elapsed=05:01:47 | ETA=15:35:03 | estimated_finish=2026-06-17 13:19:30
+Epoch 245/1000 finished | train_loss=0.577021 | lr=0.000310608 | epoch_time=00:01:08 | elapsed=05:02:56 | ETA=15:33:32 | estimated_finish=2026-06-17 13:19:07
+Quick validation epoch=245 | pseudo_dice=0.606308 | val_time=00:00:24
+New best model saved by quick validation | pseudo_dice=0.606308 | epoch=245
+Epoch 246/1000 finished | train_loss=0.581320 | lr=0.000310237 | epoch_time=00:01:10 | elapsed=05:04:32 | ETA=15:33:26 | estimated_finish=2026-06-17 13:20:38
+Epoch 247/1000 finished | train_loss=0.569821 | lr=0.000309867 | epoch_time=00:01:05 | elapsed=05:05:38 | ETA=15:31:45 | estimated_finish=2026-06-17 13:20:03
+Epoch 248/1000 finished | train_loss=0.600613 | lr=0.000309497 | epoch_time=00:01:07 | elapsed=05:06:45 | ETA=15:30:11 | estimated_finish=2026-06-17 13:19:36
+Epoch 249/1000 finished | train_loss=0.581021 | lr=0.000309126 | epoch_time=00:01:06 | elapsed=05:07:52 | ETA=15:28:34 | estimated_finish=2026-06-17 13:19:06
+Epoch 250/1000 finished | train_loss=0.579428 | lr=0.000308756 | epoch_time=00:01:06 | elapsed=05:09:00 | ETA=15:27:00 | estimated_finish=2026-06-17 13:18:39
+Quick validation epoch=250 | pseudo_dice=0.524148 | val_time=00:00:24
+Epoch 251/1000 finished | train_loss=0.588581 | lr=0.000308385 | epoch_time=00:01:05 | elapsed=05:10:30 | ETA=15:26:34 | estimated_finish=2026-06-17 13:19:44
+Epoch 252/1000 finished | train_loss=0.593957 | lr=0.000308015 | epoch_time=00:01:06 | elapsed=05:11:37 | ETA=15:24:58 | estimated_finish=2026-06-17 13:19:14
+Epoch 253/1000 finished | train_loss=0.609911 | lr=0.000307644 | epoch_time=00:01:05 | elapsed=05:12:43 | ETA=15:23:19 | estimated_finish=2026-06-17 13:18:42
+Epoch 254/1000 finished | train_loss=0.595849 | lr=0.000307273 | epoch_time=00:01:08 | elapsed=05:13:52 | ETA=15:21:51 | estimated_finish=2026-06-17 13:18:22
+Epoch 255/1000 finished | train_loss=0.580041 | lr=0.000306903 | epoch_time=00:01:07 | elapsed=05:15:00 | ETA=15:20:19 | estimated_finish=2026-06-17 13:17:59
+Quick validation epoch=255 | pseudo_dice=0.560824 | val_time=00:00:24
+Epoch 256/1000 finished | train_loss=0.623861 | lr=0.000306532 | epoch_time=00:01:06 | elapsed=05:16:31 | ETA=15:19:54 | estimated_finish=2026-06-17 13:19:04
+Epoch 257/1000 finished | train_loss=0.577128 | lr=0.000306161 | epoch_time=00:01:04 | elapsed=05:17:36 | ETA=15:18:12 | estimated_finish=2026-06-17 13:18:28
+Epoch 258/1000 finished | train_loss=0.548469 | lr=0.00030579 | epoch_time=00:01:08 | elapsed=05:18:44 | ETA=15:16:42 | estimated_finish=2026-06-17 13:18:07
+Epoch 259/1000 finished | train_loss=0.595847 | lr=0.000305419 | epoch_time=00:01:06 | elapsed=05:19:51 | ETA=15:15:08 | estimated_finish=2026-06-17 13:17:39
+Epoch 260/1000 finished | train_loss=0.575954 | lr=0.000305048 | epoch_time=00:01:06 | elapsed=05:20:58 | ETA=15:13:33 | estimated_finish=2026-06-17 13:17:11
+Quick validation epoch=260 | pseudo_dice=0.509469 | val_time=00:00:24
+Epoch 261/1000 finished | train_loss=0.599155 | lr=0.000304677 | epoch_time=00:01:06 | elapsed=05:22:29 | ETA=15:13:07 | estimated_finish=2026-06-17 13:18:16
+Epoch 262/1000 finished | train_loss=0.552041 | lr=0.000304306 | epoch_time=00:01:06 | elapsed=05:23:36 | ETA=15:11:33 | estimated_finish=2026-06-17 13:17:49
+Epoch 263/1000 finished | train_loss=0.575998 | lr=0.000303935 | epoch_time=00:01:05 | elapsed=05:24:43 | ETA=15:09:57 | estimated_finish=2026-06-17 13:17:19
+Epoch 264/1000 finished | train_loss=0.586809 | lr=0.000303564 | epoch_time=00:01:06 | elapsed=05:25:50 | ETA=15:08:23 | estimated_finish=2026-06-17 13:16:52
+Epoch 265/1000 finished | train_loss=0.586575 | lr=0.000303193 | epoch_time=00:01:06 | elapsed=05:26:56 | ETA=15:06:49 | estimated_finish=2026-06-17 13:16:25
+Quick validation epoch=265 | pseudo_dice=0.499566 | val_time=00:00:23
+Epoch 266/1000 finished | train_loss=0.600865 | lr=0.000302821 | epoch_time=00:01:05 | elapsed=05:28:26 | ETA=15:06:18 | estimated_finish=2026-06-17 13:17:24
+Epoch 267/1000 finished | train_loss=0.617645 | lr=0.00030245 | epoch_time=00:01:06 | elapsed=05:29:33 | ETA=15:04:43 | estimated_finish=2026-06-17 13:16:56
+Epoch 268/1000 finished | train_loss=0.603584 | lr=0.000302079 | epoch_time=00:01:07 | elapsed=05:30:41 | ETA=15:03:12 | estimated_finish=2026-06-17 13:16:32
+Epoch 269/1000 finished | train_loss=0.587107 | lr=0.000301707 | epoch_time=00:01:09 | elapsed=05:31:51 | ETA=15:01:48 | estimated_finish=2026-06-17 13:16:19
+Epoch 270/1000 finished | train_loss=0.587588 | lr=0.000301336 | epoch_time=00:01:06 | elapsed=05:32:58 | ETA=15:00:14 | estimated_finish=2026-06-17 13:15:52
+Quick validation epoch=270 | pseudo_dice=0.593982 | val_time=00:00:23
+Epoch 271/1000 finished | train_loss=0.562282 | lr=0.000300964 | epoch_time=00:01:06 | elapsed=05:34:28 | ETA=14:59:46 | estimated_finish=2026-06-17 13:16:54
+Epoch 272/1000 finished | train_loss=0.596750 | lr=0.000300593 | epoch_time=00:01:04 | elapsed=05:35:34 | ETA=14:58:09 | estimated_finish=2026-06-17 13:16:22
+Epoch 273/1000 finished | train_loss=0.561938 | lr=0.000300221 | epoch_time=00:01:05 | elapsed=05:36:40 | ETA=14:56:33 | estimated_finish=2026-06-17 13:15:52
+Epoch 274/1000 finished | train_loss=0.583871 | lr=0.000299849 | epoch_time=00:01:05 | elapsed=05:37:45 | ETA=14:54:57 | estimated_finish=2026-06-17 13:15:22
+Epoch 275/1000 finished | train_loss=0.588016 | lr=0.000299477 | epoch_time=00:01:07 | elapsed=05:38:53 | ETA=14:53:27 | estimated_finish=2026-06-17 13:15:00
+Quick validation epoch=275 | pseudo_dice=0.523049 | val_time=00:00:24
+Epoch 276/1000 finished | train_loss=0.592527 | lr=0.000299106 | epoch_time=00:01:07 | elapsed=05:40:26 | ETA=14:53:01 | estimated_finish=2026-06-17 13:16:06
+Epoch 277/1000 finished | train_loss=0.570576 | lr=0.000298734 | epoch_time=00:01:09 | elapsed=05:41:35 | ETA=14:51:36 | estimated_finish=2026-06-17 13:15:50
+Epoch 278/1000 finished | train_loss=0.541873 | lr=0.000298362 | epoch_time=00:01:05 | elapsed=05:42:41 | ETA=14:50:01 | estimated_finish=2026-06-17 13:15:22
+Epoch 279/1000 finished | train_loss=0.581838 | lr=0.00029799 | epoch_time=00:01:05 | elapsed=05:43:47 | ETA=14:48:26 | estimated_finish=2026-06-17 13:14:52
+Epoch 280/1000 finished | train_loss=0.622136 | lr=0.000297618 | epoch_time=00:01:06 | elapsed=05:44:54 | ETA=14:46:54 | estimated_finish=2026-06-17 13:14:28
+Quick validation epoch=280 | pseudo_dice=0.611681 | val_time=00:00:24
+New best model saved by quick validation | pseudo_dice=0.611681 | epoch=280
+Epoch 281/1000 finished | train_loss=0.595124 | lr=0.000297246 | epoch_time=00:01:10 | elapsed=05:46:30 | ETA=14:46:38 | estimated_finish=2026-06-17 13:15:48
+Epoch 282/1000 finished | train_loss=0.547457 | lr=0.000296874 | epoch_time=00:01:09 | elapsed=05:47:40 | ETA=14:45:13 | estimated_finish=2026-06-17 13:15:34
+Epoch 283/1000 finished | train_loss=0.569504 | lr=0.000296502 | epoch_time=00:01:07 | elapsed=05:48:48 | ETA=14:43:44 | estimated_finish=2026-06-17 13:15:12
+Epoch 284/1000 finished | train_loss=0.577491 | lr=0.00029613 | epoch_time=00:01:08 | elapsed=05:49:57 | ETA=14:42:17 | estimated_finish=2026-06-17 13:14:53
+Epoch 285/1000 finished | train_loss=0.596086 | lr=0.000295757 | epoch_time=00:01:07 | elapsed=05:51:05 | ETA=14:40:47 | estimated_finish=2026-06-17 13:14:32
+Quick validation epoch=285 | pseudo_dice=0.550004 | val_time=00:00:24
+Epoch 286/1000 finished | train_loss=0.590391 | lr=0.000295385 | epoch_time=00:01:06 | elapsed=05:52:35 | ETA=14:40:15 | estimated_finish=2026-06-17 13:15:30
+Epoch 287/1000 finished | train_loss=0.569745 | lr=0.000295013 | epoch_time=00:01:05 | elapsed=05:53:41 | ETA=14:38:41 | estimated_finish=2026-06-17 13:15:02
+Epoch 288/1000 finished | train_loss=0.559086 | lr=0.00029464 | epoch_time=00:01:07 | elapsed=05:54:49 | ETA=14:37:11 | estimated_finish=2026-06-17 13:14:40
+Epoch 289/1000 finished | train_loss=0.615871 | lr=0.000294268 | epoch_time=00:01:07 | elapsed=05:55:56 | ETA=14:35:42 | estimated_finish=2026-06-17 13:14:18
+Epoch 290/1000 finished | train_loss=0.587385 | lr=0.000293895 | epoch_time=00:01:07 | elapsed=05:57:05 | ETA=14:34:14 | estimated_finish=2026-06-17 13:13:59
+Quick validation epoch=290 | pseudo_dice=0.558490 | val_time=00:00:24
+Epoch 291/1000 finished | train_loss=0.547644 | lr=0.000293523 | epoch_time=00:01:09 | elapsed=05:58:39 | ETA=14:33:50 | estimated_finish=2026-06-17 13:15:08
+Epoch 292/1000 finished | train_loss=0.605959 | lr=0.00029315 | epoch_time=00:01:07 | elapsed=05:59:47 | ETA=14:32:21 | estimated_finish=2026-06-17 13:14:48
+Epoch 293/1000 finished | train_loss=0.558604 | lr=0.000292777 | epoch_time=00:01:07 | elapsed=06:00:55 | ETA=14:30:54 | estimated_finish=2026-06-17 13:14:29
+Epoch 294/1000 finished | train_loss=0.539439 | lr=0.000292405 | epoch_time=00:01:05 | elapsed=06:02:01 | ETA=14:29:21 | estimated_finish=2026-06-17 13:14:02
+Epoch 295/1000 finished | train_loss=0.541765 | lr=0.000292032 | epoch_time=00:01:04 | elapsed=06:03:06 | ETA=14:27:47 | estimated_finish=2026-06-17 13:13:33
+Quick validation epoch=295 | pseudo_dice=0.556776 | val_time=00:00:24
+Epoch 296/1000 finished | train_loss=0.574593 | lr=0.000291659 | epoch_time=00:01:06 | elapsed=06:04:37 | ETA=14:27:13 | estimated_finish=2026-06-17 13:14:30
+Epoch 297/1000 finished | train_loss=0.604969 | lr=0.000291286 | epoch_time=00:01:07 | elapsed=06:05:45 | ETA=14:25:45 | estimated_finish=2026-06-17 13:14:09
+Epoch 298/1000 finished | train_loss=0.633413 | lr=0.000290913 | epoch_time=00:01:06 | elapsed=06:06:52 | ETA=14:24:14 | estimated_finish=2026-06-17 13:13:46
+Epoch 299/1000 finished | train_loss=0.601476 | lr=0.00029054 | epoch_time=00:01:07 | elapsed=06:08:00 | ETA=14:22:47 | estimated_finish=2026-06-17 13:13:27
+Epoch 300/1000 finished | train_loss=0.577586 | lr=0.000290167 | epoch_time=00:01:06 | elapsed=06:09:08 | ETA=14:21:18 | estimated_finish=2026-06-17 13:13:05
+Quick validation epoch=300 | pseudo_dice=0.549581 | val_time=00:00:24
+Full validation epoch=300 | mean_dice=0.278159 | val_time=00:03:46
+New best full-validation model saved | dice=0.278159 | epoch=300
+Epoch 301/1000 finished | train_loss=0.571295 | lr=0.000289794 | epoch_time=00:01:06 | elapsed=06:14:26 | ETA=14:29:32 | estimated_finish=2026-06-17 13:26:38
+Epoch 302/1000 finished | train_loss=0.591153 | lr=0.000289421 | epoch_time=00:01:09 | elapsed=06:15:36 | ETA=14:28:08 | estimated_finish=2026-06-17 13:26:24
+Epoch 303/1000 finished | train_loss=0.542636 | lr=0.000289048 | epoch_time=00:01:06 | elapsed=06:16:43 | ETA=14:26:35 | estimated_finish=2026-06-17 13:25:58
+Epoch 304/1000 finished | train_loss=0.595669 | lr=0.000288674 | epoch_time=00:01:07 | elapsed=06:17:51 | ETA=14:25:05 | estimated_finish=2026-06-17 13:25:35
+Epoch 305/1000 finished | train_loss=0.564976 | lr=0.000288301 | epoch_time=00:01:06 | elapsed=06:18:58 | ETA=14:23:34 | estimated_finish=2026-06-17 13:25:12
+Quick validation epoch=305 | pseudo_dice=0.598642 | val_time=00:00:24
+Epoch 306/1000 finished | train_loss=0.577450 | lr=0.000287928 | epoch_time=00:01:06 | elapsed=06:20:29 | ETA=14:22:57 | estimated_finish=2026-06-17 13:26:06
+Epoch 307/1000 finished | train_loss=0.578779 | lr=0.000287554 | epoch_time=00:01:06 | elapsed=06:21:37 | ETA=14:21:26 | estimated_finish=2026-06-17 13:25:42
+Epoch 308/1000 finished | train_loss=0.572085 | lr=0.000287181 | epoch_time=00:01:06 | elapsed=06:22:44 | ETA=14:19:54 | estimated_finish=2026-06-17 13:25:17
+Epoch 309/1000 finished | train_loss=0.564929 | lr=0.000286807 | epoch_time=00:01:06 | elapsed=06:23:50 | ETA=14:18:22 | estimated_finish=2026-06-17 13:24:52
+Epoch 310/1000 finished | train_loss=0.577501 | lr=0.000286434 | epoch_time=00:01:07 | elapsed=06:24:59 | ETA=14:16:54 | estimated_finish=2026-06-17 13:24:32
+Quick validation epoch=310 | pseudo_dice=0.559914 | val_time=00:00:23
+Epoch 311/1000 finished | train_loss=0.536210 | lr=0.00028606 | epoch_time=00:01:06 | elapsed=06:26:30 | ETA=14:16:16 | estimated_finish=2026-06-17 13:25:25
+Epoch 312/1000 finished | train_loss=0.562260 | lr=0.000285686 | epoch_time=00:01:05 | elapsed=06:27:36 | ETA=14:14:43 | estimated_finish=2026-06-17 13:24:59
+Epoch 313/1000 finished | train_loss=0.574678 | lr=0.000285313 | epoch_time=00:01:05 | elapsed=06:28:42 | ETA=14:13:10 | estimated_finish=2026-06-17 13:24:32
+Epoch 314/1000 finished | train_loss=0.581456 | lr=0.000284939 | epoch_time=00:01:08 | elapsed=06:29:51 | ETA=14:11:43 | estimated_finish=2026-06-17 13:24:13
+Epoch 315/1000 finished | train_loss=0.587855 | lr=0.000284565 | epoch_time=00:01:06 | elapsed=06:30:58 | ETA=14:10:12 | estimated_finish=2026-06-17 13:23:49
+Quick validation epoch=315 | pseudo_dice=0.537827 | val_time=00:00:24
+Epoch 316/1000 finished | train_loss=0.582100 | lr=0.000284191 | epoch_time=00:01:07 | elapsed=06:32:30 | ETA=14:09:36 | estimated_finish=2026-06-17 13:24:46
+Epoch 317/1000 finished | train_loss=0.544539 | lr=0.000283817 | epoch_time=00:01:06 | elapsed=06:33:37 | ETA=14:08:06 | estimated_finish=2026-06-17 13:24:23
+Epoch 318/1000 finished | train_loss=0.584658 | lr=0.000283443 | epoch_time=00:01:08 | elapsed=06:34:47 | ETA=14:06:40 | estimated_finish=2026-06-17 13:24:07
+Epoch 319/1000 finished | train_loss=0.613910 | lr=0.000283069 | epoch_time=00:01:05 | elapsed=06:35:53 | ETA=14:05:08 | estimated_finish=2026-06-17 13:23:40
+Epoch 320/1000 finished | train_loss=0.545853 | lr=0.000282695 | epoch_time=00:01:09 | elapsed=06:37:03 | ETA=14:03:43 | estimated_finish=2026-06-17 13:23:26
+Quick validation epoch=320 | pseudo_dice=0.538853 | val_time=00:00:24
+Epoch 321/1000 finished | train_loss=0.573845 | lr=0.000282321 | epoch_time=00:01:06 | elapsed=06:38:34 | ETA=14:03:05 | estimated_finish=2026-06-17 13:24:18
+Epoch 322/1000 finished | train_loss=0.543729 | lr=0.000281947 | epoch_time=00:01:06 | elapsed=06:39:41 | ETA=14:01:35 | estimated_finish=2026-06-17 13:23:55
+Epoch 323/1000 finished | train_loss=0.580303 | lr=0.000281572 | epoch_time=00:01:05 | elapsed=06:40:47 | ETA=14:00:03 | estimated_finish=2026-06-17 13:23:30
+Epoch 324/1000 finished | train_loss=0.574473 | lr=0.000281198 | epoch_time=00:01:05 | elapsed=06:41:54 | ETA=13:58:32 | estimated_finish=2026-06-17 13:23:05
+Epoch 325/1000 finished | train_loss=0.594865 | lr=0.000280823 | epoch_time=00:01:06 | elapsed=06:43:00 | ETA=13:57:01 | estimated_finish=2026-06-17 13:22:41
+Quick validation epoch=325 | pseudo_dice=0.594951 | val_time=00:00:24
+Epoch 326/1000 finished | train_loss=0.629734 | lr=0.000280449 | epoch_time=00:01:05 | elapsed=06:44:30 | ETA=13:56:18 | estimated_finish=2026-06-17 13:23:28
+Epoch 327/1000 finished | train_loss=0.609998 | lr=0.000280074 | epoch_time=00:01:10 | elapsed=06:45:40 | ETA=13:54:56 | estimated_finish=2026-06-17 13:23:16
+Epoch 328/1000 finished | train_loss=0.579978 | lr=0.0002797 | epoch_time=00:01:08 | elapsed=06:46:49 | ETA=13:53:29 | estimated_finish=2026-06-17 13:22:58
+Epoch 329/1000 finished | train_loss=0.604395 | lr=0.000279325 | epoch_time=00:01:08 | elapsed=06:47:58 | ETA=13:52:05 | estimated_finish=2026-06-17 13:22:43
+Epoch 330/1000 finished | train_loss=0.557435 | lr=0.000278951 | epoch_time=00:01:07 | elapsed=06:49:07 | ETA=13:50:38 | estimated_finish=2026-06-17 13:22:24
+Quick validation epoch=330 | pseudo_dice=0.532221 | val_time=00:00:23
+Epoch 331/1000 finished | train_loss=0.591156 | lr=0.000278576 | epoch_time=00:01:08 | elapsed=06:50:40 | ETA=13:50:01 | estimated_finish=2026-06-17 13:23:20
+Epoch 332/1000 finished | train_loss=0.578516 | lr=0.000278201 | epoch_time=00:01:07 | elapsed=06:51:47 | ETA=13:48:33 | estimated_finish=2026-06-17 13:23:00
+Epoch 333/1000 finished | train_loss=0.594758 | lr=0.000277826 | epoch_time=00:01:05 | elapsed=06:52:53 | ETA=13:47:01 | estimated_finish=2026-06-17 13:22:34
+Epoch 334/1000 finished | train_loss=0.588309 | lr=0.000277451 | epoch_time=00:01:06 | elapsed=06:54:00 | ETA=13:45:31 | estimated_finish=2026-06-17 13:22:11
+Epoch 335/1000 finished | train_loss=0.542485 | lr=0.000277076 | epoch_time=00:01:07 | elapsed=06:55:08 | ETA=13:44:04 | estimated_finish=2026-06-17 13:21:51
+Quick validation epoch=335 | pseudo_dice=0.566883 | val_time=00:00:24
+Epoch 336/1000 finished | train_loss=0.586589 | lr=0.000276701 | epoch_time=00:01:09 | elapsed=06:56:41 | ETA=13:43:28 | estimated_finish=2026-06-17 13:22:48
+Epoch 337/1000 finished | train_loss=0.539272 | lr=0.000276326 | epoch_time=00:01:08 | elapsed=06:57:50 | ETA=13:42:02 | estimated_finish=2026-06-17 13:22:32
+Epoch 338/1000 finished | train_loss=0.576829 | lr=0.000275951 | epoch_time=00:01:04 | elapsed=06:58:55 | ETA=13:40:30 | estimated_finish=2026-06-17 13:22:04
+Epoch 339/1000 finished | train_loss=0.553809 | lr=0.000275576 | epoch_time=00:01:05 | elapsed=07:00:01 | ETA=13:38:59 | estimated_finish=2026-06-17 13:21:40
+Epoch 340/1000 finished | train_loss=0.593360 | lr=0.000275201 | epoch_time=00:01:08 | elapsed=07:01:10 | ETA=13:37:33 | estimated_finish=2026-06-17 13:21:23
+Quick validation epoch=340 | pseudo_dice=0.521260 | val_time=00:00:23
+Epoch 341/1000 finished | train_loss=0.574783 | lr=0.000274825 | epoch_time=00:01:06 | elapsed=07:02:40 | ETA=13:36:51 | estimated_finish=2026-06-17 13:22:11
+Epoch 342/1000 finished | train_loss=0.560882 | lr=0.00027445 | epoch_time=00:01:06 | elapsed=07:03:47 | ETA=13:35:22 | estimated_finish=2026-06-17 13:21:48
+Epoch 343/1000 finished | train_loss=0.590529 | lr=0.000274075 | epoch_time=00:01:07 | elapsed=07:04:55 | ETA=13:33:54 | estimated_finish=2026-06-17 13:21:28
+Epoch 344/1000 finished | train_loss=0.590920 | lr=0.000273699 | epoch_time=00:01:06 | elapsed=07:06:01 | ETA=13:32:26 | estimated_finish=2026-06-17 13:21:07
+Epoch 345/1000 finished | train_loss=0.527556 | lr=0.000273324 | epoch_time=00:01:05 | elapsed=07:07:08 | ETA=13:30:56 | estimated_finish=2026-06-17 13:20:43
+Quick validation epoch=345 | pseudo_dice=0.555878 | val_time=00:00:23
+Epoch 346/1000 finished | train_loss=0.549493 | lr=0.000272948 | epoch_time=00:01:09 | elapsed=07:08:41 | ETA=13:30:18 | estimated_finish=2026-06-17 13:21:39
+Epoch 347/1000 finished | train_loss=0.539305 | lr=0.000272572 | epoch_time=00:01:06 | elapsed=07:09:48 | ETA=13:28:49 | estimated_finish=2026-06-17 13:21:17
+Epoch 348/1000 finished | train_loss=0.553237 | lr=0.000272197 | epoch_time=00:01:07 | elapsed=07:10:56 | ETA=13:27:22 | estimated_finish=2026-06-17 13:20:58
+Epoch 349/1000 finished | train_loss=0.540678 | lr=0.000271821 | epoch_time=00:01:05 | elapsed=07:12:01 | ETA=13:25:53 | estimated_finish=2026-06-17 13:20:34
+Epoch 350/1000 finished | train_loss=0.545369 | lr=0.000271445 | epoch_time=00:01:06 | elapsed=07:13:08 | ETA=13:24:25 | estimated_finish=2026-06-17 13:20:13
+Quick validation epoch=350 | pseudo_dice=0.575237 | val_time=00:00:24
+Epoch 351/1000 finished | train_loss=0.579259 | lr=0.000271069 | epoch_time=00:01:06 | elapsed=07:14:40 | ETA=13:23:42 | estimated_finish=2026-06-17 13:21:02
+Epoch 352/1000 finished | train_loss=0.575953 | lr=0.000270693 | epoch_time=00:01:06 | elapsed=07:15:47 | ETA=13:22:15 | estimated_finish=2026-06-17 13:20:41
+Epoch 353/1000 finished | train_loss=0.588453 | lr=0.000270317 | epoch_time=00:01:07 | elapsed=07:16:55 | ETA=13:20:48 | estimated_finish=2026-06-17 13:20:23
+Epoch 354/1000 finished | train_loss=0.540649 | lr=0.000269941 | epoch_time=00:01:07 | elapsed=07:18:03 | ETA=13:19:23 | estimated_finish=2026-06-17 13:20:05
+Epoch 355/1000 finished | train_loss=0.560733 | lr=0.000269565 | epoch_time=00:01:07 | elapsed=07:19:11 | ETA=13:17:58 | estimated_finish=2026-06-17 13:19:49
+Quick validation epoch=355 | pseudo_dice=0.548153 | val_time=00:00:25
+Epoch 356/1000 finished | train_loss=0.575722 | lr=0.000269189 | epoch_time=00:01:10 | elapsed=07:20:47 | ETA=13:17:23 | estimated_finish=2026-06-17 13:20:50
+Epoch 357/1000 finished | train_loss=0.581674 | lr=0.000268813 | epoch_time=00:01:07 | elapsed=07:21:55 | ETA=13:15:57 | estimated_finish=2026-06-17 13:20:31
+Epoch 358/1000 finished | train_loss=0.568563 | lr=0.000268436 | epoch_time=00:01:07 | elapsed=07:23:03 | ETA=13:14:31 | estimated_finish=2026-06-17 13:20:13
+Epoch 359/1000 finished | train_loss=0.570636 | lr=0.00026806 | epoch_time=00:01:05 | elapsed=07:24:09 | ETA=13:13:02 | estimated_finish=2026-06-17 13:19:51
+Epoch 360/1000 finished | train_loss=0.609253 | lr=0.000267684 | epoch_time=00:01:07 | elapsed=07:25:17 | ETA=13:11:37 | estimated_finish=2026-06-17 13:19:33
+Quick validation epoch=360 | pseudo_dice=0.562017 | val_time=00:00:24
+Epoch 361/1000 finished | train_loss=0.590530 | lr=0.000267307 | epoch_time=00:01:12 | elapsed=07:26:53 | ETA=13:11:02 | estimated_finish=2026-06-17 13:20:36
+Epoch 362/1000 finished | train_loss=0.567931 | lr=0.000266931 | epoch_time=00:01:06 | elapsed=07:28:01 | ETA=13:09:36 | estimated_finish=2026-06-17 13:20:16
+Epoch 363/1000 finished | train_loss=0.527520 | lr=0.000266554 | epoch_time=00:01:06 | elapsed=07:29:08 | ETA=13:08:09 | estimated_finish=2026-06-17 13:19:56
+Epoch 364/1000 finished | train_loss=0.588882 | lr=0.000266178 | epoch_time=00:01:06 | elapsed=07:30:15 | ETA=13:06:42 | estimated_finish=2026-06-17 13:19:37
+Epoch 365/1000 finished | train_loss=0.548613 | lr=0.000265801 | epoch_time=00:01:10 | elapsed=07:31:26 | ETA=13:05:22 | estimated_finish=2026-06-17 13:19:27
+Quick validation epoch=365 | pseudo_dice=0.543697 | val_time=00:00:24
+Epoch 366/1000 finished | train_loss=0.561986 | lr=0.000265424 | epoch_time=00:01:08 | elapsed=07:32:58 | ETA=13:04:40 | estimated_finish=2026-06-17 13:20:18
+Epoch 367/1000 finished | train_loss=0.579067 | lr=0.000265047 | epoch_time=00:01:06 | elapsed=07:34:05 | ETA=13:03:12 | estimated_finish=2026-06-17 13:19:57
+Epoch 368/1000 finished | train_loss=0.537913 | lr=0.00026467 | epoch_time=00:01:07 | elapsed=07:35:13 | ETA=13:01:48 | estimated_finish=2026-06-17 13:19:40
+Epoch 369/1000 finished | train_loss=0.555689 | lr=0.000264293 | epoch_time=00:01:06 | elapsed=07:36:20 | ETA=13:00:20 | estimated_finish=2026-06-17 13:19:20
+Epoch 370/1000 finished | train_loss=0.559599 | lr=0.000263916 | epoch_time=00:01:06 | elapsed=07:37:27 | ETA=12:58:54 | estimated_finish=2026-06-17 13:19:01
+Quick validation epoch=370 | pseudo_dice=0.548990 | val_time=00:00:24
+Epoch 371/1000 finished | train_loss=0.565801 | lr=0.000263539 | epoch_time=00:01:08 | elapsed=07:39:00 | ETA=12:58:12 | estimated_finish=2026-06-17 13:19:51
+Epoch 372/1000 finished | train_loss=0.557002 | lr=0.000263162 | epoch_time=00:01:07 | elapsed=07:40:07 | ETA=12:56:46 | estimated_finish=2026-06-17 13:19:34
+Epoch 373/1000 finished | train_loss=0.574749 | lr=0.000262785 | epoch_time=00:01:05 | elapsed=07:41:14 | ETA=12:55:19 | estimated_finish=2026-06-17 13:19:12
+Epoch 374/1000 finished | train_loss=0.561395 | lr=0.000262408 | epoch_time=00:01:06 | elapsed=07:42:21 | ETA=12:53:53 | estimated_finish=2026-06-17 13:18:53
+Epoch 375/1000 finished | train_loss=0.571266 | lr=0.000262031 | epoch_time=00:01:05 | elapsed=07:43:26 | ETA=12:52:24 | estimated_finish=2026-06-17 13:18:30
+Quick validation epoch=375 | pseudo_dice=0.556621 | val_time=00:00:24
+Epoch 376/1000 finished | train_loss=0.561462 | lr=0.000261653 | epoch_time=00:01:06 | elapsed=07:44:58 | ETA=12:51:39 | estimated_finish=2026-06-17 13:19:16
+Epoch 377/1000 finished | train_loss=0.544458 | lr=0.000261276 | epoch_time=00:01:06 | elapsed=07:46:05 | ETA=12:50:13 | estimated_finish=2026-06-17 13:18:58
+Epoch 378/1000 finished | train_loss=0.542868 | lr=0.000260898 | epoch_time=00:01:05 | elapsed=07:47:11 | ETA=12:48:46 | estimated_finish=2026-06-17 13:18:37
+Epoch 379/1000 finished | train_loss=0.580490 | lr=0.000260521 | epoch_time=00:01:06 | elapsed=07:48:18 | ETA=12:47:19 | estimated_finish=2026-06-17 13:18:17
+Epoch 380/1000 finished | train_loss=0.549683 | lr=0.000260143 | epoch_time=00:01:05 | elapsed=07:49:24 | ETA=12:45:52 | estimated_finish=2026-06-17 13:17:56
+Quick validation epoch=380 | pseudo_dice=0.519181 | val_time=00:00:24
+Epoch 381/1000 finished | train_loss=0.531690 | lr=0.000259766 | epoch_time=00:01:06 | elapsed=07:50:55 | ETA=12:45:06 | estimated_finish=2026-06-17 13:18:41
+Epoch 382/1000 finished | train_loss=0.585530 | lr=0.000259388 | epoch_time=00:01:07 | elapsed=07:52:03 | ETA=12:43:42 | estimated_finish=2026-06-17 13:18:25
+Epoch 383/1000 finished | train_loss=0.560949 | lr=0.00025901 | epoch_time=00:01:07 | elapsed=07:53:11 | ETA=12:42:18 | estimated_finish=2026-06-17 13:18:09
+Epoch 384/1000 finished | train_loss=0.568829 | lr=0.000258632 | epoch_time=00:01:05 | elapsed=07:54:17 | ETA=12:40:50 | estimated_finish=2026-06-17 13:17:47
+Epoch 385/1000 finished | train_loss=0.578534 | lr=0.000258254 | epoch_time=00:01:05 | elapsed=07:55:23 | ETA=12:39:23 | estimated_finish=2026-06-17 13:17:26
+Quick validation epoch=385 | pseudo_dice=0.539540 | val_time=00:00:24
+Epoch 386/1000 finished | train_loss=0.548263 | lr=0.000257876 | epoch_time=00:01:06 | elapsed=07:56:54 | ETA=12:38:36 | estimated_finish=2026-06-17 13:18:11
+Epoch 387/1000 finished | train_loss=0.532893 | lr=0.000257498 | epoch_time=00:01:08 | elapsed=07:58:03 | ETA=12:37:14 | estimated_finish=2026-06-17 13:17:57
+Epoch 388/1000 finished | train_loss=0.618938 | lr=0.00025712 | epoch_time=00:01:05 | elapsed=07:59:10 | ETA=12:35:48 | estimated_finish=2026-06-17 13:17:37
+Epoch 389/1000 finished | train_loss=0.532737 | lr=0.000256742 | epoch_time=00:01:07 | elapsed=08:00:17 | ETA=12:34:24 | estimated_finish=2026-06-17 13:17:21
+Epoch 390/1000 finished | train_loss=0.576568 | lr=0.000256364 | epoch_time=00:01:05 | elapsed=08:01:23 | ETA=12:32:56 | estimated_finish=2026-06-17 13:16:59
+Quick validation epoch=390 | pseudo_dice=0.528589 | val_time=00:00:23
+Epoch 391/1000 finished | train_loss=0.531283 | lr=0.000255986 | epoch_time=00:01:06 | elapsed=08:02:54 | ETA=12:32:09 | estimated_finish=2026-06-17 13:17:43
+Epoch 392/1000 finished | train_loss=0.538772 | lr=0.000255607 | epoch_time=00:01:07 | elapsed=08:04:02 | ETA=12:30:45 | estimated_finish=2026-06-17 13:17:27
+Epoch 393/1000 finished | train_loss=0.527714 | lr=0.000255229 | epoch_time=00:01:06 | elapsed=08:05:09 | ETA=12:29:20 | estimated_finish=2026-06-17 13:17:09
+Epoch 394/1000 finished | train_loss=0.569539 | lr=0.00025485 | epoch_time=00:01:08 | elapsed=08:06:18 | ETA=12:27:58 | estimated_finish=2026-06-17 13:16:56
+Epoch 395/1000 finished | train_loss=0.561917 | lr=0.000254472 | epoch_time=00:01:06 | elapsed=08:07:25 | ETA=12:26:34 | estimated_finish=2026-06-17 13:16:39
+Quick validation epoch=395 | pseudo_dice=0.575466 | val_time=00:00:24
+Epoch 396/1000 finished | train_loss=0.558935 | lr=0.000254093 | epoch_time=00:01:06 | elapsed=08:08:57 | ETA=12:25:47 | estimated_finish=2026-06-17 13:17:23
+Epoch 397/1000 finished | train_loss=0.555060 | lr=0.000253715 | epoch_time=00:01:06 | elapsed=08:10:04 | ETA=12:24:22 | estimated_finish=2026-06-17 13:17:06
+Epoch 398/1000 finished | train_loss=0.540515 | lr=0.000253336 | epoch_time=00:01:07 | elapsed=08:11:12 | ETA=12:22:58 | estimated_finish=2026-06-17 13:16:50
+Epoch 399/1000 finished | train_loss=0.536001 | lr=0.000252957 | epoch_time=00:01:05 | elapsed=08:12:18 | ETA=12:21:33 | estimated_finish=2026-06-17 13:16:31
+Epoch 400/1000 finished | train_loss=0.540676 | lr=0.000252578 | epoch_time=00:01:05 | elapsed=08:13:24 | ETA=12:20:07 | estimated_finish=2026-06-17 13:16:11
+Quick validation epoch=400 | pseudo_dice=0.550165 | val_time=00:00:24
+Full validation epoch=400 | mean_dice=0.137990 | val_time=00:03:46
+Epoch 401/1000 finished | train_loss=0.573843 | lr=0.000252199 | epoch_time=00:01:06 | elapsed=08:18:42 | ETA=12:24:56 | estimated_finish=2026-06-17 13:26:18
+Epoch 402/1000 finished | train_loss=0.562908 | lr=0.00025182 | epoch_time=00:01:07 | elapsed=08:19:50 | ETA=12:23:32 | estimated_finish=2026-06-17 13:26:01
+Epoch 403/1000 finished | train_loss=0.547510 | lr=0.000251441 | epoch_time=00:01:06 | elapsed=08:20:57 | ETA=12:22:06 | estimated_finish=2026-06-17 13:25:43
+Epoch 404/1000 finished | train_loss=0.574243 | lr=0.000251062 | epoch_time=00:01:05 | elapsed=08:22:03 | ETA=12:20:38 | estimated_finish=2026-06-17 13:25:21
+Epoch 405/1000 finished | train_loss=0.530321 | lr=0.000250683 | epoch_time=00:01:07 | elapsed=08:23:10 | ETA=12:19:14 | estimated_finish=2026-06-17 13:25:03
+Quick validation epoch=405 | pseudo_dice=0.558148 | val_time=00:00:24
+Epoch 406/1000 finished | train_loss=0.557723 | lr=0.000250304 | epoch_time=00:01:08 | elapsed=08:24:43 | ETA=12:18:26 | estimated_finish=2026-06-17 13:25:48
+Epoch 407/1000 finished | train_loss=0.538946 | lr=0.000249925 | epoch_time=00:01:05 | elapsed=08:25:49 | ETA=12:16:59 | estimated_finish=2026-06-17 13:25:27
+Epoch 408/1000 finished | train_loss=0.556476 | lr=0.000249545 | epoch_time=00:01:08 | elapsed=08:26:58 | ETA=12:15:36 | estimated_finish=2026-06-17 13:25:13
+Epoch 409/1000 finished | train_loss=0.585355 | lr=0.000249166 | epoch_time=00:01:08 | elapsed=08:28:07 | ETA=12:14:13 | estimated_finish=2026-06-17 13:24:59
+Epoch 410/1000 finished | train_loss=0.571101 | lr=0.000248786 | epoch_time=00:01:07 | elapsed=08:29:15 | ETA=12:12:50 | estimated_finish=2026-06-17 13:24:44
+Quick validation epoch=410 | pseudo_dice=0.600096 | val_time=00:00:24
+Epoch 411/1000 finished | train_loss=0.556496 | lr=0.000248407 | epoch_time=00:01:06 | elapsed=08:30:47 | ETA=12:12:00 | estimated_finish=2026-06-17 13:25:26
+Epoch 412/1000 finished | train_loss=0.577819 | lr=0.000248027 | epoch_time=00:01:06 | elapsed=08:31:54 | ETA=12:10:35 | estimated_finish=2026-06-17 13:25:09
+Epoch 413/1000 finished | train_loss=0.543607 | lr=0.000247648 | epoch_time=00:01:05 | elapsed=08:33:00 | ETA=12:09:08 | estimated_finish=2026-06-17 13:24:48
+Epoch 414/1000 finished | train_loss=0.528146 | lr=0.000247268 | epoch_time=00:01:06 | elapsed=08:34:07 | ETA=12:07:43 | estimated_finish=2026-06-17 13:24:31
+Epoch 415/1000 finished | train_loss=0.560722 | lr=0.000246888 | epoch_time=00:01:05 | elapsed=08:35:14 | ETA=12:06:17 | estimated_finish=2026-06-17 13:24:11
+Quick validation epoch=415 | pseudo_dice=0.553035 | val_time=00:00:24
+Epoch 416/1000 finished | train_loss=0.532328 | lr=0.000246508 | epoch_time=00:01:06 | elapsed=08:36:45 | ETA=12:05:26 | estimated_finish=2026-06-17 13:24:50
+Epoch 417/1000 finished | train_loss=0.520569 | lr=0.000246128 | epoch_time=00:01:11 | elapsed=08:37:57 | ETA=12:04:08 | estimated_finish=2026-06-17 13:24:44
+Epoch 418/1000 finished | train_loss=0.562204 | lr=0.000245748 | epoch_time=00:01:07 | elapsed=08:39:05 | ETA=12:02:44 | estimated_finish=2026-06-17 13:24:29
+Epoch 419/1000 finished | train_loss=0.543539 | lr=0.000245368 | epoch_time=00:01:08 | elapsed=08:40:13 | ETA=12:01:22 | estimated_finish=2026-06-17 13:24:15
+Epoch 420/1000 finished | train_loss=0.568553 | lr=0.000244988 | epoch_time=00:01:06 | elapsed=08:41:21 | ETA=11:59:57 | estimated_finish=2026-06-17 13:23:57
+Quick validation epoch=420 | pseudo_dice=0.563960 | val_time=00:00:24
+Epoch 421/1000 finished | train_loss=0.493649 | lr=0.000244608 | epoch_time=00:01:07 | elapsed=08:42:53 | ETA=11:59:07 | estimated_finish=2026-06-17 13:24:39
+Epoch 422/1000 finished | train_loss=0.546004 | lr=0.000244228 | epoch_time=00:01:07 | elapsed=08:44:00 | ETA=11:57:43 | estimated_finish=2026-06-17 13:24:23
+Epoch 423/1000 finished | train_loss=0.526344 | lr=0.000243847 | epoch_time=00:01:06 | elapsed=08:45:08 | ETA=11:56:19 | estimated_finish=2026-06-17 13:24:06
+Epoch 424/1000 finished | train_loss=0.523926 | lr=0.000243467 | epoch_time=00:01:06 | elapsed=08:46:14 | ETA=11:54:54 | estimated_finish=2026-06-17 13:23:48
+Epoch 425/1000 finished | train_loss=0.532628 | lr=0.000243087 | epoch_time=00:01:07 | elapsed=08:47:22 | ETA=11:53:30 | estimated_finish=2026-06-17 13:23:32
+Quick validation epoch=425 | pseudo_dice=0.519127 | val_time=00:00:24
+Epoch 426/1000 finished | train_loss=0.533656 | lr=0.000242706 | epoch_time=00:01:06 | elapsed=08:48:54 | ETA=11:52:39 | estimated_finish=2026-06-17 13:24:13
+Epoch 427/1000 finished | train_loss=0.542420 | lr=0.000242326 | epoch_time=00:01:07 | elapsed=08:50:02 | ETA=11:51:16 | estimated_finish=2026-06-17 13:23:57
+Epoch 428/1000 finished | train_loss=0.560384 | lr=0.000241945 | epoch_time=00:01:04 | elapsed=08:51:07 | ETA=11:49:49 | estimated_finish=2026-06-17 13:23:35
+Epoch 429/1000 finished | train_loss=0.548195 | lr=0.000241564 | epoch_time=00:01:05 | elapsed=08:52:13 | ETA=11:48:23 | estimated_finish=2026-06-17 13:23:15
+Epoch 430/1000 finished | train_loss=0.505646 | lr=0.000241183 | epoch_time=00:01:06 | elapsed=08:53:19 | ETA=11:46:58 | estimated_finish=2026-06-17 13:22:57
+Quick validation epoch=430 | pseudo_dice=0.574719 | val_time=00:00:23
+Epoch 431/1000 finished | train_loss=0.579918 | lr=0.000240803 | epoch_time=00:01:09 | elapsed=08:54:53 | ETA=11:46:09 | estimated_finish=2026-06-17 13:23:41
+Epoch 432/1000 finished | train_loss=0.546192 | lr=0.000240422 | epoch_time=00:01:06 | elapsed=08:56:00 | ETA=11:44:45 | estimated_finish=2026-06-17 13:23:25
+Epoch 433/1000 finished | train_loss=0.536533 | lr=0.000240041 | epoch_time=00:01:06 | elapsed=08:57:07 | ETA=11:43:20 | estimated_finish=2026-06-17 13:23:07
+Epoch 434/1000 finished | train_loss=0.561744 | lr=0.00023966 | epoch_time=00:01:06 | elapsed=08:58:14 | ETA=11:41:56 | estimated_finish=2026-06-17 13:22:50
+Epoch 435/1000 finished | train_loss=0.536227 | lr=0.000239278 | epoch_time=00:01:06 | elapsed=08:59:21 | ETA=11:40:33 | estimated_finish=2026-06-17 13:22:34
+Quick validation epoch=435 | pseudo_dice=0.570072 | val_time=00:00:24
+Epoch 436/1000 finished | train_loss=0.550011 | lr=0.000238897 | epoch_time=00:01:05 | elapsed=09:00:51 | ETA=11:39:38 | estimated_finish=2026-06-17 13:23:09
+Epoch 437/1000 finished | train_loss=0.608508 | lr=0.000238516 | epoch_time=00:01:05 | elapsed=09:01:57 | ETA=11:38:13 | estimated_finish=2026-06-17 13:22:50
+Epoch 438/1000 finished | train_loss=0.537523 | lr=0.000238135 | epoch_time=00:01:07 | elapsed=09:03:05 | ETA=11:36:50 | estimated_finish=2026-06-17 13:22:35
+Epoch 439/1000 finished | train_loss=0.563612 | lr=0.000237753 | epoch_time=00:01:06 | elapsed=09:04:12 | ETA=11:35:26 | estimated_finish=2026-06-17 13:22:17
+Epoch 440/1000 finished | train_loss=0.513847 | lr=0.000237372 | epoch_time=00:01:06 | elapsed=09:05:19 | ETA=11:34:02 | estimated_finish=2026-06-17 13:22:01
+Quick validation epoch=440 | pseudo_dice=0.530596 | val_time=00:00:24
+Epoch 441/1000 finished | train_loss=0.568552 | lr=0.00023699 | epoch_time=00:01:06 | elapsed=09:06:50 | ETA=11:33:09 | estimated_finish=2026-06-17 13:22:38
+Epoch 442/1000 finished | train_loss=0.586182 | lr=0.000236609 | epoch_time=00:01:08 | elapsed=09:07:59 | ETA=11:31:48 | estimated_finish=2026-06-17 13:22:27
+Epoch 443/1000 finished | train_loss=0.590911 | lr=0.000236227 | epoch_time=00:01:06 | elapsed=09:09:06 | ETA=11:30:24 | estimated_finish=2026-06-17 13:22:09
+Epoch 444/1000 finished | train_loss=0.518140 | lr=0.000235845 | epoch_time=00:01:04 | elapsed=09:10:11 | ETA=11:28:58 | estimated_finish=2026-06-17 13:21:49
+Epoch 445/1000 finished | train_loss=0.527734 | lr=0.000235464 | epoch_time=00:01:06 | elapsed=09:11:18 | ETA=11:27:35 | estimated_finish=2026-06-17 13:21:32
+Quick validation epoch=445 | pseudo_dice=0.620086 | val_time=00:00:23
+New best model saved by quick validation | pseudo_dice=0.620086 | epoch=445
+Epoch 446/1000 finished | train_loss=0.512143 | lr=0.000235082 | epoch_time=00:01:06 | elapsed=09:12:49 | ETA=11:26:41 | estimated_finish=2026-06-17 13:22:10
+Epoch 447/1000 finished | train_loss=0.528957 | lr=0.0002347 | epoch_time=00:01:05 | elapsed=09:13:55 | ETA=11:25:17 | estimated_finish=2026-06-17 13:21:52
+Epoch 448/1000 finished | train_loss=0.543127 | lr=0.000234318 | epoch_time=00:01:07 | elapsed=09:15:03 | ETA=11:23:54 | estimated_finish=2026-06-17 13:21:37
+Epoch 449/1000 finished | train_loss=0.568730 | lr=0.000233936 | epoch_time=00:01:05 | elapsed=09:16:09 | ETA=11:22:29 | estimated_finish=2026-06-17 13:21:17
+Epoch 450/1000 finished | train_loss=0.547625 | lr=0.000233554 | epoch_time=00:01:04 | elapsed=09:17:13 | ETA=11:21:03 | estimated_finish=2026-06-17 13:20:56
+Quick validation epoch=450 | pseudo_dice=0.540607 | val_time=00:00:23
+Epoch 451/1000 finished | train_loss=0.529155 | lr=0.000233171 | epoch_time=00:01:06 | elapsed=09:18:44 | ETA=11:20:09 | estimated_finish=2026-06-17 13:21:33
+Epoch 452/1000 finished | train_loss=0.539553 | lr=0.000232789 | epoch_time=00:01:07 | elapsed=09:19:52 | ETA=11:18:47 | estimated_finish=2026-06-17 13:21:18
+Epoch 453/1000 finished | train_loss=0.553272 | lr=0.000232407 | epoch_time=00:01:04 | elapsed=09:20:57 | ETA=11:17:21 | estimated_finish=2026-06-17 13:20:58
+Epoch 454/1000 finished | train_loss=0.552868 | lr=0.000232024 | epoch_time=00:01:07 | elapsed=09:22:05 | ETA=11:15:59 | estimated_finish=2026-06-17 13:20:44
+Epoch 455/1000 finished | train_loss=0.538575 | lr=0.000231642 | epoch_time=00:01:05 | elapsed=09:23:11 | ETA=11:14:35 | estimated_finish=2026-06-17 13:20:26
+Quick validation epoch=455 | pseudo_dice=0.555840 | val_time=00:00:23
+Epoch 456/1000 finished | train_loss=0.547343 | lr=0.000231259 | epoch_time=00:01:07 | elapsed=09:24:43 | ETA=11:13:41 | estimated_finish=2026-06-17 13:21:04
+Epoch 457/1000 finished | train_loss=0.593816 | lr=0.000230877 | epoch_time=00:01:07 | elapsed=09:25:50 | ETA=11:12:19 | estimated_finish=2026-06-17 13:20:49
+Epoch 458/1000 finished | train_loss=0.526979 | lr=0.000230494 | epoch_time=00:01:05 | elapsed=09:26:56 | ETA=11:10:55 | estimated_finish=2026-06-17 13:20:30
+Epoch 459/1000 finished | train_loss=0.522256 | lr=0.000230111 | epoch_time=00:01:05 | elapsed=09:28:02 | ETA=11:09:31 | estimated_finish=2026-06-17 13:20:13
+Epoch 460/1000 finished | train_loss=0.540139 | lr=0.000229728 | epoch_time=00:01:04 | elapsed=09:29:07 | ETA=11:08:05 | estimated_finish=2026-06-17 13:19:52
+Quick validation epoch=460 | pseudo_dice=0.523495 | val_time=00:00:23
+Epoch 461/1000 finished | train_loss=0.583928 | lr=0.000229345 | epoch_time=00:01:04 | elapsed=09:30:35 | ETA=11:07:08 | estimated_finish=2026-06-17 13:20:23
+Epoch 462/1000 finished | train_loss=0.550827 | lr=0.000228962 | epoch_time=00:01:06 | elapsed=09:31:43 | ETA=11:05:45 | estimated_finish=2026-06-17 13:20:08
+Epoch 463/1000 finished | train_loss=0.572595 | lr=0.000228579 | epoch_time=00:01:07 | elapsed=09:32:51 | ETA=11:04:24 | estimated_finish=2026-06-17 13:19:55
+Epoch 464/1000 finished | train_loss=0.548139 | lr=0.000228196 | epoch_time=00:01:05 | elapsed=09:33:56 | ETA=11:03:00 | estimated_finish=2026-06-17 13:19:36
+Epoch 465/1000 finished | train_loss=0.588242 | lr=0.000227813 | epoch_time=00:01:08 | elapsed=09:35:05 | ETA=11:01:39 | estimated_finish=2026-06-17 13:19:24
+Quick validation epoch=465 | pseudo_dice=0.541425 | val_time=00:00:24
+Epoch 466/1000 finished | train_loss=0.479308 | lr=0.00022743 | epoch_time=00:01:05 | elapsed=09:36:35 | ETA=11:00:44 | estimated_finish=2026-06-17 13:19:59
+Epoch 467/1000 finished | train_loss=0.558616 | lr=0.000227046 | epoch_time=00:01:09 | elapsed=09:37:45 | ETA=10:59:24 | estimated_finish=2026-06-17 13:19:49
+Epoch 468/1000 finished | train_loss=0.490053 | lr=0.000226663 | epoch_time=00:01:05 | elapsed=09:38:51 | ETA=10:58:01 | estimated_finish=2026-06-17 13:19:32
+Epoch 469/1000 finished | train_loss=0.493001 | lr=0.000226279 | epoch_time=00:01:07 | elapsed=09:39:59 | ETA=10:56:39 | estimated_finish=2026-06-17 13:19:18
+Epoch 470/1000 finished | train_loss=0.539770 | lr=0.000225896 | epoch_time=00:01:06 | elapsed=09:41:06 | ETA=10:55:17 | estimated_finish=2026-06-17 13:19:02
+Quick validation epoch=470 | pseudo_dice=0.588209 | val_time=00:00:23
+Epoch 471/1000 finished | train_loss=0.527747 | lr=0.000225512 | epoch_time=00:01:03 | elapsed=09:42:33 | ETA=10:54:17 | estimated_finish=2026-06-17 13:19:30
+Epoch 472/1000 finished | train_loss=0.543135 | lr=0.000225129 | epoch_time=00:01:04 | elapsed=09:43:38 | ETA=10:52:53 | estimated_finish=2026-06-17 13:19:10
+Epoch 473/1000 finished | train_loss=0.565334 | lr=0.000224745 | epoch_time=00:01:02 | elapsed=09:44:41 | ETA=10:51:26 | estimated_finish=2026-06-17 13:18:47
+Epoch 474/1000 finished | train_loss=0.563893 | lr=0.000224361 | epoch_time=00:01:13 | elapsed=09:45:56 | ETA=10:50:12 | estimated_finish=2026-06-17 13:18:48
+Epoch 475/1000 finished | train_loss=0.506775 | lr=0.000223977 | epoch_time=00:01:04 | elapsed=09:47:00 | ETA=10:48:48 | estimated_finish=2026-06-17 13:18:27
+Quick validation epoch=475 | pseudo_dice=0.533082 | val_time=00:00:23
+Epoch 476/1000 finished | train_loss=0.513278 | lr=0.000223593 | epoch_time=00:01:05 | elapsed=09:48:29 | ETA=10:47:50 | estimated_finish=2026-06-17 13:18:59
+Epoch 477/1000 finished | train_loss=0.563305 | lr=0.000223209 | epoch_time=00:01:04 | elapsed=09:49:34 | ETA=10:46:26 | estimated_finish=2026-06-17 13:18:40
+Epoch 478/1000 finished | train_loss=0.555089 | lr=0.000222825 | epoch_time=00:01:05 | elapsed=09:50:40 | ETA=10:45:03 | estimated_finish=2026-06-17 13:18:23
+Epoch 479/1000 finished | train_loss=0.517707 | lr=0.000222441 | epoch_time=00:01:05 | elapsed=09:51:46 | ETA=10:43:39 | estimated_finish=2026-06-17 13:18:05
+Epoch 480/1000 finished | train_loss=0.563444 | lr=0.000222056 | epoch_time=00:01:05 | elapsed=09:52:52 | ETA=10:42:17 | estimated_finish=2026-06-17 13:17:49
+Quick validation epoch=480 | pseudo_dice=0.580753 | val_time=00:00:23
+Epoch 481/1000 finished | train_loss=0.505806 | lr=0.000221672 | epoch_time=00:01:04 | elapsed=09:54:21 | ETA=10:41:18 | estimated_finish=2026-06-17 13:18:19
+Epoch 482/1000 finished | train_loss=0.564809 | lr=0.000221287 | epoch_time=00:01:05 | elapsed=09:55:27 | ETA=10:39:55 | estimated_finish=2026-06-17 13:18:02
+Epoch 483/1000 finished | train_loss=0.537292 | lr=0.000220903 | epoch_time=00:01:07 | elapsed=09:56:35 | ETA=10:38:35 | estimated_finish=2026-06-17 13:17:50
+Epoch 484/1000 finished | train_loss=0.531510 | lr=0.000220518 | epoch_time=00:01:03 | elapsed=09:57:40 | ETA=10:37:10 | estimated_finish=2026-06-17 13:17:30
+Epoch 485/1000 finished | train_loss=0.526331 | lr=0.000220134 | epoch_time=00:01:05 | elapsed=09:58:45 | ETA=10:35:47 | estimated_finish=2026-06-17 13:17:12
+Quick validation epoch=485 | pseudo_dice=0.539283 | val_time=00:00:23
+Epoch 486/1000 finished | train_loss=0.514251 | lr=0.000219749 | epoch_time=00:01:04 | elapsed=10:00:14 | ETA=10:34:49 | estimated_finish=2026-06-17 13:17:42
+Epoch 487/1000 finished | train_loss=0.510307 | lr=0.000219364 | epoch_time=00:01:05 | elapsed=10:01:19 | ETA=10:33:26 | estimated_finish=2026-06-17 13:17:25
+Epoch 488/1000 finished | train_loss=0.579661 | lr=0.000218979 | epoch_time=00:01:08 | elapsed=10:02:28 | ETA=10:32:06 | estimated_finish=2026-06-17 13:17:14
+Epoch 489/1000 finished | train_loss=0.561346 | lr=0.000218594 | epoch_time=00:01:06 | elapsed=10:03:35 | ETA=10:30:44 | estimated_finish=2026-06-17 13:16:59
+Epoch 490/1000 finished | train_loss=0.558996 | lr=0.000218209 | epoch_time=00:01:04 | elapsed=10:04:40 | ETA=10:29:21 | estimated_finish=2026-06-17 13:16:41
+Quick validation epoch=490 | pseudo_dice=0.579979 | val_time=00:00:23
+Epoch 491/1000 finished | train_loss=0.500251 | lr=0.000217824 | epoch_time=00:01:06 | elapsed=10:06:11 | ETA=10:28:25 | estimated_finish=2026-06-17 13:17:15
+Epoch 492/1000 finished | train_loss=0.514415 | lr=0.000217439 | epoch_time=00:01:07 | elapsed=10:07:19 | ETA=10:27:05 | estimated_finish=2026-06-17 13:17:04
+Epoch 493/1000 finished | train_loss=0.549346 | lr=0.000217054 | epoch_time=00:01:05 | elapsed=10:08:25 | ETA=10:25:42 | estimated_finish=2026-06-17 13:16:47
+Epoch 494/1000 finished | train_loss=0.524113 | lr=0.000216668 | epoch_time=00:01:04 | elapsed=10:09:30 | ETA=10:24:18 | estimated_finish=2026-06-17 13:16:28
+Epoch 495/1000 finished | train_loss=0.590936 | lr=0.000216283 | epoch_time=00:01:04 | elapsed=10:10:35 | ETA=10:22:55 | estimated_finish=2026-06-17 13:16:10
+Quick validation epoch=495 | pseudo_dice=0.596436 | val_time=00:00:23
+Epoch 496/1000 finished | train_loss=0.502207 | lr=0.000215897 | epoch_time=00:01:05 | elapsed=10:12:05 | ETA=10:21:57 | estimated_finish=2026-06-17 13:16:41
+Epoch 497/1000 finished | train_loss=0.510624 | lr=0.000215512 | epoch_time=00:01:04 | elapsed=10:13:10 | ETA=10:20:34 | estimated_finish=2026-06-17 13:16:23
+Epoch 498/1000 finished | train_loss=0.530089 | lr=0.000215126 | epoch_time=00:01:04 | elapsed=10:14:14 | ETA=10:19:11 | estimated_finish=2026-06-17 13:16:05
+Epoch 499/1000 finished | train_loss=0.561967 | lr=0.00021474 | epoch_time=00:01:06 | elapsed=10:15:22 | ETA=10:17:50 | estimated_finish=2026-06-17 13:15:51
+Epoch 500/1000 finished | train_loss=0.517309 | lr=0.000214355 | epoch_time=00:01:06 | elapsed=10:16:28 | ETA=10:16:28 | estimated_finish=2026-06-17 13:15:37
+Quick validation epoch=500 | pseudo_dice=0.557539 | val_time=00:00:23
+Full validation epoch=500 | mean_dice=0.210583 | val_time=00:03:46
+Epoch 501/1000 finished | train_loss=0.558267 | lr=0.000213969 | epoch_time=00:01:05 | elapsed=10:21:45 | ETA=10:19:16 | estimated_finish=2026-06-17 13:23:40
+Epoch 502/1000 finished | train_loss=0.575705 | lr=0.000213583 | epoch_time=00:01:05 | elapsed=10:22:51 | ETA=10:17:53 | estimated_finish=2026-06-17 13:23:24
+Epoch 503/1000 finished | train_loss=0.526456 | lr=0.000213197 | epoch_time=00:01:06 | elapsed=10:23:58 | ETA=10:16:31 | estimated_finish=2026-06-17 13:23:08
+Epoch 504/1000 finished | train_loss=0.545622 | lr=0.000212811 | epoch_time=00:01:05 | elapsed=10:25:04 | ETA=10:15:09 | estimated_finish=2026-06-17 13:22:52
+Epoch 505/1000 finished | train_loss=0.493396 | lr=0.000212425 | epoch_time=00:01:04 | elapsed=10:26:09 | ETA=10:13:45 | estimated_finish=2026-06-17 13:22:34
+Quick validation epoch=505 | pseudo_dice=0.579081 | val_time=00:00:23
+Epoch 506/1000 finished | train_loss=0.566151 | lr=0.000212038 | epoch_time=00:01:03 | elapsed=10:27:37 | ETA=10:12:44 | estimated_finish=2026-06-17 13:23:00
+Epoch 507/1000 finished | train_loss=0.534158 | lr=0.000211652 | epoch_time=00:01:05 | elapsed=10:28:42 | ETA=10:11:21 | estimated_finish=2026-06-17 13:22:43
+Epoch 508/1000 finished | train_loss=0.510798 | lr=0.000211266 | epoch_time=00:01:05 | elapsed=10:29:49 | ETA=10:09:59 | estimated_finish=2026-06-17 13:22:27
+Epoch 509/1000 finished | train_loss=0.534221 | lr=0.000210879 | epoch_time=00:01:06 | elapsed=10:30:56 | ETA=10:08:37 | estimated_finish=2026-06-17 13:22:13
+Epoch 510/1000 finished | train_loss=0.548436 | lr=0.000210492 | epoch_time=00:01:05 | elapsed=10:32:02 | ETA=10:07:15 | estimated_finish=2026-06-17 13:21:56
+Quick validation epoch=510 | pseudo_dice=0.543575 | val_time=00:00:23
+Epoch 511/1000 finished | train_loss=0.477441 | lr=0.000210106 | epoch_time=00:01:05 | elapsed=10:33:31 | ETA=10:06:14 | estimated_finish=2026-06-17 13:22:25
+Epoch 512/1000 finished | train_loss=0.553129 | lr=0.000209719 | epoch_time=00:01:05 | elapsed=10:34:36 | ETA=10:04:51 | estimated_finish=2026-06-17 13:22:07
+Epoch 513/1000 finished | train_loss=0.527772 | lr=0.000209332 | epoch_time=00:01:05 | elapsed=10:35:42 | ETA=10:03:29 | estimated_finish=2026-06-17 13:21:51
+Epoch 514/1000 finished | train_loss=0.575291 | lr=0.000208945 | epoch_time=00:01:04 | elapsed=10:36:47 | ETA=10:02:06 | estimated_finish=2026-06-17 13:21:33
+Epoch 515/1000 finished | train_loss=0.511060 | lr=0.000208558 | epoch_time=00:01:03 | elapsed=10:37:52 | ETA=10:00:42 | estimated_finish=2026-06-17 13:21:13
+Quick validation epoch=515 | pseudo_dice=0.528407 | val_time=00:00:23
+Epoch 516/1000 finished | train_loss=0.546791 | lr=0.000208171 | epoch_time=00:01:07 | elapsed=10:39:23 | ETA=09:59:44 | estimated_finish=2026-06-17 13:21:47
+Epoch 517/1000 finished | train_loss=0.503335 | lr=0.000207784 | epoch_time=00:01:04 | elapsed=10:40:28 | ETA=09:58:20 | estimated_finish=2026-06-17 13:21:28
+Epoch 518/1000 finished | train_loss=0.551197 | lr=0.000207397 | epoch_time=00:01:03 | elapsed=10:41:32 | ETA=09:56:57 | estimated_finish=2026-06-17 13:21:08
+Epoch 519/1000 finished | train_loss=0.552741 | lr=0.00020701 | epoch_time=00:01:04 | elapsed=10:42:37 | ETA=09:55:34 | estimated_finish=2026-06-17 13:20:51
+Epoch 520/1000 finished | train_loss=0.565966 | lr=0.000206622 | epoch_time=00:01:04 | elapsed=10:43:42 | ETA=09:54:11 | estimated_finish=2026-06-17 13:20:34
+Quick validation epoch=520 | pseudo_dice=0.561604 | val_time=00:00:23
+Epoch 521/1000 finished | train_loss=0.513034 | lr=0.000206235 | epoch_time=00:01:06 | elapsed=10:45:13 | ETA=09:53:12 | estimated_finish=2026-06-17 13:21:04
+Epoch 522/1000 finished | train_loss=0.524082 | lr=0.000205847 | epoch_time=00:01:06 | elapsed=10:46:20 | ETA=09:51:51 | estimated_finish=2026-06-17 13:20:51
+Epoch 523/1000 finished | train_loss=0.550591 | lr=0.00020546 | epoch_time=00:01:04 | elapsed=10:47:26 | ETA=09:50:29 | estimated_finish=2026-06-17 13:20:34
+Epoch 524/1000 finished | train_loss=0.529514 | lr=0.000205072 | epoch_time=00:01:05 | elapsed=10:48:32 | ETA=09:49:07 | estimated_finish=2026-06-17 13:20:18
+Epoch 525/1000 finished | train_loss=0.558007 | lr=0.000204684 | epoch_time=00:01:07 | elapsed=10:49:39 | ETA=09:47:47 | estimated_finish=2026-06-17 13:20:06
+Quick validation epoch=525 | pseudo_dice=0.536257 | val_time=00:00:25
+Epoch 526/1000 finished | train_loss=0.557788 | lr=0.000204296 | epoch_time=00:01:06 | elapsed=10:51:12 | ETA=09:46:49 | estimated_finish=2026-06-17 13:20:40
+Epoch 527/1000 finished | train_loss=0.492528 | lr=0.000203908 | epoch_time=00:01:08 | elapsed=10:52:21 | ETA=09:45:30 | estimated_finish=2026-06-17 13:20:31
+Epoch 528/1000 finished | train_loss=0.522124 | lr=0.00020352 | epoch_time=00:01:03 | elapsed=10:53:25 | ETA=09:44:07 | estimated_finish=2026-06-17 13:20:12
+Epoch 529/1000 finished | train_loss=0.570167 | lr=0.000203132 | epoch_time=00:01:05 | elapsed=10:54:31 | ETA=09:42:45 | estimated_finish=2026-06-17 13:19:55
+Epoch 530/1000 finished | train_loss=0.493925 | lr=0.000202744 | epoch_time=00:01:05 | elapsed=10:55:37 | ETA=09:41:24 | estimated_finish=2026-06-17 13:19:40
+Quick validation epoch=530 | pseudo_dice=0.560929 | val_time=00:00:23
+Epoch 531/1000 finished | train_loss=0.494751 | lr=0.000202356 | epoch_time=00:01:05 | elapsed=10:57:06 | ETA=09:40:23 | estimated_finish=2026-06-17 13:20:09
+Epoch 532/1000 finished | train_loss=0.510134 | lr=0.000201967 | epoch_time=00:01:03 | elapsed=10:58:11 | ETA=09:39:00 | estimated_finish=2026-06-17 13:19:50
+Epoch 533/1000 finished | train_loss=0.494755 | lr=0.000201579 | epoch_time=00:01:04 | elapsed=10:59:15 | ETA=09:37:37 | estimated_finish=2026-06-17 13:19:32
+Epoch 534/1000 finished | train_loss=0.524318 | lr=0.00020119 | epoch_time=00:01:05 | elapsed=11:00:21 | ETA=09:36:16 | estimated_finish=2026-06-17 13:19:16
+Epoch 535/1000 finished | train_loss=0.559330 | lr=0.000200802 | epoch_time=00:01:05 | elapsed=11:01:27 | ETA=09:34:54 | estimated_finish=2026-06-17 13:19:00
+Quick validation epoch=535 | pseudo_dice=0.590783 | val_time=00:00:23
+Epoch 536/1000 finished | train_loss=0.500810 | lr=0.000200413 | epoch_time=00:01:06 | elapsed=11:02:57 | ETA=09:33:53 | estimated_finish=2026-06-17 13:19:30
+Epoch 537/1000 finished | train_loss=0.506013 | lr=0.000200024 | epoch_time=00:01:04 | elapsed=11:04:01 | ETA=09:32:31 | estimated_finish=2026-06-17 13:19:12
+Epoch 538/1000 finished | train_loss=0.494387 | lr=0.000199635 | epoch_time=00:01:03 | elapsed=11:05:06 | ETA=09:31:09 | estimated_finish=2026-06-17 13:18:54
+Epoch 539/1000 finished | train_loss=0.542249 | lr=0.000199247 | epoch_time=00:01:06 | elapsed=11:06:13 | ETA=09:29:48 | estimated_finish=2026-06-17 13:18:41
+Epoch 540/1000 finished | train_loss=0.518725 | lr=0.000198858 | epoch_time=00:01:06 | elapsed=11:07:20 | ETA=09:28:28 | estimated_finish=2026-06-17 13:18:27
+Quick validation epoch=540 | pseudo_dice=0.542996 | val_time=00:00:23
+Epoch 541/1000 finished | train_loss=0.507937 | lr=0.000198468 | epoch_time=00:01:05 | elapsed=11:08:49 | ETA=09:27:26 | estimated_finish=2026-06-17 13:18:55
+Epoch 542/1000 finished | train_loss=0.554073 | lr=0.000198079 | epoch_time=00:01:06 | elapsed=11:09:56 | ETA=09:26:06 | estimated_finish=2026-06-17 13:18:41
+Epoch 543/1000 finished | train_loss=0.503813 | lr=0.00019769 | epoch_time=00:01:06 | elapsed=11:11:03 | ETA=09:24:46 | estimated_finish=2026-06-17 13:18:29
+Epoch 544/1000 finished | train_loss=0.560092 | lr=0.000197301 | epoch_time=00:01:04 | elapsed=11:12:08 | ETA=09:23:24 | estimated_finish=2026-06-17 13:18:11
+Epoch 545/1000 finished | train_loss=0.552742 | lr=0.000196911 | epoch_time=00:01:06 | elapsed=11:13:14 | ETA=09:22:04 | estimated_finish=2026-06-17 13:17:58
+Quick validation epoch=545 | pseudo_dice=0.610731 | val_time=00:00:23
+Epoch 546/1000 finished | train_loss=0.502145 | lr=0.000196522 | epoch_time=00:01:06 | elapsed=11:14:44 | ETA=09:21:03 | estimated_finish=2026-06-17 13:18:27
+Epoch 547/1000 finished | train_loss=0.514251 | lr=0.000196132 | epoch_time=00:01:06 | elapsed=11:15:51 | ETA=09:19:42 | estimated_finish=2026-06-17 13:18:13
+Epoch 548/1000 finished | train_loss=0.523570 | lr=0.000195742 | epoch_time=00:01:05 | elapsed=11:16:57 | ETA=09:18:21 | estimated_finish=2026-06-17 13:17:58
+Epoch 549/1000 finished | train_loss=0.539077 | lr=0.000195352 | epoch_time=00:01:07 | elapsed=11:18:05 | ETA=09:17:02 | estimated_finish=2026-06-17 13:17:47
+Epoch 550/1000 finished | train_loss=0.551460 | lr=0.000194963 | epoch_time=00:01:07 | elapsed=11:19:13 | ETA=09:15:43 | estimated_finish=2026-06-17 13:17:36
+Quick validation epoch=550 | pseudo_dice=0.556560 | val_time=00:00:23
+Epoch 551/1000 finished | train_loss=0.579875 | lr=0.000194573 | epoch_time=00:01:05 | elapsed=11:20:43 | ETA=09:14:42 | estimated_finish=2026-06-17 13:18:04
+Epoch 552/1000 finished | train_loss=0.526003 | lr=0.000194183 | epoch_time=00:01:05 | elapsed=11:21:49 | ETA=09:13:21 | estimated_finish=2026-06-17 13:17:50
+Epoch 553/1000 finished | train_loss=0.531211 | lr=0.000193792 | epoch_time=00:01:06 | elapsed=11:22:56 | ETA=09:12:01 | estimated_finish=2026-06-17 13:17:37
+Epoch 554/1000 finished | train_loss=0.496769 | lr=0.000193402 | epoch_time=00:01:06 | elapsed=11:24:03 | ETA=09:10:42 | estimated_finish=2026-06-17 13:17:24
+Epoch 555/1000 finished | train_loss=0.501217 | lr=0.000193012 | epoch_time=00:01:05 | elapsed=11:25:09 | ETA=09:09:21 | estimated_finish=2026-06-17 13:17:10
+Quick validation epoch=555 | pseudo_dice=0.529065 | val_time=00:00:23
+Epoch 556/1000 finished | train_loss=0.508285 | lr=0.000192621 | epoch_time=00:01:04 | elapsed=11:26:38 | ETA=09:08:19 | estimated_finish=2026-06-17 13:17:37
+Epoch 557/1000 finished | train_loss=0.501605 | lr=0.000192231 | epoch_time=00:01:05 | elapsed=11:27:44 | ETA=09:06:59 | estimated_finish=2026-06-17 13:17:23
+Epoch 558/1000 finished | train_loss=0.512195 | lr=0.00019184 | epoch_time=00:01:05 | elapsed=11:28:50 | ETA=09:05:38 | estimated_finish=2026-06-17 13:17:08
+Epoch 559/1000 finished | train_loss=0.538772 | lr=0.00019145 | epoch_time=00:01:05 | elapsed=11:29:56 | ETA=09:04:17 | estimated_finish=2026-06-17 13:16:53
+Epoch 560/1000 finished | train_loss=0.514457 | lr=0.000191059 | epoch_time=00:01:05 | elapsed=11:31:02 | ETA=09:02:57 | estimated_finish=2026-06-17 13:16:38
+Quick validation epoch=560 | pseudo_dice=0.522413 | val_time=00:00:23
+Epoch 561/1000 finished | train_loss=0.536770 | lr=0.000190668 | epoch_time=00:01:05 | elapsed=11:32:31 | ETA=09:01:55 | estimated_finish=2026-06-17 13:17:06
+Epoch 562/1000 finished | train_loss=0.518254 | lr=0.000190277 | epoch_time=00:01:07 | elapsed=11:33:39 | ETA=09:00:36 | estimated_finish=2026-06-17 13:16:54
+Epoch 563/1000 finished | train_loss=0.503345 | lr=0.000189886 | epoch_time=00:01:05 | elapsed=11:34:44 | ETA=08:59:15 | estimated_finish=2026-06-17 13:16:39
+Epoch 564/1000 finished | train_loss=0.468545 | lr=0.000189495 | epoch_time=00:01:05 | elapsed=11:35:50 | ETA=08:57:55 | estimated_finish=2026-06-17 13:16:25
+Epoch 565/1000 finished | train_loss=0.560230 | lr=0.000189104 | epoch_time=00:01:05 | elapsed=11:36:56 | ETA=08:56:34 | estimated_finish=2026-06-17 13:16:10
+Quick validation epoch=565 | pseudo_dice=0.510947 | val_time=00:00:23
+Epoch 566/1000 finished | train_loss=0.529202 | lr=0.000188713 | epoch_time=00:01:04 | elapsed=11:38:24 | ETA=08:55:31 | estimated_finish=2026-06-17 13:16:34
+Epoch 567/1000 finished | train_loss=0.508901 | lr=0.000188321 | epoch_time=00:01:06 | elapsed=11:39:30 | ETA=08:54:11 | estimated_finish=2026-06-17 13:16:21
+Epoch 568/1000 finished | train_loss=0.557186 | lr=0.00018793 | epoch_time=00:01:07 | elapsed=11:40:38 | ETA=08:52:53 | estimated_finish=2026-06-17 13:16:10
+Epoch 569/1000 finished | train_loss=0.549511 | lr=0.000187538 | epoch_time=00:01:07 | elapsed=11:41:46 | ETA=08:51:34 | estimated_finish=2026-06-17 13:15:59
+Epoch 570/1000 finished | train_loss=0.494236 | lr=0.000187146 | epoch_time=00:01:06 | elapsed=11:42:53 | ETA=08:50:15 | estimated_finish=2026-06-17 13:15:48
+Quick validation epoch=570 | pseudo_dice=0.594281 | val_time=00:00:23
+Epoch 571/1000 finished | train_loss=0.544723 | lr=0.000186755 | epoch_time=00:01:03 | elapsed=11:44:21 | ETA=08:49:11 | estimated_finish=2026-06-17 13:16:12
+Epoch 572/1000 finished | train_loss=0.518121 | lr=0.000186363 | epoch_time=00:01:04 | elapsed=11:45:26 | ETA=08:47:51 | estimated_finish=2026-06-17 13:15:57
+Epoch 573/1000 finished | train_loss=0.556846 | lr=0.000185971 | epoch_time=00:01:05 | elapsed=11:46:33 | ETA=08:46:31 | estimated_finish=2026-06-17 13:15:43
+Epoch 574/1000 finished | train_loss=0.546630 | lr=0.000185579 | epoch_time=00:01:06 | elapsed=11:47:40 | ETA=08:45:12 | estimated_finish=2026-06-17 13:15:31
+Epoch 575/1000 finished | train_loss=0.529730 | lr=0.000185187 | epoch_time=00:01:06 | elapsed=11:48:47 | ETA=08:43:53 | estimated_finish=2026-06-17 13:15:19
+Quick validation epoch=575 | pseudo_dice=0.585749 | val_time=00:00:24
+Epoch 576/1000 finished | train_loss=0.526189 | lr=0.000184795 | epoch_time=00:01:07 | elapsed=11:50:20 | ETA=08:42:53 | estimated_finish=2026-06-17 13:15:52
+Epoch 577/1000 finished | train_loss=0.543801 | lr=0.000184402 | epoch_time=00:01:04 | elapsed=11:51:24 | ETA=08:41:32 | estimated_finish=2026-06-17 13:15:36
+Epoch 578/1000 finished | train_loss=0.545774 | lr=0.00018401 | epoch_time=00:01:04 | elapsed=11:52:29 | ETA=08:40:11 | estimated_finish=2026-06-17 13:15:20
+Epoch 579/1000 finished | train_loss=0.583306 | lr=0.000183617 | epoch_time=00:01:04 | elapsed=11:53:34 | ETA=08:38:51 | estimated_finish=2026-06-17 13:15:05
+Epoch 580/1000 finished | train_loss=0.505818 | lr=0.000183225 | epoch_time=00:01:03 | elapsed=11:54:38 | ETA=08:37:30 | estimated_finish=2026-06-17 13:14:48
+Quick validation epoch=580 | pseudo_dice=0.564442 | val_time=00:00:23
+Epoch 581/1000 finished | train_loss=0.547076 | lr=0.000182832 | epoch_time=00:01:07 | elapsed=11:56:09 | ETA=08:36:28 | estimated_finish=2026-06-17 13:15:17
+Epoch 582/1000 finished | train_loss=0.515764 | lr=0.000182439 | epoch_time=00:01:03 | elapsed=11:57:13 | ETA=08:35:07 | estimated_finish=2026-06-17 13:14:59
+Epoch 583/1000 finished | train_loss=0.556863 | lr=0.000182047 | epoch_time=00:01:04 | elapsed=11:58:18 | ETA=08:33:47 | estimated_finish=2026-06-17 13:14:44
+Epoch 584/1000 finished | train_loss=0.543810 | lr=0.000181654 | epoch_time=00:01:06 | elapsed=11:59:26 | ETA=08:32:28 | estimated_finish=2026-06-17 13:14:33
+Epoch 585/1000 finished | train_loss=0.501048 | lr=0.000181261 | epoch_time=00:01:02 | elapsed=12:00:28 | ETA=08:31:06 | estimated_finish=2026-06-17 13:14:14
+Quick validation epoch=585 | pseudo_dice=0.544094 | val_time=00:00:22
+Epoch 586/1000 finished | train_loss=0.544815 | lr=0.000180867 | epoch_time=00:01:02 | elapsed=12:01:54 | ETA=08:30:01 | estimated_finish=2026-06-17 13:14:34
+Epoch 587/1000 finished | train_loss=0.544996 | lr=0.000180474 | epoch_time=00:01:06 | elapsed=12:03:01 | ETA=08:28:42 | estimated_finish=2026-06-17 13:14:22
+Epoch 588/1000 finished | train_loss=0.527148 | lr=0.000180081 | epoch_time=00:01:02 | elapsed=12:04:04 | ETA=08:27:20 | estimated_finish=2026-06-17 13:14:04
+Epoch 589/1000 finished | train_loss=0.530407 | lr=0.000179687 | epoch_time=00:01:07 | elapsed=12:05:12 | ETA=08:26:02 | estimated_finish=2026-06-17 13:13:54
+Epoch 590/1000 finished | train_loss=0.499338 | lr=0.000179294 | epoch_time=00:01:03 | elapsed=12:06:16 | ETA=08:24:42 | estimated_finish=2026-06-17 13:13:37
+Quick validation epoch=590 | pseudo_dice=0.575657 | val_time=00:00:22
+Epoch 591/1000 finished | train_loss=0.532109 | lr=0.0001789 | epoch_time=00:01:04 | elapsed=12:07:44 | ETA=08:23:37 | estimated_finish=2026-06-17 13:14:01
+Epoch 592/1000 finished | train_loss=0.550748 | lr=0.000178507 | epoch_time=00:01:04 | elapsed=12:08:49 | ETA=08:22:18 | estimated_finish=2026-06-17 13:13:47
+Epoch 593/1000 finished | train_loss=0.569192 | lr=0.000178113 | epoch_time=00:01:03 | elapsed=12:09:54 | ETA=08:20:57 | estimated_finish=2026-06-17 13:13:31
+Epoch 594/1000 finished | train_loss=0.533568 | lr=0.000177719 | epoch_time=00:01:03 | elapsed=12:10:58 | ETA=08:19:37 | estimated_finish=2026-06-17 13:13:15
+Epoch 595/1000 finished | train_loss=0.502647 | lr=0.000177325 | epoch_time=00:01:03 | elapsed=12:12:02 | ETA=08:18:16 | estimated_finish=2026-06-17 13:12:58
+Quick validation epoch=595 | pseudo_dice=0.578378 | val_time=00:00:22
+Epoch 596/1000 finished | train_loss=0.566431 | lr=0.000176931 | epoch_time=00:01:05 | elapsed=12:13:31 | ETA=08:17:13 | estimated_finish=2026-06-17 13:13:23
+Epoch 597/1000 finished | train_loss=0.538390 | lr=0.000176537 | epoch_time=00:01:06 | elapsed=12:14:37 | ETA=08:15:54 | estimated_finish=2026-06-17 13:13:11
+Epoch 598/1000 finished | train_loss=0.515181 | lr=0.000176142 | epoch_time=00:01:04 | elapsed=12:15:42 | ETA=08:14:34 | estimated_finish=2026-06-17 13:12:56
+Epoch 599/1000 finished | train_loss=0.511000 | lr=0.000175748 | epoch_time=00:01:04 | elapsed=12:16:47 | ETA=08:13:14 | estimated_finish=2026-06-17 13:12:41
+Epoch 600/1000 finished | train_loss=0.513303 | lr=0.000175353 | epoch_time=00:01:04 | elapsed=12:17:52 | ETA=08:11:55 | estimated_finish=2026-06-17 13:12:27
+Quick validation epoch=600 | pseudo_dice=0.582047 | val_time=00:00:22
+Full validation epoch=600 | mean_dice=0.254455 | val_time=00:03:46
+Epoch 601/1000 finished | train_loss=0.520991 | lr=0.000174959 | epoch_time=00:01:02 | elapsed=12:23:05 | ETA=08:13:20 | estimated_finish=2026-06-17 13:19:04
+Epoch 602/1000 finished | train_loss=0.547007 | lr=0.000174564 | epoch_time=00:01:03 | elapsed=12:24:09 | ETA=08:11:59 | estimated_finish=2026-06-17 13:18:47
+Epoch 603/1000 finished | train_loss=0.558027 | lr=0.000174169 | epoch_time=00:01:02 | elapsed=12:25:12 | ETA=08:10:37 | estimated_finish=2026-06-17 13:18:29
+Epoch 604/1000 finished | train_loss=0.504879 | lr=0.000173774 | epoch_time=00:01:04 | elapsed=12:26:17 | ETA=08:09:17 | estimated_finish=2026-06-17 13:18:14
+Epoch 605/1000 finished | train_loss=0.567404 | lr=0.000173379 | epoch_time=00:01:04 | elapsed=12:27:22 | ETA=08:07:57 | estimated_finish=2026-06-17 13:17:59
+Quick validation epoch=605 | pseudo_dice=0.541871 | val_time=00:00:22
+Epoch 606/1000 finished | train_loss=0.553568 | lr=0.000172984 | epoch_time=00:01:04 | elapsed=12:28:50 | ETA=08:06:52 | estimated_finish=2026-06-17 13:18:21
+Epoch 607/1000 finished | train_loss=0.537356 | lr=0.000172589 | epoch_time=00:01:05 | elapsed=12:29:56 | ETA=08:05:32 | estimated_finish=2026-06-17 13:18:07
+Epoch 608/1000 finished | train_loss=0.520097 | lr=0.000172194 | epoch_time=00:01:04 | elapsed=12:31:01 | ETA=08:04:12 | estimated_finish=2026-06-17 13:17:52
+Epoch 609/1000 finished | train_loss=0.505891 | lr=0.000171798 | epoch_time=00:01:04 | elapsed=12:32:06 | ETA=08:02:52 | estimated_finish=2026-06-17 13:17:37
+Epoch 610/1000 finished | train_loss=0.512765 | lr=0.000171403 | epoch_time=00:01:06 | elapsed=12:33:12 | ETA=08:01:33 | estimated_finish=2026-06-17 13:17:25
+Quick validation epoch=610 | pseudo_dice=0.554523 | val_time=00:00:22
+Epoch 611/1000 finished | train_loss=0.559707 | lr=0.000171007 | epoch_time=00:01:03 | elapsed=12:34:39 | ETA=08:00:27 | estimated_finish=2026-06-17 13:17:46
+Epoch 612/1000 finished | train_loss=0.532282 | lr=0.000170612 | epoch_time=00:01:04 | elapsed=12:35:44 | ETA=07:59:07 | estimated_finish=2026-06-17 13:17:31
+Epoch 613/1000 finished | train_loss=0.511235 | lr=0.000170216 | epoch_time=00:01:03 | elapsed=12:36:48 | ETA=07:57:47 | estimated_finish=2026-06-17 13:17:14
+Epoch 614/1000 finished | train_loss=0.501899 | lr=0.00016982 | epoch_time=00:01:02 | elapsed=12:37:51 | ETA=07:56:26 | estimated_finish=2026-06-17 13:16:56
+Epoch 615/1000 finished | train_loss=0.502954 | lr=0.000169424 | epoch_time=00:01:05 | elapsed=12:38:57 | ETA=07:55:07 | estimated_finish=2026-06-17 13:16:43
+Quick validation epoch=615 | pseudo_dice=0.562195 | val_time=00:00:22
+Epoch 616/1000 finished | train_loss=0.503857 | lr=0.000169028 | epoch_time=00:01:05 | elapsed=12:40:25 | ETA=07:54:02 | estimated_finish=2026-06-17 13:17:07
+Epoch 617/1000 finished | train_loss=0.523018 | lr=0.000168632 | epoch_time=00:01:01 | elapsed=12:41:28 | ETA=07:52:40 | estimated_finish=2026-06-17 13:16:48
+Epoch 618/1000 finished | train_loss=0.597057 | lr=0.000168235 | epoch_time=00:01:03 | elapsed=12:42:32 | ETA=07:51:20 | estimated_finish=2026-06-17 13:16:31
+Epoch 619/1000 finished | train_loss=0.502623 | lr=0.000167839 | epoch_time=00:01:02 | elapsed=12:43:34 | ETA=07:49:59 | estimated_finish=2026-06-17 13:16:13
+Epoch 620/1000 finished | train_loss=0.477421 | lr=0.000167442 | epoch_time=00:01:04 | elapsed=12:44:40 | ETA=07:48:40 | estimated_finish=2026-06-17 13:15:59
+Quick validation epoch=620 | pseudo_dice=0.597030 | val_time=00:00:23
+Epoch 621/1000 finished | train_loss=0.537910 | lr=0.000167046 | epoch_time=00:01:05 | elapsed=12:46:09 | ETA=07:47:35 | estimated_finish=2026-06-17 13:16:23
+Epoch 622/1000 finished | train_loss=0.517494 | lr=0.000166649 | epoch_time=00:01:05 | elapsed=12:47:15 | ETA=07:46:16 | estimated_finish=2026-06-17 13:16:10
+Epoch 623/1000 finished | train_loss=0.572177 | lr=0.000166252 | epoch_time=00:01:06 | elapsed=12:48:21 | ETA=07:44:57 | estimated_finish=2026-06-17 13:15:58
+Epoch 624/1000 finished | train_loss=0.563832 | lr=0.000165855 | epoch_time=00:01:07 | elapsed=12:49:29 | ETA=07:43:40 | estimated_finish=2026-06-17 13:15:48
+Epoch 625/1000 finished | train_loss=0.481099 | lr=0.000165458 | epoch_time=00:01:06 | elapsed=12:50:36 | ETA=07:42:21 | estimated_finish=2026-06-17 13:15:37
+Quick validation epoch=625 | pseudo_dice=0.568238 | val_time=00:00:23
+Epoch 626/1000 finished | train_loss=0.552870 | lr=0.000165061 | epoch_time=00:01:04 | elapsed=12:52:04 | ETA=07:41:16 | estimated_finish=2026-06-17 13:16:00
+Epoch 627/1000 finished | train_loss=0.570361 | lr=0.000164664 | epoch_time=00:01:02 | elapsed=12:53:08 | ETA=07:39:56 | estimated_finish=2026-06-17 13:15:43
+Epoch 628/1000 finished | train_loss=0.484407 | lr=0.000164266 | epoch_time=00:01:04 | elapsed=12:54:13 | ETA=07:38:36 | estimated_finish=2026-06-17 13:15:29
+Epoch 629/1000 finished | train_loss=0.526983 | lr=0.000163869 | epoch_time=00:01:03 | elapsed=12:55:17 | ETA=07:37:17 | estimated_finish=2026-06-17 13:15:13
+Epoch 630/1000 finished | train_loss=0.488856 | lr=0.000163471 | epoch_time=00:01:07 | elapsed=12:56:24 | ETA=07:35:59 | estimated_finish=2026-06-17 13:15:03
+Quick validation epoch=630 | pseudo_dice=0.567637 | val_time=00:00:22
+Epoch 631/1000 finished | train_loss=0.502821 | lr=0.000163074 | epoch_time=00:01:03 | elapsed=12:57:51 | ETA=07:34:52 | estimated_finish=2026-06-17 13:15:23
+Epoch 632/1000 finished | train_loss=0.569432 | lr=0.000162676 | epoch_time=00:01:03 | elapsed=12:58:55 | ETA=07:33:32 | estimated_finish=2026-06-17 13:15:07
+Epoch 633/1000 finished | train_loss=0.496325 | lr=0.000162278 | epoch_time=00:01:01 | elapsed=12:59:57 | ETA=07:32:11 | estimated_finish=2026-06-17 13:14:48
+Epoch 634/1000 finished | train_loss=0.480899 | lr=0.00016188 | epoch_time=00:01:03 | elapsed=13:01:01 | ETA=07:30:52 | estimated_finish=2026-06-17 13:14:33
+Epoch 635/1000 finished | train_loss=0.560172 | lr=0.000161482 | epoch_time=00:01:09 | elapsed=13:02:10 | ETA=07:29:36 | estimated_finish=2026-06-17 13:14:26
+Quick validation epoch=635 | pseudo_dice=0.518072 | val_time=00:00:22
+Epoch 636/1000 finished | train_loss=0.495168 | lr=0.000161084 | epoch_time=00:01:03 | elapsed=13:03:37 | ETA=07:28:29 | estimated_finish=2026-06-17 13:14:45
+Epoch 637/1000 finished | train_loss=0.505395 | lr=0.000160685 | epoch_time=00:01:02 | elapsed=13:04:40 | ETA=07:27:09 | estimated_finish=2026-06-17 13:14:28
+Epoch 638/1000 finished | train_loss=0.535139 | lr=0.000160287 | epoch_time=00:01:02 | elapsed=13:05:43 | ETA=07:25:48 | estimated_finish=2026-06-17 13:14:11
+Epoch 639/1000 finished | train_loss=0.574566 | lr=0.000159888 | epoch_time=00:01:06 | elapsed=13:06:49 | ETA=07:24:30 | estimated_finish=2026-06-17 13:13:59
+Epoch 640/1000 finished | train_loss=0.458843 | lr=0.00015949 | epoch_time=00:01:04 | elapsed=13:07:54 | ETA=07:23:12 | estimated_finish=2026-06-17 13:13:46
+Quick validation epoch=640 | pseudo_dice=0.502862 | val_time=00:00:22
+Epoch 641/1000 finished | train_loss=0.579182 | lr=0.000159091 | epoch_time=00:01:04 | elapsed=13:09:22 | ETA=07:22:06 | estimated_finish=2026-06-17 13:14:08
+Epoch 642/1000 finished | train_loss=0.517730 | lr=0.000158692 | epoch_time=00:01:03 | elapsed=13:10:26 | ETA=07:20:46 | estimated_finish=2026-06-17 13:13:52
+Epoch 643/1000 finished | train_loss=0.499728 | lr=0.000158293 | epoch_time=00:01:04 | elapsed=13:11:31 | ETA=07:19:27 | estimated_finish=2026-06-17 13:13:37
+Epoch 644/1000 finished | train_loss=0.542293 | lr=0.000157894 | epoch_time=00:01:04 | elapsed=13:12:35 | ETA=07:18:08 | estimated_finish=2026-06-17 13:13:23
+Epoch 645/1000 finished | train_loss=0.529897 | lr=0.000157495 | epoch_time=00:01:04 | elapsed=13:13:40 | ETA=07:16:49 | estimated_finish=2026-06-17 13:13:08
+Quick validation epoch=645 | pseudo_dice=0.561483 | val_time=00:00:23
+Epoch 646/1000 finished | train_loss=0.529901 | lr=0.000157095 | epoch_time=00:01:04 | elapsed=13:15:08 | ETA=07:15:43 | estimated_finish=2026-06-17 13:13:31
+Epoch 647/1000 finished | train_loss=0.556515 | lr=0.000156696 | epoch_time=00:01:03 | elapsed=13:16:12 | ETA=07:14:24 | estimated_finish=2026-06-17 13:13:15
+Epoch 648/1000 finished | train_loss=0.499623 | lr=0.000156296 | epoch_time=00:01:02 | elapsed=13:17:15 | ETA=07:13:04 | estimated_finish=2026-06-17 13:12:58
+Epoch 649/1000 finished | train_loss=0.534227 | lr=0.000155897 | epoch_time=00:01:04 | elapsed=13:18:20 | ETA=07:11:46 | estimated_finish=2026-06-17 13:12:45
+Epoch 650/1000 finished | train_loss=0.524025 | lr=0.000155497 | epoch_time=00:01:03 | elapsed=13:19:24 | ETA=07:10:27 | estimated_finish=2026-06-17 13:12:30
+Quick validation epoch=650 | pseudo_dice=0.592633 | val_time=00:00:22
+Epoch 651/1000 finished | train_loss=0.512389 | lr=0.000155097 | epoch_time=00:01:03 | elapsed=13:20:51 | ETA=07:09:20 | estimated_finish=2026-06-17 13:12:50
+Epoch 652/1000 finished | train_loss=0.510332 | lr=0.000154697 | epoch_time=00:01:04 | elapsed=13:21:56 | ETA=07:08:01 | estimated_finish=2026-06-17 13:12:37
+Epoch 653/1000 finished | train_loss=0.487743 | lr=0.000154297 | epoch_time=00:01:03 | elapsed=13:23:00 | ETA=07:06:43 | estimated_finish=2026-06-17 13:12:23
+Epoch 654/1000 finished | train_loss=0.490560 | lr=0.000153896 | epoch_time=00:01:03 | elapsed=13:24:04 | ETA=07:05:23 | estimated_finish=2026-06-17 13:12:07
+Epoch 655/1000 finished | train_loss=0.491583 | lr=0.000153496 | epoch_time=00:01:03 | elapsed=13:25:08 | ETA=07:04:04 | estimated_finish=2026-06-17 13:11:51
+Quick validation epoch=655 | pseudo_dice=0.627036 | val_time=00:00:23
+New best model saved by quick validation | pseudo_dice=0.627036 | epoch=655
+Epoch 656/1000 finished | train_loss=0.499231 | lr=0.000153096 | epoch_time=00:01:06 | elapsed=13:26:38 | ETA=07:02:59 | estimated_finish=2026-06-17 13:12:16
+Epoch 657/1000 finished | train_loss=0.542902 | lr=0.000152695 | epoch_time=00:01:02 | elapsed=13:27:41 | ETA=07:01:40 | estimated_finish=2026-06-17 13:12:00
+Epoch 658/1000 finished | train_loss=0.524029 | lr=0.000152294 | epoch_time=00:01:03 | elapsed=13:28:44 | ETA=07:00:21 | estimated_finish=2026-06-17 13:11:45
+Epoch 659/1000 finished | train_loss=0.498501 | lr=0.000151893 | epoch_time=00:01:05 | elapsed=13:29:51 | ETA=06:59:03 | estimated_finish=2026-06-17 13:11:34
+Epoch 660/1000 finished | train_loss=0.528950 | lr=0.000151492 | epoch_time=00:01:04 | elapsed=13:30:56 | ETA=06:57:45 | estimated_finish=2026-06-17 13:11:20
+Quick validation epoch=660 | pseudo_dice=0.537469 | val_time=00:00:22
+Epoch 661/1000 finished | train_loss=0.512816 | lr=0.000151091 | epoch_time=00:01:03 | elapsed=13:32:22 | ETA=06:56:38 | estimated_finish=2026-06-17 13:11:40
+Epoch 662/1000 finished | train_loss=0.550231 | lr=0.00015069 | epoch_time=00:01:04 | elapsed=13:33:28 | ETA=06:55:20 | estimated_finish=2026-06-17 13:11:27
+Epoch 663/1000 finished | train_loss=0.509730 | lr=0.000150289 | epoch_time=00:01:07 | elapsed=13:34:35 | ETA=06:54:03 | estimated_finish=2026-06-17 13:11:18
+Epoch 664/1000 finished | train_loss=0.521066 | lr=0.000149887 | epoch_time=00:01:03 | elapsed=13:35:39 | ETA=06:52:44 | estimated_finish=2026-06-17 13:11:03
+Epoch 665/1000 finished | train_loss=0.520925 | lr=0.000149486 | epoch_time=00:01:04 | elapsed=13:36:44 | ETA=06:51:26 | estimated_finish=2026-06-17 13:10:50
+Quick validation epoch=665 | pseudo_dice=0.562367 | val_time=00:00:22
+Epoch 666/1000 finished | train_loss=0.528091 | lr=0.000149084 | epoch_time=00:01:04 | elapsed=13:38:11 | ETA=06:50:19 | estimated_finish=2026-06-17 13:11:10
+Epoch 667/1000 finished | train_loss=0.534032 | lr=0.000148682 | epoch_time=00:01:02 | elapsed=13:39:15 | ETA=06:49:00 | estimated_finish=2026-06-17 13:10:55
+Epoch 668/1000 finished | train_loss=0.498135 | lr=0.000148281 | epoch_time=00:01:02 | elapsed=13:40:18 | ETA=06:47:41 | estimated_finish=2026-06-17 13:10:39
+Epoch 669/1000 finished | train_loss=0.487484 | lr=0.000147879 | epoch_time=00:01:01 | elapsed=13:41:21 | ETA=06:46:22 | estimated_finish=2026-06-17 13:10:22
+Epoch 670/1000 finished | train_loss=0.515054 | lr=0.000147476 | epoch_time=00:01:02 | elapsed=13:42:24 | ETA=06:45:03 | estimated_finish=2026-06-17 13:10:06
+Quick validation epoch=670 | pseudo_dice=0.567989 | val_time=00:00:22
+Epoch 671/1000 finished | train_loss=0.517997 | lr=0.000147074 | epoch_time=00:01:04 | elapsed=13:43:51 | ETA=06:43:56 | estimated_finish=2026-06-17 13:10:27
+Epoch 672/1000 finished | train_loss=0.534242 | lr=0.000146672 | epoch_time=00:01:05 | elapsed=13:44:57 | ETA=06:42:39 | estimated_finish=2026-06-17 13:10:16
+Epoch 673/1000 finished | train_loss=0.518430 | lr=0.000146269 | epoch_time=00:01:05 | elapsed=13:46:03 | ETA=06:41:21 | estimated_finish=2026-06-17 13:10:04
+Epoch 674/1000 finished | train_loss=0.472052 | lr=0.000145867 | epoch_time=00:01:03 | elapsed=13:47:07 | ETA=06:40:03 | estimated_finish=2026-06-17 13:09:50
+Epoch 675/1000 finished | train_loss=0.545319 | lr=0.000145464 | epoch_time=00:01:04 | elapsed=13:48:12 | ETA=06:38:45 | estimated_finish=2026-06-17 13:09:37
+Quick validation epoch=675 | pseudo_dice=0.540690 | val_time=00:00:24
+Epoch 676/1000 finished | train_loss=0.566033 | lr=0.000145061 | epoch_time=00:01:04 | elapsed=13:49:41 | ETA=06:37:39 | estimated_finish=2026-06-17 13:10:00
+Epoch 677/1000 finished | train_loss=0.505674 | lr=0.000144658 | epoch_time=00:01:04 | elapsed=13:50:46 | ETA=06:36:22 | estimated_finish=2026-06-17 13:09:48
+Epoch 678/1000 finished | train_loss=0.527736 | lr=0.000144255 | epoch_time=00:01:03 | elapsed=13:51:50 | ETA=06:35:03 | estimated_finish=2026-06-17 13:09:33
+Epoch 679/1000 finished | train_loss=0.494296 | lr=0.000143852 | epoch_time=00:01:02 | elapsed=13:52:54 | ETA=06:33:45 | estimated_finish=2026-06-17 13:09:18
+Epoch 680/1000 finished | train_loss=0.498833 | lr=0.000143448 | epoch_time=00:01:02 | elapsed=13:53:56 | ETA=06:32:26 | estimated_finish=2026-06-17 13:09:02
+Quick validation epoch=680 | pseudo_dice=0.572755 | val_time=00:00:22
+Epoch 681/1000 finished | train_loss=0.570499 | lr=0.000143045 | epoch_time=00:01:04 | elapsed=13:55:24 | ETA=06:31:19 | estimated_finish=2026-06-17 13:09:23
+Epoch 682/1000 finished | train_loss=0.499067 | lr=0.000142641 | epoch_time=00:01:03 | elapsed=13:56:28 | ETA=06:30:01 | estimated_finish=2026-06-17 13:09:09
+Epoch 683/1000 finished | train_loss=0.501831 | lr=0.000142237 | epoch_time=00:01:02 | elapsed=13:57:31 | ETA=06:28:42 | estimated_finish=2026-06-17 13:08:53
+Epoch 684/1000 finished | train_loss=0.522024 | lr=0.000141833 | epoch_time=00:01:03 | elapsed=13:58:35 | ETA=06:27:25 | estimated_finish=2026-06-17 13:08:39
+Epoch 685/1000 finished | train_loss=0.535374 | lr=0.000141429 | epoch_time=00:01:05 | elapsed=13:59:41 | ETA=06:26:08 | estimated_finish=2026-06-17 13:08:29
+Quick validation epoch=685 | pseudo_dice=0.598311 | val_time=00:00:22
+Epoch 686/1000 finished | train_loss=0.542019 | lr=0.000141025 | epoch_time=00:01:03 | elapsed=14:01:08 | ETA=06:25:00 | estimated_finish=2026-06-17 13:08:48
+Epoch 687/1000 finished | train_loss=0.485586 | lr=0.000140621 | epoch_time=00:01:03 | elapsed=14:02:12 | ETA=06:23:42 | estimated_finish=2026-06-17 13:08:34
+Epoch 688/1000 finished | train_loss=0.490658 | lr=0.000140217 | epoch_time=00:01:02 | elapsed=14:03:15 | ETA=06:22:24 | estimated_finish=2026-06-17 13:08:19
+Epoch 689/1000 finished | train_loss=0.490553 | lr=0.000139812 | epoch_time=00:01:02 | elapsed=14:04:18 | ETA=06:21:06 | estimated_finish=2026-06-17 13:08:03
+Epoch 690/1000 finished | train_loss=0.497825 | lr=0.000139407 | epoch_time=00:01:04 | elapsed=14:05:23 | ETA=06:19:48 | estimated_finish=2026-06-17 13:07:50
+Quick validation epoch=690 | pseudo_dice=0.645182 | val_time=00:00:22
+New best model saved by quick validation | pseudo_dice=0.645182 | epoch=690
+Epoch 691/1000 finished | train_loss=0.500183 | lr=0.000139003 | epoch_time=00:01:04 | elapsed=14:06:51 | ETA=06:18:41 | estimated_finish=2026-06-17 13:08:12
+Epoch 692/1000 finished | train_loss=0.524194 | lr=0.000138598 | epoch_time=00:01:07 | elapsed=14:07:59 | ETA=06:17:25 | estimated_finish=2026-06-17 13:08:04
+Epoch 693/1000 finished | train_loss=0.515140 | lr=0.000138193 | epoch_time=00:01:02 | elapsed=14:09:02 | ETA=06:16:07 | estimated_finish=2026-06-17 13:07:49
+Epoch 694/1000 finished | train_loss=0.588728 | lr=0.000137787 | epoch_time=00:01:03 | elapsed=14:10:06 | ETA=06:14:49 | estimated_finish=2026-06-17 13:07:35
+Epoch 695/1000 finished | train_loss=0.507124 | lr=0.000137382 | epoch_time=00:01:06 | elapsed=14:11:13 | ETA=06:13:33 | estimated_finish=2026-06-17 13:07:25
+Quick validation epoch=695 | pseudo_dice=0.541171 | val_time=00:00:22
+Epoch 696/1000 finished | train_loss=0.543478 | lr=0.000136977 | epoch_time=00:01:04 | elapsed=14:12:41 | ETA=06:12:26 | estimated_finish=2026-06-17 13:07:46
+Epoch 697/1000 finished | train_loss=0.514055 | lr=0.000136571 | epoch_time=00:01:04 | elapsed=14:13:45 | ETA=06:11:08 | estimated_finish=2026-06-17 13:07:33
+Epoch 698/1000 finished | train_loss=0.532647 | lr=0.000136165 | epoch_time=00:01:03 | elapsed=14:14:49 | ETA=06:09:51 | estimated_finish=2026-06-17 13:07:19
+Epoch 699/1000 finished | train_loss=0.566839 | lr=0.000135759 | epoch_time=00:01:04 | elapsed=14:15:54 | ETA=06:08:33 | estimated_finish=2026-06-17 13:07:07
+Epoch 700/1000 finished | train_loss=0.468893 | lr=0.000135353 | epoch_time=00:01:05 | elapsed=14:17:00 | ETA=06:07:17 | estimated_finish=2026-06-17 13:06:56
+Quick validation epoch=700 | pseudo_dice=0.565223 | val_time=00:00:22
+Full validation epoch=700 | mean_dice=0.308669 | val_time=00:03:46
+New best full-validation model saved | dice=0.308669 | epoch=700
+Epoch 701/1000 finished | train_loss=0.476906 | lr=0.000134947 | epoch_time=00:01:03 | elapsed=14:22:14 | ETA=06:07:46 | estimated_finish=2026-06-17 13:12:40
+Epoch 702/1000 finished | train_loss=0.487029 | lr=0.000134541 | epoch_time=00:01:03 | elapsed=14:23:18 | ETA=06:06:28 | estimated_finish=2026-06-17 13:12:25
+Epoch 703/1000 finished | train_loss=0.524673 | lr=0.000134135 | epoch_time=00:01:05 | elapsed=14:24:24 | ETA=06:05:11 | estimated_finish=2026-06-17 13:12:15
+Epoch 704/1000 finished | train_loss=0.501020 | lr=0.000133728 | epoch_time=00:01:03 | elapsed=14:25:28 | ETA=06:03:53 | estimated_finish=2026-06-17 13:12:01
+Epoch 705/1000 finished | train_loss=0.488214 | lr=0.000133321 | epoch_time=00:01:04 | elapsed=14:26:33 | ETA=06:02:36 | estimated_finish=2026-06-17 13:11:48
+Quick validation epoch=705 | pseudo_dice=0.562739 | val_time=00:00:22
+Epoch 706/1000 finished | train_loss=0.482538 | lr=0.000132915 | epoch_time=00:01:05 | elapsed=14:28:01 | ETA=06:01:28 | estimated_finish=2026-06-17 13:12:09
+Epoch 707/1000 finished | train_loss=0.532436 | lr=0.000132508 | epoch_time=00:01:04 | elapsed=14:29:06 | ETA=06:00:11 | estimated_finish=2026-06-17 13:11:57
+Epoch 708/1000 finished | train_loss=0.526851 | lr=0.000132101 | epoch_time=00:01:04 | elapsed=14:30:11 | ETA=05:58:53 | estimated_finish=2026-06-17 13:11:44
+Epoch 709/1000 finished | train_loss=0.435159 | lr=0.000131693 | epoch_time=00:01:04 | elapsed=14:31:17 | ETA=05:57:36 | estimated_finish=2026-06-17 13:11:33
+Epoch 710/1000 finished | train_loss=0.524699 | lr=0.000131286 | epoch_time=00:01:04 | elapsed=14:32:22 | ETA=05:56:19 | estimated_finish=2026-06-17 13:11:20
+Quick validation epoch=710 | pseudo_dice=0.523772 | val_time=00:00:23
+Epoch 711/1000 finished | train_loss=0.526584 | lr=0.000130878 | epoch_time=00:01:04 | elapsed=14:33:50 | ETA=05:55:11 | estimated_finish=2026-06-17 13:11:41
+Epoch 712/1000 finished | train_loss=0.489184 | lr=0.000130471 | epoch_time=00:01:03 | elapsed=14:34:55 | ETA=05:53:54 | estimated_finish=2026-06-17 13:11:28
+Epoch 713/1000 finished | train_loss=0.495602 | lr=0.000130063 | epoch_time=00:01:02 | elapsed=14:35:58 | ETA=05:52:36 | estimated_finish=2026-06-17 13:11:14
+Epoch 714/1000 finished | train_loss=0.500953 | lr=0.000129655 | epoch_time=00:01:04 | elapsed=14:37:03 | ETA=05:51:18 | estimated_finish=2026-06-17 13:11:01
+Epoch 715/1000 finished | train_loss=0.509356 | lr=0.000129247 | epoch_time=00:01:06 | elapsed=14:38:10 | ETA=05:50:02 | estimated_finish=2026-06-17 13:10:52
+Quick validation epoch=715 | pseudo_dice=0.562553 | val_time=00:00:23
+Epoch 716/1000 finished | train_loss=0.526136 | lr=0.000128839 | epoch_time=00:01:05 | elapsed=14:39:39 | ETA=05:48:54 | estimated_finish=2026-06-17 13:11:13
+Epoch 717/1000 finished | train_loss=0.510117 | lr=0.00012843 | epoch_time=00:01:03 | elapsed=14:40:43 | ETA=05:47:37 | estimated_finish=2026-06-17 13:10:59
+Epoch 718/1000 finished | train_loss=0.494923 | lr=0.000128022 | epoch_time=00:01:06 | elapsed=14:41:50 | ETA=05:46:20 | estimated_finish=2026-06-17 13:10:50
+Epoch 719/1000 finished | train_loss=0.522946 | lr=0.000127613 | epoch_time=00:01:05 | elapsed=14:42:55 | ETA=05:45:04 | estimated_finish=2026-06-17 13:10:39
+Epoch 720/1000 finished | train_loss=0.478564 | lr=0.000127204 | epoch_time=00:01:03 | elapsed=14:44:00 | ETA=05:43:46 | estimated_finish=2026-06-17 13:10:25
+Quick validation epoch=720 | pseudo_dice=0.542703 | val_time=00:00:23
+Epoch 721/1000 finished | train_loss=0.536169 | lr=0.000126795 | epoch_time=00:01:07 | elapsed=14:45:31 | ETA=05:42:39 | estimated_finish=2026-06-17 13:10:50
+Epoch 722/1000 finished | train_loss=0.474265 | lr=0.000126386 | epoch_time=00:01:05 | elapsed=14:46:37 | ETA=05:41:23 | estimated_finish=2026-06-17 13:10:39
+Epoch 723/1000 finished | train_loss=0.521027 | lr=0.000125977 | epoch_time=00:01:05 | elapsed=14:47:43 | ETA=05:40:06 | estimated_finish=2026-06-17 13:10:29
+Epoch 724/1000 finished | train_loss=0.437203 | lr=0.000125568 | epoch_time=00:01:04 | elapsed=14:48:49 | ETA=05:38:49 | estimated_finish=2026-06-17 13:10:18
+Epoch 725/1000 finished | train_loss=0.531083 | lr=0.000125158 | epoch_time=00:01:05 | elapsed=14:49:55 | ETA=05:37:33 | estimated_finish=2026-06-17 13:10:08
+Quick validation epoch=725 | pseudo_dice=0.507404 | val_time=00:00:23
+Epoch 726/1000 finished | train_loss=0.502249 | lr=0.000124749 | epoch_time=00:01:04 | elapsed=14:51:23 | ETA=05:36:25 | estimated_finish=2026-06-17 13:10:27
+Epoch 727/1000 finished | train_loss=0.510024 | lr=0.000124339 | epoch_time=00:01:06 | elapsed=14:52:30 | ETA=05:35:09 | estimated_finish=2026-06-17 13:10:19
+Epoch 728/1000 finished | train_loss=0.498853 | lr=0.000123929 | epoch_time=00:01:03 | elapsed=14:53:35 | ETA=05:33:52 | estimated_finish=2026-06-17 13:10:06
+Epoch 729/1000 finished | train_loss=0.534437 | lr=0.000123519 | epoch_time=00:01:05 | elapsed=14:54:41 | ETA=05:32:35 | estimated_finish=2026-06-17 13:09:55
+Epoch 730/1000 finished | train_loss=0.562364 | lr=0.000123108 | epoch_time=00:01:04 | elapsed=14:55:46 | ETA=05:31:18 | estimated_finish=2026-06-17 13:09:44
+Quick validation epoch=730 | pseudo_dice=0.568539 | val_time=00:00:22
+Epoch 731/1000 finished | train_loss=0.553447 | lr=0.000122698 | epoch_time=00:01:03 | elapsed=14:57:13 | ETA=05:30:09 | estimated_finish=2026-06-17 13:10:02
+Epoch 732/1000 finished | train_loss=0.537779 | lr=0.000122287 | epoch_time=00:01:04 | elapsed=14:58:18 | ETA=05:28:53 | estimated_finish=2026-06-17 13:09:50
+Epoch 733/1000 finished | train_loss=0.465309 | lr=0.000121877 | epoch_time=00:01:01 | elapsed=14:59:20 | ETA=05:27:35 | estimated_finish=2026-06-17 13:09:34
+Epoch 734/1000 finished | train_loss=0.467246 | lr=0.000121466 | epoch_time=00:01:03 | elapsed=15:00:24 | ETA=05:26:18 | estimated_finish=2026-06-17 13:09:21
+Epoch 735/1000 finished | train_loss=0.517762 | lr=0.000121055 | epoch_time=00:01:02 | elapsed=15:01:27 | ETA=05:25:00 | estimated_finish=2026-06-17 13:09:07
+Quick validation epoch=735 | pseudo_dice=0.601135 | val_time=00:00:22
+Epoch 736/1000 finished | train_loss=0.521404 | lr=0.000120643 | epoch_time=00:01:03 | elapsed=15:02:53 | ETA=05:23:51 | estimated_finish=2026-06-17 13:09:24
+Epoch 737/1000 finished | train_loss=0.477135 | lr=0.000120232 | epoch_time=00:01:03 | elapsed=15:03:57 | ETA=05:22:34 | estimated_finish=2026-06-17 13:09:11
+Epoch 738/1000 finished | train_loss=0.460304 | lr=0.000119821 | epoch_time=00:01:04 | elapsed=15:05:02 | ETA=05:21:17 | estimated_finish=2026-06-17 13:08:59
+Epoch 739/1000 finished | train_loss=0.531144 | lr=0.000119409 | epoch_time=00:01:02 | elapsed=15:06:05 | ETA=05:20:00 | estimated_finish=2026-06-17 13:08:45
+Epoch 740/1000 finished | train_loss=0.518598 | lr=0.000118997 | epoch_time=00:01:05 | elapsed=15:07:10 | ETA=05:18:44 | estimated_finish=2026-06-17 13:08:34
+Quick validation epoch=740 | pseudo_dice=0.564911 | val_time=00:00:23
+Epoch 741/1000 finished | train_loss=0.477766 | lr=0.000118585 | epoch_time=00:01:03 | elapsed=15:08:38 | ETA=05:17:35 | estimated_finish=2026-06-17 13:08:53
+Epoch 742/1000 finished | train_loss=0.513386 | lr=0.000118173 | epoch_time=00:01:02 | elapsed=15:09:41 | ETA=05:16:18 | estimated_finish=2026-06-17 13:08:39
+Epoch 743/1000 finished | train_loss=0.515101 | lr=0.000117761 | epoch_time=00:01:03 | elapsed=15:10:45 | ETA=05:15:01 | estimated_finish=2026-06-17 13:08:26
+Epoch 744/1000 finished | train_loss=0.498587 | lr=0.000117348 | epoch_time=00:01:04 | elapsed=15:11:49 | ETA=05:13:44 | estimated_finish=2026-06-17 13:08:14
+Epoch 745/1000 finished | train_loss=0.498922 | lr=0.000116935 | epoch_time=00:01:02 | elapsed=15:12:52 | ETA=05:12:27 | estimated_finish=2026-06-17 13:07:59
+Quick validation epoch=745 | pseudo_dice=0.584914 | val_time=00:00:22
+Epoch 746/1000 finished | train_loss=0.545597 | lr=0.000116523 | epoch_time=00:01:02 | elapsed=15:14:18 | ETA=05:11:18 | estimated_finish=2026-06-17 13:08:16
+Epoch 747/1000 finished | train_loss=0.504202 | lr=0.00011611 | epoch_time=00:01:02 | elapsed=15:15:21 | ETA=05:10:01 | estimated_finish=2026-06-17 13:08:02
+Epoch 748/1000 finished | train_loss=0.541320 | lr=0.000115697 | epoch_time=00:01:03 | elapsed=15:16:25 | ETA=05:08:44 | estimated_finish=2026-06-17 13:07:49
+Epoch 749/1000 finished | train_loss=0.452303 | lr=0.000115283 | epoch_time=00:01:05 | elapsed=15:17:31 | ETA=05:07:28 | estimated_finish=2026-06-17 13:07:39
+Epoch 750/1000 finished | train_loss=0.478202 | lr=0.00011487 | epoch_time=00:01:03 | elapsed=15:18:35 | ETA=05:06:11 | estimated_finish=2026-06-17 13:07:26
+Quick validation epoch=750 | pseudo_dice=0.535404 | val_time=00:00:22
+Epoch 751/1000 finished | train_loss=0.576109 | lr=0.000114456 | epoch_time=00:01:04 | elapsed=15:20:03 | ETA=05:05:03 | estimated_finish=2026-06-17 13:07:45
+Epoch 752/1000 finished | train_loss=0.503303 | lr=0.000114042 | epoch_time=00:01:02 | elapsed=15:21:06 | ETA=05:03:46 | estimated_finish=2026-06-17 13:07:31
+Epoch 753/1000 finished | train_loss=0.510994 | lr=0.000113628 | epoch_time=00:01:06 | elapsed=15:22:13 | ETA=05:02:30 | estimated_finish=2026-06-17 13:07:23
+Epoch 754/1000 finished | train_loss=0.507753 | lr=0.000113214 | epoch_time=00:01:02 | elapsed=15:23:15 | ETA=05:01:13 | estimated_finish=2026-06-17 13:07:08
+Epoch 755/1000 finished | train_loss=0.522865 | lr=0.0001128 | epoch_time=00:01:02 | elapsed=15:24:18 | ETA=04:59:56 | estimated_finish=2026-06-17 13:06:54
+Quick validation epoch=755 | pseudo_dice=0.540851 | val_time=00:00:22
+Epoch 756/1000 finished | train_loss=0.481645 | lr=0.000112386 | epoch_time=00:01:02 | elapsed=15:25:44 | ETA=04:58:46 | estimated_finish=2026-06-17 13:07:10
+Epoch 757/1000 finished | train_loss=0.467190 | lr=0.000111971 | epoch_time=00:01:03 | elapsed=15:26:48 | ETA=04:57:30 | estimated_finish=2026-06-17 13:06:57
+Epoch 758/1000 finished | train_loss=0.471929 | lr=0.000111556 | epoch_time=00:01:04 | elapsed=15:27:53 | ETA=04:56:14 | estimated_finish=2026-06-17 13:06:46
+Epoch 759/1000 finished | train_loss=0.471022 | lr=0.000111141 | epoch_time=00:01:03 | elapsed=15:28:57 | ETA=04:54:57 | estimated_finish=2026-06-17 13:06:34
+Epoch 760/1000 finished | train_loss=0.529677 | lr=0.000110726 | epoch_time=00:01:03 | elapsed=15:30:01 | ETA=04:53:41 | estimated_finish=2026-06-17 13:06:22
+Quick validation epoch=760 | pseudo_dice=0.549015 | val_time=00:00:22
+Epoch 761/1000 finished | train_loss=0.505412 | lr=0.000110311 | epoch_time=00:01:03 | elapsed=15:31:27 | ETA=04:52:32 | estimated_finish=2026-06-17 13:06:39
+Epoch 762/1000 finished | train_loss=0.491764 | lr=0.000109895 | epoch_time=00:01:03 | elapsed=15:32:31 | ETA=04:51:15 | estimated_finish=2026-06-17 13:06:26
+Epoch 763/1000 finished | train_loss=0.512189 | lr=0.00010948 | epoch_time=00:01:04 | elapsed=15:33:36 | ETA=04:49:59 | estimated_finish=2026-06-17 13:06:14
+Epoch 764/1000 finished | train_loss=0.518516 | lr=0.000109064 | epoch_time=00:01:03 | elapsed=15:34:39 | ETA=04:48:43 | estimated_finish=2026-06-17 13:06:02
+Epoch 765/1000 finished | train_loss=0.472694 | lr=0.000108648 | epoch_time=00:01:05 | elapsed=15:35:45 | ETA=04:47:27 | estimated_finish=2026-06-17 13:05:51
+Quick validation epoch=765 | pseudo_dice=0.571659 | val_time=00:00:23
+Epoch 766/1000 finished | train_loss=0.486524 | lr=0.000108232 | epoch_time=00:01:04 | elapsed=15:37:13 | ETA=04:46:18 | estimated_finish=2026-06-17 13:06:10
+Epoch 767/1000 finished | train_loss=0.468256 | lr=0.000107815 | epoch_time=00:01:03 | elapsed=15:38:17 | ETA=04:45:02 | estimated_finish=2026-06-17 13:05:58
+Epoch 768/1000 finished | train_loss=0.497090 | lr=0.000107399 | epoch_time=00:01:03 | elapsed=15:39:20 | ETA=04:43:45 | estimated_finish=2026-06-17 13:05:45
+Epoch 769/1000 finished | train_loss=0.474464 | lr=0.000106982 | epoch_time=00:01:04 | elapsed=15:40:26 | ETA=04:42:29 | estimated_finish=2026-06-17 13:05:35
+Epoch 770/1000 finished | train_loss=0.497663 | lr=0.000106565 | epoch_time=00:01:05 | elapsed=15:41:32 | ETA=04:41:14 | estimated_finish=2026-06-17 13:05:25
+Quick validation epoch=770 | pseudo_dice=0.548158 | val_time=00:00:22
+Epoch 771/1000 finished | train_loss=0.517815 | lr=0.000106148 | epoch_time=00:01:04 | elapsed=15:42:59 | ETA=04:40:05 | estimated_finish=2026-06-17 13:05:44
+Epoch 772/1000 finished | train_loss=0.494783 | lr=0.000105731 | epoch_time=00:01:03 | elapsed=15:44:03 | ETA=04:38:48 | estimated_finish=2026-06-17 13:05:31
+Epoch 773/1000 finished | train_loss=0.439609 | lr=0.000105313 | epoch_time=00:01:05 | elapsed=15:45:09 | ETA=04:37:33 | estimated_finish=2026-06-17 13:05:22
+Epoch 774/1000 finished | train_loss=0.514166 | lr=0.000104896 | epoch_time=00:01:06 | elapsed=15:46:16 | ETA=04:36:18 | estimated_finish=2026-06-17 13:05:14
+Epoch 775/1000 finished | train_loss=0.537953 | lr=0.000104478 | epoch_time=00:01:03 | elapsed=15:47:21 | ETA=04:35:02 | estimated_finish=2026-06-17 13:05:02
+Quick validation epoch=775 | pseudo_dice=0.540272 | val_time=00:00:23
+Epoch 776/1000 finished | train_loss=0.494195 | lr=0.00010406 | epoch_time=00:01:05 | elapsed=15:48:51 | ETA=04:33:53 | estimated_finish=2026-06-17 13:05:24
+Epoch 777/1000 finished | train_loss=0.505695 | lr=0.000103642 | epoch_time=00:01:05 | elapsed=15:49:57 | ETA=04:32:38 | estimated_finish=2026-06-17 13:05:15
+Epoch 778/1000 finished | train_loss=0.505311 | lr=0.000103223 | epoch_time=00:01:06 | elapsed=15:51:04 | ETA=04:31:23 | estimated_finish=2026-06-17 13:05:07
+Epoch 779/1000 finished | train_loss=0.483186 | lr=0.000102805 | epoch_time=00:01:03 | elapsed=15:52:08 | ETA=04:30:07 | estimated_finish=2026-06-17 13:04:54
+Epoch 780/1000 finished | train_loss=0.486594 | lr=0.000102386 | epoch_time=00:01:05 | elapsed=15:53:14 | ETA=04:28:51 | estimated_finish=2026-06-17 13:04:45
+Quick validation epoch=780 | pseudo_dice=0.592725 | val_time=00:00:22
+Epoch 781/1000 finished | train_loss=0.490100 | lr=0.000101967 | epoch_time=00:01:03 | elapsed=15:54:40 | ETA=04:27:42 | estimated_finish=2026-06-17 13:05:01
+Epoch 782/1000 finished | train_loss=0.514836 | lr=0.000101548 | epoch_time=00:01:02 | elapsed=15:55:43 | ETA=04:26:25 | estimated_finish=2026-06-17 13:04:48
+Epoch 783/1000 finished | train_loss=0.472365 | lr=0.000101129 | epoch_time=00:01:02 | elapsed=15:56:46 | ETA=04:25:09 | estimated_finish=2026-06-17 13:04:35
+Epoch 784/1000 finished | train_loss=0.502004 | lr=0.000100709 | epoch_time=00:01:03 | elapsed=15:57:51 | ETA=04:23:53 | estimated_finish=2026-06-17 13:04:24
+Epoch 785/1000 finished | train_loss=0.503243 | lr=0.000100289 | epoch_time=00:01:03 | elapsed=15:58:54 | ETA=04:22:37 | estimated_finish=2026-06-17 13:04:12
+Quick validation epoch=785 | pseudo_dice=0.515071 | val_time=00:00:22
+Epoch 786/1000 finished | train_loss=0.479712 | lr=9.98694e-05 | epoch_time=00:01:01 | elapsed=16:00:19 | ETA=04:21:27 | estimated_finish=2026-06-17 13:04:26
+Epoch 787/1000 finished | train_loss=0.460354 | lr=9.94493e-05 | epoch_time=00:01:02 | elapsed=16:01:22 | ETA=04:20:11 | estimated_finish=2026-06-17 13:04:13
+Epoch 788/1000 finished | train_loss=0.520570 | lr=9.9029e-05 | epoch_time=00:01:02 | elapsed=16:02:24 | ETA=04:18:55 | estimated_finish=2026-06-17 13:03:59
+Epoch 789/1000 finished | train_loss=0.489764 | lr=9.86085e-05 | epoch_time=00:01:03 | elapsed=16:03:29 | ETA=04:17:39 | estimated_finish=2026-06-17 13:03:48
+Epoch 790/1000 finished | train_loss=0.509899 | lr=9.81878e-05 | epoch_time=00:01:02 | elapsed=16:04:32 | ETA=04:16:23 | estimated_finish=2026-06-17 13:03:35
+Quick validation epoch=790 | pseudo_dice=0.561844 | val_time=00:00:22
+Epoch 791/1000 finished | train_loss=0.487985 | lr=9.77669e-05 | epoch_time=00:01:02 | elapsed=16:05:58 | ETA=04:15:13 | estimated_finish=2026-06-17 13:03:51
+Epoch 792/1000 finished | train_loss=0.556526 | lr=9.73457e-05 | epoch_time=00:01:02 | elapsed=16:07:01 | ETA=04:13:57 | estimated_finish=2026-06-17 13:03:38
+Epoch 793/1000 finished | train_loss=0.456747 | lr=9.69244e-05 | epoch_time=00:01:04 | elapsed=16:08:06 | ETA=04:12:42 | estimated_finish=2026-06-17 13:03:27
+Epoch 794/1000 finished | train_loss=0.446021 | lr=9.65029e-05 | epoch_time=00:01:04 | elapsed=16:09:10 | ETA=04:11:26 | estimated_finish=2026-06-17 13:03:16
+Epoch 795/1000 finished | train_loss=0.552297 | lr=9.60812e-05 | epoch_time=00:01:04 | elapsed=16:10:15 | ETA=04:10:11 | estimated_finish=2026-06-17 13:03:05
+Quick validation epoch=795 | pseudo_dice=0.534739 | val_time=00:00:22
+Epoch 796/1000 finished | train_loss=0.530089 | lr=9.56593e-05 | epoch_time=00:01:01 | elapsed=16:11:40 | ETA=04:09:01 | estimated_finish=2026-06-17 13:03:20
+Epoch 797/1000 finished | train_loss=0.483994 | lr=9.52372e-05 | epoch_time=00:01:02 | elapsed=16:12:43 | ETA=04:07:45 | estimated_finish=2026-06-17 13:03:08
+Epoch 798/1000 finished | train_loss=0.501084 | lr=9.48148e-05 | epoch_time=00:01:03 | elapsed=16:13:47 | ETA=04:06:29 | estimated_finish=2026-06-17 13:02:56
+Epoch 799/1000 finished | train_loss=0.527369 | lr=9.43923e-05 | epoch_time=00:01:02 | elapsed=16:14:50 | ETA=04:05:14 | estimated_finish=2026-06-17 13:02:43
+Epoch 800/1000 finished | train_loss=0.433819 | lr=9.39695e-05 | epoch_time=00:01:04 | elapsed=16:15:55 | ETA=04:03:58 | estimated_finish=2026-06-17 13:02:33
+Quick validation epoch=800 | pseudo_dice=0.519193 | val_time=00:00:22
+Full validation epoch=800 | mean_dice=0.320432 | val_time=00:03:46
+New best full-validation model saved | dice=0.320432 | epoch=800
+Epoch 801/1000 finished | train_loss=0.537145 | lr=9.35465e-05 | epoch_time=00:01:02 | elapsed=16:21:07 | ETA=04:03:45 | estimated_finish=2026-06-17 13:07:32
+Epoch 802/1000 finished | train_loss=0.517815 | lr=9.31234e-05 | epoch_time=00:01:03 | elapsed=16:22:11 | ETA=04:02:29 | estimated_finish=2026-06-17 13:07:19
+Epoch 803/1000 finished | train_loss=0.489905 | lr=9.27e-05 | epoch_time=00:01:02 | elapsed=16:23:14 | ETA=04:01:13 | estimated_finish=2026-06-17 13:07:06
+Epoch 804/1000 finished | train_loss=0.470846 | lr=9.22764e-05 | epoch_time=00:01:03 | elapsed=16:24:17 | ETA=03:59:57 | estimated_finish=2026-06-17 13:06:54
+Epoch 805/1000 finished | train_loss=0.530522 | lr=9.18525e-05 | epoch_time=00:01:04 | elapsed=16:25:23 | ETA=03:58:41 | estimated_finish=2026-06-17 13:06:44
+Quick validation epoch=805 | pseudo_dice=0.552356 | val_time=00:00:22
+Epoch 806/1000 finished | train_loss=0.512540 | lr=9.14285e-05 | epoch_time=00:01:04 | elapsed=16:26:50 | ETA=03:57:31 | estimated_finish=2026-06-17 13:07:00
+Epoch 807/1000 finished | train_loss=0.479082 | lr=9.10042e-05 | epoch_time=00:01:03 | elapsed=16:27:54 | ETA=03:56:15 | estimated_finish=2026-06-17 13:06:49
+Epoch 808/1000 finished | train_loss=0.502413 | lr=9.05797e-05 | epoch_time=00:01:07 | elapsed=16:29:02 | ETA=03:55:01 | estimated_finish=2026-06-17 13:06:43
+Epoch 809/1000 finished | train_loss=0.508082 | lr=9.0155e-05 | epoch_time=00:01:03 | elapsed=16:30:06 | ETA=03:53:45 | estimated_finish=2026-06-17 13:06:31
+Epoch 810/1000 finished | train_loss=0.463949 | lr=8.97301e-05 | epoch_time=00:01:02 | elapsed=16:31:09 | ETA=03:52:29 | estimated_finish=2026-06-17 13:06:18
+Quick validation epoch=810 | pseudo_dice=0.594230 | val_time=00:00:22
+Epoch 811/1000 finished | train_loss=0.495536 | lr=8.9305e-05 | epoch_time=00:01:02 | elapsed=16:32:34 | ETA=03:51:18 | estimated_finish=2026-06-17 13:06:32
+Epoch 812/1000 finished | train_loss=0.468799 | lr=8.88796e-05 | epoch_time=00:01:04 | elapsed=16:33:39 | ETA=03:50:03 | estimated_finish=2026-06-17 13:06:21
+Epoch 813/1000 finished | train_loss=0.458095 | lr=8.8454e-05 | epoch_time=00:01:04 | elapsed=16:34:43 | ETA=03:48:48 | estimated_finish=2026-06-17 13:06:11
+Epoch 814/1000 finished | train_loss=0.506598 | lr=8.80282e-05 | epoch_time=00:01:02 | elapsed=16:35:46 | ETA=03:47:32 | estimated_finish=2026-06-17 13:05:57
+Epoch 815/1000 finished | train_loss=0.493593 | lr=8.76021e-05 | epoch_time=00:01:03 | elapsed=16:36:50 | ETA=03:46:16 | estimated_finish=2026-06-17 13:05:46
+Quick validation epoch=815 | pseudo_dice=0.567409 | val_time=00:00:22
+Epoch 816/1000 finished | train_loss=0.472336 | lr=8.71758e-05 | epoch_time=00:01:03 | elapsed=16:38:16 | ETA=03:45:06 | estimated_finish=2026-06-17 13:06:01
+Epoch 817/1000 finished | train_loss=0.548097 | lr=8.67493e-05 | epoch_time=00:01:03 | elapsed=16:39:20 | ETA=03:43:50 | estimated_finish=2026-06-17 13:05:50
+Epoch 818/1000 finished | train_loss=0.502613 | lr=8.63225e-05 | epoch_time=00:01:06 | elapsed=16:40:27 | ETA=03:42:35 | estimated_finish=2026-06-17 13:05:42
+Epoch 819/1000 finished | train_loss=0.443474 | lr=8.58956e-05 | epoch_time=00:01:03 | elapsed=16:41:31 | ETA=03:41:20 | estimated_finish=2026-06-17 13:05:30
+Epoch 820/1000 finished | train_loss=0.466234 | lr=8.54683e-05 | epoch_time=00:01:04 | elapsed=16:42:36 | ETA=03:40:05 | estimated_finish=2026-06-17 13:05:20
+Quick validation epoch=820 | pseudo_dice=0.498428 | val_time=00:00:23
+Epoch 821/1000 finished | train_loss=0.538365 | lr=8.50409e-05 | epoch_time=00:01:04 | elapsed=16:44:04 | ETA=03:38:54 | estimated_finish=2026-06-17 13:05:38
+Epoch 822/1000 finished | train_loss=0.525847 | lr=8.46132e-05 | epoch_time=00:01:04 | elapsed=16:45:09 | ETA=03:37:39 | estimated_finish=2026-06-17 13:05:28
+Epoch 823/1000 finished | train_loss=0.471045 | lr=8.41852e-05 | epoch_time=00:01:02 | elapsed=16:46:12 | ETA=03:36:24 | estimated_finish=2026-06-17 13:05:15
+Epoch 824/1000 finished | train_loss=0.497782 | lr=8.37571e-05 | epoch_time=00:01:04 | elapsed=16:47:17 | ETA=03:35:08 | estimated_finish=2026-06-17 13:05:05
+Epoch 825/1000 finished | train_loss=0.484943 | lr=8.33286e-05 | epoch_time=00:01:03 | elapsed=16:48:21 | ETA=03:33:53 | estimated_finish=2026-06-17 13:04:53
+Quick validation epoch=825 | pseudo_dice=0.573682 | val_time=00:00:22
+Epoch 826/1000 finished | train_loss=0.499842 | lr=8.29e-05 | epoch_time=00:01:01 | elapsed=16:49:46 | ETA=03:32:42 | estimated_finish=2026-06-17 13:05:08
+Epoch 827/1000 finished | train_loss=0.482436 | lr=8.2471e-05 | epoch_time=00:01:03 | elapsed=16:50:50 | ETA=03:31:27 | estimated_finish=2026-06-17 13:04:56
+Epoch 828/1000 finished | train_loss=0.483282 | lr=8.20419e-05 | epoch_time=00:01:01 | elapsed=16:51:52 | ETA=03:30:11 | estimated_finish=2026-06-17 13:04:42
+Epoch 829/1000 finished | train_loss=0.505582 | lr=8.16125e-05 | epoch_time=00:01:02 | elapsed=16:52:54 | ETA=03:28:56 | estimated_finish=2026-06-17 13:04:30
+Epoch 830/1000 finished | train_loss=0.463601 | lr=8.11828e-05 | epoch_time=00:01:04 | elapsed=16:53:59 | ETA=03:27:41 | estimated_finish=2026-06-17 13:04:19
+Quick validation epoch=830 | pseudo_dice=0.539916 | val_time=00:00:22
+Epoch 831/1000 finished | train_loss=0.471830 | lr=8.07529e-05 | epoch_time=00:01:02 | elapsed=16:55:25 | ETA=03:26:30 | estimated_finish=2026-06-17 13:04:34
+Epoch 832/1000 finished | train_loss=0.487073 | lr=8.03227e-05 | epoch_time=00:01:04 | elapsed=16:56:29 | ETA=03:25:15 | estimated_finish=2026-06-17 13:04:24
+Epoch 833/1000 finished | train_loss=0.487324 | lr=7.98923e-05 | epoch_time=00:01:03 | elapsed=16:57:33 | ETA=03:24:00 | estimated_finish=2026-06-17 13:04:13
+Epoch 834/1000 finished | train_loss=0.480687 | lr=7.94616e-05 | epoch_time=00:01:02 | elapsed=16:58:36 | ETA=03:22:44 | estimated_finish=2026-06-17 13:04:00
+Epoch 835/1000 finished | train_loss=0.456595 | lr=7.90306e-05 | epoch_time=00:01:03 | elapsed=16:59:40 | ETA=03:21:29 | estimated_finish=2026-06-17 13:03:49
+Quick validation epoch=835 | pseudo_dice=0.541297 | val_time=00:00:22
+Epoch 836/1000 finished | train_loss=0.502391 | lr=7.85994e-05 | epoch_time=00:01:04 | elapsed=17:01:08 | ETA=03:20:19 | estimated_finish=2026-06-17 13:04:06
+Epoch 837/1000 finished | train_loss=0.516232 | lr=7.8168e-05 | epoch_time=00:01:03 | elapsed=17:02:11 | ETA=03:19:03 | estimated_finish=2026-06-17 13:03:54
+Epoch 838/1000 finished | train_loss=0.504322 | lr=7.77362e-05 | epoch_time=00:01:03 | elapsed=17:03:15 | ETA=03:17:48 | estimated_finish=2026-06-17 13:03:44
+Epoch 839/1000 finished | train_loss=0.467028 | lr=7.73042e-05 | epoch_time=00:01:02 | elapsed=17:04:19 | ETA=03:16:33 | estimated_finish=2026-06-17 13:03:32
+Epoch 840/1000 finished | train_loss=0.536669 | lr=7.6872e-05 | epoch_time=00:01:04 | elapsed=17:05:23 | ETA=03:15:18 | estimated_finish=2026-06-17 13:03:21
+Quick validation epoch=840 | pseudo_dice=0.539658 | val_time=00:00:22
+Epoch 841/1000 finished | train_loss=0.424252 | lr=7.64394e-05 | epoch_time=00:01:02 | elapsed=17:06:49 | ETA=03:14:07 | estimated_finish=2026-06-17 13:03:36
+Epoch 842/1000 finished | train_loss=0.506522 | lr=7.60066e-05 | epoch_time=00:01:03 | elapsed=17:07:53 | ETA=03:12:52 | estimated_finish=2026-06-17 13:03:25
+Epoch 843/1000 finished | train_loss=0.508119 | lr=7.55735e-05 | epoch_time=00:01:01 | elapsed=17:08:54 | ETA=03:11:37 | estimated_finish=2026-06-17 13:03:11
+Epoch 844/1000 finished | train_loss=0.488818 | lr=7.51402e-05 | epoch_time=00:01:04 | elapsed=17:10:00 | ETA=03:10:22 | estimated_finish=2026-06-17 13:03:02
+Epoch 845/1000 finished | train_loss=0.475993 | lr=7.47065e-05 | epoch_time=00:01:03 | elapsed=17:11:03 | ETA=03:09:07 | estimated_finish=2026-06-17 13:02:50
+Quick validation epoch=845 | pseudo_dice=0.546986 | val_time=00:00:22
+Epoch 846/1000 finished | train_loss=0.476472 | lr=7.42726e-05 | epoch_time=00:01:01 | elapsed=17:12:28 | ETA=03:07:56 | estimated_finish=2026-06-17 13:03:04
+Epoch 847/1000 finished | train_loss=0.488442 | lr=7.38384e-05 | epoch_time=00:01:01 | elapsed=17:13:30 | ETA=03:06:41 | estimated_finish=2026-06-17 13:02:51
+Epoch 848/1000 finished | train_loss=0.472161 | lr=7.34039e-05 | epoch_time=00:01:03 | elapsed=17:14:34 | ETA=03:05:26 | estimated_finish=2026-06-17 13:02:40
+Epoch 849/1000 finished | train_loss=0.513068 | lr=7.29691e-05 | epoch_time=00:01:02 | elapsed=17:15:37 | ETA=03:04:11 | estimated_finish=2026-06-17 13:02:28
+Epoch 850/1000 finished | train_loss=0.494768 | lr=7.25341e-05 | epoch_time=00:01:03 | elapsed=17:16:41 | ETA=03:02:56 | estimated_finish=2026-06-17 13:02:17
+Quick validation epoch=850 | pseudo_dice=0.571451 | val_time=00:00:22
+Epoch 851/1000 finished | train_loss=0.491818 | lr=7.20987e-05 | epoch_time=00:01:04 | elapsed=17:18:08 | ETA=03:01:46 | estimated_finish=2026-06-17 13:02:34
+Epoch 852/1000 finished | train_loss=0.538282 | lr=7.16631e-05 | epoch_time=00:01:02 | elapsed=17:19:11 | ETA=03:00:31 | estimated_finish=2026-06-17 13:02:22
+Epoch 853/1000 finished | train_loss=0.471877 | lr=7.12272e-05 | epoch_time=00:01:01 | elapsed=17:20:14 | ETA=02:59:15 | estimated_finish=2026-06-17 13:02:09
+Epoch 854/1000 finished | train_loss=0.516609 | lr=7.07909e-05 | epoch_time=00:01:02 | elapsed=17:21:16 | ETA=02:58:01 | estimated_finish=2026-06-17 13:01:57
+Epoch 855/1000 finished | train_loss=0.493953 | lr=7.03544e-05 | epoch_time=00:01:03 | elapsed=17:22:20 | ETA=02:56:46 | estimated_finish=2026-06-17 13:01:45
+Quick validation epoch=855 | pseudo_dice=0.587135 | val_time=00:00:22
+Epoch 856/1000 finished | train_loss=0.483126 | lr=6.99176e-05 | epoch_time=00:01:02 | elapsed=17:23:45 | ETA=02:55:35 | estimated_finish=2026-06-17 13:01:59
+Epoch 857/1000 finished | train_loss=0.438597 | lr=6.94804e-05 | epoch_time=00:01:05 | elapsed=17:24:51 | ETA=02:54:20 | estimated_finish=2026-06-17 13:01:50
+Epoch 858/1000 finished | train_loss=0.497416 | lr=6.9043e-05 | epoch_time=00:01:04 | elapsed=17:25:55 | ETA=02:53:06 | estimated_finish=2026-06-17 13:01:40
+Epoch 859/1000 finished | train_loss=0.526982 | lr=6.86052e-05 | epoch_time=00:01:02 | elapsed=17:26:58 | ETA=02:51:51 | estimated_finish=2026-06-17 13:01:29
+Epoch 860/1000 finished | train_loss=0.470630 | lr=6.81672e-05 | epoch_time=00:01:03 | elapsed=17:28:02 | ETA=02:50:36 | estimated_finish=2026-06-17 13:01:18
+Quick validation epoch=860 | pseudo_dice=0.567268 | val_time=00:00:22
+Epoch 861/1000 finished | train_loss=0.482204 | lr=6.77288e-05 | epoch_time=00:01:03 | elapsed=17:29:29 | ETA=02:49:25 | estimated_finish=2026-06-17 13:01:34
+Epoch 862/1000 finished | train_loss=0.506448 | lr=6.72901e-05 | epoch_time=00:01:04 | elapsed=17:30:34 | ETA=02:48:11 | estimated_finish=2026-06-17 13:01:24
+Epoch 863/1000 finished | train_loss=0.495940 | lr=6.68511e-05 | epoch_time=00:01:05 | elapsed=17:31:40 | ETA=02:46:57 | estimated_finish=2026-06-17 13:01:16
+Epoch 864/1000 finished | train_loss=0.486891 | lr=6.64118e-05 | epoch_time=00:01:05 | elapsed=17:32:46 | ETA=02:45:42 | estimated_finish=2026-06-17 13:01:08
+Epoch 865/1000 finished | train_loss=0.479712 | lr=6.59721e-05 | epoch_time=00:01:04 | elapsed=17:33:51 | ETA=02:44:28 | estimated_finish=2026-06-17 13:00:59
+Quick validation epoch=865 | pseudo_dice=0.530081 | val_time=00:00:23
+Epoch 866/1000 finished | train_loss=0.468528 | lr=6.55321e-05 | epoch_time=00:01:02 | elapsed=17:35:17 | ETA=02:43:17 | estimated_finish=2026-06-17 13:01:14
+Epoch 867/1000 finished | train_loss=0.454458 | lr=6.50918e-05 | epoch_time=00:01:03 | elapsed=17:36:21 | ETA=02:42:02 | estimated_finish=2026-06-17 13:01:04
+Epoch 868/1000 finished | train_loss=0.489697 | lr=6.46512e-05 | epoch_time=00:01:03 | elapsed=17:37:25 | ETA=02:40:48 | estimated_finish=2026-06-17 13:00:52
+Epoch 869/1000 finished | train_loss=0.521173 | lr=6.42102e-05 | epoch_time=00:01:05 | elapsed=17:38:31 | ETA=02:39:34 | estimated_finish=2026-06-17 13:00:44
+Epoch 870/1000 finished | train_loss=0.456350 | lr=6.37689e-05 | epoch_time=00:01:04 | elapsed=17:39:36 | ETA=02:38:19 | estimated_finish=2026-06-17 13:00:35
+Quick validation epoch=870 | pseudo_dice=0.581868 | val_time=00:00:23
+Epoch 871/1000 finished | train_loss=0.523808 | lr=6.33273e-05 | epoch_time=00:01:04 | elapsed=17:41:04 | ETA=02:37:09 | estimated_finish=2026-06-17 13:00:52
+Epoch 872/1000 finished | train_loss=0.462525 | lr=6.28853e-05 | epoch_time=00:01:03 | elapsed=17:42:08 | ETA=02:35:54 | estimated_finish=2026-06-17 13:00:42
+Epoch 873/1000 finished | train_loss=0.512418 | lr=6.24429e-05 | epoch_time=00:01:04 | elapsed=17:43:13 | ETA=02:34:40 | estimated_finish=2026-06-17 13:00:33
+Epoch 874/1000 finished | train_loss=0.491825 | lr=6.20003e-05 | epoch_time=00:01:03 | elapsed=17:44:18 | ETA=02:33:26 | estimated_finish=2026-06-17 13:00:23
+Epoch 875/1000 finished | train_loss=0.538868 | lr=6.15572e-05 | epoch_time=00:01:04 | elapsed=17:45:22 | ETA=02:32:11 | estimated_finish=2026-06-17 13:00:13
+Quick validation epoch=875 | pseudo_dice=0.572040 | val_time=00:00:24
+Epoch 876/1000 finished | train_loss=0.483131 | lr=6.11138e-05 | epoch_time=00:01:13 | elapsed=17:47:01 | ETA=02:31:02 | estimated_finish=2026-06-17 13:00:42
+Epoch 877/1000 finished | train_loss=0.470218 | lr=6.06701e-05 | epoch_time=00:01:10 | elapsed=17:48:11 | ETA=02:29:48 | estimated_finish=2026-06-17 13:00:40
+Epoch 878/1000 finished | train_loss=0.477547 | lr=6.0226e-05 | epoch_time=00:01:12 | elapsed=17:49:25 | ETA=02:28:35 | estimated_finish=2026-06-17 13:00:40
+Epoch 879/1000 finished | train_loss=0.522030 | lr=5.97815e-05 | epoch_time=00:01:05 | elapsed=17:50:31 | ETA=02:27:21 | estimated_finish=2026-06-17 13:00:32
+Epoch 880/1000 finished | train_loss=0.500697 | lr=5.93367e-05 | epoch_time=00:01:06 | elapsed=17:51:38 | ETA=02:26:08 | estimated_finish=2026-06-17 13:00:25
+Quick validation epoch=880 | pseudo_dice=0.581250 | val_time=00:00:25
+Epoch 881/1000 finished | train_loss=0.469768 | lr=5.88915e-05 | epoch_time=00:01:05 | elapsed=17:53:09 | ETA=02:24:57 | estimated_finish=2026-06-17 13:00:46
+Epoch 882/1000 finished | train_loss=0.503956 | lr=5.84459e-05 | epoch_time=00:01:04 | elapsed=17:54:15 | ETA=02:23:43 | estimated_finish=2026-06-17 13:00:37
+Epoch 883/1000 finished | train_loss=0.463942 | lr=5.79999e-05 | epoch_time=00:01:07 | elapsed=17:55:23 | ETA=02:22:29 | estimated_finish=2026-06-17 13:00:32
+Epoch 884/1000 finished | train_loss=0.481795 | lr=5.75536e-05 | epoch_time=00:01:07 | elapsed=17:56:31 | ETA=02:21:15 | estimated_finish=2026-06-17 13:00:26
+Epoch 885/1000 finished | train_loss=0.455122 | lr=5.71068e-05 | epoch_time=00:01:04 | elapsed=17:57:35 | ETA=02:20:01 | estimated_finish=2026-06-17 13:00:16
+Quick validation epoch=885 | pseudo_dice=0.577636 | val_time=00:00:24
+Epoch 886/1000 finished | train_loss=0.534800 | lr=5.66597e-05 | epoch_time=00:01:08 | elapsed=17:59:09 | ETA=02:18:51 | estimated_finish=2026-06-17 13:00:39
+Epoch 887/1000 finished | train_loss=0.484380 | lr=5.62122e-05 | epoch_time=00:01:06 | elapsed=18:00:16 | ETA=02:17:37 | estimated_finish=2026-06-17 13:00:32
+Epoch 888/1000 finished | train_loss=0.518294 | lr=5.57643e-05 | epoch_time=00:01:07 | elapsed=18:01:23 | ETA=02:16:23 | estimated_finish=2026-06-17 13:00:26
+Epoch 889/1000 finished | train_loss=0.461924 | lr=5.5316e-05 | epoch_time=00:01:06 | elapsed=18:02:31 | ETA=02:15:09 | estimated_finish=2026-06-17 13:00:20
+Epoch 890/1000 finished | train_loss=0.522351 | lr=5.48673e-05 | epoch_time=00:01:05 | elapsed=18:03:37 | ETA=02:13:55 | estimated_finish=2026-06-17 13:00:12
+Quick validation epoch=890 | pseudo_dice=0.585741 | val_time=00:00:24
+Epoch 891/1000 finished | train_loss=0.478492 | lr=5.44182e-05 | epoch_time=00:01:03 | elapsed=18:05:05 | ETA=02:12:44 | estimated_finish=2026-06-17 13:00:29
+Epoch 892/1000 finished | train_loss=0.496413 | lr=5.39686e-05 | epoch_time=00:01:04 | elapsed=18:06:10 | ETA=02:11:30 | estimated_finish=2026-06-17 13:00:20
+Epoch 893/1000 finished | train_loss=0.470587 | lr=5.35187e-05 | epoch_time=00:01:02 | elapsed=18:07:14 | ETA=02:10:16 | estimated_finish=2026-06-17 13:00:09
+Epoch 894/1000 finished | train_loss=0.538710 | lr=5.30683e-05 | epoch_time=00:01:03 | elapsed=18:08:18 | ETA=02:09:02 | estimated_finish=2026-06-17 12:59:59
+Epoch 895/1000 finished | train_loss=0.489369 | lr=5.26175e-05 | epoch_time=00:01:05 | elapsed=18:09:23 | ETA=02:07:48 | estimated_finish=2026-06-17 12:59:51
+Quick validation epoch=895 | pseudo_dice=0.532059 | val_time=00:00:22
+Epoch 896/1000 finished | train_loss=0.471659 | lr=5.21663e-05 | epoch_time=00:01:02 | elapsed=18:10:50 | ETA=02:06:36 | estimated_finish=2026-06-17 13:00:06
+Epoch 897/1000 finished | train_loss=0.527048 | lr=5.17146e-05 | epoch_time=00:01:04 | elapsed=18:11:54 | ETA=02:05:22 | estimated_finish=2026-06-17 12:59:56
+Epoch 898/1000 finished | train_loss=0.467749 | lr=5.12625e-05 | epoch_time=00:01:02 | elapsed=18:12:58 | ETA=02:04:08 | estimated_finish=2026-06-17 12:59:46
+Epoch 899/1000 finished | train_loss=0.466758 | lr=5.081e-05 | epoch_time=00:01:04 | elapsed=18:14:02 | ETA=02:02:54 | estimated_finish=2026-06-17 12:59:36
+Epoch 900/1000 finished | train_loss=0.486530 | lr=5.0357e-05 | epoch_time=00:01:03 | elapsed=18:15:06 | ETA=02:01:40 | estimated_finish=2026-06-17 12:59:26
+Quick validation epoch=900 | pseudo_dice=0.503674 | val_time=00:00:23
+Full validation epoch=900 | mean_dice=0.310357 | val_time=00:03:46
+Epoch 901/1000 finished | train_loss=0.465949 | lr=4.99036e-05 | epoch_time=00:01:06 | elapsed=18:20:23 | ETA=02:00:54 | estimated_finish=2026-06-17 13:03:57
+Epoch 902/1000 finished | train_loss=0.515243 | lr=4.94497e-05 | epoch_time=00:01:04 | elapsed=18:21:28 | ETA=01:59:40 | estimated_finish=2026-06-17 13:03:47
+Epoch 903/1000 finished | train_loss=0.461110 | lr=4.89953e-05 | epoch_time=00:01:05 | elapsed=18:22:34 | ETA=01:58:26 | estimated_finish=2026-06-17 13:03:40
+Epoch 904/1000 finished | train_loss=0.489251 | lr=4.85405e-05 | epoch_time=00:01:03 | elapsed=18:23:38 | ETA=01:57:12 | estimated_finish=2026-06-17 13:03:30
+Epoch 905/1000 finished | train_loss=0.484480 | lr=4.80852e-05 | epoch_time=00:01:05 | elapsed=18:24:44 | ETA=01:55:58 | estimated_finish=2026-06-17 13:03:22
+Quick validation epoch=905 | pseudo_dice=0.604590 | val_time=00:00:23
+Epoch 906/1000 finished | train_loss=0.466994 | lr=4.76294e-05 | epoch_time=00:01:06 | elapsed=18:26:15 | ETA=01:54:46 | estimated_finish=2026-06-17 13:03:41
+Epoch 907/1000 finished | train_loss=0.492058 | lr=4.71731e-05 | epoch_time=00:01:05 | elapsed=18:27:22 | ETA=01:53:32 | estimated_finish=2026-06-17 13:03:33
+Epoch 908/1000 finished | train_loss=0.489749 | lr=4.67164e-05 | epoch_time=00:01:04 | elapsed=18:28:27 | ETA=01:52:18 | estimated_finish=2026-06-17 13:03:24
+Epoch 909/1000 finished | train_loss=0.527909 | lr=4.62591e-05 | epoch_time=00:01:03 | elapsed=18:29:31 | ETA=01:51:04 | estimated_finish=2026-06-17 13:03:14
+Epoch 910/1000 finished | train_loss=0.514590 | lr=4.58013e-05 | epoch_time=00:01:03 | elapsed=18:30:35 | ETA=01:49:50 | estimated_finish=2026-06-17 13:03:04
+Quick validation epoch=910 | pseudo_dice=0.570271 | val_time=00:00:23
+Epoch 911/1000 finished | train_loss=0.521924 | lr=4.53431e-05 | epoch_time=00:01:03 | elapsed=18:32:02 | ETA=01:48:38 | estimated_finish=2026-06-17 13:03:19
+Epoch 912/1000 finished | train_loss=0.450390 | lr=4.48843e-05 | epoch_time=00:01:03 | elapsed=18:33:06 | ETA=01:47:24 | estimated_finish=2026-06-17 13:03:10
+Epoch 913/1000 finished | train_loss=0.535289 | lr=4.4425e-05 | epoch_time=00:01:02 | elapsed=18:34:09 | ETA=01:46:10 | estimated_finish=2026-06-17 13:02:59
+Epoch 914/1000 finished | train_loss=0.483998 | lr=4.39652e-05 | epoch_time=00:01:04 | elapsed=18:35:14 | ETA=01:44:56 | estimated_finish=2026-06-17 13:02:50
+Epoch 915/1000 finished | train_loss=0.508791 | lr=4.35048e-05 | epoch_time=00:01:06 | elapsed=18:36:21 | ETA=01:43:42 | estimated_finish=2026-06-17 13:02:43
+Quick validation epoch=915 | pseudo_dice=0.513035 | val_time=00:00:23
+Epoch 916/1000 finished | train_loss=0.504265 | lr=4.30439e-05 | epoch_time=00:01:03 | elapsed=18:37:48 | ETA=01:42:30 | estimated_finish=2026-06-17 13:02:58
+Epoch 917/1000 finished | train_loss=0.462975 | lr=4.25824e-05 | epoch_time=00:01:04 | elapsed=18:38:53 | ETA=01:41:16 | estimated_finish=2026-06-17 13:02:49
+Epoch 918/1000 finished | train_loss=0.489728 | lr=4.21204e-05 | epoch_time=00:01:03 | elapsed=18:39:57 | ETA=01:40:02 | estimated_finish=2026-06-17 13:02:38
+Epoch 919/1000 finished | train_loss=0.465042 | lr=4.16578e-05 | epoch_time=00:01:04 | elapsed=18:41:02 | ETA=01:38:48 | estimated_finish=2026-06-17 13:02:30
+Epoch 920/1000 finished | train_loss=0.450311 | lr=4.11947e-05 | epoch_time=00:01:03 | elapsed=18:42:06 | ETA=01:37:34 | estimated_finish=2026-06-17 13:02:20
+Quick validation epoch=920 | pseudo_dice=0.585228 | val_time=00:00:23
+Epoch 921/1000 finished | train_loss=0.509080 | lr=4.07309e-05 | epoch_time=00:01:04 | elapsed=18:43:35 | ETA=01:36:22 | estimated_finish=2026-06-17 13:02:36
+Epoch 922/1000 finished | train_loss=0.492767 | lr=4.02666e-05 | epoch_time=00:01:04 | elapsed=18:44:40 | ETA=01:35:08 | estimated_finish=2026-06-17 13:02:28
+Epoch 923/1000 finished | train_loss=0.441322 | lr=3.98017e-05 | epoch_time=00:01:03 | elapsed=18:45:44 | ETA=01:33:54 | estimated_finish=2026-06-17 13:02:18
+Epoch 924/1000 finished | train_loss=0.515817 | lr=3.93362e-05 | epoch_time=00:01:03 | elapsed=18:46:48 | ETA=01:32:40 | estimated_finish=2026-06-17 13:02:08
+Epoch 925/1000 finished | train_loss=0.475001 | lr=3.88701e-05 | epoch_time=00:01:06 | elapsed=18:47:55 | ETA=01:31:27 | estimated_finish=2026-06-17 13:02:01
+Quick validation epoch=925 | pseudo_dice=0.612836 | val_time=00:00:23
+Epoch 926/1000 finished | train_loss=0.483076 | lr=3.84033e-05 | epoch_time=00:01:05 | elapsed=18:49:24 | ETA=01:30:15 | estimated_finish=2026-06-17 13:02:19
+Epoch 927/1000 finished | train_loss=0.474577 | lr=3.79359e-05 | epoch_time=00:01:03 | elapsed=18:50:28 | ETA=01:29:01 | estimated_finish=2026-06-17 13:02:08
+Epoch 928/1000 finished | train_loss=0.519644 | lr=3.74679e-05 | epoch_time=00:01:02 | elapsed=18:51:31 | ETA=01:27:47 | estimated_finish=2026-06-17 13:01:58
+Epoch 929/1000 finished | train_loss=0.474592 | lr=3.69992e-05 | epoch_time=00:01:03 | elapsed=18:52:35 | ETA=01:26:33 | estimated_finish=2026-06-17 13:01:48
+Epoch 930/1000 finished | train_loss=0.489156 | lr=3.65299e-05 | epoch_time=00:01:04 | elapsed=18:53:40 | ETA=01:25:19 | estimated_finish=2026-06-17 13:01:39
+Quick validation epoch=930 | pseudo_dice=0.555539 | val_time=00:00:23
+Epoch 931/1000 finished | train_loss=0.562460 | lr=3.60599e-05 | epoch_time=00:01:05 | elapsed=18:55:09 | ETA=01:24:07 | estimated_finish=2026-06-17 13:01:56
+Epoch 932/1000 finished | train_loss=0.483434 | lr=3.55892e-05 | epoch_time=00:01:02 | elapsed=18:56:12 | ETA=01:22:53 | estimated_finish=2026-06-17 13:01:45
+Epoch 933/1000 finished | train_loss=0.456950 | lr=3.51178e-05 | epoch_time=00:01:03 | elapsed=18:57:16 | ETA=01:21:40 | estimated_finish=2026-06-17 13:01:35
+Epoch 934/1000 finished | train_loss=0.515785 | lr=3.46457e-05 | epoch_time=00:01:04 | elapsed=18:58:21 | ETA=01:20:26 | estimated_finish=2026-06-17 13:01:26
+Epoch 935/1000 finished | train_loss=0.457745 | lr=3.41729e-05 | epoch_time=00:01:03 | elapsed=18:59:25 | ETA=01:19:12 | estimated_finish=2026-06-17 13:01:16
+Quick validation epoch=935 | pseudo_dice=0.571468 | val_time=00:00:23
+Epoch 936/1000 finished | train_loss=0.498094 | lr=3.36994e-05 | epoch_time=00:01:05 | elapsed=19:00:54 | ETA=01:18:00 | estimated_finish=2026-06-17 13:01:34
+Epoch 937/1000 finished | train_loss=0.502408 | lr=3.32251e-05 | epoch_time=00:01:04 | elapsed=19:01:59 | ETA=01:16:46 | estimated_finish=2026-06-17 13:01:25
+Epoch 938/1000 finished | train_loss=0.529453 | lr=3.27501e-05 | epoch_time=00:01:03 | elapsed=19:03:03 | ETA=01:15:33 | estimated_finish=2026-06-17 13:01:16
+Epoch 939/1000 finished | train_loss=0.466831 | lr=3.22743e-05 | epoch_time=00:01:05 | elapsed=19:04:09 | ETA=01:14:19 | estimated_finish=2026-06-17 13:01:08
+Epoch 940/1000 finished | train_loss=0.528618 | lr=3.17977e-05 | epoch_time=00:01:04 | elapsed=19:05:14 | ETA=01:13:06 | estimated_finish=2026-06-17 13:00:59
+Quick validation epoch=940 | pseudo_dice=0.509291 | val_time=00:00:23
+Epoch 941/1000 finished | train_loss=0.465159 | lr=3.13204e-05 | epoch_time=00:01:04 | elapsed=19:06:42 | ETA=01:11:53 | estimated_finish=2026-06-17 13:01:15
+Epoch 942/1000 finished | train_loss=0.469877 | lr=3.08422e-05 | epoch_time=00:01:03 | elapsed=19:07:46 | ETA=01:10:40 | estimated_finish=2026-06-17 13:01:05
+Epoch 943/1000 finished | train_loss=0.473126 | lr=3.03632e-05 | epoch_time=00:01:16 | elapsed=19:09:03 | ETA=01:09:27 | estimated_finish=2026-06-17 13:01:10
+Epoch 944/1000 finished | train_loss=0.507674 | lr=2.98833e-05 | epoch_time=00:01:04 | elapsed=19:10:08 | ETA=01:08:13 | estimated_finish=2026-06-17 13:01:01
+Epoch 945/1000 finished | train_loss=0.456386 | lr=2.94026e-05 | epoch_time=00:01:03 | elapsed=19:11:13 | ETA=01:07:00 | estimated_finish=2026-06-17 13:00:52
+Quick validation epoch=945 | pseudo_dice=0.555397 | val_time=00:00:23
+Epoch 946/1000 finished | train_loss=0.498642 | lr=2.89211e-05 | epoch_time=00:01:05 | elapsed=19:12:41 | ETA=01:05:47 | estimated_finish=2026-06-17 13:01:08
+Epoch 947/1000 finished | train_loss=0.497059 | lr=2.84386e-05 | epoch_time=00:01:03 | elapsed=19:13:45 | ETA=01:04:34 | estimated_finish=2026-06-17 13:00:59
+Epoch 948/1000 finished | train_loss=0.438887 | lr=2.79552e-05 | epoch_time=00:01:04 | elapsed=19:14:50 | ETA=01:03:20 | estimated_finish=2026-06-17 13:00:50
+Epoch 949/1000 finished | train_loss=0.463420 | lr=2.74709e-05 | epoch_time=00:01:06 | elapsed=19:15:58 | ETA=01:02:07 | estimated_finish=2026-06-17 13:00:44
+Epoch 950/1000 finished | train_loss=0.472351 | lr=2.69857e-05 | epoch_time=00:01:04 | elapsed=19:17:02 | ETA=01:00:53 | estimated_finish=2026-06-17 13:00:35
+Quick validation epoch=950 | pseudo_dice=0.583929 | val_time=00:00:24
+Epoch 951/1000 finished | train_loss=0.455210 | lr=2.64994e-05 | epoch_time=00:01:06 | elapsed=19:18:33 | ETA=00:59:41 | estimated_finish=2026-06-17 13:00:54
+Epoch 952/1000 finished | train_loss=0.474527 | lr=2.60122e-05 | epoch_time=00:01:07 | elapsed=19:19:41 | ETA=00:58:28 | estimated_finish=2026-06-17 13:00:49
+Epoch 953/1000 finished | train_loss=0.486968 | lr=2.5524e-05 | epoch_time=00:01:05 | elapsed=19:20:48 | ETA=00:57:14 | estimated_finish=2026-06-17 13:00:42
+Epoch 954/1000 finished | train_loss=0.518717 | lr=2.50347e-05 | epoch_time=00:01:04 | elapsed=19:21:52 | ETA=00:56:01 | estimated_finish=2026-06-17 13:00:33
+Epoch 955/1000 finished | train_loss=0.485445 | lr=2.45443e-05 | epoch_time=00:01:05 | elapsed=19:22:58 | ETA=00:54:48 | estimated_finish=2026-06-17 13:00:25
+Quick validation epoch=955 | pseudo_dice=0.509937 | val_time=00:00:23
+Epoch 956/1000 finished | train_loss=0.496157 | lr=2.40529e-05 | epoch_time=00:01:04 | elapsed=19:24:27 | ETA=00:53:35 | estimated_finish=2026-06-17 13:00:42
+Epoch 957/1000 finished | train_loss=0.458650 | lr=2.35603e-05 | epoch_time=00:01:03 | elapsed=19:25:31 | ETA=00:52:22 | estimated_finish=2026-06-17 13:00:32
+Epoch 958/1000 finished | train_loss=0.438012 | lr=2.30666e-05 | epoch_time=00:01:05 | elapsed=19:26:37 | ETA=00:51:08 | estimated_finish=2026-06-17 13:00:24
+Epoch 959/1000 finished | train_loss=0.498177 | lr=2.25718e-05 | epoch_time=00:01:04 | elapsed=19:27:41 | ETA=00:49:55 | estimated_finish=2026-06-17 13:00:16
+Epoch 960/1000 finished | train_loss=0.454760 | lr=2.20757e-05 | epoch_time=00:01:03 | elapsed=19:28:46 | ETA=00:48:41 | estimated_finish=2026-06-17 13:00:07
+Quick validation epoch=960 | pseudo_dice=0.534518 | val_time=00:00:29
+Epoch 961/1000 finished | train_loss=0.462977 | lr=2.15783e-05 | epoch_time=00:01:09 | elapsed=19:30:25 | ETA=00:47:29 | estimated_finish=2026-06-17 13:00:34
+Epoch 962/1000 finished | train_loss=0.483716 | lr=2.10797e-05 | epoch_time=00:01:04 | elapsed=19:31:29 | ETA=00:46:16 | estimated_finish=2026-06-17 13:00:25
+Epoch 963/1000 finished | train_loss=0.494789 | lr=2.05798e-05 | epoch_time=00:01:07 | elapsed=19:32:38 | ETA=00:45:03 | estimated_finish=2026-06-17 13:00:20
+Epoch 964/1000 finished | train_loss=0.487365 | lr=2.00785e-05 | epoch_time=00:01:07 | elapsed=19:33:45 | ETA=00:43:50 | estimated_finish=2026-06-17 13:00:14
+Epoch 965/1000 finished | train_loss=0.502322 | lr=1.95759e-05 | epoch_time=00:01:05 | elapsed=19:34:51 | ETA=00:42:36 | estimated_finish=2026-06-17 13:00:07
+Quick validation epoch=965 | pseudo_dice=0.519928 | val_time=00:00:24
+Epoch 966/1000 finished | train_loss=0.534567 | lr=1.90718e-05 | epoch_time=00:01:06 | elapsed=19:36:24 | ETA=00:41:24 | estimated_finish=2026-06-17 13:00:27
+Epoch 967/1000 finished | train_loss=0.470054 | lr=1.85662e-05 | epoch_time=00:01:05 | elapsed=19:37:30 | ETA=00:40:11 | estimated_finish=2026-06-17 13:00:20
+Epoch 968/1000 finished | train_loss=0.491386 | lr=1.80591e-05 | epoch_time=00:01:08 | elapsed=19:38:39 | ETA=00:38:57 | estimated_finish=2026-06-17 13:00:16
+Epoch 969/1000 finished | train_loss=0.491594 | lr=1.75503e-05 | epoch_time=00:01:08 | elapsed=19:39:48 | ETA=00:37:44 | estimated_finish=2026-06-17 13:00:12
+Epoch 970/1000 finished | train_loss=0.446246 | lr=1.704e-05 | epoch_time=00:01:07 | elapsed=19:40:56 | ETA=00:36:31 | estimated_finish=2026-06-17 13:00:06
+Quick validation epoch=970 | pseudo_dice=0.564599 | val_time=00:00:24
+Epoch 971/1000 finished | train_loss=0.468050 | lr=1.65279e-05 | epoch_time=00:01:10 | elapsed=19:42:32 | ETA=00:35:19 | estimated_finish=2026-06-17 13:00:30
+Epoch 972/1000 finished | train_loss=0.528112 | lr=1.60141e-05 | epoch_time=00:01:07 | elapsed=19:43:40 | ETA=00:34:05 | estimated_finish=2026-06-17 13:00:25
+Epoch 973/1000 finished | train_loss=0.522924 | lr=1.54984e-05 | epoch_time=00:01:07 | elapsed=19:44:48 | ETA=00:32:52 | estimated_finish=2026-06-17 13:00:20
+Epoch 974/1000 finished | train_loss=0.517271 | lr=1.49808e-05 | epoch_time=00:01:08 | elapsed=19:45:57 | ETA=00:31:39 | estimated_finish=2026-06-17 13:00:16
+Epoch 975/1000 finished | train_loss=0.486203 | lr=1.44613e-05 | epoch_time=00:01:09 | elapsed=19:47:07 | ETA=00:30:26 | estimated_finish=2026-06-17 13:00:12
+Quick validation epoch=975 | pseudo_dice=0.569786 | val_time=00:00:25
+Epoch 976/1000 finished | train_loss=0.513677 | lr=1.39396e-05 | epoch_time=00:01:06 | elapsed=19:48:40 | ETA=00:29:13 | estimated_finish=2026-06-17 13:00:33
+Epoch 977/1000 finished | train_loss=0.516650 | lr=1.34158e-05 | epoch_time=00:01:11 | elapsed=19:49:52 | ETA=00:28:00 | estimated_finish=2026-06-17 13:00:32
+Epoch 978/1000 finished | train_loss=0.501474 | lr=1.28896e-05 | epoch_time=00:01:10 | elapsed=19:51:02 | ETA=00:26:47 | estimated_finish=2026-06-17 13:00:29
+Epoch 979/1000 finished | train_loss=0.521781 | lr=1.23611e-05 | epoch_time=00:01:09 | elapsed=19:52:13 | ETA=00:25:34 | estimated_finish=2026-06-17 13:00:26
+Epoch 980/1000 finished | train_loss=0.458983 | lr=1.18301e-05 | epoch_time=00:01:08 | elapsed=19:53:22 | ETA=00:24:21 | estimated_finish=2026-06-17 13:00:22
+Quick validation epoch=980 | pseudo_dice=0.551661 | val_time=00:00:24
+Epoch 981/1000 finished | train_loss=0.483865 | lr=1.12964e-05 | epoch_time=00:01:07 | elapsed=19:54:54 | ETA=00:23:08 | estimated_finish=2026-06-17 13:00:42
+Epoch 982/1000 finished | train_loss=0.495725 | lr=1.07598e-05 | epoch_time=00:01:04 | elapsed=19:55:59 | ETA=00:21:55 | estimated_finish=2026-06-17 13:00:33
+Epoch 983/1000 finished | train_loss=0.474847 | lr=1.02203e-05 | epoch_time=00:01:11 | elapsed=19:57:10 | ETA=00:20:42 | estimated_finish=2026-06-17 13:00:32
+Epoch 984/1000 finished | train_loss=0.511352 | lr=9.67761e-06 | epoch_time=00:01:16 | elapsed=19:58:28 | ETA=00:19:29 | estimated_finish=2026-06-17 13:00:36
+Epoch 985/1000 finished | train_loss=0.450672 | lr=9.1315e-06 | epoch_time=00:01:13 | elapsed=19:59:42 | ETA=00:18:16 | estimated_finish=2026-06-17 13:00:37
+Quick validation epoch=985 | pseudo_dice=0.510929 | val_time=00:00:26
+Epoch 986/1000 finished | train_loss=0.487759 | lr=8.58174e-06 | epoch_time=00:01:12 | elapsed=20:01:22 | ETA=00:17:03 | estimated_finish=2026-06-17 13:01:04
+Epoch 987/1000 finished | train_loss=0.504770 | lr=8.02803e-06 | epoch_time=00:01:14 | elapsed=20:02:37 | ETA=00:15:50 | estimated_finish=2026-06-17 13:01:06
+Epoch 988/1000 finished | train_loss=0.475462 | lr=7.47004e-06 | epoch_time=00:01:09 | elapsed=20:03:47 | ETA=00:14:37 | estimated_finish=2026-06-17 13:01:03
+Epoch 989/1000 finished | train_loss=0.486099 | lr=6.90738e-06 | epoch_time=00:01:11 | elapsed=20:04:59 | ETA=00:13:24 | estimated_finish=2026-06-17 13:01:02
+Epoch 990/1000 finished | train_loss=0.527758 | lr=6.33957e-06 | epoch_time=00:01:11 | elapsed=20:06:11 | ETA=00:12:11 | estimated_finish=2026-06-17 13:01:01
+Quick validation epoch=990 | pseudo_dice=0.568427 | val_time=00:00:24
+Epoch 991/1000 finished | train_loss=0.493367 | lr=5.76605e-06 | epoch_time=00:01:08 | elapsed=20:07:45 | ETA=00:10:58 | estimated_finish=2026-06-17 13:01:22
+Epoch 992/1000 finished | train_loss=0.484039 | lr=5.1861e-06 | epoch_time=00:01:11 | elapsed=20:08:57 | ETA=00:09:44 | estimated_finish=2026-06-17 13:01:21
+Epoch 993/1000 finished | train_loss=0.533103 | lr=4.59884e-06 | epoch_time=00:01:13 | elapsed=20:10:11 | ETA=00:08:31 | estimated_finish=2026-06-17 13:01:22
+Epoch 994/1000 finished | train_loss=0.525165 | lr=4.0031e-06 | epoch_time=00:01:11 | elapsed=20:11:23 | ETA=00:07:18 | estimated_finish=2026-06-17 13:01:21
+Epoch 995/1000 finished | train_loss=0.492696 | lr=3.39729e-06 | epoch_time=00:01:08 | elapsed=20:12:32 | ETA=00:06:05 | estimated_finish=2026-06-17 13:01:17
+Quick validation epoch=995 | pseudo_dice=0.561878 | val_time=00:00:26
+Epoch 996/1000 finished | train_loss=0.537920 | lr=2.77916e-06 | epoch_time=00:01:09 | elapsed=20:14:09 | ETA=00:04:52 | estimated_finish=2026-06-17 13:01:41
+Epoch 997/1000 finished | train_loss=0.453792 | lr=2.14521e-06 | epoch_time=00:01:11 | elapsed=20:15:21 | ETA=00:03:39 | estimated_finish=2026-06-17 13:01:40
+Epoch 998/1000 finished | train_loss=0.485358 | lr=1.48932e-06 | epoch_time=00:01:13 | elapsed=20:16:34 | ETA=00:02:26 | estimated_finish=2026-06-17 13:01:40
+Epoch 999/1000 finished | train_loss=0.441118 | lr=7.98105e-07 | epoch_time=00:01:11 | elapsed=20:17:47 | ETA=00:01:13 | estimated_finish=2026-06-17 13:01:39
+Epoch 1000/1000 finished | train_loss=0.512300 | lr=0 | epoch_time=00:01:10 | elapsed=20:18:58 | ETA=00:00:00 | estimated_finish=2026-06-17 13:01:37
+Quick validation epoch=1000 | pseudo_dice=0.557331 | val_time=00:00:27
+Full validation epoch=1000 | mean_dice=0.318776 | val_time=00:03:47
+Final full validation epoch=1000 | mean_dice=0.318776 | val_time=00:03:46
+==========================================
+Training finished
+Fold: 1
+Best pseudo Dice: 0.645182 at epoch 690
+Best full Dice: 0.320432 at epoch 800
+Final Dice: 0.318776 at epoch 1000
+Final metrics saved: runs/fold1/final_metrics.json
+==========================================
+==========================================
+Finished fold 1
+==========================================

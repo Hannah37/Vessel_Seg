@@ -1,0 +1,11 @@
+[+] Loading CUDA Toolkit  12.1.0  ... 
+/vf/users/drdcad/Hyuna/projects/vessel_seg/code/train_3D-GCCN/train.py:665: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = torch.cuda.amp.GradScaler(enabled=args.amp)
+/vf/users/drdcad/Hyuna/projects/vessel_seg/code/train_3D-GCCN/train.py:816: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=args.amp):
+/vf/users/drdcad/Hyuna/projects/vessel_seg/code/train_3D-GCCN/train.py:825: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):
+/vf/users/drdcad/Hyuna/projects/vessel_seg/code/train_3D-GCCN/train.py:707: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=args.amp):
+/vf/users/drdcad/Hyuna/projects/vessel_seg/code/train_3D-GCCN/train.py:751: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=args.amp):

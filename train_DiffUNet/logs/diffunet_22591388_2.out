@@ -1,0 +1,1047 @@
+==========================================
+Diff-UNet SBO vessel training
+Fold: 2
+JSON: /data/drdcad/Hyuna/projects/vessel_seg/code/train_DiffUNet/jsons/sbo_vessel_5fold.json
+OUT_DIR: ./runs/fold2
+CUDA_VISIBLE_DEVICES: 0
+Start time: Tue Jun 16 23:42:33 EDT 2026
+==========================================
+Fold: 2
+Train cases: 94
+Val cases: 23
+Quick val cases: 5
+Preprocessed dir: /data/drdcad/datasets_nnUNet/nnUNet_preprocessed/Dataset101_SBOvessel/nnUNetPlans_3d_fullres
+Output dir: runs/fold2
+Diffusion steps: 1000 | Sample steps: 10 | Base channels: 32
+BasicUNet features: (32, 32, 64, 128, 256, 32).
+BasicUNet features: (32, 32, 64, 128, 256, 32).
+Total epochs: 1000
+Steps per epoch: 94
+Training started at: 2026-06-16 23:42:56
+Epoch 1/1000 finished | loss=1.834795 | dice_loss=0.985011 | bce=0.630906 | mse=0.218878 | lr=9.991e-05 | epoch_time=00:01:06 | elapsed=00:01:06 | ETA=18:24:51 | estimated_finish=2026-06-17 18:08:54
+Epoch 2/1000 finished | loss=1.610747 | dice_loss=0.980885 | bce=0.483060 | mse=0.146802 | lr=9.982e-05 | epoch_time=00:01:02 | elapsed=00:02:09 | ETA=17:57:15 | estimated_finish=2026-06-17 17:42:21
+Epoch 3/1000 finished | loss=1.541892 | dice_loss=0.980743 | bce=0.436023 | mse=0.125126 | lr=9.973e-05 | epoch_time=00:01:03 | elapsed=00:03:13 | ETA=17:51:46 | estimated_finish=2026-06-17 17:37:56
+Epoch 4/1000 finished | loss=1.472509 | dice_loss=0.973131 | bce=0.393292 | mse=0.106086 | lr=9.96399e-05 | epoch_time=00:01:03 | elapsed=00:04:17 | ETA=17:49:13 | estimated_finish=2026-06-17 17:36:27
+Epoch 5/1000 finished | loss=1.435036 | dice_loss=0.977856 | bce=0.363491 | mse=0.093688 | lr=9.95499e-05 | epoch_time=00:01:03 | elapsed=00:05:21 | ETA=17:45:09 | estimated_finish=2026-06-17 17:33:27
+Quick validation epoch=5 | pseudo_dice=0.060575 | val_time=00:00:07
+New best model saved by quick validation | pseudo_dice=0.060575 | epoch=5
+Epoch 6/1000 finished | loss=1.375782 | dice_loss=0.972536 | bce=0.325234 | mse=0.078011 | lr=9.94598e-05 | epoch_time=00:01:03 | elapsed=00:06:32 | ETA=18:02:46 | estimated_finish=2026-06-17 17:52:15
+Epoch 7/1000 finished | loss=1.338187 | dice_loss=0.975471 | bce=0.296138 | mse=0.066578 | lr=9.93698e-05 | epoch_time=00:01:02 | elapsed=00:07:34 | ETA=17:55:13 | estimated_finish=2026-06-17 17:45:45
+Epoch 8/1000 finished | loss=1.295271 | dice_loss=0.971467 | bce=0.267726 | mse=0.056078 | lr=9.92797e-05 | epoch_time=00:01:03 | elapsed=00:08:38 | ETA=17:51:40 | estimated_finish=2026-06-17 17:43:15
+Epoch 9/1000 finished | loss=1.260763 | dice_loss=0.968259 | bce=0.244369 | mse=0.048135 | lr=9.91896e-05 | epoch_time=00:01:02 | elapsed=00:09:41 | ETA=17:47:29 | estimated_finish=2026-06-17 17:40:07
+Epoch 10/1000 finished | loss=1.227392 | dice_loss=0.963799 | bce=0.222587 | mse=0.041006 | lr=9.90995e-05 | epoch_time=00:01:04 | elapsed=00:10:45 | ETA=17:45:52 | estimated_finish=2026-06-17 17:39:35
+Quick validation epoch=10 | pseudo_dice=0.081763 | val_time=00:00:06
+New best model saved by quick validation | pseudo_dice=0.081763 | epoch=10
+Epoch 11/1000 finished | loss=1.202106 | dice_loss=0.964170 | bce=0.203013 | mse=0.034924 | lr=9.90095e-05 | epoch_time=00:01:03 | elapsed=00:11:56 | ETA=17:53:52 | estimated_finish=2026-06-17 17:48:45
+Epoch 12/1000 finished | loss=1.172155 | dice_loss=0.954887 | bce=0.186749 | mse=0.030520 | lr=9.89193e-05 | epoch_time=00:01:04 | elapsed=00:13:01 | ETA=17:52:36 | estimated_finish=2026-06-17 17:48:35
+Epoch 13/1000 finished | loss=1.148783 | dice_loss=0.953856 | bce=0.169351 | mse=0.025575 | lr=9.88292e-05 | epoch_time=00:01:05 | elapsed=00:14:07 | ETA=17:51:50 | estimated_finish=2026-06-17 17:48:54
+Epoch 14/1000 finished | loss=1.131379 | dice_loss=0.953527 | bce=0.155617 | mse=0.022235 | lr=9.87391e-05 | epoch_time=00:01:11 | elapsed=00:15:18 | ETA=17:58:34 | estimated_finish=2026-06-17 17:56:50
+Epoch 15/1000 finished | loss=1.107842 | dice_loss=0.944255 | bce=0.143819 | mse=0.019767 | lr=9.8649e-05 | epoch_time=00:01:05 | elapsed=00:16:24 | ETA=17:57:37 | estimated_finish=2026-06-17 17:56:58
+Quick validation epoch=15 | pseudo_dice=0.088678 | val_time=00:00:07
+New best model saved by quick validation | pseudo_dice=0.088678 | epoch=15
+Epoch 16/1000 finished | loss=1.095011 | dice_loss=0.946256 | bce=0.131745 | mse=0.017010 | lr=9.85588e-05 | epoch_time=00:01:05 | elapsed=00:17:37 | ETA=18:03:54 | estimated_finish=2026-06-17 18:04:29
+Epoch 17/1000 finished | loss=1.072804 | dice_loss=0.937082 | bce=0.120797 | mse=0.014925 | lr=9.84687e-05 | epoch_time=00:01:11 | elapsed=00:18:49 | ETA=18:08:42 | estimated_finish=2026-06-17 18:10:28
+Epoch 18/1000 finished | loss=1.055577 | dice_loss=0.931945 | bce=0.110624 | mse=0.013008 | lr=9.83785e-05 | epoch_time=00:01:06 | elapsed=00:19:56 | ETA=18:08:09 | estimated_finish=2026-06-17 18:11:02
+Epoch 19/1000 finished | loss=1.041319 | dice_loss=0.928036 | bce=0.101759 | mse=0.011524 | lr=9.82884e-05 | epoch_time=00:01:09 | elapsed=00:21:06 | ETA=18:09:50 | estimated_finish=2026-06-17 18:13:53
+Epoch 20/1000 finished | loss=1.021622 | dice_loss=0.920838 | bce=0.091316 | mse=0.009468 | lr=9.81982e-05 | epoch_time=00:01:07 | elapsed=00:22:14 | ETA=18:09:43 | estimated_finish=2026-06-17 18:14:54
+Quick validation epoch=20 | pseudo_dice=0.118834 | val_time=00:00:07
+New best model saved by quick validation | pseudo_dice=0.118834 | epoch=20
+Epoch 21/1000 finished | loss=1.008023 | dice_loss=0.915180 | bce=0.084215 | mse=0.008628 | lr=9.8108e-05 | epoch_time=00:01:06 | elapsed=00:23:29 | ETA=18:14:55 | estimated_finish=2026-06-17 18:21:21
+Epoch 22/1000 finished | loss=0.991174 | dice_loss=0.906565 | bce=0.076961 | mse=0.007647 | lr=9.80178e-05 | epoch_time=00:01:03 | elapsed=00:24:32 | ETA=18:11:11 | estimated_finish=2026-06-17 18:18:40
+Epoch 23/1000 finished | loss=0.975423 | dice_loss=0.899111 | bce=0.069757 | mse=0.006556 | lr=9.79276e-05 | epoch_time=00:01:03 | elapsed=00:25:36 | ETA=18:07:47 | estimated_finish=2026-06-17 18:16:20
+Epoch 24/1000 finished | loss=0.953654 | dice_loss=0.881415 | bce=0.065591 | mse=0.006648 | lr=9.78374e-05 | epoch_time=00:01:15 | elapsed=00:26:51 | ETA=18:12:21 | estimated_finish=2026-06-17 18:22:10
+Epoch 25/1000 finished | loss=0.943395 | dice_loss=0.875888 | bce=0.060989 | mse=0.006519 | lr=9.77472e-05 | epoch_time=00:01:04 | elapsed=00:27:56 | ETA=18:09:47 | estimated_finish=2026-06-17 18:20:40
+Quick validation epoch=25 | pseudo_dice=0.151222 | val_time=00:00:07
+New best model saved by quick validation | pseudo_dice=0.151222 | epoch=25
+Epoch 26/1000 finished | loss=0.924320 | dice_loss=0.866660 | bce=0.052700 | mse=0.004961 | lr=9.76569e-05 | epoch_time=00:01:01 | elapsed=00:29:05 | ETA=18:10:03 | estimated_finish=2026-06-17 18:22:06
+Epoch 27/1000 finished | loss=0.899923 | dice_loss=0.844829 | bce=0.049861 | mse=0.005233 | lr=9.75667e-05 | epoch_time=00:01:03 | elapsed=00:30:09 | ETA=18:06:43 | estimated_finish=2026-06-17 18:19:49
+Epoch 28/1000 finished | loss=0.911391 | dice_loss=0.862540 | bce=0.044402 | mse=0.004450 | lr=9.74764e-05 | epoch_time=00:01:03 | elapsed=00:31:12 | ETA=18:03:34 | estimated_finish=2026-06-17 18:17:43
+Epoch 29/1000 finished | loss=0.859588 | dice_loss=0.813660 | bce=0.041360 | mse=0.004567 | lr=9.73862e-05 | epoch_time=00:01:03 | elapsed=00:32:16 | ETA=18:00:27 | estimated_finish=2026-06-17 18:15:40
+Epoch 30/1000 finished | loss=0.861330 | dice_loss=0.821396 | bce=0.036131 | mse=0.003803 | lr=9.72959e-05 | epoch_time=00:01:01 | elapsed=00:33:18 | ETA=17:56:49 | estimated_finish=2026-06-17 18:13:04
+Quick validation epoch=30 | pseudo_dice=0.092651 | val_time=00:00:06
+Epoch 31/1000 finished | loss=0.836874 | dice_loss=0.796905 | bce=0.035521 | mse=0.004448 | lr=9.72056e-05 | epoch_time=00:01:05 | elapsed=00:34:31 | ETA=17:59:03 | estimated_finish=2026-06-17 18:16:31
+Epoch 32/1000 finished | loss=0.820385 | dice_loss=0.785169 | bce=0.031299 | mse=0.003916 | lr=9.71153e-05 | epoch_time=00:01:04 | elapsed=00:35:36 | ETA=17:57:05 | estimated_finish=2026-06-17 18:15:38
+Epoch 33/1000 finished | loss=0.793119 | dice_loss=0.762380 | bce=0.027360 | mse=0.003378 | lr=9.7025e-05 | epoch_time=00:01:05 | elapsed=00:36:41 | ETA=17:55:22 | estimated_finish=2026-06-17 18:15:01
+Epoch 34/1000 finished | loss=0.812434 | dice_loss=0.784636 | bce=0.024665 | mse=0.003133 | lr=9.69347e-05 | epoch_time=00:01:03 | elapsed=00:37:45 | ETA=17:52:51 | estimated_finish=2026-06-17 18:13:33
+Epoch 35/1000 finished | loss=0.765408 | dice_loss=0.736967 | bce=0.024800 | mse=0.003641 | lr=9.68444e-05 | epoch_time=00:01:02 | elapsed=00:38:48 | ETA=17:49:56 | estimated_finish=2026-06-17 18:11:41
+Quick validation epoch=35 | pseudo_dice=0.172979 | val_time=00:00:07
+New best model saved by quick validation | pseudo_dice=0.172979 | epoch=35
+Epoch 36/1000 finished | loss=0.733581 | dice_loss=0.708247 | bce=0.022078 | mse=0.003256 | lr=9.67541e-05 | epoch_time=00:01:04 | elapsed=00:40:00 | ETA=17:51:26 | estimated_finish=2026-06-17 18:14:23
+Epoch 37/1000 finished | loss=0.738098 | dice_loss=0.712809 | bce=0.021788 | mse=0.003501 | lr=9.66638e-05 | epoch_time=00:01:01 | elapsed=00:41:02 | ETA=17:48:07 | estimated_finish=2026-06-17 18:12:06
+Epoch 38/1000 finished | loss=0.726240 | dice_loss=0.705102 | bce=0.018346 | mse=0.002792 | lr=9.65734e-05 | epoch_time=00:01:02 | elapsed=00:42:04 | ETA=17:45:16 | estimated_finish=2026-06-17 18:10:18
+Epoch 39/1000 finished | loss=0.749962 | dice_loss=0.731101 | bce=0.016390 | mse=0.002471 | lr=9.64831e-05 | epoch_time=00:01:03 | elapsed=00:43:08 | ETA=17:42:59 | estimated_finish=2026-06-17 18:09:05
+Epoch 40/1000 finished | loss=0.662214 | dice_loss=0.642143 | bce=0.017182 | mse=0.002889 | lr=9.63927e-05 | epoch_time=00:01:04 | elapsed=00:44:12 | ETA=17:41:08 | estimated_finish=2026-06-17 18:08:17
+Quick validation epoch=40 | pseudo_dice=0.146432 | val_time=00:00:07
+Epoch 41/1000 finished | loss=0.688160 | dice_loss=0.666870 | bce=0.018067 | mse=0.003223 | lr=9.63023e-05 | epoch_time=00:01:04 | elapsed=00:45:24 | ETA=17:42:14 | estimated_finish=2026-06-17 18:10:36
+Epoch 42/1000 finished | loss=0.666077 | dice_loss=0.650721 | bce=0.013129 | mse=0.002227 | lr=9.62119e-05 | epoch_time=00:01:03 | elapsed=00:46:28 | ETA=17:40:13 | estimated_finish=2026-06-17 18:09:38
+Epoch 43/1000 finished | loss=0.605631 | dice_loss=0.585942 | bce=0.016609 | mse=0.003080 | lr=9.61215e-05 | epoch_time=00:01:03 | elapsed=00:47:33 | ETA=17:38:16 | estimated_finish=2026-06-17 18:08:46
+Epoch 44/1000 finished | loss=0.598147 | dice_loss=0.581476 | bce=0.014049 | mse=0.002622 | lr=9.60311e-05 | epoch_time=00:01:06 | elapsed=00:48:39 | ETA=17:37:15 | estimated_finish=2026-06-17 18:08:52
+Epoch 45/1000 finished | loss=0.622279 | dice_loss=0.608919 | bce=0.011334 | mse=0.002026 | lr=9.59407e-05 | epoch_time=00:01:04 | elapsed=00:49:44 | ETA=17:35:36 | estimated_finish=2026-06-17 18:08:17
+Quick validation epoch=45 | pseudo_dice=0.112895 | val_time=00:00:07
+Epoch 46/1000 finished | loss=0.626640 | dice_loss=0.606833 | bce=0.016576 | mse=0.003231 | lr=9.58503e-05 | epoch_time=00:01:02 | elapsed=00:50:54 | ETA=17:35:54 | estimated_finish=2026-06-17 18:09:45
+Epoch 47/1000 finished | loss=0.583652 | dice_loss=0.569611 | bce=0.011822 | mse=0.002219 | lr=9.57599e-05 | epoch_time=00:01:02 | elapsed=00:51:57 | ETA=17:33:39 | estimated_finish=2026-06-17 18:08:33
+Epoch 48/1000 finished | loss=0.597788 | dice_loss=0.581275 | bce=0.013840 | mse=0.002673 | lr=9.56694e-05 | epoch_time=00:01:04 | elapsed=00:53:02 | ETA=17:31:51 | estimated_finish=2026-06-17 18:07:50
+Epoch 49/1000 finished | loss=0.594893 | dice_loss=0.575992 | bce=0.015794 | mse=0.003107 | lr=9.5579e-05 | epoch_time=00:01:03 | elapsed=00:54:05 | ETA=17:29:45 | estimated_finish=2026-06-17 18:06:47
+Epoch 50/1000 finished | loss=0.601814 | dice_loss=0.586921 | bce=0.012512 | mse=0.002382 | lr=9.54885e-05 | epoch_time=00:01:04 | elapsed=00:55:09 | ETA=17:28:04 | estimated_finish=2026-06-17 18:06:10
+Quick validation epoch=50 | pseudo_dice=0.103111 | val_time=00:00:07
+Epoch 51/1000 finished | loss=0.522802 | dice_loss=0.508226 | bce=0.012155 | mse=0.002421 | lr=9.53981e-05 | epoch_time=00:01:04 | elapsed=00:56:21 | ETA=17:28:49 | estimated_finish=2026-06-17 18:08:07
+Epoch 52/1000 finished | loss=0.562210 | dice_loss=0.548806 | bce=0.011253 | mse=0.002151 | lr=9.53076e-05 | epoch_time=00:01:04 | elapsed=00:57:26 | ETA=17:27:09 | estimated_finish=2026-06-17 18:07:32
+Epoch 53/1000 finished | loss=0.539567 | dice_loss=0.523297 | bce=0.013661 | mse=0.002609 | lr=9.52171e-05 | epoch_time=00:01:03 | elapsed=00:58:30 | ETA=17:25:25 | estimated_finish=2026-06-17 18:06:52
+Epoch 54/1000 finished | loss=0.573503 | dice_loss=0.555372 | bce=0.015262 | mse=0.002868 | lr=9.51266e-05 | epoch_time=00:01:03 | elapsed=00:59:33 | ETA=17:23:27 | estimated_finish=2026-06-17 18:05:58
+Epoch 55/1000 finished | loss=0.566665 | dice_loss=0.550892 | bce=0.013184 | mse=0.002590 | lr=9.50361e-05 | epoch_time=00:01:02 | elapsed=01:00:36 | ETA=17:21:28 | estimated_finish=2026-06-17 18:05:01
+Quick validation epoch=55 | pseudo_dice=0.177919 | val_time=00:00:07
+New best model saved by quick validation | pseudo_dice=0.177919 | epoch=55
+Epoch 56/1000 finished | loss=0.555680 | dice_loss=0.538241 | bce=0.014650 | mse=0.002789 | lr=9.49456e-05 | epoch_time=00:01:03 | elapsed=01:01:48 | ETA=17:21:47 | estimated_finish=2026-06-17 18:06:31
+Epoch 57/1000 finished | loss=0.553000 | dice_loss=0.536393 | bce=0.013867 | mse=0.002741 | lr=9.48551e-05 | epoch_time=00:01:06 | elapsed=01:02:54 | ETA=17:20:46 | estimated_finish=2026-06-17 18:06:38
+Epoch 58/1000 finished | loss=0.538863 | dice_loss=0.526789 | bce=0.010150 | mse=0.001925 | lr=9.47645e-05 | epoch_time=00:01:04 | elapsed=01:03:58 | ETA=17:19:09 | estimated_finish=2026-06-17 18:06:04
+Epoch 59/1000 finished | loss=0.544714 | dice_loss=0.530380 | bce=0.012023 | mse=0.002312 | lr=9.4674e-05 | epoch_time=00:01:02 | elapsed=01:05:01 | ETA=17:17:10 | estimated_finish=2026-06-17 18:05:08
+Epoch 60/1000 finished | loss=0.484552 | dice_loss=0.466941 | bce=0.014828 | mse=0.002784 | lr=9.45834e-05 | epoch_time=00:01:04 | elapsed=01:06:06 | ETA=17:15:42 | estimated_finish=2026-06-17 18:04:46
+Quick validation epoch=60 | pseudo_dice=0.233148 | val_time=00:00:07
+New best model saved by quick validation | pseudo_dice=0.233148 | epoch=60
+Epoch 61/1000 finished | loss=0.477202 | dice_loss=0.459759 | bce=0.014697 | mse=0.002746 | lr=9.44929e-05 | epoch_time=00:01:03 | elapsed=01:07:17 | ETA=17:15:50 | estimated_finish=2026-06-17 18:06:04
+Epoch 62/1000 finished | loss=0.511480 | dice_loss=0.498119 | bce=0.011230 | mse=0.002131 | lr=9.44023e-05 | epoch_time=00:01:06 | elapsed=01:08:23 | ETA=17:14:48 | estimated_finish=2026-06-17 18:06:09
+Epoch 63/1000 finished | loss=0.534569 | dice_loss=0.519716 | bce=0.012470 | mse=0.002382 | lr=9.43117e-05 | epoch_time=00:01:02 | elapsed=01:09:26 | ETA=17:12:53 | estimated_finish=2026-06-17 18:05:17
+Epoch 64/1000 finished | loss=0.494152 | dice_loss=0.478489 | bce=0.013187 | mse=0.002477 | lr=9.42211e-05 | epoch_time=00:01:03 | elapsed=01:10:30 | ETA=17:11:14 | estimated_finish=2026-06-17 18:04:41
+Epoch 65/1000 finished | loss=0.496911 | dice_loss=0.482733 | bce=0.011992 | mse=0.002186 | lr=9.41305e-05 | epoch_time=00:01:03 | elapsed=01:11:34 | ETA=17:09:39 | estimated_finish=2026-06-17 18:04:11
+Quick validation epoch=65 | pseudo_dice=0.223868 | val_time=00:00:06
+Epoch 66/1000 finished | loss=0.496525 | dice_loss=0.481393 | bce=0.012753 | mse=0.002379 | lr=9.40399e-05 | epoch_time=00:01:04 | elapsed=01:12:46 | ETA=17:09:49 | estimated_finish=2026-06-17 18:05:32
+Epoch 67/1000 finished | loss=0.487800 | dice_loss=0.473299 | bce=0.012260 | mse=0.002242 | lr=9.39493e-05 | epoch_time=00:01:04 | elapsed=01:13:50 | ETA=17:08:19 | estimated_finish=2026-06-17 18:05:07
+Epoch 68/1000 finished | loss=0.539700 | dice_loss=0.527751 | bce=0.010057 | mse=0.001893 | lr=9.38587e-05 | epoch_time=00:01:04 | elapsed=01:14:55 | ETA=17:06:54 | estimated_finish=2026-06-17 18:04:46
+Epoch 69/1000 finished | loss=0.499612 | dice_loss=0.483690 | bce=0.013392 | mse=0.002530 | lr=9.3768e-05 | epoch_time=00:01:03 | elapsed=01:15:59 | ETA=17:05:18 | estimated_finish=2026-06-17 18:04:14
+Epoch 70/1000 finished | loss=0.495961 | dice_loss=0.479181 | bce=0.014241 | mse=0.002540 | lr=9.36774e-05 | epoch_time=00:01:02 | elapsed=01:17:02 | ETA=17:03:31 | estimated_finish=2026-06-17 18:03:30
+Quick validation epoch=70 | pseudo_dice=0.116180 | val_time=00:00:07
+Epoch 71/1000 finished | loss=0.522759 | dice_loss=0.507577 | bce=0.012877 | mse=0.002306 | lr=9.35867e-05 | epoch_time=00:01:02 | elapsed=01:18:12 | ETA=17:03:23 | estimated_finish=2026-06-17 18:04:32
+Epoch 72/1000 finished | loss=0.449341 | dice_loss=0.431754 | bce=0.014949 | mse=0.002638 | lr=9.3496e-05 | epoch_time=00:01:02 | elapsed=01:19:15 | ETA=17:01:38 | estimated_finish=2026-06-17 18:03:51
+Epoch 73/1000 finished | loss=0.451336 | dice_loss=0.437148 | bce=0.011960 | mse=0.002227 | lr=9.34054e-05 | epoch_time=00:01:05 | elapsed=01:20:21 | ETA=17:00:24 | estimated_finish=2026-06-17 18:03:43
+Epoch 74/1000 finished | loss=0.484067 | dice_loss=0.468276 | bce=0.013524 | mse=0.002267 | lr=9.33147e-05 | epoch_time=00:01:04 | elapsed=01:21:25 | ETA=16:59:00 | estimated_finish=2026-06-17 18:03:23
+Epoch 75/1000 finished | loss=0.479894 | dice_loss=0.462452 | bce=0.014861 | mse=0.002581 | lr=9.3224e-05 | epoch_time=00:01:03 | elapsed=01:22:29 | ETA=16:57:24 | estimated_finish=2026-06-17 18:02:51
+Quick validation epoch=75 | pseudo_dice=0.294428 | val_time=00:00:07
+New best model saved by quick validation | pseudo_dice=0.294428 | epoch=75
+Epoch 76/1000 finished | loss=0.474917 | dice_loss=0.459137 | bce=0.013431 | mse=0.002350 | lr=9.31333e-05 | epoch_time=00:01:05 | elapsed=01:23:43 | ETA=16:57:49 | estimated_finish=2026-06-17 18:04:29
+Epoch 77/1000 finished | loss=0.522741 | dice_loss=0.503606 | bce=0.016421 | mse=0.002713 | lr=9.30425e-05 | epoch_time=00:01:05 | elapsed=01:24:48 | ETA=16:56:38 | estimated_finish=2026-06-17 18:04:24
+Epoch 78/1000 finished | loss=0.491849 | dice_loss=0.473197 | bce=0.015841 | mse=0.002811 | lr=9.29518e-05 | epoch_time=00:01:23 | elapsed=01:26:12 | ETA=16:59:05 | estimated_finish=2026-06-17 18:08:14
+Epoch 79/1000 finished | loss=0.487435 | dice_loss=0.472148 | bce=0.012978 | mse=0.002310 | lr=9.28611e-05 | epoch_time=00:01:10 | elapsed=01:27:23 | ETA=16:58:46 | estimated_finish=2026-06-17 18:09:06
+Epoch 80/1000 finished | loss=0.491528 | dice_loss=0.476464 | bce=0.012766 | mse=0.002298 | lr=9.27703e-05 | epoch_time=00:01:01 | elapsed=01:28:25 | ETA=16:56:52 | estimated_finish=2026-06-17 18:08:14
+Quick validation epoch=80 | pseudo_dice=0.239150 | val_time=00:00:07
+Epoch 81/1000 finished | loss=0.489382 | dice_loss=0.477282 | bce=0.010245 | mse=0.001855 | lr=9.26796e-05 | epoch_time=00:01:02 | elapsed=01:29:34 | ETA=16:56:22 | estimated_finish=2026-06-17 18:08:53
+Epoch 82/1000 finished | loss=0.501696 | dice_loss=0.483892 | bce=0.015172 | mse=0.002633 | lr=9.25888e-05 | epoch_time=00:01:01 | elapsed=01:30:36 | ETA=16:54:25 | estimated_finish=2026-06-17 18:07:58
+Epoch 83/1000 finished | loss=0.477288 | dice_loss=0.462470 | bce=0.012571 | mse=0.002246 | lr=9.2498e-05 | epoch_time=00:01:05 | elapsed=01:31:42 | ETA=16:53:15 | estimated_finish=2026-06-17 18:07:55
+Epoch 84/1000 finished | loss=0.513967 | dice_loss=0.499056 | bce=0.012654 | mse=0.002257 | lr=9.24072e-05 | epoch_time=00:01:02 | elapsed=01:32:45 | ETA=16:51:34 | estimated_finish=2026-06-17 18:07:17
+Epoch 85/1000 finished | loss=0.414812 | dice_loss=0.399161 | bce=0.013283 | mse=0.002368 | lr=9.23164e-05 | epoch_time=00:01:05 | elapsed=01:33:51 | ETA=16:50:21 | estimated_finish=2026-06-17 18:07:09
+Quick validation epoch=85 | pseudo_dice=0.165898 | val_time=00:00:07
+Epoch 86/1000 finished | loss=0.475004 | dice_loss=0.457440 | bce=0.014831 | mse=0.002733 | lr=9.22256e-05 | epoch_time=00:01:04 | elapsed=01:35:03 | ETA=16:50:14 | estimated_finish=2026-06-17 18:08:15
+Epoch 87/1000 finished | loss=0.554747 | dice_loss=0.538381 | bce=0.013770 | mse=0.002597 | lr=9.21348e-05 | epoch_time=00:01:03 | elapsed=01:36:06 | ETA=16:48:40 | estimated_finish=2026-06-17 18:07:43
+Epoch 88/1000 finished | loss=0.462880 | dice_loss=0.448042 | bce=0.012515 | mse=0.002323 | lr=9.2044e-05 | epoch_time=00:01:02 | elapsed=01:37:09 | ETA=16:46:53 | estimated_finish=2026-06-17 18:07:00
+Epoch 89/1000 finished | loss=0.431624 | dice_loss=0.418758 | bce=0.010888 | mse=0.001978 | lr=9.19531e-05 | epoch_time=00:01:04 | elapsed=01:38:14 | ETA=16:45:34 | estimated_finish=2026-06-17 18:06:46
+Epoch 90/1000 finished | loss=0.428491 | dice_loss=0.408778 | bce=0.016742 | mse=0.002971 | lr=9.18623e-05 | epoch_time=00:01:03 | elapsed=01:39:17 | ETA=16:43:59 | estimated_finish=2026-06-17 18:06:14
+Quick validation epoch=90 | pseudo_dice=0.156162 | val_time=00:00:07
+Epoch 91/1000 finished | loss=0.516958 | dice_loss=0.499481 | bce=0.014823 | mse=0.002655 | lr=9.17714e-05 | epoch_time=00:01:01 | elapsed=01:40:26 | ETA=16:43:21 | estimated_finish=2026-06-17 18:06:45
+Epoch 92/1000 finished | loss=0.456770 | dice_loss=0.443312 | bce=0.011426 | mse=0.002032 | lr=9.16806e-05 | epoch_time=00:01:01 | elapsed=01:41:28 | ETA=16:41:33 | estimated_finish=2026-06-17 18:05:58
+Epoch 93/1000 finished | loss=0.478914 | dice_loss=0.463459 | bce=0.013221 | mse=0.002233 | lr=9.15897e-05 | epoch_time=00:01:03 | elapsed=01:42:32 | ETA=16:40:02 | estimated_finish=2026-06-17 18:05:31
+Epoch 94/1000 finished | loss=0.535803 | dice_loss=0.519426 | bce=0.013974 | mse=0.002402 | lr=9.14988e-05 | epoch_time=00:01:04 | elapsed=01:43:37 | ETA=16:38:43 | estimated_finish=2026-06-17 18:05:17
+Epoch 95/1000 finished | loss=0.477740 | dice_loss=0.462798 | bce=0.012751 | mse=0.002191 | lr=9.14079e-05 | epoch_time=00:01:04 | elapsed=01:44:41 | ETA=16:37:21 | estimated_finish=2026-06-17 18:05:00
+Quick validation epoch=95 | pseudo_dice=0.275048 | val_time=00:00:07
+Epoch 96/1000 finished | loss=0.470302 | dice_loss=0.451712 | bce=0.015738 | mse=0.002851 | lr=9.1317e-05 | epoch_time=00:01:02 | elapsed=01:45:51 | ETA=16:36:47 | estimated_finish=2026-06-17 18:05:35
+Epoch 97/1000 finished | loss=0.472865 | dice_loss=0.456045 | bce=0.014186 | mse=0.002634 | lr=9.12261e-05 | epoch_time=00:01:04 | elapsed=01:46:55 | ETA=16:35:25 | estimated_finish=2026-06-17 18:05:17
+Epoch 98/1000 finished | loss=0.500697 | dice_loss=0.486870 | bce=0.011790 | mse=0.002037 | lr=9.11351e-05 | epoch_time=00:01:05 | elapsed=01:48:01 | ETA=16:34:18 | estimated_finish=2026-06-17 18:05:17
+Epoch 99/1000 finished | loss=0.504501 | dice_loss=0.493364 | bce=0.009475 | mse=0.001662 | lr=9.10442e-05 | epoch_time=00:01:05 | elapsed=01:49:07 | ETA=16:33:11 | estimated_finish=2026-06-17 18:05:16
+Epoch 100/1000 finished | loss=0.563747 | dice_loss=0.544469 | bce=0.016499 | mse=0.002778 | lr=9.09533e-05 | epoch_time=00:01:02 | elapsed=01:50:10 | ETA=16:31:38 | estimated_finish=2026-06-17 18:04:46
+Quick validation epoch=100 | pseudo_dice=0.385335 | val_time=00:00:07
+New best model saved by quick validation | pseudo_dice=0.385335 | epoch=100
+Full validation epoch=100 | mean_dice=0.103267 | val_time=00:14:05
+New best full-validation model saved | dice=0.103267 | epoch=100
+Epoch 101/1000 finished | loss=0.487508 | dice_loss=0.472290 | bce=0.012993 | mse=0.002225 | lr=9.08623e-05 | epoch_time=00:01:02 | elapsed=02:05:26 | ETA=18:36:36 | estimated_finish=2026-06-17 20:24:59
+Epoch 102/1000 finished | loss=0.454603 | dice_loss=0.438077 | bce=0.014147 | mse=0.002380 | lr=9.07713e-05 | epoch_time=00:01:03 | elapsed=02:06:30 | ETA=18:33:50 | estimated_finish=2026-06-17 20:23:18
+Epoch 103/1000 finished | loss=0.535025 | dice_loss=0.513538 | bce=0.018381 | mse=0.003106 | lr=9.06804e-05 | epoch_time=00:01:05 | elapsed=02:07:36 | ETA=18:31:16 | estimated_finish=2026-06-17 20:21:49
+Epoch 104/1000 finished | loss=0.476257 | dice_loss=0.461602 | bce=0.012427 | mse=0.002227 | lr=9.05894e-05 | epoch_time=00:01:07 | elapsed=02:08:43 | ETA=18:29:05 | estimated_finish=2026-06-17 20:20:45
+Epoch 105/1000 finished | loss=0.502658 | dice_loss=0.490113 | bce=0.010746 | mse=0.001800 | lr=9.04984e-05 | epoch_time=00:01:05 | elapsed=02:09:49 | ETA=18:26:33 | estimated_finish=2026-06-17 20:19:19
+Quick validation epoch=105 | pseudo_dice=0.385908 | val_time=00:00:07
+New best model saved by quick validation | pseudo_dice=0.385908 | epoch=105
+Epoch 106/1000 finished | loss=0.461340 | dice_loss=0.446020 | bce=0.013135 | mse=0.002185 | lr=9.04074e-05 | epoch_time=00:01:05 | elapsed=02:11:01 | ETA=18:25:06 | estimated_finish=2026-06-17 20:19:04
+Epoch 107/1000 finished | loss=0.488826 | dice_loss=0.473662 | bce=0.012963 | mse=0.002201 | lr=9.03163e-05 | epoch_time=00:01:01 | elapsed=02:12:03 | ETA=18:22:07 | estimated_finish=2026-06-17 20:17:08
+Epoch 108/1000 finished | loss=0.459303 | dice_loss=0.443889 | bce=0.013148 | mse=0.002266 | lr=9.02253e-05 | epoch_time=00:01:01 | elapsed=02:13:04 | ETA=18:19:08 | estimated_finish=2026-06-17 20:15:09
+Epoch 109/1000 finished | loss=0.483269 | dice_loss=0.470402 | bce=0.010950 | mse=0.001918 | lr=9.01343e-05 | epoch_time=00:01:01 | elapsed=02:14:06 | ETA=18:16:12 | estimated_finish=2026-06-17 20:13:15
+Epoch 110/1000 finished | loss=0.454720 | dice_loss=0.438594 | bce=0.013822 | mse=0.002304 | lr=9.00432e-05 | epoch_time=00:01:06 | elapsed=02:15:13 | ETA=18:14:03 | estimated_finish=2026-06-17 20:12:13
+Quick validation epoch=110 | pseudo_dice=0.363583 | val_time=00:00:07
+Epoch 111/1000 finished | loss=0.510235 | dice_loss=0.492780 | bce=0.014923 | mse=0.002531 | lr=8.99522e-05 | epoch_time=00:01:03 | elapsed=02:16:23 | ETA=18:12:23 | estimated_finish=2026-06-17 20:11:43
+Epoch 112/1000 finished | loss=0.495214 | dice_loss=0.477798 | bce=0.014859 | mse=0.002557 | lr=8.98611e-05 | epoch_time=00:01:05 | elapsed=02:17:29 | ETA=18:10:05 | estimated_finish=2026-06-17 20:10:31
+Epoch 113/1000 finished | loss=0.489966 | dice_loss=0.475078 | bce=0.012740 | mse=0.002148 | lr=8.977e-05 | epoch_time=00:01:02 | elapsed=02:18:31 | ETA=18:07:22 | estimated_finish=2026-06-17 20:08:51
+Epoch 114/1000 finished | loss=0.495093 | dice_loss=0.478442 | bce=0.014154 | mse=0.002497 | lr=8.96789e-05 | epoch_time=00:01:03 | elapsed=02:19:35 | ETA=18:04:52 | estimated_finish=2026-06-17 20:07:24
+Epoch 115/1000 finished | loss=0.491701 | dice_loss=0.476727 | bce=0.012922 | mse=0.002052 | lr=8.95878e-05 | epoch_time=00:01:05 | elapsed=02:20:40 | ETA=18:02:37 | estimated_finish=2026-06-17 20:06:15
+Quick validation epoch=115 | pseudo_dice=0.458844 | val_time=00:00:08
+New best model saved by quick validation | pseudo_dice=0.458844 | epoch=115
+Epoch 116/1000 finished | loss=0.517589 | dice_loss=0.502729 | bce=0.012757 | mse=0.002103 | lr=8.94967e-05 | epoch_time=00:01:01 | elapsed=02:21:51 | ETA=18:01:00 | estimated_finish=2026-06-17 20:05:48
+Epoch 117/1000 finished | loss=0.475903 | dice_loss=0.461714 | bce=0.012108 | mse=0.002081 | lr=8.94056e-05 | epoch_time=00:01:02 | elapsed=02:22:53 | ETA=17:58:25 | estimated_finish=2026-06-17 20:04:16
+Epoch 118/1000 finished | loss=0.486771 | dice_loss=0.470241 | bce=0.014188 | mse=0.002342 | lr=8.93144e-05 | epoch_time=00:01:01 | elapsed=02:23:55 | ETA=17:55:49 | estimated_finish=2026-06-17 20:02:41
+Epoch 119/1000 finished | loss=0.478884 | dice_loss=0.457295 | bce=0.018683 | mse=0.002907 | lr=8.92233e-05 | epoch_time=00:01:02 | elapsed=02:24:58 | ETA=17:53:21 | estimated_finish=2026-06-17 20:01:17
+Epoch 120/1000 finished | loss=0.490774 | dice_loss=0.474124 | bce=0.014340 | mse=0.002310 | lr=8.91322e-05 | epoch_time=00:01:03 | elapsed=02:26:02 | ETA=17:50:58 | estimated_finish=2026-06-17 19:59:57
+Quick validation epoch=120 | pseudo_dice=0.427330 | val_time=00:00:06
+Epoch 121/1000 finished | loss=0.480803 | dice_loss=0.463135 | bce=0.015277 | mse=0.002390 | lr=8.9041e-05 | epoch_time=00:01:03 | elapsed=02:27:13 | ETA=17:49:30 | estimated_finish=2026-06-17 19:59:40
+Epoch 122/1000 finished | loss=0.511969 | dice_loss=0.492705 | bce=0.016474 | mse=0.002791 | lr=8.89498e-05 | epoch_time=00:01:03 | elapsed=02:28:16 | ETA=17:47:08 | estimated_finish=2026-06-17 19:58:21
+Epoch 123/1000 finished | loss=0.450711 | dice_loss=0.436285 | bce=0.012445 | mse=0.001980 | lr=8.88586e-05 | epoch_time=00:01:01 | elapsed=02:29:18 | ETA=17:44:37 | estimated_finish=2026-06-17 19:56:53
+Epoch 124/1000 finished | loss=0.438120 | dice_loss=0.424997 | bce=0.011210 | mse=0.001913 | lr=8.87674e-05 | epoch_time=00:01:02 | elapsed=02:30:21 | ETA=17:42:13 | estimated_finish=2026-06-17 19:55:31
+Epoch 125/1000 finished | loss=0.442009 | dice_loss=0.426345 | bce=0.013373 | mse=0.002292 | lr=8.86762e-05 | epoch_time=00:01:01 | elapsed=02:31:23 | ETA=17:39:42 | estimated_finish=2026-06-17 19:54:02
+Quick validation epoch=125 | pseudo_dice=0.355178 | val_time=00:00:06
+Epoch 126/1000 finished | loss=0.503848 | dice_loss=0.489949 | bce=0.011770 | mse=0.002129 | lr=8.8585e-05 | epoch_time=00:01:02 | elapsed=02:32:32 | ETA=17:38:04 | estimated_finish=2026-06-17 19:53:33
+Epoch 127/1000 finished | loss=0.439663 | dice_loss=0.424539 | bce=0.012966 | mse=0.002159 | lr=8.84938e-05 | epoch_time=00:01:05 | elapsed=02:33:37 | ETA=17:36:02 | estimated_finish=2026-06-17 19:52:36
+Epoch 128/1000 finished | loss=0.439311 | dice_loss=0.426230 | bce=0.011043 | mse=0.002038 | lr=8.84026e-05 | epoch_time=00:01:02 | elapsed=02:34:40 | ETA=17:33:44 | estimated_finish=2026-06-17 19:51:22
+Epoch 129/1000 finished | loss=0.481316 | dice_loss=0.467247 | bce=0.011932 | mse=0.002136 | lr=8.83113e-05 | epoch_time=00:01:04 | elapsed=02:35:45 | ETA=17:31:38 | estimated_finish=2026-06-17 19:50:20
+Epoch 130/1000 finished | loss=0.467356 | dice_loss=0.452595 | bce=0.012662 | mse=0.002099 | lr=8.82201e-05 | epoch_time=00:01:03 | elapsed=02:36:49 | ETA=17:29:28 | estimated_finish=2026-06-17 19:49:14
+Quick validation epoch=130 | pseudo_dice=0.231705 | val_time=00:00:07
+Epoch 131/1000 finished | loss=0.479598 | dice_loss=0.466163 | bce=0.011573 | mse=0.001862 | lr=8.81288e-05 | epoch_time=00:01:03 | elapsed=02:37:59 | ETA=17:28:04 | estimated_finish=2026-06-17 19:49:01
+Epoch 132/1000 finished | loss=0.465114 | dice_loss=0.452213 | bce=0.010982 | mse=0.001920 | lr=8.80375e-05 | epoch_time=00:01:02 | elapsed=02:39:02 | ETA=17:25:46 | estimated_finish=2026-06-17 19:47:45
+Epoch 133/1000 finished | loss=0.473645 | dice_loss=0.461311 | bce=0.010524 | mse=0.001809 | lr=8.79462e-05 | epoch_time=00:01:01 | elapsed=02:40:04 | ETA=17:23:27 | estimated_finish=2026-06-17 19:46:28
+Epoch 134/1000 finished | loss=0.423208 | dice_loss=0.408277 | bce=0.012771 | mse=0.002161 | lr=8.78549e-05 | epoch_time=00:01:03 | elapsed=02:41:08 | ETA=17:21:22 | estimated_finish=2026-06-17 19:45:27
+Epoch 135/1000 finished | loss=0.414180 | dice_loss=0.401078 | bce=0.011095 | mse=0.002007 | lr=8.77636e-05 | epoch_time=00:01:02 | elapsed=02:42:11 | ETA=17:19:12 | estimated_finish=2026-06-17 19:44:20
+Quick validation epoch=135 | pseudo_dice=0.363213 | val_time=00:00:07
+Epoch 136/1000 finished | loss=0.427705 | dice_loss=0.413495 | bce=0.012233 | mse=0.001977 | lr=8.76723e-05 | epoch_time=00:01:02 | elapsed=02:43:21 | ETA=17:17:45 | estimated_finish=2026-06-17 19:44:03
+Epoch 137/1000 finished | loss=0.477477 | dice_loss=0.466313 | bce=0.009506 | mse=0.001658 | lr=8.7581e-05 | epoch_time=00:01:01 | elapsed=02:44:22 | ETA=17:15:29 | estimated_finish=2026-06-17 19:42:48
+Epoch 138/1000 finished | loss=0.447308 | dice_loss=0.435624 | bce=0.009903 | mse=0.001782 | lr=8.74896e-05 | epoch_time=00:01:05 | elapsed=02:45:29 | ETA=17:13:40 | estimated_finish=2026-06-17 19:42:06
+Epoch 139/1000 finished | loss=0.469058 | dice_loss=0.456295 | bce=0.010867 | mse=0.001896 | lr=8.73983e-05 | epoch_time=00:01:04 | elapsed=02:46:33 | ETA=17:11:41 | estimated_finish=2026-06-17 19:41:12
+Epoch 140/1000 finished | loss=0.462646 | dice_loss=0.447121 | bce=0.013470 | mse=0.002055 | lr=8.73069e-05 | epoch_time=00:01:03 | elapsed=02:47:36 | ETA=17:09:38 | estimated_finish=2026-06-17 19:40:12
+Quick validation epoch=140 | pseudo_dice=0.203952 | val_time=00:00:06
+Epoch 141/1000 finished | loss=0.505376 | dice_loss=0.493914 | bce=0.009831 | mse=0.001632 | lr=8.72155e-05 | epoch_time=00:01:04 | elapsed=02:48:48 | ETA=17:08:25 | estimated_finish=2026-06-17 19:40:10
+Epoch 142/1000 finished | loss=0.490807 | dice_loss=0.478286 | bce=0.010774 | mse=0.001746 | lr=8.71242e-05 | epoch_time=00:01:00 | elapsed=02:49:49 | ETA=17:06:05 | estimated_finish=2026-06-17 19:38:51
+Epoch 143/1000 finished | loss=0.454569 | dice_loss=0.442549 | bce=0.010256 | mse=0.001764 | lr=8.70328e-05 | epoch_time=00:01:00 | elapsed=02:50:49 | ETA=17:03:46 | estimated_finish=2026-06-17 19:37:32
+Epoch 144/1000 finished | loss=0.436731 | dice_loss=0.426095 | bce=0.009111 | mse=0.001525 | lr=8.69414e-05 | epoch_time=00:01:05 | elapsed=02:51:55 | ETA=17:01:58 | estimated_finish=2026-06-17 19:36:50
+Epoch 145/1000 finished | loss=0.481187 | dice_loss=0.465058 | bce=0.013967 | mse=0.002162 | lr=8.68499e-05 | epoch_time=00:01:01 | elapsed=02:52:57 | ETA=16:59:50 | estimated_finish=2026-06-17 19:35:44
+Quick validation epoch=145 | pseudo_dice=0.432932 | val_time=00:00:06
+Epoch 146/1000 finished | loss=0.477204 | dice_loss=0.461940 | bce=0.013137 | mse=0.002128 | lr=8.67585e-05 | epoch_time=00:01:01 | elapsed=02:54:05 | ETA=16:58:20 | estimated_finish=2026-06-17 19:35:23
+Epoch 147/1000 finished | loss=0.414031 | dice_loss=0.396095 | bce=0.015408 | mse=0.002528 | lr=8.66671e-05 | epoch_time=00:01:02 | elapsed=02:55:08 | ETA=16:56:16 | estimated_finish=2026-06-17 19:34:21
+Epoch 148/1000 finished | loss=0.498337 | dice_loss=0.487755 | bce=0.009074 | mse=0.001508 | lr=8.65756e-05 | epoch_time=00:01:00 | elapsed=02:56:09 | ETA=16:54:06 | estimated_finish=2026-06-17 19:33:12
+Epoch 149/1000 finished | loss=0.505815 | dice_loss=0.491939 | bce=0.011825 | mse=0.002051 | lr=8.64842e-05 | epoch_time=00:01:03 | elapsed=02:57:13 | ETA=16:52:12 | estimated_finish=2026-06-17 19:32:22
+Epoch 150/1000 finished | loss=0.447598 | dice_loss=0.434149 | bce=0.011464 | mse=0.001985 | lr=8.63927e-05 | epoch_time=00:01:00 | elapsed=02:58:14 | ETA=16:50:00 | estimated_finish=2026-06-17 19:31:11
+Quick validation epoch=150 | pseudo_dice=0.346811 | val_time=00:00:06
+Epoch 151/1000 finished | loss=0.415993 | dice_loss=0.404626 | bce=0.009729 | mse=0.001638 | lr=8.63012e-05 | epoch_time=00:01:00 | elapsed=02:59:22 | ETA=16:48:29 | estimated_finish=2026-06-17 19:30:48
+Epoch 152/1000 finished | loss=0.427786 | dice_loss=0.413080 | bce=0.012613 | mse=0.002092 | lr=8.62097e-05 | epoch_time=00:01:03 | elapsed=03:00:26 | ETA=16:46:37 | estimated_finish=2026-06-17 19:30:00
+Epoch 153/1000 finished | loss=0.427809 | dice_loss=0.413808 | bce=0.011942 | mse=0.002059 | lr=8.61182e-05 | epoch_time=00:01:02 | elapsed=03:01:29 | ETA=16:44:41 | estimated_finish=2026-06-17 19:29:07
+Epoch 154/1000 finished | loss=0.424505 | dice_loss=0.408006 | bce=0.014218 | mse=0.002280 | lr=8.60267e-05 | epoch_time=00:01:01 | elapsed=03:02:30 | ETA=16:42:37 | estimated_finish=2026-06-17 19:28:05
+Epoch 155/1000 finished | loss=0.485378 | dice_loss=0.471394 | bce=0.011911 | mse=0.002073 | lr=8.59352e-05 | epoch_time=00:01:01 | elapsed=03:03:32 | ETA=16:40:37 | estimated_finish=2026-06-17 19:27:07
+Quick validation epoch=155 | pseudo_dice=0.365832 | val_time=00:00:06
+Epoch 156/1000 finished | loss=0.412295 | dice_loss=0.399770 | bce=0.010708 | mse=0.001817 | lr=8.58437e-05 | epoch_time=00:01:02 | elapsed=03:04:42 | ETA=16:39:21 | estimated_finish=2026-06-17 19:27:00
+Epoch 157/1000 finished | loss=0.467396 | dice_loss=0.454818 | bce=0.010675 | mse=0.001903 | lr=8.57521e-05 | epoch_time=00:01:02 | elapsed=03:05:45 | ETA=16:37:23 | estimated_finish=2026-06-17 19:26:05
+Epoch 158/1000 finished | loss=0.486430 | dice_loss=0.471301 | bce=0.012942 | mse=0.002188 | lr=8.56606e-05 | epoch_time=00:01:03 | elapsed=03:06:48 | ETA=16:35:33 | estimated_finish=2026-06-17 19:25:19
+Epoch 159/1000 finished | loss=0.424250 | dice_loss=0.408560 | bce=0.013391 | mse=0.002299 | lr=8.5569e-05 | epoch_time=00:01:02 | elapsed=03:07:51 | ETA=16:33:37 | estimated_finish=2026-06-17 19:24:25
+Epoch 160/1000 finished | loss=0.433635 | dice_loss=0.420084 | bce=0.011538 | mse=0.002012 | lr=8.54774e-05 | epoch_time=00:01:00 | elapsed=03:08:51 | ETA=16:31:30 | estimated_finish=2026-06-17 19:23:18
+Quick validation epoch=160 | pseudo_dice=0.370994 | val_time=00:00:07
+Epoch 161/1000 finished | loss=0.413347 | dice_loss=0.400760 | bce=0.010709 | mse=0.001878 | lr=8.53858e-05 | epoch_time=00:01:02 | elapsed=03:10:01 | ETA=16:30:15 | estimated_finish=2026-06-17 19:23:13
+Epoch 162/1000 finished | loss=0.464234 | dice_loss=0.449225 | bce=0.012812 | mse=0.002197 | lr=8.52942e-05 | epoch_time=00:01:01 | elapsed=03:11:02 | ETA=16:28:15 | estimated_finish=2026-06-17 19:22:15
+Epoch 163/1000 finished | loss=0.442225 | dice_loss=0.429677 | bce=0.010702 | mse=0.001846 | lr=8.52026e-05 | epoch_time=00:01:01 | elapsed=03:12:04 | ETA=16:26:16 | estimated_finish=2026-06-17 19:21:17
+Epoch 164/1000 finished | loss=0.399784 | dice_loss=0.383503 | bce=0.013912 | mse=0.002370 | lr=8.5111e-05 | epoch_time=00:01:03 | elapsed=03:13:08 | ETA=16:24:30 | estimated_finish=2026-06-17 19:20:35
+Epoch 165/1000 finished | loss=0.460896 | dice_loss=0.446698 | bce=0.012153 | mse=0.002046 | lr=8.50194e-05 | epoch_time=00:01:00 | elapsed=03:14:08 | ETA=16:22:30 | estimated_finish=2026-06-17 19:19:36
+Quick validation epoch=165 | pseudo_dice=0.262717 | val_time=00:00:07
+Epoch 166/1000 finished | loss=0.452010 | dice_loss=0.435490 | bce=0.014021 | mse=0.002499 | lr=8.49277e-05 | epoch_time=00:01:06 | elapsed=03:15:22 | ETA=16:21:34 | estimated_finish=2026-06-17 19:19:53
+Epoch 167/1000 finished | loss=0.436354 | dice_loss=0.422897 | bce=0.011460 | mse=0.001997 | lr=8.48361e-05 | epoch_time=00:01:02 | elapsed=03:16:25 | ETA=16:19:44 | estimated_finish=2026-06-17 19:19:06
+Epoch 168/1000 finished | loss=0.504142 | dice_loss=0.488652 | bce=0.013201 | mse=0.002289 | lr=8.47444e-05 | epoch_time=00:01:00 | elapsed=03:17:25 | ETA=16:17:45 | estimated_finish=2026-06-17 19:18:08
+Epoch 169/1000 finished | loss=0.481214 | dice_loss=0.467444 | bce=0.011817 | mse=0.001952 | lr=8.46527e-05 | epoch_time=00:01:02 | elapsed=03:18:28 | ETA=16:15:54 | estimated_finish=2026-06-17 19:17:19
+Epoch 170/1000 finished | loss=0.417241 | dice_loss=0.402700 | bce=0.012417 | mse=0.002124 | lr=8.4561e-05 | epoch_time=00:01:04 | elapsed=03:19:33 | ETA=16:14:16 | estimated_finish=2026-06-17 19:16:46
+Quick validation epoch=170 | pseudo_dice=0.341819 | val_time=00:00:06
+Epoch 171/1000 finished | loss=0.435848 | dice_loss=0.423741 | bce=0.010369 | mse=0.001738 | lr=8.44693e-05 | epoch_time=00:01:03 | elapsed=03:20:43 | ETA=16:13:05 | estimated_finish=2026-06-17 19:16:46
+Epoch 172/1000 finished | loss=0.453951 | dice_loss=0.442120 | bce=0.010061 | mse=0.001770 | lr=8.43776e-05 | epoch_time=00:01:01 | elapsed=03:21:44 | ETA=16:11:12 | estimated_finish=2026-06-17 19:15:53
+Epoch 173/1000 finished | loss=0.393854 | dice_loss=0.378020 | bce=0.013696 | mse=0.002137 | lr=8.42859e-05 | epoch_time=00:01:04 | elapsed=03:22:49 | ETA=16:09:34 | estimated_finish=2026-06-17 19:15:20
+Epoch 174/1000 finished | loss=0.437202 | dice_loss=0.423421 | bce=0.011720 | mse=0.002062 | lr=8.41942e-05 | epoch_time=00:01:01 | elapsed=03:23:50 | ETA=16:07:40 | estimated_finish=2026-06-17 19:14:28
+Epoch 175/1000 finished | loss=0.471748 | dice_loss=0.458863 | bce=0.010978 | mse=0.001907 | lr=8.41024e-05 | epoch_time=00:01:03 | elapsed=03:24:54 | ETA=16:05:58 | estimated_finish=2026-06-17 19:13:49
+Quick validation epoch=175 | pseudo_dice=0.329105 | val_time=00:00:06
+Epoch 176/1000 finished | loss=0.462047 | dice_loss=0.447562 | bce=0.012431 | mse=0.002054 | lr=8.40107e-05 | epoch_time=00:01:00 | elapsed=03:26:02 | ETA=16:04:37 | estimated_finish=2026-06-17 19:13:36
+Epoch 177/1000 finished | loss=0.499628 | dice_loss=0.485595 | bce=0.012274 | mse=0.001760 | lr=8.39189e-05 | epoch_time=00:01:00 | elapsed=03:27:02 | ETA=16:02:41 | estimated_finish=2026-06-17 19:12:40
+Epoch 178/1000 finished | loss=0.475571 | dice_loss=0.457730 | bce=0.015307 | mse=0.002533 | lr=8.38271e-05 | epoch_time=00:01:02 | elapsed=03:28:04 | ETA=16:00:54 | estimated_finish=2026-06-17 19:11:55
+Epoch 179/1000 finished | loss=0.392519 | dice_loss=0.381240 | bce=0.009584 | mse=0.001695 | lr=8.37354e-05 | epoch_time=00:01:06 | elapsed=03:29:11 | ETA=15:59:29 | estimated_finish=2026-06-17 19:11:37
+Epoch 180/1000 finished | loss=0.458831 | dice_loss=0.442314 | bce=0.014234 | mse=0.002283 | lr=8.36436e-05 | epoch_time=00:01:03 | elapsed=03:30:15 | ETA=15:57:51 | estimated_finish=2026-06-17 19:11:03
+Quick validation epoch=180 | pseudo_dice=0.459568 | val_time=00:00:07
+New best model saved by quick validation | pseudo_dice=0.459568 | epoch=180
+Epoch 181/1000 finished | loss=0.458581 | dice_loss=0.442672 | bce=0.013646 | mse=0.002263 | lr=8.35517e-05 | epoch_time=00:01:01 | elapsed=03:31:24 | ETA=15:56:34 | estimated_finish=2026-06-17 19:10:55
+Epoch 182/1000 finished | loss=0.429966 | dice_loss=0.416512 | bce=0.011515 | mse=0.001939 | lr=8.34599e-05 | epoch_time=00:01:02 | elapsed=03:32:27 | ETA=15:54:51 | estimated_finish=2026-06-17 19:10:15
+Epoch 183/1000 finished | loss=0.467382 | dice_loss=0.456266 | bce=0.009519 | mse=0.001597 | lr=8.33681e-05 | epoch_time=00:01:00 | elapsed=03:33:28 | ETA=15:53:02 | estimated_finish=2026-06-17 19:09:27
+Epoch 184/1000 finished | loss=0.420126 | dice_loss=0.406343 | bce=0.011662 | mse=0.002121 | lr=8.32762e-05 | epoch_time=00:01:02 | elapsed=03:34:31 | ETA=15:51:20 | estimated_finish=2026-06-17 19:08:48
+Epoch 185/1000 finished | loss=0.409445 | dice_loss=0.396062 | bce=0.011345 | mse=0.002037 | lr=8.31844e-05 | epoch_time=00:01:04 | elapsed=03:35:35 | ETA=15:49:45 | estimated_finish=2026-06-17 19:08:17
+Quick validation epoch=185 | pseudo_dice=0.417312 | val_time=00:00:07
+Epoch 186/1000 finished | loss=0.424754 | dice_loss=0.410012 | bce=0.012637 | mse=0.002105 | lr=8.30925e-05 | epoch_time=00:01:01 | elapsed=03:36:44 | ETA=15:48:30 | estimated_finish=2026-06-17 19:08:11
+Epoch 187/1000 finished | loss=0.467405 | dice_loss=0.454948 | bce=0.010632 | mse=0.001826 | lr=8.30006e-05 | epoch_time=00:01:02 | elapsed=03:37:47 | ETA=15:46:51 | estimated_finish=2026-06-17 19:07:35
+Epoch 188/1000 finished | loss=0.441858 | dice_loss=0.428748 | bce=0.011136 | mse=0.001974 | lr=8.29088e-05 | epoch_time=00:01:02 | elapsed=03:38:50 | ETA=15:45:10 | estimated_finish=2026-06-17 19:06:57
+Epoch 189/1000 finished | loss=0.439424 | dice_loss=0.425878 | bce=0.011599 | mse=0.001946 | lr=8.28169e-05 | epoch_time=00:01:01 | elapsed=03:39:52 | ETA=15:43:27 | estimated_finish=2026-06-17 19:06:16
+Epoch 190/1000 finished | loss=0.446337 | dice_loss=0.437716 | bce=0.007307 | mse=0.001313 | lr=8.2725e-05 | epoch_time=00:01:01 | elapsed=03:40:53 | ETA=15:41:42 | estimated_finish=2026-06-17 19:05:33
+Quick validation epoch=190 | pseudo_dice=0.570036 | val_time=00:00:06
+New best model saved by quick validation | pseudo_dice=0.570036 | epoch=190
+Epoch 191/1000 finished | loss=0.415263 | dice_loss=0.401102 | bce=0.012028 | mse=0.002133 | lr=8.2633e-05 | epoch_time=00:01:01 | elapsed=03:42:02 | ETA=15:40:30 | estimated_finish=2026-06-17 19:05:30
+Epoch 192/1000 finished | loss=0.418269 | dice_loss=0.405076 | bce=0.011208 | mse=0.001984 | lr=8.25411e-05 | epoch_time=00:01:02 | elapsed=03:43:05 | ETA=15:38:49 | estimated_finish=2026-06-17 19:04:51
+Epoch 193/1000 finished | loss=0.476789 | dice_loss=0.461998 | bce=0.012645 | mse=0.002146 | lr=8.24491e-05 | epoch_time=00:01:02 | elapsed=03:44:07 | ETA=15:37:09 | estimated_finish=2026-06-17 19:04:13
+Epoch 194/1000 finished | loss=0.464717 | dice_loss=0.454732 | bce=0.008572 | mse=0.001413 | lr=8.23572e-05 | epoch_time=00:01:01 | elapsed=03:45:09 | ETA=15:35:27 | estimated_finish=2026-06-17 19:03:34
+Epoch 195/1000 finished | loss=0.513356 | dice_loss=0.502365 | bce=0.009418 | mse=0.001574 | lr=8.22652e-05 | epoch_time=00:01:03 | elapsed=03:46:13 | ETA=15:33:54 | estimated_finish=2026-06-17 19:03:04
+Quick validation epoch=195 | pseudo_dice=0.510190 | val_time=00:00:07
+Epoch 196/1000 finished | loss=0.423719 | dice_loss=0.412438 | bce=0.009593 | mse=0.001688 | lr=8.21732e-05 | epoch_time=00:01:07 | elapsed=03:47:28 | ETA=15:33:06 | estimated_finish=2026-06-17 19:03:31
+Epoch 197/1000 finished | loss=0.492101 | dice_loss=0.479385 | bce=0.010870 | mse=0.001847 | lr=8.20813e-05 | epoch_time=00:01:04 | elapsed=03:48:32 | ETA=15:31:35 | estimated_finish=2026-06-17 19:03:04
+Epoch 198/1000 finished | loss=0.435997 | dice_loss=0.421934 | bce=0.012041 | mse=0.002022 | lr=8.19893e-05 | epoch_time=00:01:03 | elapsed=03:49:36 | ETA=15:30:03 | estimated_finish=2026-06-17 19:02:37
+Epoch 199/1000 finished | loss=0.483272 | dice_loss=0.468132 | bce=0.013011 | mse=0.002129 | lr=8.18972e-05 | epoch_time=00:01:02 | elapsed=03:50:39 | ETA=15:28:26 | estimated_finish=2026-06-17 19:02:02
+Epoch 200/1000 finished | loss=0.459947 | dice_loss=0.446413 | bce=0.011469 | mse=0.002065 | lr=8.18052e-05 | epoch_time=00:01:02 | elapsed=03:51:42 | ETA=15:26:50 | estimated_finish=2026-06-17 19:01:29
+Quick validation epoch=200 | pseudo_dice=0.414256 | val_time=00:00:06
+Full validation epoch=200 | mean_dice=0.175139 | val_time=00:14:03
+New best full-validation model saved | dice=0.175139 | epoch=200
+Epoch 201/1000 finished | loss=0.464428 | dice_loss=0.449229 | bce=0.012964 | mse=0.002236 | lr=8.17132e-05 | epoch_time=00:01:01 | elapsed=04:06:55 | ETA=16:21:31 | estimated_finish=2026-06-17 20:11:23
+Epoch 202/1000 finished | loss=0.443743 | dice_loss=0.431450 | bce=0.010471 | mse=0.001822 | lr=8.16211e-05 | epoch_time=00:01:01 | elapsed=04:07:56 | ETA=16:19:30 | estimated_finish=2026-06-17 20:10:24
+Epoch 203/1000 finished | loss=0.435052 | dice_loss=0.420693 | bce=0.012306 | mse=0.002053 | lr=8.15291e-05 | epoch_time=00:01:03 | elapsed=04:09:00 | ETA=16:17:39 | estimated_finish=2026-06-17 20:09:36
+Epoch 204/1000 finished | loss=0.470152 | dice_loss=0.453990 | bce=0.013811 | mse=0.002351 | lr=8.1437e-05 | epoch_time=00:01:04 | elapsed=04:10:05 | ETA=16:15:50 | estimated_finish=2026-06-17 20:08:53
+Epoch 205/1000 finished | loss=0.420780 | dice_loss=0.408483 | bce=0.010496 | mse=0.001801 | lr=8.13449e-05 | epoch_time=00:01:01 | elapsed=04:11:07 | ETA=16:13:51 | estimated_finish=2026-06-17 20:07:55
+Quick validation epoch=205 | pseudo_dice=0.303757 | val_time=00:00:07
+Epoch 206/1000 finished | loss=0.469885 | dice_loss=0.455105 | bce=0.012696 | mse=0.002084 | lr=8.12528e-05 | epoch_time=00:01:00 | elapsed=04:12:15 | ETA=16:12:18 | estimated_finish=2026-06-17 20:07:31
+Epoch 207/1000 finished | loss=0.415963 | dice_loss=0.402464 | bce=0.011460 | mse=0.002039 | lr=8.11607e-05 | epoch_time=00:01:02 | elapsed=04:13:18 | ETA=16:10:25 | estimated_finish=2026-06-17 20:06:41
+Epoch 208/1000 finished | loss=0.502100 | dice_loss=0.490923 | bce=0.009586 | mse=0.001592 | lr=8.10686e-05 | epoch_time=00:01:00 | elapsed=04:14:19 | ETA=16:08:23 | estimated_finish=2026-06-17 20:05:39
+Epoch 209/1000 finished | loss=0.431636 | dice_loss=0.419592 | bce=0.010403 | mse=0.001642 | lr=8.09765e-05 | epoch_time=00:01:04 | elapsed=04:15:23 | ETA=16:06:35 | estimated_finish=2026-06-17 20:04:56
+Epoch 210/1000 finished | loss=0.441610 | dice_loss=0.428899 | bce=0.010721 | mse=0.001991 | lr=8.08843e-05 | epoch_time=00:01:01 | elapsed=04:16:25 | ETA=16:04:37 | estimated_finish=2026-06-17 20:03:59
+Quick validation epoch=210 | pseudo_dice=0.423191 | val_time=00:00:07
+Epoch 211/1000 finished | loss=0.429137 | dice_loss=0.414460 | bce=0.012513 | mse=0.002163 | lr=8.07922e-05 | epoch_time=00:01:00 | elapsed=04:17:33 | ETA=16:03:05 | estimated_finish=2026-06-17 20:03:35
+Epoch 212/1000 finished | loss=0.445495 | dice_loss=0.431766 | bce=0.011773 | mse=0.001956 | lr=8.07e-05 | epoch_time=00:01:03 | elapsed=04:18:37 | ETA=16:01:17 | estimated_finish=2026-06-17 20:02:51
+Epoch 213/1000 finished | loss=0.429260 | dice_loss=0.412862 | bce=0.014092 | mse=0.002306 | lr=8.06078e-05 | epoch_time=00:01:00 | elapsed=04:19:38 | ETA=15:59:18 | estimated_finish=2026-06-17 20:01:53
+Epoch 214/1000 finished | loss=0.505613 | dice_loss=0.490636 | bce=0.012845 | mse=0.002131 | lr=8.05156e-05 | epoch_time=00:00:59 | elapsed=04:20:37 | ETA=15:57:14 | estimated_finish=2026-06-17 20:00:49
+Epoch 215/1000 finished | loss=0.502885 | dice_loss=0.488447 | bce=0.012355 | mse=0.002083 | lr=8.04234e-05 | epoch_time=00:01:01 | elapsed=04:21:39 | ETA=15:55:20 | estimated_finish=2026-06-17 19:59:56
+Quick validation epoch=215 | pseudo_dice=0.150273 | val_time=00:00:07
+Epoch 216/1000 finished | loss=0.415604 | dice_loss=0.403171 | bce=0.010555 | mse=0.001879 | lr=8.03312e-05 | epoch_time=00:00:59 | elapsed=04:22:46 | ETA=15:53:46 | estimated_finish=2026-06-17 19:59:30
+Epoch 217/1000 finished | loss=0.420747 | dice_loss=0.406899 | bce=0.011815 | mse=0.002033 | lr=8.0239e-05 | epoch_time=00:00:59 | elapsed=04:23:46 | ETA=15:51:45 | estimated_finish=2026-06-17 19:58:27
+Epoch 218/1000 finished | loss=0.431225 | dice_loss=0.420586 | bce=0.009044 | mse=0.001595 | lr=8.01468e-05 | epoch_time=00:01:02 | elapsed=04:24:48 | ETA=15:49:55 | estimated_finish=2026-06-17 19:57:40
+Epoch 219/1000 finished | loss=0.484745 | dice_loss=0.467357 | bce=0.015016 | mse=0.002372 | lr=8.00545e-05 | epoch_time=00:01:01 | elapsed=04:25:50 | ETA=15:48:03 | estimated_finish=2026-06-17 19:56:50
+Epoch 220/1000 finished | loss=0.470383 | dice_loss=0.456232 | bce=0.012060 | mse=0.002091 | lr=7.99623e-05 | epoch_time=00:01:01 | elapsed=04:26:52 | ETA=15:46:11 | estimated_finish=2026-06-17 19:56:00
+Quick validation epoch=220 | pseudo_dice=0.516632 | val_time=00:00:06
+Epoch 221/1000 finished | loss=0.396660 | dice_loss=0.386294 | bce=0.008908 | mse=0.001458 | lr=7.987e-05 | epoch_time=00:01:02 | elapsed=04:28:01 | ETA=15:44:46 | estimated_finish=2026-06-17 19:55:44
+Epoch 222/1000 finished | loss=0.452287 | dice_loss=0.434938 | bce=0.015065 | mse=0.002284 | lr=7.97777e-05 | epoch_time=00:01:02 | elapsed=04:29:04 | ETA=15:42:57 | estimated_finish=2026-06-17 19:54:58
+Epoch 223/1000 finished | loss=0.472135 | dice_loss=0.458529 | bce=0.011653 | mse=0.001953 | lr=7.96854e-05 | epoch_time=00:01:01 | elapsed=04:30:05 | ETA=15:41:04 | estimated_finish=2026-06-17 19:54:06
+Epoch 224/1000 finished | loss=0.497184 | dice_loss=0.484906 | bce=0.010515 | mse=0.001763 | lr=7.95931e-05 | epoch_time=00:01:01 | elapsed=04:31:07 | ETA=15:39:15 | estimated_finish=2026-06-17 19:53:19
+Epoch 225/1000 finished | loss=0.470586 | dice_loss=0.456945 | bce=0.011731 | mse=0.001910 | lr=7.95008e-05 | epoch_time=00:01:00 | elapsed=04:32:08 | ETA=15:37:22 | estimated_finish=2026-06-17 19:52:27
+Quick validation epoch=225 | pseudo_dice=0.359720 | val_time=00:00:06
+Epoch 226/1000 finished | loss=0.419782 | dice_loss=0.405279 | bce=0.012391 | mse=0.002112 | lr=7.94085e-05 | epoch_time=00:01:02 | elapsed=04:33:18 | ETA=15:36:00 | estimated_finish=2026-06-17 19:52:15
+Epoch 227/1000 finished | loss=0.479856 | dice_loss=0.466302 | bce=0.011562 | mse=0.001992 | lr=7.93161e-05 | epoch_time=00:01:00 | elapsed=04:34:18 | ETA=15:34:07 | estimated_finish=2026-06-17 19:51:23
+Epoch 228/1000 finished | loss=0.456341 | dice_loss=0.444070 | bce=0.010503 | mse=0.001768 | lr=7.92238e-05 | epoch_time=00:01:03 | elapsed=04:35:22 | ETA=15:32:24 | estimated_finish=2026-06-17 19:50:43
+Epoch 229/1000 finished | loss=0.408321 | dice_loss=0.396484 | bce=0.010059 | mse=0.001777 | lr=7.91314e-05 | epoch_time=00:01:00 | elapsed=04:36:23 | ETA=15:30:33 | estimated_finish=2026-06-17 19:49:54
+Epoch 230/1000 finished | loss=0.468049 | dice_loss=0.454168 | bce=0.011905 | mse=0.001977 | lr=7.9039e-05 | epoch_time=00:01:03 | elapsed=04:37:27 | ETA=15:28:52 | estimated_finish=2026-06-17 19:49:17
+Quick validation epoch=230 | pseudo_dice=0.322643 | val_time=00:00:07
+Epoch 231/1000 finished | loss=0.481235 | dice_loss=0.469429 | bce=0.010085 | mse=0.001721 | lr=7.89466e-05 | epoch_time=00:01:00 | elapsed=04:38:35 | ETA=15:27:26 | estimated_finish=2026-06-17 19:48:58
+Epoch 232/1000 finished | loss=0.481735 | dice_loss=0.470668 | bce=0.009375 | mse=0.001692 | lr=7.88542e-05 | epoch_time=00:01:01 | elapsed=04:39:37 | ETA=15:25:39 | estimated_finish=2026-06-17 19:48:13
+Epoch 233/1000 finished | loss=0.428712 | dice_loss=0.414027 | bce=0.012631 | mse=0.002054 | lr=7.87618e-05 | epoch_time=00:01:00 | elapsed=04:40:38 | ETA=15:23:49 | estimated_finish=2026-06-17 19:47:24
+Epoch 234/1000 finished | loss=0.397650 | dice_loss=0.386796 | bce=0.009266 | mse=0.001588 | lr=7.86694e-05 | epoch_time=00:01:04 | elapsed=04:41:42 | ETA=15:22:12 | estimated_finish=2026-06-17 19:46:51
+Epoch 235/1000 finished | loss=0.479024 | dice_loss=0.465063 | bce=0.011901 | mse=0.002060 | lr=7.8577e-05 | epoch_time=00:01:01 | elapsed=04:42:44 | ETA=15:20:25 | estimated_finish=2026-06-17 19:46:07
+Quick validation epoch=235 | pseudo_dice=0.432007 | val_time=00:00:06
+Epoch 236/1000 finished | loss=0.409107 | dice_loss=0.399198 | bce=0.008365 | mse=0.001544 | lr=7.84845e-05 | epoch_time=00:01:00 | elapsed=04:43:52 | ETA=15:18:58 | estimated_finish=2026-06-17 19:45:47
+Epoch 237/1000 finished | loss=0.442447 | dice_loss=0.430176 | bce=0.010560 | mse=0.001711 | lr=7.83921e-05 | epoch_time=00:01:01 | elapsed=04:44:53 | ETA=15:17:12 | estimated_finish=2026-06-17 19:45:03
+Epoch 238/1000 finished | loss=0.442115 | dice_loss=0.424576 | bce=0.015032 | mse=0.002507 | lr=7.82996e-05 | epoch_time=00:01:02 | elapsed=04:45:56 | ETA=15:15:29 | estimated_finish=2026-06-17 19:44:22
+Epoch 239/1000 finished | loss=0.437263 | dice_loss=0.422910 | bce=0.012252 | mse=0.002101 | lr=7.82071e-05 | epoch_time=00:01:02 | elapsed=04:46:59 | ETA=15:13:48 | estimated_finish=2026-06-17 19:43:44
+Epoch 240/1000 finished | loss=0.498714 | dice_loss=0.481842 | bce=0.014340 | mse=0.002532 | lr=7.81146e-05 | epoch_time=00:01:03 | elapsed=04:48:02 | ETA=15:12:09 | estimated_finish=2026-06-17 19:43:08
+Quick validation epoch=240 | pseudo_dice=0.221023 | val_time=00:00:07
+Epoch 241/1000 finished | loss=0.440234 | dice_loss=0.426275 | bce=0.011882 | mse=0.002077 | lr=7.80221e-05 | epoch_time=00:01:05 | elapsed=04:49:16 | ETA=15:11:01 | estimated_finish=2026-06-17 19:43:14
+Epoch 242/1000 finished | loss=0.377603 | dice_loss=0.362867 | bce=0.012672 | mse=0.002065 | lr=7.79296e-05 | epoch_time=00:01:01 | elapsed=04:50:18 | ETA=15:09:18 | estimated_finish=2026-06-17 19:42:33
+Epoch 243/1000 finished | loss=0.465510 | dice_loss=0.452162 | bce=0.011383 | mse=0.001965 | lr=7.7837e-05 | epoch_time=00:01:00 | elapsed=04:51:18 | ETA=15:07:30 | estimated_finish=2026-06-17 19:41:46
+Epoch 244/1000 finished | loss=0.462309 | dice_loss=0.447793 | bce=0.012443 | mse=0.002073 | lr=7.77445e-05 | epoch_time=00:01:03 | elapsed=04:52:22 | ETA=15:05:53 | estimated_finish=2026-06-17 19:41:12
+Epoch 245/1000 finished | loss=0.433227 | dice_loss=0.422571 | bce=0.009039 | mse=0.001617 | lr=7.76519e-05 | epoch_time=00:01:02 | elapsed=04:53:25 | ETA=15:04:13 | estimated_finish=2026-06-17 19:40:35
+Quick validation epoch=245 | pseudo_dice=0.480752 | val_time=00:00:06
+Epoch 246/1000 finished | loss=0.455074 | dice_loss=0.443778 | bce=0.009593 | mse=0.001703 | lr=7.75594e-05 | epoch_time=00:01:00 | elapsed=04:54:32 | ETA=15:02:47 | estimated_finish=2026-06-17 19:40:17
+Epoch 247/1000 finished | loss=0.443331 | dice_loss=0.431610 | bce=0.010007 | mse=0.001714 | lr=7.74668e-05 | epoch_time=00:01:01 | elapsed=04:55:34 | ETA=15:01:04 | estimated_finish=2026-06-17 19:39:35
+Epoch 248/1000 finished | loss=0.414693 | dice_loss=0.399285 | bce=0.013059 | mse=0.002349 | lr=7.73742e-05 | epoch_time=00:01:01 | elapsed=04:56:36 | ETA=14:59:22 | estimated_finish=2026-06-17 19:38:54
+Epoch 249/1000 finished | loss=0.473055 | dice_loss=0.459193 | bce=0.011890 | mse=0.001971 | lr=7.72816e-05 | epoch_time=00:01:01 | elapsed=04:57:38 | ETA=14:57:41 | estimated_finish=2026-06-17 19:38:16
+Epoch 250/1000 finished | loss=0.479562 | dice_loss=0.464348 | bce=0.013030 | mse=0.002184 | lr=7.7189e-05 | epoch_time=00:01:03 | elapsed=04:58:41 | ETA=14:56:05 | estimated_finish=2026-06-17 19:37:44
+Quick validation epoch=250 | pseudo_dice=0.389586 | val_time=00:00:07
+Epoch 251/1000 finished | loss=0.452035 | dice_loss=0.441066 | bce=0.009415 | mse=0.001553 | lr=7.70963e-05 | epoch_time=00:01:03 | elapsed=04:59:52 | ETA=14:54:51 | estimated_finish=2026-06-17 19:37:41
+Epoch 252/1000 finished | loss=0.432952 | dice_loss=0.418507 | bce=0.012474 | mse=0.001970 | lr=7.70037e-05 | epoch_time=00:01:03 | elapsed=05:00:56 | ETA=14:53:16 | estimated_finish=2026-06-17 19:37:09
+Epoch 253/1000 finished | loss=0.454047 | dice_loss=0.441279 | bce=0.010913 | mse=0.001854 | lr=7.6911e-05 | epoch_time=00:01:00 | elapsed=05:01:57 | ETA=14:51:33 | estimated_finish=2026-06-17 19:36:27
+Epoch 254/1000 finished | loss=0.470707 | dice_loss=0.457543 | bce=0.011219 | mse=0.001945 | lr=7.68183e-05 | epoch_time=00:01:00 | elapsed=05:02:58 | ETA=14:49:50 | estimated_finish=2026-06-17 19:35:45
+Epoch 255/1000 finished | loss=0.486674 | dice_loss=0.473611 | bce=0.011154 | mse=0.001909 | lr=7.67257e-05 | epoch_time=00:01:01 | elapsed=05:04:00 | ETA=14:48:10 | estimated_finish=2026-06-17 19:35:07
+Quick validation epoch=255 | pseudo_dice=0.518004 | val_time=00:00:06
+Epoch 256/1000 finished | loss=0.469244 | dice_loss=0.457450 | bce=0.010053 | mse=0.001741 | lr=7.6633e-05 | epoch_time=00:01:03 | elapsed=05:05:11 | ETA=14:46:57 | estimated_finish=2026-06-17 19:35:05
+Epoch 257/1000 finished | loss=0.414621 | dice_loss=0.402553 | bce=0.010300 | mse=0.001768 | lr=7.65403e-05 | epoch_time=00:01:02 | elapsed=05:06:14 | ETA=14:45:21 | estimated_finish=2026-06-17 19:34:32
+Epoch 258/1000 finished | loss=0.427609 | dice_loss=0.414912 | bce=0.010897 | mse=0.001800 | lr=7.64475e-05 | epoch_time=00:01:00 | elapsed=05:07:15 | ETA=14:43:39 | estimated_finish=2026-06-17 19:33:51
+Epoch 259/1000 finished | loss=0.483307 | dice_loss=0.470606 | bce=0.010871 | mse=0.001830 | lr=7.63548e-05 | epoch_time=00:01:01 | elapsed=05:08:17 | ETA=14:42:01 | estimated_finish=2026-06-17 19:33:15
+Epoch 260/1000 finished | loss=0.443083 | dice_loss=0.429257 | bce=0.011927 | mse=0.001900 | lr=7.62621e-05 | epoch_time=00:01:00 | elapsed=05:09:18 | ETA=14:40:18 | estimated_finish=2026-06-17 19:32:33
+Quick validation epoch=260 | pseudo_dice=0.554275 | val_time=00:00:07
+Epoch 261/1000 finished | loss=0.437470 | dice_loss=0.426927 | bce=0.008972 | mse=0.001571 | lr=7.61693e-05 | epoch_time=00:01:02 | elapsed=05:10:27 | ETA=14:39:03 | estimated_finish=2026-06-17 19:32:28
+Epoch 262/1000 finished | loss=0.437171 | dice_loss=0.426016 | bce=0.009543 | mse=0.001612 | lr=7.60765e-05 | epoch_time=00:01:00 | elapsed=05:11:29 | ETA=14:37:23 | estimated_finish=2026-06-17 19:31:49
+Epoch 263/1000 finished | loss=0.446497 | dice_loss=0.434864 | bce=0.010004 | mse=0.001629 | lr=7.59838e-05 | epoch_time=00:01:02 | elapsed=05:12:32 | ETA=14:35:48 | estimated_finish=2026-06-17 19:31:17
+Epoch 264/1000 finished | loss=0.440909 | dice_loss=0.427285 | bce=0.011652 | mse=0.001972 | lr=7.5891e-05 | epoch_time=00:01:01 | elapsed=05:13:33 | ETA=14:34:09 | estimated_finish=2026-06-17 19:30:39
+Epoch 265/1000 finished | loss=0.431157 | dice_loss=0.418269 | bce=0.010991 | mse=0.001897 | lr=7.57981e-05 | epoch_time=00:01:01 | elapsed=05:14:35 | ETA=14:32:32 | estimated_finish=2026-06-17 19:30:04
+Quick validation epoch=265 | pseudo_dice=0.484935 | val_time=00:00:07
+Epoch 266/1000 finished | loss=0.464974 | dice_loss=0.453594 | bce=0.009791 | mse=0.001589 | lr=7.57053e-05 | epoch_time=00:01:00 | elapsed=05:15:43 | ETA=14:31:12 | estimated_finish=2026-06-17 19:29:52
+Epoch 267/1000 finished | loss=0.417734 | dice_loss=0.405472 | bce=0.010460 | mse=0.001802 | lr=7.56125e-05 | epoch_time=00:01:01 | elapsed=05:16:45 | ETA=14:29:35 | estimated_finish=2026-06-17 19:29:17
+Epoch 268/1000 finished | loss=0.456003 | dice_loss=0.442860 | bce=0.011111 | mse=0.002033 | lr=7.55197e-05 | epoch_time=00:01:03 | elapsed=05:17:49 | ETA=14:28:04 | estimated_finish=2026-06-17 19:28:51
+Epoch 269/1000 finished | loss=0.465352 | dice_loss=0.452670 | bce=0.010834 | mse=0.001849 | lr=7.54268e-05 | epoch_time=00:01:00 | elapsed=05:18:50 | ETA=14:26:25 | estimated_finish=2026-06-17 19:28:12
+Epoch 270/1000 finished | loss=0.433445 | dice_loss=0.420180 | bce=0.011261 | mse=0.002004 | lr=7.53339e-05 | epoch_time=00:01:01 | elapsed=05:19:51 | ETA=14:24:49 | estimated_finish=2026-06-17 19:27:37
+Quick validation epoch=270 | pseudo_dice=0.335450 | val_time=00:00:06
+Epoch 271/1000 finished | loss=0.445936 | dice_loss=0.435513 | bce=0.008857 | mse=0.001566 | lr=7.5241e-05 | epoch_time=00:01:04 | elapsed=05:21:03 | ETA=14:23:39 | estimated_finish=2026-06-17 19:27:40
+Epoch 272/1000 finished | loss=0.439575 | dice_loss=0.425322 | bce=0.012238 | mse=0.002015 | lr=7.51481e-05 | epoch_time=00:01:01 | elapsed=05:22:05 | ETA=14:22:04 | estimated_finish=2026-06-17 19:27:07
+Epoch 273/1000 finished | loss=0.430485 | dice_loss=0.415721 | bce=0.012568 | mse=0.002196 | lr=7.50552e-05 | epoch_time=00:01:01 | elapsed=05:23:07 | ETA=14:20:29 | estimated_finish=2026-06-17 19:26:33
+Epoch 274/1000 finished | loss=0.499575 | dice_loss=0.488023 | bce=0.009890 | mse=0.001663 | lr=7.49623e-05 | epoch_time=00:01:02 | elapsed=05:24:09 | ETA=14:18:55 | estimated_finish=2026-06-17 19:26:02
+Epoch 275/1000 finished | loss=0.484372 | dice_loss=0.471014 | bce=0.011442 | mse=0.001916 | lr=7.48694e-05 | epoch_time=00:01:01 | elapsed=05:25:11 | ETA=14:17:19 | estimated_finish=2026-06-17 19:25:27
+Quick validation epoch=275 | pseudo_dice=0.346680 | val_time=00:00:06
+Epoch 276/1000 finished | loss=0.455926 | dice_loss=0.446494 | bce=0.008150 | mse=0.001282 | lr=7.47764e-05 | epoch_time=00:01:02 | elapsed=05:26:21 | ETA=14:16:05 | estimated_finish=2026-06-17 19:25:23
+Epoch 277/1000 finished | loss=0.398988 | dice_loss=0.386141 | bce=0.010978 | mse=0.001869 | lr=7.46835e-05 | epoch_time=00:01:01 | elapsed=05:27:22 | ETA=14:14:29 | estimated_finish=2026-06-17 19:24:48
+Epoch 278/1000 finished | loss=0.424177 | dice_loss=0.410218 | bce=0.011951 | mse=0.002009 | lr=7.45905e-05 | epoch_time=00:01:01 | elapsed=05:28:23 | ETA=14:12:53 | estimated_finish=2026-06-17 19:24:14
+Epoch 279/1000 finished | loss=0.438123 | dice_loss=0.424099 | bce=0.011929 | mse=0.002096 | lr=7.44975e-05 | epoch_time=00:01:00 | elapsed=05:29:24 | ETA=14:11:16 | estimated_finish=2026-06-17 19:23:38
+Epoch 280/1000 finished | loss=0.491616 | dice_loss=0.480052 | bce=0.009946 | mse=0.001619 | lr=7.44045e-05 | epoch_time=00:01:01 | elapsed=05:30:26 | ETA=14:09:41 | estimated_finish=2026-06-17 19:23:04
+Quick validation epoch=280 | pseudo_dice=0.280226 | val_time=00:00:07
+Epoch 281/1000 finished | loss=0.471671 | dice_loss=0.456446 | bce=0.013057 | mse=0.002168 | lr=7.43115e-05 | epoch_time=00:01:06 | elapsed=05:31:40 | ETA=14:08:39 | estimated_finish=2026-06-17 19:23:16
+Epoch 282/1000 finished | loss=0.445947 | dice_loss=0.435369 | bce=0.009046 | mse=0.001531 | lr=7.42185e-05 | epoch_time=00:01:00 | elapsed=05:32:41 | ETA=14:07:03 | estimated_finish=2026-06-17 19:22:40
+Epoch 283/1000 finished | loss=0.396433 | dice_loss=0.384939 | bce=0.009743 | mse=0.001750 | lr=7.41254e-05 | epoch_time=00:01:00 | elapsed=05:33:42 | ETA=14:05:27 | estimated_finish=2026-06-17 19:22:07
+Epoch 284/1000 finished | loss=0.482823 | dice_loss=0.469639 | bce=0.011315 | mse=0.001869 | lr=7.40324e-05 | epoch_time=00:01:02 | elapsed=05:34:45 | ETA=14:03:56 | estimated_finish=2026-06-17 19:21:38
+Epoch 285/1000 finished | loss=0.488909 | dice_loss=0.476153 | bce=0.010814 | mse=0.001942 | lr=7.39393e-05 | epoch_time=00:01:02 | elapsed=05:35:47 | ETA=14:02:26 | estimated_finish=2026-06-17 19:21:10
+Quick validation epoch=285 | pseudo_dice=0.364632 | val_time=00:00:07
+Epoch 286/1000 finished | loss=0.449274 | dice_loss=0.438311 | bce=0.009339 | mse=0.001624 | lr=7.38462e-05 | epoch_time=00:01:02 | elapsed=05:36:57 | ETA=14:01:12 | estimated_finish=2026-06-17 19:21:06
+Epoch 287/1000 finished | loss=0.395619 | dice_loss=0.382567 | bce=0.011008 | mse=0.002044 | lr=7.37532e-05 | epoch_time=00:01:01 | elapsed=05:37:59 | ETA=13:59:40 | estimated_finish=2026-06-17 19:20:36
+Epoch 288/1000 finished | loss=0.492607 | dice_loss=0.477447 | bce=0.012968 | mse=0.002192 | lr=7.366e-05 | epoch_time=00:01:02 | elapsed=05:39:01 | ETA=13:58:09 | estimated_finish=2026-06-17 19:20:07
+Epoch 289/1000 finished | loss=0.435847 | dice_loss=0.421566 | bce=0.012375 | mse=0.001906 | lr=7.35669e-05 | epoch_time=00:01:02 | elapsed=05:40:04 | ETA=13:56:39 | estimated_finish=2026-06-17 19:19:40
+Epoch 290/1000 finished | loss=0.443199 | dice_loss=0.425632 | bce=0.015175 | mse=0.002392 | lr=7.34738e-05 | epoch_time=00:01:01 | elapsed=05:41:06 | ETA=13:55:06 | estimated_finish=2026-06-17 19:19:09
+Quick validation epoch=290 | pseudo_dice=0.298902 | val_time=00:00:07
+Epoch 291/1000 finished | loss=0.433583 | dice_loss=0.421011 | bce=0.010679 | mse=0.001894 | lr=7.33807e-05 | epoch_time=00:01:01 | elapsed=05:42:15 | ETA=13:53:52 | estimated_finish=2026-06-17 19:19:03
+Epoch 292/1000 finished | loss=0.482667 | dice_loss=0.469613 | bce=0.011176 | mse=0.001878 | lr=7.32875e-05 | epoch_time=00:01:02 | elapsed=05:43:18 | ETA=13:52:23 | estimated_finish=2026-06-17 19:18:38
+Epoch 293/1000 finished | loss=0.474818 | dice_loss=0.460591 | bce=0.012189 | mse=0.002038 | lr=7.31943e-05 | epoch_time=00:01:01 | elapsed=05:44:19 | ETA=13:50:50 | estimated_finish=2026-06-17 19:18:06
+Epoch 294/1000 finished | loss=0.477227 | dice_loss=0.465335 | bce=0.010043 | mse=0.001849 | lr=7.31012e-05 | epoch_time=00:01:03 | elapsed=05:45:23 | ETA=13:49:23 | estimated_finish=2026-06-17 19:17:43
+Epoch 295/1000 finished | loss=0.434092 | dice_loss=0.419547 | bce=0.012411 | mse=0.002134 | lr=7.3008e-05 | epoch_time=00:01:01 | elapsed=05:46:25 | ETA=13:47:53 | estimated_finish=2026-06-17 19:17:14
+Quick validation epoch=295 | pseudo_dice=0.378396 | val_time=00:00:07
+Epoch 296/1000 finished | loss=0.441347 | dice_loss=0.428519 | bce=0.010918 | mse=0.001910 | lr=7.29148e-05 | epoch_time=00:01:03 | elapsed=05:47:36 | ETA=13:46:44 | estimated_finish=2026-06-17 19:17:17
+Epoch 297/1000 finished | loss=0.486256 | dice_loss=0.477626 | bce=0.007307 | mse=0.001323 | lr=7.28215e-05 | epoch_time=00:01:03 | elapsed=05:48:40 | ETA=13:45:18 | estimated_finish=2026-06-17 19:16:56
+Epoch 298/1000 finished | loss=0.490835 | dice_loss=0.475645 | bce=0.013036 | mse=0.002154 | lr=7.27283e-05 | epoch_time=00:01:04 | elapsed=05:49:45 | ETA=13:43:55 | estimated_finish=2026-06-17 19:16:38
+Epoch 299/1000 finished | loss=0.464588 | dice_loss=0.451461 | bce=0.011152 | mse=0.001975 | lr=7.2635e-05 | epoch_time=00:01:03 | elapsed=05:50:49 | ETA=13:42:30 | estimated_finish=2026-06-17 19:16:17
+Epoch 300/1000 finished | loss=0.433372 | dice_loss=0.416687 | bce=0.014293 | mse=0.002392 | lr=7.25418e-05 | epoch_time=00:01:00 | elapsed=05:51:49 | ETA=13:40:56 | estimated_finish=2026-06-17 19:15:43
+Quick validation epoch=300 | pseudo_dice=0.293126 | val_time=00:00:07
+Full validation epoch=300 | mean_dice=0.191912 | val_time=00:14:02
+New best full-validation model saved | dice=0.191912 | epoch=300
+Epoch 301/1000 finished | loss=0.439075 | dice_loss=0.425825 | bce=0.011274 | mse=0.001976 | lr=7.24485e-05 | epoch_time=00:01:00 | elapsed=06:07:00 | ETA=14:12:17 | estimated_finish=2026-06-17 20:02:14
+Epoch 302/1000 finished | loss=0.427967 | dice_loss=0.417479 | bce=0.008856 | mse=0.001631 | lr=7.23552e-05 | epoch_time=00:01:00 | elapsed=06:08:01 | ETA=14:10:35 | estimated_finish=2026-06-17 20:01:33
+Epoch 303/1000 finished | loss=0.428801 | dice_loss=0.415560 | bce=0.011293 | mse=0.001948 | lr=7.22619e-05 | epoch_time=00:01:02 | elapsed=06:09:03 | ETA=14:08:58 | estimated_finish=2026-06-17 20:00:58
+Epoch 304/1000 finished | loss=0.421543 | dice_loss=0.407885 | bce=0.011721 | mse=0.001937 | lr=7.21686e-05 | epoch_time=00:01:00 | elapsed=06:10:04 | ETA=14:07:16 | estimated_finish=2026-06-17 20:00:18
+Epoch 305/1000 finished | loss=0.437919 | dice_loss=0.427624 | bce=0.008766 | mse=0.001529 | lr=7.20753e-05 | epoch_time=00:00:59 | elapsed=06:11:04 | ETA=14:05:33 | estimated_finish=2026-06-17 19:59:34
+Quick validation epoch=305 | pseudo_dice=0.459407 | val_time=00:00:06
+Epoch 306/1000 finished | loss=0.476299 | dice_loss=0.464453 | bce=0.010096 | mse=0.001750 | lr=7.19819e-05 | epoch_time=00:01:00 | elapsed=06:12:12 | ETA=14:04:08 | estimated_finish=2026-06-17 19:59:17
+Epoch 307/1000 finished | loss=0.434147 | dice_loss=0.423444 | bce=0.009108 | mse=0.001594 | lr=7.18886e-05 | epoch_time=00:01:02 | elapsed=06:13:14 | ETA=14:02:32 | estimated_finish=2026-06-17 19:58:44
+Epoch 308/1000 finished | loss=0.496577 | dice_loss=0.486798 | bce=0.008277 | mse=0.001502 | lr=7.17952e-05 | epoch_time=00:01:04 | elapsed=06:14:19 | ETA=14:01:00 | estimated_finish=2026-06-17 19:58:16
+Epoch 309/1000 finished | loss=0.506405 | dice_loss=0.491973 | bce=0.012334 | mse=0.002099 | lr=7.17018e-05 | epoch_time=00:01:00 | elapsed=06:15:19 | ETA=13:59:19 | estimated_finish=2026-06-17 19:57:36
+Epoch 310/1000 finished | loss=0.440646 | dice_loss=0.427639 | bce=0.011167 | mse=0.001840 | lr=7.16084e-05 | epoch_time=00:01:00 | elapsed=06:16:20 | ETA=13:57:39 | estimated_finish=2026-06-17 19:56:56
+Quick validation epoch=310 | pseudo_dice=0.386676 | val_time=00:00:06
+Epoch 311/1000 finished | loss=0.452860 | dice_loss=0.438809 | bce=0.011885 | mse=0.002167 | lr=7.1515e-05 | epoch_time=00:01:01 | elapsed=06:17:29 | ETA=13:56:17 | estimated_finish=2026-06-17 19:56:43
+Epoch 312/1000 finished | loss=0.464364 | dice_loss=0.450919 | bce=0.011495 | mse=0.001951 | lr=7.14216e-05 | epoch_time=00:01:03 | elapsed=06:18:32 | ETA=13:54:44 | estimated_finish=2026-06-17 19:56:14
+Epoch 313/1000 finished | loss=0.454396 | dice_loss=0.440225 | bce=0.012124 | mse=0.002047 | lr=7.13282e-05 | epoch_time=00:01:03 | elapsed=06:19:36 | ETA=13:53:11 | estimated_finish=2026-06-17 19:55:44
+Epoch 314/1000 finished | loss=0.484634 | dice_loss=0.473514 | bce=0.009433 | mse=0.001687 | lr=7.12347e-05 | epoch_time=00:00:59 | elapsed=06:20:36 | ETA=13:51:30 | estimated_finish=2026-06-17 19:55:03
+Epoch 315/1000 finished | loss=0.496111 | dice_loss=0.485001 | bce=0.009435 | mse=0.001676 | lr=7.11413e-05 | epoch_time=00:01:04 | elapsed=06:21:40 | ETA=13:49:59 | estimated_finish=2026-06-17 19:54:36
+Quick validation epoch=315 | pseudo_dice=0.444087 | val_time=00:00:07
+Epoch 316/1000 finished | loss=0.417665 | dice_loss=0.404552 | bce=0.011139 | mse=0.001974 | lr=7.10478e-05 | epoch_time=00:01:01 | elapsed=06:22:49 | ETA=13:48:38 | estimated_finish=2026-06-17 19:54:25
+Epoch 317/1000 finished | loss=0.451651 | dice_loss=0.440013 | bce=0.009925 | mse=0.001713 | lr=7.09543e-05 | epoch_time=00:01:02 | elapsed=06:23:52 | ETA=13:47:04 | estimated_finish=2026-06-17 19:53:53
+Epoch 318/1000 finished | loss=0.455821 | dice_loss=0.443661 | bce=0.010336 | mse=0.001824 | lr=7.08608e-05 | epoch_time=00:01:01 | elapsed=06:24:54 | ETA=13:45:29 | estimated_finish=2026-06-17 19:53:20
+Epoch 319/1000 finished | loss=0.465798 | dice_loss=0.455813 | bce=0.008459 | mse=0.001526 | lr=7.07673e-05 | epoch_time=00:01:01 | elapsed=06:25:56 | ETA=13:43:54 | estimated_finish=2026-06-17 19:52:47
+Epoch 320/1000 finished | loss=0.381053 | dice_loss=0.370598 | bce=0.008802 | mse=0.001653 | lr=7.06737e-05 | epoch_time=00:01:01 | elapsed=06:26:58 | ETA=13:42:18 | estimated_finish=2026-06-17 19:52:13
+Quick validation epoch=320 | pseudo_dice=0.306352 | val_time=00:00:06
+Epoch 321/1000 finished | loss=0.460811 | dice_loss=0.449770 | bce=0.009509 | mse=0.001532 | lr=7.05802e-05 | epoch_time=00:01:01 | elapsed=06:28:06 | ETA=13:40:58 | estimated_finish=2026-06-17 19:52:01
+Epoch 322/1000 finished | loss=0.400758 | dice_loss=0.387180 | bce=0.011518 | mse=0.002060 | lr=7.04866e-05 | epoch_time=00:01:01 | elapsed=06:29:08 | ETA=13:39:22 | estimated_finish=2026-06-17 19:51:27
+Epoch 323/1000 finished | loss=0.408472 | dice_loss=0.399461 | bce=0.007671 | mse=0.001340 | lr=7.03931e-05 | epoch_time=00:01:02 | elapsed=06:30:10 | ETA=13:37:48 | estimated_finish=2026-06-17 19:50:56
+Epoch 324/1000 finished | loss=0.480591 | dice_loss=0.466789 | bce=0.011871 | mse=0.001931 | lr=7.02995e-05 | epoch_time=00:01:01 | elapsed=06:31:12 | ETA=13:36:14 | estimated_finish=2026-06-17 19:50:23
+Epoch 325/1000 finished | loss=0.415758 | dice_loss=0.404654 | bce=0.009527 | mse=0.001576 | lr=7.02059e-05 | epoch_time=00:01:00 | elapsed=06:32:13 | ETA=13:34:37 | estimated_finish=2026-06-17 19:49:47
+Quick validation epoch=325 | pseudo_dice=0.316807 | val_time=00:00:06
+Epoch 326/1000 finished | loss=0.450778 | dice_loss=0.439146 | bce=0.009872 | mse=0.001760 | lr=7.01123e-05 | epoch_time=00:00:59 | elapsed=06:33:20 | ETA=13:33:13 | estimated_finish=2026-06-17 19:49:30
+Epoch 327/1000 finished | loss=0.418888 | dice_loss=0.406333 | bce=0.010752 | mse=0.001804 | lr=7.00186e-05 | epoch_time=00:01:05 | elapsed=06:34:25 | ETA=13:31:46 | estimated_finish=2026-06-17 19:49:08
+Epoch 328/1000 finished | loss=0.437109 | dice_loss=0.425529 | bce=0.009893 | mse=0.001687 | lr=6.9925e-05 | epoch_time=00:01:01 | elapsed=06:35:26 | ETA=13:30:11 | estimated_finish=2026-06-17 19:48:35
+Epoch 329/1000 finished | loss=0.441558 | dice_loss=0.428497 | bce=0.011074 | mse=0.001987 | lr=6.98313e-05 | epoch_time=00:01:02 | elapsed=06:36:29 | ETA=13:28:38 | estimated_finish=2026-06-17 19:48:04
+Epoch 330/1000 finished | loss=0.440277 | dice_loss=0.427937 | bce=0.010582 | mse=0.001758 | lr=6.97377e-05 | epoch_time=00:01:01 | elapsed=06:37:31 | ETA=13:27:05 | estimated_finish=2026-06-17 19:47:33
+Quick validation epoch=330 | pseudo_dice=0.198763 | val_time=00:00:06
+Epoch 331/1000 finished | loss=0.442814 | dice_loss=0.431473 | bce=0.009694 | mse=0.001647 | lr=6.9644e-05 | epoch_time=00:01:01 | elapsed=06:38:40 | ETA=13:25:46 | estimated_finish=2026-06-17 19:47:23
+Epoch 332/1000 finished | loss=0.406871 | dice_loss=0.393962 | bce=0.010982 | mse=0.001927 | lr=6.95503e-05 | epoch_time=00:01:01 | elapsed=06:39:41 | ETA=13:24:12 | estimated_finish=2026-06-17 19:46:51
+Epoch 333/1000 finished | loss=0.474462 | dice_loss=0.455065 | bce=0.016670 | mse=0.002726 | lr=6.94566e-05 | epoch_time=00:01:03 | elapsed=06:40:46 | ETA=13:22:44 | estimated_finish=2026-06-17 19:46:27
+Epoch 334/1000 finished | loss=0.440372 | dice_loss=0.426869 | bce=0.011548 | mse=0.001954 | lr=6.93628e-05 | epoch_time=00:01:01 | elapsed=06:41:47 | ETA=13:21:11 | estimated_finish=2026-06-17 19:45:55
+Epoch 335/1000 finished | loss=0.501235 | dice_loss=0.489434 | bce=0.010001 | mse=0.001800 | lr=6.92691e-05 | epoch_time=00:01:01 | elapsed=06:42:49 | ETA=13:19:39 | estimated_finish=2026-06-17 19:45:25
+Quick validation epoch=335 | pseudo_dice=0.333712 | val_time=00:00:06
+Epoch 336/1000 finished | loss=0.484422 | dice_loss=0.471426 | bce=0.010991 | mse=0.002005 | lr=6.91753e-05 | epoch_time=00:01:03 | elapsed=06:44:00 | ETA=13:18:23 | estimated_finish=2026-06-17 19:45:20
+Epoch 337/1000 finished | loss=0.505690 | dice_loss=0.496992 | bce=0.007390 | mse=0.001308 | lr=6.90816e-05 | epoch_time=00:01:03 | elapsed=06:45:03 | ETA=13:16:54 | estimated_finish=2026-06-17 19:44:54
+Epoch 338/1000 finished | loss=0.409924 | dice_loss=0.397729 | bce=0.010414 | mse=0.001781 | lr=6.89878e-05 | epoch_time=00:01:03 | elapsed=06:46:07 | ETA=13:15:25 | estimated_finish=2026-06-17 19:44:29
+Epoch 339/1000 finished | loss=0.420367 | dice_loss=0.408886 | bce=0.009718 | mse=0.001762 | lr=6.8894e-05 | epoch_time=00:01:00 | elapsed=06:47:07 | ETA=13:13:50 | estimated_finish=2026-06-17 19:43:54
+Epoch 340/1000 finished | loss=0.457574 | dice_loss=0.443844 | bce=0.011741 | mse=0.001989 | lr=6.88002e-05 | epoch_time=00:01:02 | elapsed=06:48:09 | ETA=13:12:19 | estimated_finish=2026-06-17 19:43:25
+Quick validation epoch=340 | pseudo_dice=0.275680 | val_time=00:00:06
+Epoch 341/1000 finished | loss=0.410282 | dice_loss=0.399515 | bce=0.009266 | mse=0.001501 | lr=6.87063e-05 | epoch_time=00:01:05 | elapsed=06:49:22 | ETA=13:11:08 | estimated_finish=2026-06-17 19:43:28
+Epoch 342/1000 finished | loss=0.500277 | dice_loss=0.488785 | bce=0.009736 | mse=0.001755 | lr=6.86125e-05 | epoch_time=00:01:02 | elapsed=06:50:25 | ETA=13:09:38 | estimated_finish=2026-06-17 19:42:59
+Epoch 343/1000 finished | loss=0.458134 | dice_loss=0.446281 | bce=0.010111 | mse=0.001742 | lr=6.85187e-05 | epoch_time=00:01:02 | elapsed=06:51:27 | ETA=13:08:07 | estimated_finish=2026-06-17 19:42:32
+Epoch 344/1000 finished | loss=0.435139 | dice_loss=0.419664 | bce=0.013187 | mse=0.002288 | lr=6.84248e-05 | epoch_time=00:01:00 | elapsed=06:52:28 | ETA=13:06:34 | estimated_finish=2026-06-17 19:41:59
+Epoch 345/1000 finished | loss=0.460806 | dice_loss=0.451249 | bce=0.008153 | mse=0.001403 | lr=6.83309e-05 | epoch_time=00:01:00 | elapsed=06:53:28 | ETA=13:05:01 | estimated_finish=2026-06-17 19:41:26
+Quick validation epoch=345 | pseudo_dice=0.351249 | val_time=00:00:07
+Epoch 346/1000 finished | loss=0.381147 | dice_loss=0.367474 | bce=0.011714 | mse=0.001959 | lr=6.8237e-05 | epoch_time=00:01:01 | elapsed=06:54:37 | ETA=13:03:43 | estimated_finish=2026-06-17 19:41:17
+Epoch 347/1000 finished | loss=0.407431 | dice_loss=0.394343 | bce=0.011248 | mse=0.001840 | lr=6.81431e-05 | epoch_time=00:01:02 | elapsed=06:55:40 | ETA=13:02:14 | estimated_finish=2026-06-17 19:40:52
+Epoch 348/1000 finished | loss=0.447542 | dice_loss=0.436386 | bce=0.009531 | mse=0.001624 | lr=6.80492e-05 | epoch_time=00:01:04 | elapsed=06:56:45 | ETA=13:00:50 | estimated_finish=2026-06-17 19:40:32
+Epoch 349/1000 finished | loss=0.540750 | dice_loss=0.530443 | bce=0.008705 | mse=0.001602 | lr=6.79552e-05 | epoch_time=00:01:01 | elapsed=06:57:47 | ETA=12:59:18 | estimated_finish=2026-06-17 19:40:02
+Epoch 350/1000 finished | loss=0.415201 | dice_loss=0.402796 | bce=0.010576 | mse=0.001829 | lr=6.78613e-05 | epoch_time=00:01:02 | elapsed=06:58:49 | ETA=12:57:49 | estimated_finish=2026-06-17 19:39:36
+Quick validation epoch=350 | pseudo_dice=0.413287 | val_time=00:00:06
+Epoch 351/1000 finished | loss=0.466195 | dice_loss=0.454842 | bce=0.009646 | mse=0.001708 | lr=6.77673e-05 | epoch_time=00:01:02 | elapsed=06:59:59 | ETA=12:56:33 | estimated_finish=2026-06-17 19:39:28
+Epoch 352/1000 finished | loss=0.436537 | dice_loss=0.422637 | bce=0.011822 | mse=0.002078 | lr=6.76733e-05 | epoch_time=00:01:01 | elapsed=07:01:00 | ETA=12:55:02 | estimated_finish=2026-06-17 19:39:00
+Epoch 353/1000 finished | loss=0.490153 | dice_loss=0.478231 | bce=0.010169 | mse=0.001753 | lr=6.75793e-05 | epoch_time=00:01:08 | elapsed=07:02:09 | ETA=12:53:44 | estimated_finish=2026-06-17 19:38:50
+Epoch 354/1000 finished | loss=0.434973 | dice_loss=0.423337 | bce=0.009900 | mse=0.001736 | lr=6.74853e-05 | epoch_time=00:01:01 | elapsed=07:03:10 | ETA=12:52:14 | estimated_finish=2026-06-17 19:38:22
+Epoch 355/1000 finished | loss=0.443684 | dice_loss=0.433457 | bce=0.008682 | mse=0.001544 | lr=6.73913e-05 | epoch_time=00:01:00 | elapsed=07:04:11 | ETA=12:50:43 | estimated_finish=2026-06-17 19:37:52
+Quick validation epoch=355 | pseudo_dice=0.393590 | val_time=00:00:07
+Epoch 356/1000 finished | loss=0.431312 | dice_loss=0.419205 | bce=0.010262 | mse=0.001846 | lr=6.72972e-05 | epoch_time=00:01:01 | elapsed=07:05:21 | ETA=12:49:27 | estimated_finish=2026-06-17 19:37:45
+Epoch 357/1000 finished | loss=0.488593 | dice_loss=0.477312 | bce=0.009658 | mse=0.001622 | lr=6.72032e-05 | epoch_time=00:01:02 | elapsed=07:06:23 | ETA=12:47:59 | estimated_finish=2026-06-17 19:37:19
+Epoch 358/1000 finished | loss=0.466788 | dice_loss=0.457294 | bce=0.008118 | mse=0.001376 | lr=6.71091e-05 | epoch_time=00:01:03 | elapsed=07:07:27 | ETA=12:46:32 | estimated_finish=2026-06-17 19:36:56
+Epoch 359/1000 finished | loss=0.466556 | dice_loss=0.455276 | bce=0.009630 | mse=0.001650 | lr=6.7015e-05 | epoch_time=00:01:01 | elapsed=07:08:28 | ETA=12:45:03 | estimated_finish=2026-06-17 19:36:29
+Epoch 360/1000 finished | loss=0.412982 | dice_loss=0.399179 | bce=0.011720 | mse=0.002084 | lr=6.69209e-05 | epoch_time=00:01:01 | elapsed=07:09:30 | ETA=12:43:35 | estimated_finish=2026-06-17 19:36:02
+Quick validation epoch=360 | pseudo_dice=0.320400 | val_time=00:00:07
+Epoch 361/1000 finished | loss=0.411329 | dice_loss=0.399188 | bce=0.010311 | mse=0.001829 | lr=6.68268e-05 | epoch_time=00:01:02 | elapsed=07:10:41 | ETA=12:42:21 | estimated_finish=2026-06-17 19:35:59
+Epoch 362/1000 finished | loss=0.477620 | dice_loss=0.464173 | bce=0.011454 | mse=0.001994 | lr=6.67327e-05 | epoch_time=00:01:01 | elapsed=07:11:43 | ETA=12:40:52 | estimated_finish=2026-06-17 19:35:32
+Epoch 363/1000 finished | loss=0.434136 | dice_loss=0.420874 | bce=0.011278 | mse=0.001984 | lr=6.66385e-05 | epoch_time=00:01:03 | elapsed=07:12:47 | ETA=12:39:28 | estimated_finish=2026-06-17 19:35:12
+Epoch 364/1000 finished | loss=0.398208 | dice_loss=0.386449 | bce=0.009893 | mse=0.001866 | lr=6.65444e-05 | epoch_time=00:01:01 | elapsed=07:13:48 | ETA=12:37:58 | estimated_finish=2026-06-17 19:34:43
+Epoch 365/1000 finished | loss=0.459983 | dice_loss=0.449531 | bce=0.008895 | mse=0.001556 | lr=6.64502e-05 | epoch_time=00:01:01 | elapsed=07:14:50 | ETA=12:36:30 | estimated_finish=2026-06-17 19:34:17
+Quick validation epoch=365 | pseudo_dice=0.569074 | val_time=00:00:07
+Epoch 366/1000 finished | loss=0.439755 | dice_loss=0.425156 | bce=0.012442 | mse=0.002157 | lr=6.6356e-05 | epoch_time=00:01:02 | elapsed=07:16:00 | ETA=12:35:16 | estimated_finish=2026-06-17 19:34:13
+Epoch 367/1000 finished | loss=0.429008 | dice_loss=0.416215 | bce=0.010893 | mse=0.001899 | lr=6.62618e-05 | epoch_time=00:01:07 | elapsed=07:17:07 | ETA=12:33:57 | estimated_finish=2026-06-17 19:34:01
+Epoch 368/1000 finished | loss=0.443531 | dice_loss=0.433206 | bce=0.008797 | mse=0.001528 | lr=6.61676e-05 | epoch_time=00:00:59 | elapsed=07:18:07 | ETA=12:32:25 | estimated_finish=2026-06-17 19:33:30
+Epoch 369/1000 finished | loss=0.407357 | dice_loss=0.394386 | bce=0.011061 | mse=0.001910 | lr=6.60734e-05 | epoch_time=00:01:01 | elapsed=07:19:08 | ETA=12:30:57 | estimated_finish=2026-06-17 19:33:02
+Epoch 370/1000 finished | loss=0.478918 | dice_loss=0.464375 | bce=0.012440 | mse=0.002102 | lr=6.59791e-05 | epoch_time=00:00:59 | elapsed=07:20:08 | ETA=12:29:26 | estimated_finish=2026-06-17 19:32:31
+Quick validation epoch=370 | pseudo_dice=0.445074 | val_time=00:00:07
+Epoch 371/1000 finished | loss=0.401342 | dice_loss=0.388392 | bce=0.011046 | mse=0.001904 | lr=6.58849e-05 | epoch_time=00:01:00 | elapsed=07:21:16 | ETA=12:28:09 | estimated_finish=2026-06-17 19:32:22
+Epoch 372/1000 finished | loss=0.448198 | dice_loss=0.435383 | bce=0.010893 | mse=0.001921 | lr=6.57906e-05 | epoch_time=00:01:00 | elapsed=07:22:17 | ETA=12:26:39 | estimated_finish=2026-06-17 19:31:52
+Epoch 373/1000 finished | loss=0.395471 | dice_loss=0.385067 | bce=0.008806 | mse=0.001598 | lr=6.56963e-05 | epoch_time=00:01:01 | elapsed=07:23:19 | ETA=12:25:12 | estimated_finish=2026-06-17 19:31:28
+Epoch 374/1000 finished | loss=0.460691 | dice_loss=0.449681 | bce=0.009422 | mse=0.001588 | lr=6.5602e-05 | epoch_time=00:01:00 | elapsed=07:24:20 | ETA=12:23:43 | estimated_finish=2026-06-17 19:31:00
+Epoch 375/1000 finished | loss=0.460533 | dice_loss=0.446955 | bce=0.011540 | mse=0.002037 | lr=6.55076e-05 | epoch_time=00:01:01 | elapsed=07:25:21 | ETA=12:22:16 | estimated_finish=2026-06-17 19:30:34
+Quick validation epoch=375 | pseudo_dice=0.603972 | val_time=00:00:07
+New best model saved by quick validation | pseudo_dice=0.603972 | epoch=375
+Epoch 376/1000 finished | loss=0.467869 | dice_loss=0.457252 | bce=0.009040 | mse=0.001577 | lr=6.54133e-05 | epoch_time=00:01:01 | elapsed=07:26:30 | ETA=12:21:01 | estimated_finish=2026-06-17 19:30:29
+Epoch 377/1000 finished | loss=0.437837 | dice_loss=0.426516 | bce=0.009604 | mse=0.001717 | lr=6.5319e-05 | epoch_time=00:01:01 | elapsed=07:27:32 | ETA=12:19:34 | estimated_finish=2026-06-17 19:30:03
+Epoch 378/1000 finished | loss=0.440132 | dice_loss=0.429149 | bce=0.009275 | mse=0.001708 | lr=6.52246e-05 | epoch_time=00:01:00 | elapsed=07:28:33 | ETA=12:18:05 | estimated_finish=2026-06-17 19:29:36
+Epoch 379/1000 finished | loss=0.448414 | dice_loss=0.434772 | bce=0.011609 | mse=0.002034 | lr=6.51302e-05 | epoch_time=00:01:02 | elapsed=07:29:35 | ETA=12:16:40 | estimated_finish=2026-06-17 19:29:13
+Epoch 380/1000 finished | loss=0.390795 | dice_loss=0.379311 | bce=0.009771 | mse=0.001713 | lr=6.50358e-05 | epoch_time=00:01:02 | elapsed=07:30:38 | ETA=12:15:14 | estimated_finish=2026-06-17 19:28:49
+Quick validation epoch=380 | pseudo_dice=0.555774 | val_time=00:00:07
+Epoch 381/1000 finished | loss=0.426991 | dice_loss=0.413911 | bce=0.011098 | mse=0.001982 | lr=6.49414e-05 | epoch_time=00:01:02 | elapsed=07:31:47 | ETA=12:14:00 | estimated_finish=2026-06-17 19:28:45
+Epoch 382/1000 finished | loss=0.442437 | dice_loss=0.430278 | bce=0.010307 | mse=0.001852 | lr=6.4847e-05 | epoch_time=00:01:00 | elapsed=07:32:48 | ETA=12:12:32 | estimated_finish=2026-06-17 19:28:17
+Epoch 383/1000 finished | loss=0.443624 | dice_loss=0.430663 | bce=0.011096 | mse=0.001865 | lr=6.47525e-05 | epoch_time=00:01:01 | elapsed=07:33:50 | ETA=12:11:06 | estimated_finish=2026-06-17 19:27:53
+Epoch 384/1000 finished | loss=0.443000 | dice_loss=0.431308 | bce=0.009901 | mse=0.001790 | lr=6.46581e-05 | epoch_time=00:01:01 | elapsed=07:34:51 | ETA=12:09:40 | estimated_finish=2026-06-17 19:27:28
+Epoch 385/1000 finished | loss=0.414492 | dice_loss=0.406042 | bce=0.007186 | mse=0.001264 | lr=6.45636e-05 | epoch_time=00:01:01 | elapsed=07:35:53 | ETA=12:08:14 | estimated_finish=2026-06-17 19:27:04
+Quick validation epoch=385 | pseudo_dice=0.422482 | val_time=00:00:07
+Epoch 386/1000 finished | loss=0.466853 | dice_loss=0.456559 | bce=0.008757 | mse=0.001537 | lr=6.44691e-05 | epoch_time=00:01:02 | elapsed=07:37:03 | ETA=12:07:01 | estimated_finish=2026-06-17 19:27:02
+Epoch 387/1000 finished | loss=0.398936 | dice_loss=0.387168 | bce=0.009988 | mse=0.001780 | lr=6.43746e-05 | epoch_time=00:01:01 | elapsed=07:38:05 | ETA=12:05:35 | estimated_finish=2026-06-17 19:26:37
+Epoch 388/1000 finished | loss=0.406390 | dice_loss=0.396285 | bce=0.008606 | mse=0.001499 | lr=6.42801e-05 | epoch_time=00:01:02 | elapsed=07:39:07 | ETA=12:04:11 | estimated_finish=2026-06-17 19:26:16
+Epoch 389/1000 finished | loss=0.431526 | dice_loss=0.417182 | bce=0.012226 | mse=0.002117 | lr=6.41855e-05 | epoch_time=00:01:02 | elapsed=07:40:10 | ETA=12:02:48 | estimated_finish=2026-06-17 19:25:56
+Epoch 390/1000 finished | loss=0.419637 | dice_loss=0.405015 | bce=0.012449 | mse=0.002172 | lr=6.4091e-05 | epoch_time=00:01:02 | elapsed=07:41:13 | ETA=12:01:24 | estimated_finish=2026-06-17 19:25:34
+Quick validation epoch=390 | pseudo_dice=0.358409 | val_time=00:00:07
+Epoch 391/1000 finished | loss=0.432039 | dice_loss=0.421352 | bce=0.009081 | mse=0.001606 | lr=6.39964e-05 | epoch_time=00:01:01 | elapsed=07:42:22 | ETA=12:00:09 | estimated_finish=2026-06-17 19:25:29
+Epoch 392/1000 finished | loss=0.403933 | dice_loss=0.392950 | bce=0.009290 | mse=0.001694 | lr=6.39018e-05 | epoch_time=00:01:03 | elapsed=07:43:26 | ETA=11:58:48 | estimated_finish=2026-06-17 19:25:11
+Epoch 393/1000 finished | loss=0.411596 | dice_loss=0.401564 | bce=0.008478 | mse=0.001553 | lr=6.38072e-05 | epoch_time=00:01:01 | elapsed=07:44:27 | ETA=11:57:22 | estimated_finish=2026-06-17 19:24:47
+Epoch 394/1000 finished | loss=0.466107 | dice_loss=0.453410 | bce=0.010764 | mse=0.001933 | lr=6.37126e-05 | epoch_time=00:01:01 | elapsed=07:45:29 | ETA=11:55:57 | estimated_finish=2026-06-17 19:24:23
+Epoch 395/1000 finished | loss=0.455882 | dice_loss=0.445168 | bce=0.009127 | mse=0.001587 | lr=6.3618e-05 | epoch_time=00:01:05 | elapsed=07:46:34 | ETA=11:54:38 | estimated_finish=2026-06-17 19:24:09
+Quick validation epoch=395 | pseudo_dice=0.386052 | val_time=00:00:07
+Epoch 396/1000 finished | loss=0.409072 | dice_loss=0.397787 | bce=0.009619 | mse=0.001666 | lr=6.35233e-05 | epoch_time=00:01:05 | elapsed=07:47:48 | ETA=11:53:31 | estimated_finish=2026-06-17 19:24:16
+Epoch 397/1000 finished | loss=0.434495 | dice_loss=0.423989 | bce=0.008911 | mse=0.001594 | lr=6.34287e-05 | epoch_time=00:01:06 | elapsed=07:48:55 | ETA=11:52:14 | estimated_finish=2026-06-17 19:24:06
+Epoch 398/1000 finished | loss=0.457333 | dice_loss=0.446594 | bce=0.009170 | mse=0.001570 | lr=6.3334e-05 | epoch_time=00:01:04 | elapsed=07:50:00 | ETA=11:50:54 | estimated_finish=2026-06-17 19:23:51
+Epoch 399/1000 finished | loss=0.452496 | dice_loss=0.437273 | bce=0.012895 | mse=0.002328 | lr=6.32393e-05 | epoch_time=00:01:00 | elapsed=07:51:01 | ETA=11:49:29 | estimated_finish=2026-06-17 19:23:27
+Epoch 400/1000 finished | loss=0.497996 | dice_loss=0.486333 | bce=0.009955 | mse=0.001708 | lr=6.31446e-05 | epoch_time=00:00:59 | elapsed=07:52:01 | ETA=11:48:02 | estimated_finish=2026-06-17 19:23:00
+Quick validation epoch=400 | pseudo_dice=0.254958 | val_time=00:00:06
+Full validation epoch=400 | mean_dice=0.189784 | val_time=00:14:01
+Epoch 401/1000 finished | loss=0.404504 | dice_loss=0.392464 | bce=0.010216 | mse=0.001824 | lr=6.30499e-05 | epoch_time=00:01:00 | elapsed=08:07:10 | ETA=12:07:42 | estimated_finish=2026-06-17 19:57:49
+Epoch 402/1000 finished | loss=0.448987 | dice_loss=0.439962 | bce=0.007679 | mse=0.001347 | lr=6.29551e-05 | epoch_time=00:01:02 | elapsed=08:08:12 | ETA=12:06:14 | estimated_finish=2026-06-17 19:57:24
+Epoch 403/1000 finished | loss=0.476266 | dice_loss=0.463467 | bce=0.010840 | mse=0.001959 | lr=6.28604e-05 | epoch_time=00:01:01 | elapsed=08:09:14 | ETA=12:04:45 | estimated_finish=2026-06-17 19:56:56
+Epoch 404/1000 finished | loss=0.436917 | dice_loss=0.422785 | bce=0.012014 | mse=0.002118 | lr=6.27656e-05 | epoch_time=00:01:03 | elapsed=08:10:17 | ETA=12:03:18 | estimated_finish=2026-06-17 19:56:33
+Epoch 405/1000 finished | loss=0.491946 | dice_loss=0.478916 | bce=0.011110 | mse=0.001920 | lr=6.26708e-05 | epoch_time=00:01:02 | elapsed=08:11:20 | ETA=12:01:50 | estimated_finish=2026-06-17 19:56:08
+Quick validation epoch=405 | pseudo_dice=0.494519 | val_time=00:00:07
+Epoch 406/1000 finished | loss=0.470403 | dice_loss=0.460980 | bce=0.008012 | mse=0.001410 | lr=6.2576e-05 | epoch_time=00:01:00 | elapsed=08:12:28 | ETA=12:00:31 | estimated_finish=2026-06-17 19:55:57
+Epoch 407/1000 finished | loss=0.480607 | dice_loss=0.471991 | bce=0.007356 | mse=0.001260 | lr=6.24812e-05 | epoch_time=00:01:04 | elapsed=08:13:33 | ETA=11:59:07 | estimated_finish=2026-06-17 19:55:37
+Epoch 408/1000 finished | loss=0.476493 | dice_loss=0.466493 | bce=0.008475 | mse=0.001524 | lr=6.23863e-05 | epoch_time=00:01:00 | elapsed=08:14:34 | ETA=11:57:36 | estimated_finish=2026-06-17 19:55:07
+Epoch 409/1000 finished | loss=0.375783 | dice_loss=0.362541 | bce=0.011229 | mse=0.002013 | lr=6.22915e-05 | epoch_time=00:01:02 | elapsed=08:15:37 | ETA=11:56:09 | estimated_finish=2026-06-17 19:54:44
+Epoch 410/1000 finished | loss=0.403448 | dice_loss=0.391732 | bce=0.009954 | mse=0.001763 | lr=6.21966e-05 | epoch_time=00:01:01 | elapsed=08:16:38 | ETA=11:54:41 | estimated_finish=2026-06-17 19:54:17
+Quick validation epoch=410 | pseudo_dice=0.353988 | val_time=00:00:07
+Epoch 411/1000 finished | loss=0.428211 | dice_loss=0.419834 | bce=0.007153 | mse=0.001224 | lr=6.21017e-05 | epoch_time=00:01:02 | elapsed=08:17:49 | ETA=11:53:25 | estimated_finish=2026-06-17 19:54:11
+Epoch 412/1000 finished | loss=0.464973 | dice_loss=0.451020 | bce=0.011942 | mse=0.002010 | lr=6.20068e-05 | epoch_time=00:01:03 | elapsed=08:18:52 | ETA=11:51:59 | estimated_finish=2026-06-17 19:53:48
+Epoch 413/1000 finished | loss=0.391100 | dice_loss=0.379611 | bce=0.009763 | mse=0.001726 | lr=6.19119e-05 | epoch_time=00:01:02 | elapsed=08:19:55 | ETA=11:50:32 | estimated_finish=2026-06-17 19:53:25
+Epoch 414/1000 finished | loss=0.405280 | dice_loss=0.392886 | bce=0.010523 | mse=0.001872 | lr=6.1817e-05 | epoch_time=00:01:00 | elapsed=08:20:56 | ETA=11:49:03 | estimated_finish=2026-06-17 19:52:55
+Epoch 415/1000 finished | loss=0.414382 | dice_loss=0.404025 | bce=0.008825 | mse=0.001531 | lr=6.1722e-05 | epoch_time=00:01:03 | elapsed=08:21:59 | ETA=11:47:38 | estimated_finish=2026-06-17 19:52:34
+Quick validation epoch=415 | pseudo_dice=0.351910 | val_time=00:00:06
+Epoch 416/1000 finished | loss=0.526209 | dice_loss=0.513258 | bce=0.011028 | mse=0.001922 | lr=6.16271e-05 | epoch_time=00:01:03 | elapsed=08:23:10 | ETA=11:46:22 | estimated_finish=2026-06-17 19:52:28
+Epoch 417/1000 finished | loss=0.461118 | dice_loss=0.448409 | bce=0.010813 | mse=0.001896 | lr=6.15321e-05 | epoch_time=00:01:01 | elapsed=08:24:11 | ETA=11:44:54 | estimated_finish=2026-06-17 19:52:03
+Epoch 418/1000 finished | loss=0.481997 | dice_loss=0.472299 | bce=0.008306 | mse=0.001392 | lr=6.14371e-05 | epoch_time=00:01:01 | elapsed=08:25:13 | ETA=11:43:27 | estimated_finish=2026-06-17 19:51:37
+Epoch 419/1000 finished | loss=0.435142 | dice_loss=0.425556 | bce=0.008140 | mse=0.001446 | lr=6.13421e-05 | epoch_time=00:01:02 | elapsed=08:26:16 | ETA=11:42:01 | estimated_finish=2026-06-17 19:51:14
+Epoch 420/1000 finished | loss=0.421108 | dice_loss=0.408707 | bce=0.010572 | mse=0.001829 | lr=6.12471e-05 | epoch_time=00:01:02 | elapsed=08:27:19 | ETA=11:40:35 | estimated_finish=2026-06-17 19:50:51
+Quick validation epoch=420 | pseudo_dice=0.376139 | val_time=00:00:07
+Epoch 421/1000 finished | loss=0.384990 | dice_loss=0.374827 | bce=0.008626 | mse=0.001538 | lr=6.1152e-05 | epoch_time=00:01:01 | elapsed=08:28:27 | ETA=11:39:17 | estimated_finish=2026-06-17 19:50:41
+Epoch 422/1000 finished | loss=0.426877 | dice_loss=0.414937 | bce=0.010179 | mse=0.001762 | lr=6.10569e-05 | epoch_time=00:01:00 | elapsed=08:29:28 | ETA=11:37:49 | estimated_finish=2026-06-17 19:50:14
+Epoch 423/1000 finished | loss=0.473730 | dice_loss=0.464699 | bce=0.007681 | mse=0.001349 | lr=6.09619e-05 | epoch_time=00:01:00 | elapsed=08:30:29 | ETA=11:36:21 | estimated_finish=2026-06-17 19:49:48
+Epoch 424/1000 finished | loss=0.437466 | dice_loss=0.427448 | bce=0.008515 | mse=0.001504 | lr=6.08668e-05 | epoch_time=00:01:02 | elapsed=08:31:32 | ETA=11:34:55 | estimated_finish=2026-06-17 19:49:25
+Epoch 425/1000 finished | loss=0.431608 | dice_loss=0.420241 | bce=0.009722 | mse=0.001644 | lr=6.07717e-05 | epoch_time=00:00:59 | elapsed=08:32:32 | ETA=11:33:26 | estimated_finish=2026-06-17 19:48:55
+Quick validation epoch=425 | pseudo_dice=0.267765 | val_time=00:00:06
+Epoch 426/1000 finished | loss=0.440961 | dice_loss=0.431038 | bce=0.008432 | mse=0.001492 | lr=6.06765e-05 | epoch_time=00:01:02 | elapsed=08:33:42 | ETA=11:32:10 | estimated_finish=2026-06-17 19:48:49
+Epoch 427/1000 finished | loss=0.394550 | dice_loss=0.384106 | bce=0.008961 | mse=0.001483 | lr=6.05814e-05 | epoch_time=00:01:05 | elapsed=08:34:47 | ETA=11:30:48 | estimated_finish=2026-06-17 19:48:33
+Epoch 428/1000 finished | loss=0.417809 | dice_loss=0.406418 | bce=0.009747 | mse=0.001644 | lr=6.04862e-05 | epoch_time=00:01:01 | elapsed=08:35:48 | ETA=11:29:21 | estimated_finish=2026-06-17 19:48:07
+Epoch 429/1000 finished | loss=0.388097 | dice_loss=0.376229 | bce=0.010092 | mse=0.001776 | lr=6.0391e-05 | epoch_time=00:01:02 | elapsed=08:36:51 | ETA=11:27:56 | estimated_finish=2026-06-17 19:47:44
+Epoch 430/1000 finished | loss=0.446367 | dice_loss=0.434996 | bce=0.009680 | mse=0.001692 | lr=6.02958e-05 | epoch_time=00:01:02 | elapsed=08:37:53 | ETA=11:26:30 | estimated_finish=2026-06-17 19:47:21
+Quick validation epoch=430 | pseudo_dice=0.355882 | val_time=00:00:07
+Epoch 431/1000 finished | loss=0.481894 | dice_loss=0.469006 | bce=0.010973 | mse=0.001915 | lr=6.02006e-05 | epoch_time=00:01:02 | elapsed=08:39:03 | ETA=11:25:15 | estimated_finish=2026-06-17 19:47:15
+Epoch 432/1000 finished | loss=0.433669 | dice_loss=0.421822 | bce=0.010000 | mse=0.001847 | lr=6.01054e-05 | epoch_time=00:01:01 | elapsed=08:40:05 | ETA=11:23:49 | estimated_finish=2026-06-17 19:46:51
+Epoch 433/1000 finished | loss=0.438419 | dice_loss=0.426399 | bce=0.010120 | mse=0.001900 | lr=6.00102e-05 | epoch_time=00:01:02 | elapsed=08:41:07 | ETA=11:22:24 | estimated_finish=2026-06-17 19:46:29
+Epoch 434/1000 finished | loss=0.447714 | dice_loss=0.435228 | bce=0.010632 | mse=0.001854 | lr=5.99149e-05 | epoch_time=00:01:02 | elapsed=08:42:10 | ETA=11:20:59 | estimated_finish=2026-06-17 19:46:06
+Epoch 435/1000 finished | loss=0.445862 | dice_loss=0.434054 | bce=0.009930 | mse=0.001878 | lr=5.98196e-05 | epoch_time=00:01:04 | elapsed=08:43:14 | ETA=11:19:36 | estimated_finish=2026-06-17 19:45:47
+Quick validation epoch=435 | pseudo_dice=0.437763 | val_time=00:00:06
+Epoch 436/1000 finished | loss=0.488206 | dice_loss=0.474198 | bce=0.011978 | mse=0.002030 | lr=5.97243e-05 | epoch_time=00:01:02 | elapsed=08:44:24 | ETA=11:18:21 | estimated_finish=2026-06-17 19:45:42
+Epoch 437/1000 finished | loss=0.518346 | dice_loss=0.507308 | bce=0.009394 | mse=0.001645 | lr=5.9629e-05 | epoch_time=00:01:04 | elapsed=08:45:29 | ETA=11:17:00 | estimated_finish=2026-06-17 19:45:25
+Epoch 438/1000 finished | loss=0.457759 | dice_loss=0.444821 | bce=0.011044 | mse=0.001895 | lr=5.95337e-05 | epoch_time=00:01:07 | elapsed=08:46:37 | ETA=11:15:42 | estimated_finish=2026-06-17 19:45:16
+Epoch 439/1000 finished | loss=0.389232 | dice_loss=0.377786 | bce=0.009713 | mse=0.001734 | lr=5.94383e-05 | epoch_time=00:01:04 | elapsed=08:47:41 | ETA=11:14:20 | estimated_finish=2026-06-17 19:44:59
+Epoch 440/1000 finished | loss=0.491034 | dice_loss=0.479289 | bce=0.010044 | mse=0.001701 | lr=5.9343e-05 | epoch_time=00:01:07 | elapsed=08:48:49 | ETA=11:13:02 | estimated_finish=2026-06-17 19:44:49
+Quick validation epoch=440 | pseudo_dice=0.113664 | val_time=00:00:07
+Epoch 441/1000 finished | loss=0.435771 | dice_loss=0.420192 | bce=0.013263 | mse=0.002317 | lr=5.92476e-05 | epoch_time=00:01:05 | elapsed=08:50:02 | ETA=11:11:51 | estimated_finish=2026-06-17 19:44:51
+Epoch 442/1000 finished | loss=0.446339 | dice_loss=0.434568 | bce=0.009985 | mse=0.001786 | lr=5.91522e-05 | epoch_time=00:01:01 | elapsed=08:51:03 | ETA=11:10:26 | estimated_finish=2026-06-17 19:44:26
+Epoch 443/1000 finished | loss=0.434170 | dice_loss=0.423406 | bce=0.009220 | mse=0.001543 | lr=5.90568e-05 | epoch_time=00:01:02 | elapsed=08:52:06 | ETA=11:09:02 | estimated_finish=2026-06-17 19:44:05
+Epoch 444/1000 finished | loss=0.480206 | dice_loss=0.468169 | bce=0.010214 | mse=0.001822 | lr=5.89613e-05 | epoch_time=00:01:03 | elapsed=08:53:10 | ETA=11:07:39 | estimated_finish=2026-06-17 19:43:46
+Epoch 445/1000 finished | loss=0.423713 | dice_loss=0.412330 | bce=0.009729 | mse=0.001654 | lr=5.88659e-05 | epoch_time=00:01:01 | elapsed=08:54:12 | ETA=11:06:15 | estimated_finish=2026-06-17 19:43:24
+Quick validation epoch=445 | pseudo_dice=0.339934 | val_time=00:00:07
+Epoch 446/1000 finished | loss=0.471910 | dice_loss=0.461147 | bce=0.009195 | mse=0.001568 | lr=5.87704e-05 | epoch_time=00:00:59 | elapsed=08:55:19 | ETA=11:04:57 | estimated_finish=2026-06-17 19:43:13
+Epoch 447/1000 finished | loss=0.412814 | dice_loss=0.402343 | bce=0.008938 | mse=0.001534 | lr=5.86749e-05 | epoch_time=00:01:01 | elapsed=08:56:20 | ETA=11:03:32 | estimated_finish=2026-06-17 19:42:49
+Epoch 448/1000 finished | loss=0.425810 | dice_loss=0.412653 | bce=0.011269 | mse=0.001888 | lr=5.85794e-05 | epoch_time=00:01:01 | elapsed=08:57:22 | ETA=11:02:07 | estimated_finish=2026-06-17 19:42:27
+Epoch 449/1000 finished | loss=0.432598 | dice_loss=0.419910 | bce=0.010785 | mse=0.001903 | lr=5.84839e-05 | epoch_time=00:01:01 | elapsed=08:58:24 | ETA=11:00:42 | estimated_finish=2026-06-17 19:42:03
+Epoch 450/1000 finished | loss=0.437120 | dice_loss=0.425364 | bce=0.009969 | mse=0.001787 | lr=5.83884e-05 | epoch_time=00:01:00 | elapsed=08:59:25 | ETA=10:59:17 | estimated_finish=2026-06-17 19:41:39
+Quick validation epoch=450 | pseudo_dice=0.542872 | val_time=00:00:07
+Epoch 451/1000 finished | loss=0.393193 | dice_loss=0.381271 | bce=0.010097 | mse=0.001825 | lr=5.82928e-05 | epoch_time=00:01:01 | elapsed=09:00:34 | ETA=10:58:02 | estimated_finish=2026-06-17 19:41:34
+Epoch 452/1000 finished | loss=0.387970 | dice_loss=0.378968 | bce=0.007624 | mse=0.001378 | lr=5.81973e-05 | epoch_time=00:01:02 | elapsed=09:01:37 | ETA=10:56:39 | estimated_finish=2026-06-17 19:41:14
+Epoch 453/1000 finished | loss=0.458127 | dice_loss=0.444599 | bce=0.011495 | mse=0.002033 | lr=5.81017e-05 | epoch_time=00:01:00 | elapsed=09:02:38 | ETA=10:55:14 | estimated_finish=2026-06-17 19:40:48
+Epoch 454/1000 finished | loss=0.459619 | dice_loss=0.448266 | bce=0.009623 | mse=0.001730 | lr=5.80061e-05 | epoch_time=00:01:01 | elapsed=09:03:39 | ETA=10:53:49 | estimated_finish=2026-06-17 19:40:25
+Epoch 455/1000 finished | loss=0.490913 | dice_loss=0.481685 | bce=0.007788 | mse=0.001439 | lr=5.79104e-05 | epoch_time=00:01:02 | elapsed=09:04:41 | ETA=10:52:26 | estimated_finish=2026-06-17 19:40:04
+Quick validation epoch=455 | pseudo_dice=0.567308 | val_time=00:00:06
+Epoch 456/1000 finished | loss=0.441295 | dice_loss=0.432194 | bce=0.007642 | mse=0.001459 | lr=5.78148e-05 | epoch_time=00:01:00 | elapsed=09:05:49 | ETA=10:51:09 | estimated_finish=2026-06-17 19:39:55
+Epoch 457/1000 finished | loss=0.426336 | dice_loss=0.414234 | bce=0.010245 | mse=0.001856 | lr=5.77191e-05 | epoch_time=00:01:03 | elapsed=09:06:52 | ETA=10:49:47 | estimated_finish=2026-06-17 19:39:37
+Epoch 458/1000 finished | loss=0.454055 | dice_loss=0.441929 | bce=0.010346 | mse=0.001781 | lr=5.76235e-05 | epoch_time=00:01:03 | elapsed=09:07:56 | ETA=10:48:26 | estimated_finish=2026-06-17 19:39:19
+Epoch 459/1000 finished | loss=0.467691 | dice_loss=0.456325 | bce=0.009633 | mse=0.001734 | lr=5.75278e-05 | epoch_time=00:01:02 | elapsed=09:08:59 | ETA=10:47:03 | estimated_finish=2026-06-17 19:38:59
+Epoch 460/1000 finished | loss=0.421855 | dice_loss=0.408738 | bce=0.011143 | mse=0.001973 | lr=5.74321e-05 | epoch_time=00:01:01 | elapsed=09:10:00 | ETA=10:45:40 | estimated_finish=2026-06-17 19:38:37
+Quick validation epoch=460 | pseudo_dice=0.280206 | val_time=00:00:06
+Epoch 461/1000 finished | loss=0.403547 | dice_loss=0.391537 | bce=0.010226 | mse=0.001784 | lr=5.73363e-05 | epoch_time=00:01:01 | elapsed=09:11:09 | ETA=10:44:25 | estimated_finish=2026-06-17 19:38:31
+Epoch 462/1000 finished | loss=0.401157 | dice_loss=0.391797 | bce=0.007971 | mse=0.001389 | lr=5.72406e-05 | epoch_time=00:01:02 | elapsed=09:12:12 | ETA=10:43:02 | estimated_finish=2026-06-17 19:38:12
+Epoch 463/1000 finished | loss=0.425257 | dice_loss=0.414918 | bce=0.008736 | mse=0.001602 | lr=5.71448e-05 | epoch_time=00:01:00 | elapsed=09:13:13 | ETA=10:41:38 | estimated_finish=2026-06-17 19:37:49
+Epoch 464/1000 finished | loss=0.452081 | dice_loss=0.441388 | bce=0.009049 | mse=0.001644 | lr=5.7049e-05 | epoch_time=00:01:02 | elapsed=09:14:16 | ETA=10:40:16 | estimated_finish=2026-06-17 19:37:29
+Epoch 465/1000 finished | loss=0.402533 | dice_loss=0.391936 | bce=0.009071 | mse=0.001526 | lr=5.69532e-05 | epoch_time=00:01:02 | elapsed=09:15:19 | ETA=10:38:55 | estimated_finish=2026-06-17 19:37:11
+Quick validation epoch=465 | pseudo_dice=0.345585 | val_time=00:00:07
+Epoch 466/1000 finished | loss=0.425940 | dice_loss=0.415643 | bce=0.008821 | mse=0.001476 | lr=5.68574e-05 | epoch_time=00:01:01 | elapsed=09:16:27 | ETA=10:37:39 | estimated_finish=2026-06-17 19:37:04
+Epoch 467/1000 finished | loss=0.429605 | dice_loss=0.419758 | bce=0.008401 | mse=0.001446 | lr=5.67616e-05 | epoch_time=00:01:00 | elapsed=09:17:28 | ETA=10:36:15 | estimated_finish=2026-06-17 19:36:41
+Epoch 468/1000 finished | loss=0.427551 | dice_loss=0.415166 | bce=0.010567 | mse=0.001818 | lr=5.66657e-05 | epoch_time=00:01:03 | elapsed=09:18:32 | ETA=10:34:55 | estimated_finish=2026-06-17 19:36:25
+Epoch 469/1000 finished | loss=0.452001 | dice_loss=0.441524 | bce=0.008890 | mse=0.001587 | lr=5.65699e-05 | epoch_time=00:01:01 | elapsed=09:19:35 | ETA=10:33:33 | estimated_finish=2026-06-17 19:36:05
+Epoch 470/1000 finished | loss=0.432148 | dice_loss=0.420061 | bce=0.010273 | mse=0.001815 | lr=5.6474e-05 | epoch_time=00:01:01 | elapsed=09:20:36 | ETA=10:32:10 | estimated_finish=2026-06-17 19:35:43
+Quick validation epoch=470 | pseudo_dice=0.315598 | val_time=00:00:07
+Epoch 471/1000 finished | loss=0.475281 | dice_loss=0.463681 | bce=0.009816 | mse=0.001784 | lr=5.63781e-05 | epoch_time=00:01:04 | elapsed=09:21:48 | ETA=10:30:59 | estimated_finish=2026-06-17 19:35:44
+Epoch 472/1000 finished | loss=0.460930 | dice_loss=0.452350 | bce=0.007284 | mse=0.001297 | lr=5.62821e-05 | epoch_time=00:01:00 | elapsed=09:22:48 | ETA=10:29:35 | estimated_finish=2026-06-17 19:35:20
+Epoch 473/1000 finished | loss=0.476663 | dice_loss=0.466693 | bce=0.008513 | mse=0.001457 | lr=5.61862e-05 | epoch_time=00:01:03 | elapsed=09:23:52 | ETA=10:28:15 | estimated_finish=2026-06-17 19:35:04
+Epoch 474/1000 finished | loss=0.418253 | dice_loss=0.407180 | bce=0.009411 | mse=0.001662 | lr=5.60902e-05 | epoch_time=00:01:00 | elapsed=09:24:53 | ETA=10:26:52 | estimated_finish=2026-06-17 19:34:42
+Epoch 475/1000 finished | loss=0.443666 | dice_loss=0.434504 | bce=0.007749 | mse=0.001412 | lr=5.59942e-05 | epoch_time=00:01:02 | elapsed=09:25:56 | ETA=10:25:30 | estimated_finish=2026-06-17 19:34:24
+Quick validation epoch=475 | pseudo_dice=0.332302 | val_time=00:00:06
+Epoch 476/1000 finished | loss=0.376052 | dice_loss=0.364235 | bce=0.010127 | mse=0.001691 | lr=5.58982e-05 | epoch_time=00:01:01 | elapsed=09:27:05 | ETA=10:24:16 | estimated_finish=2026-06-17 19:34:18
+Epoch 477/1000 finished | loss=0.465928 | dice_loss=0.453088 | bce=0.010903 | mse=0.001937 | lr=5.58022e-05 | epoch_time=00:01:01 | elapsed=09:28:07 | ETA=10:22:54 | estimated_finish=2026-06-17 19:33:59
+Epoch 478/1000 finished | loss=0.442376 | dice_loss=0.430336 | bce=0.010193 | mse=0.001848 | lr=5.57062e-05 | epoch_time=00:01:01 | elapsed=09:29:09 | ETA=10:21:32 | estimated_finish=2026-06-17 19:33:38
+Epoch 479/1000 finished | loss=0.436330 | dice_loss=0.426798 | bce=0.008062 | mse=0.001470 | lr=5.56101e-05 | epoch_time=00:01:01 | elapsed=09:30:10 | ETA=10:20:10 | estimated_finish=2026-06-17 19:33:17
+Epoch 480/1000 finished | loss=0.366494 | dice_loss=0.357214 | bce=0.007890 | mse=0.001389 | lr=5.55141e-05 | epoch_time=00:01:01 | elapsed=09:31:12 | ETA=10:18:48 | estimated_finish=2026-06-17 19:32:57
+Quick validation epoch=480 | pseudo_dice=0.356403 | val_time=00:00:06
+Epoch 481/1000 finished | loss=0.419633 | dice_loss=0.406612 | bce=0.010974 | mse=0.002047 | lr=5.5418e-05 | epoch_time=00:01:01 | elapsed=09:32:20 | ETA=10:17:33 | estimated_finish=2026-06-17 19:32:50
+Epoch 482/1000 finished | loss=0.484007 | dice_loss=0.471045 | bce=0.011000 | mse=0.001962 | lr=5.53219e-05 | epoch_time=00:01:01 | elapsed=09:33:21 | ETA=10:16:11 | estimated_finish=2026-06-17 19:32:30
+Epoch 483/1000 finished | loss=0.421488 | dice_loss=0.410659 | bce=0.009246 | mse=0.001583 | lr=5.52257e-05 | epoch_time=00:01:02 | elapsed=09:34:25 | ETA=10:14:51 | estimated_finish=2026-06-17 19:32:13
+Epoch 484/1000 finished | loss=0.417688 | dice_loss=0.408723 | bce=0.007617 | mse=0.001349 | lr=5.51296e-05 | epoch_time=00:01:02 | elapsed=09:35:27 | ETA=10:13:30 | estimated_finish=2026-06-17 19:31:55
+Epoch 485/1000 finished | loss=0.447852 | dice_loss=0.435422 | bce=0.010621 | mse=0.001810 | lr=5.50334e-05 | epoch_time=00:01:02 | elapsed=09:36:30 | ETA=10:12:10 | estimated_finish=2026-06-17 19:31:38
+Quick validation epoch=485 | pseudo_dice=0.348235 | val_time=00:00:07
+Epoch 486/1000 finished | loss=0.431609 | dice_loss=0.419074 | bce=0.010600 | mse=0.001935 | lr=5.49372e-05 | epoch_time=00:01:01 | elapsed=09:37:39 | ETA=10:10:56 | estimated_finish=2026-06-17 19:31:32
+Epoch 487/1000 finished | loss=0.350377 | dice_loss=0.336203 | bce=0.012015 | mse=0.002159 | lr=5.4841e-05 | epoch_time=00:01:03 | elapsed=09:38:43 | ETA=10:09:37 | estimated_finish=2026-06-17 19:31:17
+Epoch 488/1000 finished | loss=0.425951 | dice_loss=0.412382 | bce=0.011631 | mse=0.001938 | lr=5.47448e-05 | epoch_time=00:01:03 | elapsed=09:39:46 | ETA=10:08:17 | estimated_finish=2026-06-17 19:31:01
+Epoch 489/1000 finished | loss=0.445532 | dice_loss=0.436245 | bce=0.007853 | mse=0.001434 | lr=5.46486e-05 | epoch_time=00:01:03 | elapsed=09:40:50 | ETA=10:06:58 | estimated_finish=2026-06-17 19:30:45
+Epoch 490/1000 finished | loss=0.411492 | dice_loss=0.401641 | bce=0.008339 | mse=0.001512 | lr=5.45523e-05 | epoch_time=00:01:01 | elapsed=09:41:51 | ETA=10:05:36 | estimated_finish=2026-06-17 19:30:25
+Quick validation epoch=490 | pseudo_dice=0.464307 | val_time=00:00:06
+Epoch 491/1000 finished | loss=0.420623 | dice_loss=0.410710 | bce=0.008433 | mse=0.001480 | lr=5.4456e-05 | epoch_time=00:01:02 | elapsed=09:43:01 | ETA=10:04:23 | estimated_finish=2026-06-17 19:30:21
+Epoch 492/1000 finished | loss=0.425081 | dice_loss=0.412467 | bce=0.010742 | mse=0.001872 | lr=5.43597e-05 | epoch_time=00:01:03 | elapsed=09:44:04 | ETA=10:03:04 | estimated_finish=2026-06-17 19:30:06
+Epoch 493/1000 finished | loss=0.488328 | dice_loss=0.477298 | bce=0.009318 | mse=0.001712 | lr=5.42634e-05 | epoch_time=00:01:01 | elapsed=09:45:06 | ETA=10:01:43 | estimated_finish=2026-06-17 19:29:47
+Epoch 494/1000 finished | loss=0.402203 | dice_loss=0.391675 | bce=0.008970 | mse=0.001559 | lr=5.41671e-05 | epoch_time=00:01:02 | elapsed=09:46:09 | ETA=10:00:23 | estimated_finish=2026-06-17 19:29:29
+Epoch 495/1000 finished | loss=0.443033 | dice_loss=0.432165 | bce=0.009250 | mse=0.001618 | lr=5.40707e-05 | epoch_time=00:01:01 | elapsed=09:47:10 | ETA=09:59:02 | estimated_finish=2026-06-17 19:29:10
+Quick validation epoch=495 | pseudo_dice=0.380161 | val_time=00:00:07
+Epoch 496/1000 finished | loss=0.397266 | dice_loss=0.384607 | bce=0.010754 | mse=0.001905 | lr=5.39744e-05 | epoch_time=00:01:05 | elapsed=09:48:23 | ETA=09:57:53 | estimated_finish=2026-06-17 19:29:13
+Epoch 497/1000 finished | loss=0.412190 | dice_loss=0.403745 | bce=0.007246 | mse=0.001199 | lr=5.3878e-05 | epoch_time=00:01:03 | elapsed=09:49:27 | ETA=09:56:34 | estimated_finish=2026-06-17 19:28:58
+Epoch 498/1000 finished | loss=0.406829 | dice_loss=0.396900 | bce=0.008390 | mse=0.001539 | lr=5.37816e-05 | epoch_time=00:01:02 | elapsed=09:50:30 | ETA=09:55:14 | estimated_finish=2026-06-17 19:28:42
+Epoch 499/1000 finished | loss=0.444750 | dice_loss=0.435433 | bce=0.007873 | mse=0.001444 | lr=5.36851e-05 | epoch_time=00:01:01 | elapsed=09:51:31 | ETA=09:53:54 | estimated_finish=2026-06-17 19:28:22
+Epoch 500/1000 finished | loss=0.453500 | dice_loss=0.441762 | bce=0.010002 | mse=0.001737 | lr=5.35887e-05 | epoch_time=00:01:01 | elapsed=09:52:33 | ETA=09:52:33 | estimated_finish=2026-06-17 19:28:03
+Quick validation epoch=500 | pseudo_dice=0.386988 | val_time=00:00:06
+Full validation epoch=500 | mean_dice=0.212676 | val_time=00:14:03
+New best full-validation model saved | dice=0.212676 | epoch=500
+Epoch 501/1000 finished | loss=0.438847 | dice_loss=0.429551 | bce=0.007842 | mse=0.001454 | lr=5.34922e-05 | epoch_time=00:01:03 | elapsed=10:07:47 | ETA=10:05:22 | estimated_finish=2026-06-17 19:56:06
+Epoch 502/1000 finished | loss=0.400413 | dice_loss=0.388659 | bce=0.010004 | mse=0.001751 | lr=5.33957e-05 | epoch_time=00:01:01 | elapsed=10:08:49 | ETA=10:03:58 | estimated_finish=2026-06-17 19:55:45
+Epoch 503/1000 finished | loss=0.433845 | dice_loss=0.423591 | bce=0.008655 | mse=0.001599 | lr=5.32992e-05 | epoch_time=00:01:01 | elapsed=10:09:51 | ETA=10:02:34 | estimated_finish=2026-06-17 19:55:22
+Epoch 504/1000 finished | loss=0.500618 | dice_loss=0.487544 | bce=0.011140 | mse=0.001934 | lr=5.32027e-05 | epoch_time=00:01:03 | elapsed=10:10:54 | ETA=10:01:12 | estimated_finish=2026-06-17 19:55:04
+Epoch 505/1000 finished | loss=0.400978 | dice_loss=0.390717 | bce=0.008761 | mse=0.001501 | lr=5.31061e-05 | epoch_time=00:01:04 | elapsed=10:11:59 | ETA=09:59:51 | estimated_finish=2026-06-17 19:54:47
+Quick validation epoch=505 | pseudo_dice=0.357278 | val_time=00:00:07
+Epoch 506/1000 finished | loss=0.481854 | dice_loss=0.472974 | bce=0.007524 | mse=0.001356 | lr=5.30096e-05 | epoch_time=00:01:07 | elapsed=10:13:13 | ETA=09:58:40 | estimated_finish=2026-06-17 19:54:50
+Epoch 507/1000 finished | loss=0.424927 | dice_loss=0.413756 | bce=0.009475 | mse=0.001696 | lr=5.2913e-05 | epoch_time=00:01:01 | elapsed=10:14:14 | ETA=09:57:17 | estimated_finish=2026-06-17 19:54:28
+Epoch 508/1000 finished | loss=0.428798 | dice_loss=0.418346 | bce=0.008917 | mse=0.001535 | lr=5.28164e-05 | epoch_time=00:01:02 | elapsed=10:15:17 | ETA=09:55:54 | estimated_finish=2026-06-17 19:54:09
+Epoch 509/1000 finished | loss=0.453628 | dice_loss=0.443493 | bce=0.008609 | mse=0.001526 | lr=5.27198e-05 | epoch_time=00:01:05 | elapsed=10:16:23 | ETA=09:54:35 | estimated_finish=2026-06-17 19:53:55
+Epoch 510/1000 finished | loss=0.460315 | dice_loss=0.450229 | bce=0.008547 | mse=0.001539 | lr=5.26231e-05 | epoch_time=00:01:01 | elapsed=10:17:24 | ETA=09:53:11 | estimated_finish=2026-06-17 19:53:32
+Quick validation epoch=510 | pseudo_dice=0.343328 | val_time=00:00:07
+Epoch 511/1000 finished | loss=0.457581 | dice_loss=0.446945 | bce=0.008987 | mse=0.001649 | lr=5.25264e-05 | epoch_time=00:01:02 | elapsed=10:18:34 | ETA=09:51:56 | estimated_finish=2026-06-17 19:53:27
+Epoch 512/1000 finished | loss=0.382420 | dice_loss=0.372148 | bce=0.008745 | mse=0.001527 | lr=5.24298e-05 | epoch_time=00:01:04 | elapsed=10:19:39 | ETA=09:50:36 | estimated_finish=2026-06-17 19:53:13
+Epoch 513/1000 finished | loss=0.402406 | dice_loss=0.388225 | bce=0.012031 | mse=0.002150 | lr=5.23331e-05 | epoch_time=00:01:01 | elapsed=10:20:41 | ETA=09:49:14 | estimated_finish=2026-06-17 19:52:52
+Epoch 514/1000 finished | loss=0.439123 | dice_loss=0.428129 | bce=0.009309 | mse=0.001685 | lr=5.22363e-05 | epoch_time=00:01:01 | elapsed=10:21:43 | ETA=09:47:51 | estimated_finish=2026-06-17 19:52:31
+Epoch 515/1000 finished | loss=0.411664 | dice_loss=0.394701 | bce=0.014431 | mse=0.002532 | lr=5.21396e-05 | epoch_time=00:01:02 | elapsed=10:22:46 | ETA=09:46:29 | estimated_finish=2026-06-17 19:52:12
+Quick validation epoch=515 | pseudo_dice=0.445671 | val_time=00:00:07
+Epoch 516/1000 finished | loss=0.373559 | dice_loss=0.360878 | bce=0.010764 | mse=0.001917 | lr=5.20428e-05 | epoch_time=00:01:03 | elapsed=10:23:57 | ETA=09:45:15 | estimated_finish=2026-06-17 19:52:09
+Epoch 517/1000 finished | loss=0.402839 | dice_loss=0.392295 | bce=0.008935 | mse=0.001609 | lr=5.1946e-05 | epoch_time=00:01:06 | elapsed=10:25:03 | ETA=09:43:57 | estimated_finish=2026-06-17 19:51:57
+Epoch 518/1000 finished | loss=0.425102 | dice_loss=0.412351 | bce=0.010705 | mse=0.002046 | lr=5.18492e-05 | epoch_time=00:01:05 | elapsed=10:26:09 | ETA=09:42:38 | estimated_finish=2026-06-17 19:51:44
+Epoch 519/1000 finished | loss=0.446184 | dice_loss=0.436230 | bce=0.008451 | mse=0.001503 | lr=5.17524e-05 | epoch_time=00:01:01 | elapsed=10:27:11 | ETA=09:41:15 | estimated_finish=2026-06-17 19:51:23
+Epoch 520/1000 finished | loss=0.410974 | dice_loss=0.400578 | bce=0.008808 | mse=0.001588 | lr=5.16556e-05 | epoch_time=00:01:01 | elapsed=10:28:13 | ETA=09:39:53 | estimated_finish=2026-06-17 19:51:03
+Quick validation epoch=520 | pseudo_dice=0.425889 | val_time=00:00:07
+Epoch 521/1000 finished | loss=0.428819 | dice_loss=0.418484 | bce=0.008812 | mse=0.001523 | lr=5.15587e-05 | epoch_time=00:01:03 | elapsed=10:29:24 | ETA=09:38:39 | estimated_finish=2026-06-17 19:51:00
+Epoch 522/1000 finished | loss=0.428840 | dice_loss=0.419270 | bce=0.008087 | mse=0.001483 | lr=5.14618e-05 | epoch_time=00:01:03 | elapsed=10:30:28 | ETA=09:37:19 | estimated_finish=2026-06-17 19:50:44
+Epoch 523/1000 finished | loss=0.388966 | dice_loss=0.381288 | bce=0.006543 | mse=0.001135 | lr=5.13649e-05 | epoch_time=00:01:08 | elapsed=10:31:36 | ETA=09:36:03 | estimated_finish=2026-06-17 19:50:36
+Epoch 524/1000 finished | loss=0.446332 | dice_loss=0.435453 | bce=0.009299 | mse=0.001580 | lr=5.1268e-05 | epoch_time=00:01:04 | elapsed=10:32:41 | ETA=09:34:43 | estimated_finish=2026-06-17 19:50:22
+Epoch 525/1000 finished | loss=0.407647 | dice_loss=0.397489 | bce=0.008659 | mse=0.001500 | lr=5.1171e-05 | epoch_time=00:01:04 | elapsed=10:33:46 | ETA=09:33:24 | estimated_finish=2026-06-17 19:50:07
+Quick validation epoch=525 | pseudo_dice=0.389187 | val_time=00:00:07
+Epoch 526/1000 finished | loss=0.390804 | dice_loss=0.380356 | bce=0.008905 | mse=0.001543 | lr=5.10741e-05 | epoch_time=00:01:05 | elapsed=10:34:58 | ETA=09:32:12 | estimated_finish=2026-06-17 19:50:07
+Epoch 527/1000 finished | loss=0.410180 | dice_loss=0.399038 | bce=0.009451 | mse=0.001690 | lr=5.09771e-05 | epoch_time=00:01:05 | elapsed=10:36:04 | ETA=09:30:53 | estimated_finish=2026-06-17 19:49:55
+Epoch 528/1000 finished | loss=0.429121 | dice_loss=0.417231 | bce=0.010124 | mse=0.001766 | lr=5.08801e-05 | epoch_time=00:01:02 | elapsed=10:37:07 | ETA=09:29:32 | estimated_finish=2026-06-17 19:49:37
+Epoch 529/1000 finished | loss=0.448654 | dice_loss=0.435734 | bce=0.011018 | mse=0.001902 | lr=5.07831e-05 | epoch_time=00:01:01 | elapsed=10:38:09 | ETA=09:28:11 | estimated_finish=2026-06-17 19:49:17
+Epoch 530/1000 finished | loss=0.448316 | dice_loss=0.437321 | bce=0.009347 | mse=0.001647 | lr=5.0686e-05 | epoch_time=00:01:05 | elapsed=10:39:14 | ETA=09:26:52 | estimated_finish=2026-06-17 19:49:04
+Quick validation epoch=530 | pseudo_dice=0.339998 | val_time=00:00:07
+Epoch 531/1000 finished | loss=0.421776 | dice_loss=0.412146 | bce=0.008184 | mse=0.001445 | lr=5.05889e-05 | epoch_time=00:01:05 | elapsed=10:40:27 | ETA=09:25:40 | estimated_finish=2026-06-17 19:49:05
+Epoch 532/1000 finished | loss=0.379092 | dice_loss=0.368520 | bce=0.008941 | mse=0.001631 | lr=5.04918e-05 | epoch_time=00:01:06 | elapsed=10:41:34 | ETA=09:24:23 | estimated_finish=2026-06-17 19:48:54
+Epoch 533/1000 finished | loss=0.419312 | dice_loss=0.409515 | bce=0.008254 | mse=0.001544 | lr=5.03947e-05 | epoch_time=00:01:04 | elapsed=10:42:38 | ETA=09:23:04 | estimated_finish=2026-06-17 19:48:40
+Epoch 534/1000 finished | loss=0.431257 | dice_loss=0.417163 | bce=0.011932 | mse=0.002162 | lr=5.02976e-05 | epoch_time=00:01:02 | elapsed=10:43:41 | ETA=09:21:43 | estimated_finish=2026-06-17 19:48:21
+Epoch 535/1000 finished | loss=0.447775 | dice_loss=0.436983 | bce=0.009120 | mse=0.001673 | lr=5.02005e-05 | epoch_time=00:01:02 | elapsed=10:44:44 | ETA=09:20:23 | estimated_finish=2026-06-17 19:48:04
+Quick validation epoch=535 | pseudo_dice=0.411857 | val_time=00:00:07
+Epoch 536/1000 finished | loss=0.452895 | dice_loss=0.443636 | bce=0.007886 | mse=0.001373 | lr=5.01033e-05 | epoch_time=00:01:06 | elapsed=10:45:58 | ETA=09:19:11 | estimated_finish=2026-06-17 19:48:07
+Epoch 537/1000 finished | loss=0.417178 | dice_loss=0.403815 | bce=0.011395 | mse=0.001968 | lr=5.00061e-05 | epoch_time=00:01:04 | elapsed=10:47:03 | ETA=09:17:53 | estimated_finish=2026-06-17 19:47:52
+Epoch 538/1000 finished | loss=0.429329 | dice_loss=0.418954 | bce=0.008792 | mse=0.001583 | lr=4.99089e-05 | epoch_time=00:01:05 | elapsed=10:48:08 | ETA=09:16:35 | estimated_finish=2026-06-17 19:47:40
+Epoch 539/1000 finished | loss=0.431346 | dice_loss=0.418882 | bce=0.010631 | mse=0.001833 | lr=4.98116e-05 | epoch_time=00:01:05 | elapsed=10:49:14 | ETA=09:15:17 | estimated_finish=2026-06-17 19:47:29
+Epoch 540/1000 finished | loss=0.452400 | dice_loss=0.438008 | bce=0.012207 | mse=0.002184 | lr=4.97144e-05 | epoch_time=00:01:04 | elapsed=10:50:19 | ETA=09:13:58 | estimated_finish=2026-06-17 19:47:15
+Quick validation epoch=540 | pseudo_dice=0.509652 | val_time=00:00:06
+Epoch 541/1000 finished | loss=0.390491 | dice_loss=0.380421 | bce=0.008502 | mse=0.001568 | lr=4.96171e-05 | epoch_time=00:01:01 | elapsed=10:51:28 | ETA=09:12:43 | estimated_finish=2026-06-17 19:47:08
+Epoch 542/1000 finished | loss=0.401500 | dice_loss=0.392449 | bce=0.007696 | mse=0.001355 | lr=4.95198e-05 | epoch_time=00:01:03 | elapsed=10:52:32 | ETA=09:11:24 | estimated_finish=2026-06-17 19:46:53
+Epoch 543/1000 finished | loss=0.415027 | dice_loss=0.403447 | bce=0.009865 | mse=0.001715 | lr=4.94225e-05 | epoch_time=00:01:03 | elapsed=10:53:36 | ETA=09:10:05 | estimated_finish=2026-06-17 19:46:37
+Epoch 544/1000 finished | loss=0.388042 | dice_loss=0.380083 | bce=0.006717 | mse=0.001241 | lr=4.93251e-05 | epoch_time=00:01:09 | elapsed=10:54:46 | ETA=09:08:51 | estimated_finish=2026-06-17 19:46:34
+Epoch 545/1000 finished | loss=0.389589 | dice_loss=0.379355 | bce=0.008721 | mse=0.001513 | lr=4.92278e-05 | epoch_time=00:01:02 | elapsed=10:55:49 | ETA=09:07:31 | estimated_finish=2026-06-17 19:46:17
+Quick validation epoch=545 | pseudo_dice=0.378633 | val_time=00:00:07
+Epoch 546/1000 finished | loss=0.439223 | dice_loss=0.429572 | bce=0.008177 | mse=0.001474 | lr=4.91304e-05 | epoch_time=00:01:02 | elapsed=10:56:59 | ETA=09:06:17 | estimated_finish=2026-06-17 19:46:13
+Epoch 547/1000 finished | loss=0.382543 | dice_loss=0.373449 | bce=0.007682 | mse=0.001412 | lr=4.9033e-05 | epoch_time=00:01:03 | elapsed=10:58:03 | ETA=09:04:58 | estimated_finish=2026-06-17 19:45:58
+Epoch 548/1000 finished | loss=0.389647 | dice_loss=0.379182 | bce=0.008885 | mse=0.001580 | lr=4.89356e-05 | epoch_time=00:01:03 | elapsed=10:59:07 | ETA=09:03:39 | estimated_finish=2026-06-17 19:45:43
+Epoch 549/1000 finished | loss=0.481789 | dice_loss=0.471072 | bce=0.009061 | mse=0.001656 | lr=4.88381e-05 | epoch_time=00:01:05 | elapsed=11:00:13 | ETA=09:02:21 | estimated_finish=2026-06-17 19:45:31
+Epoch 550/1000 finished | loss=0.453331 | dice_loss=0.437586 | bce=0.013345 | mse=0.002400 | lr=4.87406e-05 | epoch_time=00:01:06 | elapsed=11:01:20 | ETA=09:01:05 | estimated_finish=2026-06-17 19:45:22
+Quick validation epoch=550 | pseudo_dice=0.394822 | val_time=00:00:07
+Epoch 551/1000 finished | loss=0.392791 | dice_loss=0.382206 | bce=0.009001 | mse=0.001585 | lr=4.86432e-05 | epoch_time=00:01:03 | elapsed=11:02:30 | ETA=08:59:52 | estimated_finish=2026-06-17 19:45:19
+Epoch 552/1000 finished | loss=0.437788 | dice_loss=0.426105 | bce=0.009915 | mse=0.001768 | lr=4.85456e-05 | epoch_time=00:01:03 | elapsed=11:03:34 | ETA=08:58:32 | estimated_finish=2026-06-17 19:45:03
+Epoch 553/1000 finished | loss=0.400806 | dice_loss=0.387722 | bce=0.011103 | mse=0.001980 | lr=4.84481e-05 | epoch_time=00:01:05 | elapsed=11:04:39 | ETA=08:57:15 | estimated_finish=2026-06-17 19:44:51
+Epoch 554/1000 finished | loss=0.434408 | dice_loss=0.424672 | bce=0.008216 | mse=0.001520 | lr=4.83505e-05 | epoch_time=00:01:07 | elapsed=11:05:47 | ETA=08:55:59 | estimated_finish=2026-06-17 19:44:43
+Epoch 555/1000 finished | loss=0.450274 | dice_loss=0.438962 | bce=0.009550 | mse=0.001761 | lr=4.8253e-05 | epoch_time=00:01:04 | elapsed=11:06:51 | ETA=08:54:41 | estimated_finish=2026-06-17 19:44:29
+Quick validation epoch=555 | pseudo_dice=0.250768 | val_time=00:00:07
+Epoch 556/1000 finished | loss=0.429569 | dice_loss=0.418945 | bce=0.008960 | mse=0.001663 | lr=4.81554e-05 | epoch_time=00:01:02 | elapsed=11:08:01 | ETA=08:53:27 | estimated_finish=2026-06-17 19:44:25
+Epoch 557/1000 finished | loss=0.393806 | dice_loss=0.381275 | bce=0.010599 | mse=0.001931 | lr=4.80577e-05 | epoch_time=00:01:02 | elapsed=11:09:03 | ETA=08:52:07 | estimated_finish=2026-06-17 19:44:07
+Epoch 558/1000 finished | loss=0.462074 | dice_loss=0.450515 | bce=0.009856 | mse=0.001703 | lr=4.79601e-05 | epoch_time=00:01:04 | elapsed=11:10:08 | ETA=08:50:49 | estimated_finish=2026-06-17 19:43:54
+Epoch 559/1000 finished | loss=0.420943 | dice_loss=0.408573 | bce=0.010462 | mse=0.001907 | lr=4.78624e-05 | epoch_time=00:01:02 | elapsed=11:11:10 | ETA=08:49:29 | estimated_finish=2026-06-17 19:43:37
+Epoch 560/1000 finished | loss=0.421017 | dice_loss=0.410556 | bce=0.008921 | mse=0.001540 | lr=4.77647e-05 | epoch_time=00:01:02 | elapsed=11:12:13 | ETA=08:48:10 | estimated_finish=2026-06-17 19:43:20
+Quick validation epoch=560 | pseudo_dice=0.224944 | val_time=00:00:07
+Epoch 561/1000 finished | loss=0.384821 | dice_loss=0.374197 | bce=0.008914 | mse=0.001710 | lr=4.7667e-05 | epoch_time=00:01:04 | elapsed=11:13:25 | ETA=08:46:58 | estimated_finish=2026-06-17 19:43:21
+Epoch 562/1000 finished | loss=0.404464 | dice_loss=0.393121 | bce=0.009628 | mse=0.001715 | lr=4.75693e-05 | epoch_time=00:01:03 | elapsed=11:14:29 | ETA=08:45:40 | estimated_finish=2026-06-17 19:43:06
+Epoch 563/1000 finished | loss=0.395677 | dice_loss=0.384055 | bce=0.009908 | mse=0.001714 | lr=4.74715e-05 | epoch_time=00:01:02 | elapsed=11:15:32 | ETA=08:44:20 | estimated_finish=2026-06-17 19:42:49
+Epoch 564/1000 finished | loss=0.430765 | dice_loss=0.418666 | bce=0.010253 | mse=0.001846 | lr=4.73738e-05 | epoch_time=00:01:03 | elapsed=11:16:35 | ETA=08:43:02 | estimated_finish=2026-06-17 19:42:34
+Epoch 565/1000 finished | loss=0.444616 | dice_loss=0.434737 | bce=0.008334 | mse=0.001544 | lr=4.7276e-05 | epoch_time=00:01:04 | elapsed=11:17:39 | ETA=08:41:44 | estimated_finish=2026-06-17 19:42:20
+Quick validation epoch=565 | pseudo_dice=0.377611 | val_time=00:00:07
+Epoch 566/1000 finished | loss=0.429234 | dice_loss=0.419268 | bce=0.008487 | mse=0.001479 | lr=4.71781e-05 | epoch_time=00:01:05 | elapsed=11:18:53 | ETA=08:40:33 | estimated_finish=2026-06-17 19:42:23
+Epoch 567/1000 finished | loss=0.433952 | dice_loss=0.424435 | bce=0.008087 | mse=0.001429 | lr=4.70803e-05 | epoch_time=00:01:11 | elapsed=11:20:04 | ETA=08:39:21 | estimated_finish=2026-06-17 19:42:22
+Epoch 568/1000 finished | loss=0.453292 | dice_loss=0.442240 | bce=0.009341 | mse=0.001712 | lr=4.69824e-05 | epoch_time=00:01:05 | elapsed=11:21:10 | ETA=08:38:04 | estimated_finish=2026-06-17 19:42:12
+Epoch 569/1000 finished | loss=0.419722 | dice_loss=0.410332 | bce=0.008034 | mse=0.001356 | lr=4.68845e-05 | epoch_time=00:01:01 | elapsed=11:22:12 | ETA=08:36:45 | estimated_finish=2026-06-17 19:41:54
+Epoch 570/1000 finished | loss=0.443520 | dice_loss=0.433532 | bce=0.008524 | mse=0.001464 | lr=4.67866e-05 | epoch_time=00:01:03 | elapsed=11:23:16 | ETA=08:35:27 | estimated_finish=2026-06-17 19:41:40
+Quick validation epoch=570 | pseudo_dice=0.452029 | val_time=00:00:07
+Epoch 571/1000 finished | loss=0.382225 | dice_loss=0.371340 | bce=0.009223 | mse=0.001662 | lr=4.66887e-05 | epoch_time=00:01:05 | elapsed=11:24:29 | ETA=08:34:16 | estimated_finish=2026-06-17 19:41:42
+Epoch 572/1000 finished | loss=0.397553 | dice_loss=0.388612 | bce=0.007559 | mse=0.001382 | lr=4.65907e-05 | epoch_time=00:01:04 | elapsed=11:25:34 | ETA=08:32:58 | estimated_finish=2026-06-17 19:41:30
+Epoch 573/1000 finished | loss=0.509674 | dice_loss=0.500847 | bce=0.007488 | mse=0.001340 | lr=4.64927e-05 | epoch_time=00:01:02 | elapsed=11:26:37 | ETA=08:31:40 | estimated_finish=2026-06-17 19:41:14
+Epoch 574/1000 finished | loss=0.367112 | dice_loss=0.355510 | bce=0.009819 | mse=0.001783 | lr=4.63947e-05 | epoch_time=00:01:02 | elapsed=11:27:39 | ETA=08:30:21 | estimated_finish=2026-06-17 19:40:57
+Epoch 575/1000 finished | loss=0.385541 | dice_loss=0.373794 | bce=0.009973 | mse=0.001774 | lr=4.62967e-05 | epoch_time=00:01:04 | elapsed=11:28:44 | ETA=08:29:04 | estimated_finish=2026-06-17 19:40:45
+Quick validation epoch=575 | pseudo_dice=0.597850 | val_time=00:00:07
+Epoch 576/1000 finished | loss=0.418573 | dice_loss=0.407836 | bce=0.009128 | mse=0.001610 | lr=4.61986e-05 | epoch_time=00:01:04 | elapsed=11:29:55 | ETA=08:27:52 | estimated_finish=2026-06-17 19:40:44
+Epoch 577/1000 finished | loss=0.405261 | dice_loss=0.394503 | bce=0.009111 | mse=0.001647 | lr=4.61006e-05 | epoch_time=00:01:05 | elapsed=11:31:01 | ETA=08:26:35 | estimated_finish=2026-06-17 19:40:33
+Epoch 578/1000 finished | loss=0.452479 | dice_loss=0.440334 | bce=0.010277 | mse=0.001868 | lr=4.60025e-05 | epoch_time=00:01:06 | elapsed=11:32:08 | ETA=08:25:20 | estimated_finish=2026-06-17 19:40:25
+Epoch 579/1000 finished | loss=0.454648 | dice_loss=0.442837 | bce=0.010120 | mse=0.001691 | lr=4.59044e-05 | epoch_time=00:01:07 | elapsed=11:33:15 | ETA=08:24:05 | estimated_finish=2026-06-17 19:40:17
+Epoch 580/1000 finished | loss=0.428527 | dice_loss=0.419649 | bce=0.007502 | mse=0.001375 | lr=4.58062e-05 | epoch_time=00:01:07 | elapsed=11:34:23 | ETA=08:22:50 | estimated_finish=2026-06-17 19:40:10
+Quick validation epoch=580 | pseudo_dice=0.382271 | val_time=00:00:07
+Epoch 581/1000 finished | loss=0.443439 | dice_loss=0.434457 | bce=0.007649 | mse=0.001334 | lr=4.5708e-05 | epoch_time=00:01:05 | elapsed=11:35:37 | ETA=08:21:39 | estimated_finish=2026-06-17 19:40:13
+Epoch 582/1000 finished | loss=0.403580 | dice_loss=0.393208 | bce=0.008837 | mse=0.001535 | lr=4.56099e-05 | epoch_time=00:01:12 | elapsed=11:36:49 | ETA=08:20:28 | estimated_finish=2026-06-17 19:40:15
+Epoch 583/1000 finished | loss=0.421350 | dice_loss=0.410622 | bce=0.009089 | mse=0.001640 | lr=4.55116e-05 | epoch_time=00:01:04 | elapsed=11:37:55 | ETA=08:19:11 | estimated_finish=2026-06-17 19:40:03
+Epoch 584/1000 finished | loss=0.456079 | dice_loss=0.444657 | bce=0.009727 | mse=0.001694 | lr=4.54134e-05 | epoch_time=00:01:04 | elapsed=11:38:59 | ETA=08:17:54 | estimated_finish=2026-06-17 19:39:51
+Epoch 585/1000 finished | loss=0.408015 | dice_loss=0.395957 | bce=0.010119 | mse=0.001939 | lr=4.53151e-05 | epoch_time=00:01:04 | elapsed=11:40:04 | ETA=08:16:37 | estimated_finish=2026-06-17 19:39:38
+Quick validation epoch=585 | pseudo_dice=0.291898 | val_time=00:00:07
+Epoch 586/1000 finished | loss=0.370815 | dice_loss=0.359748 | bce=0.009348 | mse=0.001719 | lr=4.52169e-05 | epoch_time=00:01:04 | elapsed=11:41:16 | ETA=08:15:26 | estimated_finish=2026-06-17 19:39:39
+Epoch 587/1000 finished | loss=0.444232 | dice_loss=0.432070 | bce=0.010329 | mse=0.001832 | lr=4.51185e-05 | epoch_time=00:01:06 | elapsed=11:42:22 | ETA=08:14:10 | estimated_finish=2026-06-17 19:39:30
+Epoch 588/1000 finished | loss=0.444414 | dice_loss=0.434439 | bce=0.008474 | mse=0.001502 | lr=4.50202e-05 | epoch_time=00:01:04 | elapsed=11:43:27 | ETA=08:12:54 | estimated_finish=2026-06-17 19:39:18
+Epoch 589/1000 finished | loss=0.348805 | dice_loss=0.334704 | bce=0.011961 | mse=0.002139 | lr=4.49219e-05 | epoch_time=00:01:04 | elapsed=11:44:32 | ETA=08:11:37 | estimated_finish=2026-06-17 19:39:06
+Epoch 590/1000 finished | loss=0.404145 | dice_loss=0.392944 | bce=0.009460 | mse=0.001740 | lr=4.48235e-05 | epoch_time=00:01:06 | elapsed=11:45:38 | ETA=08:10:21 | estimated_finish=2026-06-17 19:38:57
+Quick validation epoch=590 | pseudo_dice=0.456419 | val_time=00:00:08
+Epoch 591/1000 finished | loss=0.418395 | dice_loss=0.407260 | bce=0.009475 | mse=0.001659 | lr=4.47251e-05 | epoch_time=00:01:04 | elapsed=11:46:51 | ETA=08:09:11 | estimated_finish=2026-06-17 19:38:59
+Epoch 592/1000 finished | loss=0.390708 | dice_loss=0.380491 | bce=0.008705 | mse=0.001512 | lr=4.46266e-05 | epoch_time=00:01:05 | elapsed=11:47:57 | ETA=08:07:55 | estimated_finish=2026-06-17 19:38:49
+Epoch 593/1000 finished | loss=0.412082 | dice_loss=0.400209 | bce=0.010041 | mse=0.001832 | lr=4.45282e-05 | epoch_time=00:01:08 | elapsed=11:49:06 | ETA=08:06:41 | estimated_finish=2026-06-17 19:38:44
+Epoch 594/1000 finished | loss=0.439781 | dice_loss=0.429569 | bce=0.008678 | mse=0.001533 | lr=4.44297e-05 | epoch_time=00:01:05 | elapsed=11:50:12 | ETA=08:05:25 | estimated_finish=2026-06-17 19:38:34
+Epoch 595/1000 finished | loss=0.440429 | dice_loss=0.430515 | bce=0.008375 | mse=0.001539 | lr=4.43312e-05 | epoch_time=00:01:06 | elapsed=11:51:18 | ETA=08:04:10 | estimated_finish=2026-06-17 19:38:25
+Quick validation epoch=595 | pseudo_dice=0.520182 | val_time=00:00:09
+Epoch 596/1000 finished | loss=0.454207 | dice_loss=0.441771 | bce=0.010600 | mse=0.001836 | lr=4.42327e-05 | epoch_time=00:01:06 | elapsed=11:52:34 | ETA=08:03:01 | estimated_finish=2026-06-17 19:38:32
+Epoch 597/1000 finished | loss=0.428501 | dice_loss=0.419202 | bce=0.007852 | mse=0.001447 | lr=4.41341e-05 | epoch_time=00:01:03 | elapsed=11:53:38 | ETA=08:01:44 | estimated_finish=2026-06-17 19:38:18
+Epoch 598/1000 finished | loss=0.412014 | dice_loss=0.402186 | bce=0.008302 | mse=0.001525 | lr=4.40356e-05 | epoch_time=00:01:03 | elapsed=11:54:42 | ETA=08:00:27 | estimated_finish=2026-06-17 19:38:06
+Epoch 599/1000 finished | loss=0.363927 | dice_loss=0.353079 | bce=0.009223 | mse=0.001625 | lr=4.3937e-05 | epoch_time=00:01:04 | elapsed=11:55:47 | ETA=07:59:11 | estimated_finish=2026-06-17 19:37:55
+Epoch 600/1000 finished | loss=0.416244 | dice_loss=0.406534 | bce=0.008254 | mse=0.001457 | lr=4.38383e-05 | epoch_time=00:01:05 | elapsed=11:56:52 | ETA=07:57:55 | estimated_finish=2026-06-17 19:37:44
+Quick validation epoch=600 | pseudo_dice=0.498068 | val_time=00:00:07
+Full validation epoch=600 | mean_dice=0.136709 | val_time=00:14:00
+Epoch 601/1000 finished | loss=0.423551 | dice_loss=0.411248 | bce=0.010412 | mse=0.001891 | lr=4.37397e-05 | epoch_time=00:01:02 | elapsed=12:12:04 | ETA=08:06:00 | estimated_finish=2026-06-17 20:01:01
+Epoch 602/1000 finished | loss=0.415145 | dice_loss=0.404499 | bce=0.009020 | mse=0.001626 | lr=4.3641e-05 | epoch_time=00:01:02 | elapsed=12:13:07 | ETA=08:04:41 | estimated_finish=2026-06-17 20:00:45
+Epoch 603/1000 finished | loss=0.399632 | dice_loss=0.388067 | bce=0.009888 | mse=0.001678 | lr=4.35423e-05 | epoch_time=00:01:01 | elapsed=12:14:09 | ETA=08:03:20 | estimated_finish=2026-06-17 20:00:26
+Epoch 604/1000 finished | loss=0.477651 | dice_loss=0.468399 | bce=0.007895 | mse=0.001357 | lr=4.34436e-05 | epoch_time=00:01:04 | elapsed=12:15:13 | ETA=08:02:02 | estimated_finish=2026-06-17 20:00:12
+Epoch 605/1000 finished | loss=0.431942 | dice_loss=0.420611 | bce=0.009583 | mse=0.001749 | lr=4.33448e-05 | epoch_time=00:01:04 | elapsed=12:16:17 | ETA=08:00:43 | estimated_finish=2026-06-17 19:59:58
+Quick validation epoch=605 | pseudo_dice=0.513203 | val_time=00:00:07
+Epoch 606/1000 finished | loss=0.446502 | dice_loss=0.435578 | bce=0.009343 | mse=0.001581 | lr=4.32461e-05 | epoch_time=00:01:02 | elapsed=12:17:27 | ETA=07:59:28 | estimated_finish=2026-06-17 19:59:52
+Epoch 607/1000 finished | loss=0.453939 | dice_loss=0.442320 | bce=0.009934 | mse=0.001685 | lr=4.31473e-05 | epoch_time=00:01:02 | elapsed=12:18:30 | ETA=07:58:08 | estimated_finish=2026-06-17 19:59:36
+Epoch 608/1000 finished | loss=0.458095 | dice_loss=0.446976 | bce=0.009428 | mse=0.001692 | lr=4.30484e-05 | epoch_time=00:01:04 | elapsed=12:19:35 | ETA=07:56:50 | estimated_finish=2026-06-17 19:59:22
+Epoch 609/1000 finished | loss=0.483275 | dice_loss=0.471658 | bce=0.009883 | mse=0.001734 | lr=4.29496e-05 | epoch_time=00:01:02 | elapsed=12:20:38 | ETA=07:55:30 | estimated_finish=2026-06-17 19:59:05
+Epoch 610/1000 finished | loss=0.427764 | dice_loss=0.416772 | bce=0.009317 | mse=0.001676 | lr=4.28507e-05 | epoch_time=00:01:02 | elapsed=12:21:41 | ETA=07:54:11 | estimated_finish=2026-06-17 19:58:49
+Quick validation epoch=610 | pseudo_dice=0.592659 | val_time=00:00:07
+Epoch 611/1000 finished | loss=0.406402 | dice_loss=0.396610 | bce=0.008317 | mse=0.001476 | lr=4.27518e-05 | epoch_time=00:01:04 | elapsed=12:22:52 | ETA=07:52:57 | estimated_finish=2026-06-17 19:58:47
+Epoch 612/1000 finished | loss=0.413859 | dice_loss=0.402947 | bce=0.009255 | mse=0.001657 | lr=4.26529e-05 | epoch_time=00:01:03 | elapsed=12:23:56 | ETA=07:51:38 | estimated_finish=2026-06-17 19:58:31
+Epoch 613/1000 finished | loss=0.383998 | dice_loss=0.374743 | bce=0.007875 | mse=0.001380 | lr=4.25539e-05 | epoch_time=00:01:02 | elapsed=12:24:59 | ETA=07:50:19 | estimated_finish=2026-06-17 19:58:15
+Epoch 614/1000 finished | loss=0.426531 | dice_loss=0.416701 | bce=0.008342 | mse=0.001488 | lr=4.2455e-05 | epoch_time=00:01:03 | elapsed=12:26:03 | ETA=07:49:01 | estimated_finish=2026-06-17 19:58:01
+Epoch 615/1000 finished | loss=0.449068 | dice_loss=0.437199 | bce=0.010081 | mse=0.001789 | lr=4.2356e-05 | epoch_time=00:01:04 | elapsed=12:27:08 | ETA=07:47:43 | estimated_finish=2026-06-17 19:57:48
+Quick validation epoch=615 | pseudo_dice=0.464228 | val_time=00:00:07
+Epoch 616/1000 finished | loss=0.442376 | dice_loss=0.433573 | bce=0.007464 | mse=0.001339 | lr=4.22569e-05 | epoch_time=00:01:03 | elapsed=12:28:19 | ETA=07:46:29 | estimated_finish=2026-06-17 19:57:46
+Epoch 617/1000 finished | loss=0.417033 | dice_loss=0.406340 | bce=0.009028 | mse=0.001665 | lr=4.21579e-05 | epoch_time=00:01:01 | elapsed=12:29:21 | ETA=07:45:09 | estimated_finish=2026-06-17 19:57:28
+Epoch 618/1000 finished | loss=0.434394 | dice_loss=0.422789 | bce=0.009874 | mse=0.001731 | lr=4.20588e-05 | epoch_time=00:01:01 | elapsed=12:30:23 | ETA=07:43:50 | estimated_finish=2026-06-17 19:57:10
+Epoch 619/1000 finished | loss=0.416666 | dice_loss=0.406050 | bce=0.009024 | mse=0.001592 | lr=4.19597e-05 | epoch_time=00:01:06 | elapsed=12:31:30 | ETA=07:42:33 | estimated_finish=2026-06-17 19:57:00
+Epoch 620/1000 finished | loss=0.435074 | dice_loss=0.423969 | bce=0.009408 | mse=0.001698 | lr=4.18606e-05 | epoch_time=00:01:16 | elapsed=12:32:47 | ETA=07:41:23 | estimated_finish=2026-06-17 19:57:07
+Quick validation epoch=620 | pseudo_dice=0.578450 | val_time=00:00:07
+Epoch 621/1000 finished | loss=0.386992 | dice_loss=0.377361 | bce=0.008118 | mse=0.001513 | lr=4.17614e-05 | epoch_time=00:01:04 | elapsed=12:34:00 | ETA=07:40:10 | estimated_finish=2026-06-17 19:57:07
+Epoch 622/1000 finished | loss=0.415575 | dice_loss=0.402804 | bce=0.010835 | mse=0.001936 | lr=4.16622e-05 | epoch_time=00:01:05 | elapsed=12:35:05 | ETA=07:38:52 | estimated_finish=2026-06-17 19:56:54
+Epoch 623/1000 finished | loss=0.415964 | dice_loss=0.405818 | bce=0.008646 | mse=0.001499 | lr=4.1563e-05 | epoch_time=00:01:02 | elapsed=12:36:08 | ETA=07:37:33 | estimated_finish=2026-06-17 19:56:38
+Epoch 624/1000 finished | loss=0.421539 | dice_loss=0.413042 | bce=0.007178 | mse=0.001319 | lr=4.14638e-05 | epoch_time=00:01:02 | elapsed=12:37:10 | ETA=07:36:15 | estimated_finish=2026-06-17 19:56:22
+Epoch 625/1000 finished | loss=0.373181 | dice_loss=0.360771 | bce=0.010591 | mse=0.001819 | lr=4.13645e-05 | epoch_time=00:01:05 | elapsed=12:38:16 | ETA=07:34:57 | estimated_finish=2026-06-17 19:56:11
+Quick validation epoch=625 | pseudo_dice=0.402936 | val_time=00:00:07
+Epoch 626/1000 finished | loss=0.423328 | dice_loss=0.410862 | bce=0.010596 | mse=0.001870 | lr=4.12652e-05 | epoch_time=00:01:05 | elapsed=12:39:29 | ETA=07:33:45 | estimated_finish=2026-06-17 19:56:11
+Epoch 627/1000 finished | loss=0.377020 | dice_loss=0.366800 | bce=0.008654 | mse=0.001566 | lr=4.11659e-05 | epoch_time=00:01:04 | elapsed=12:40:33 | ETA=07:32:27 | estimated_finish=2026-06-17 19:55:57
+Epoch 628/1000 finished | loss=0.412278 | dice_loss=0.401734 | bce=0.008916 | mse=0.001628 | lr=4.10666e-05 | epoch_time=00:01:04 | elapsed=12:41:38 | ETA=07:31:09 | estimated_finish=2026-06-17 19:55:45
+Epoch 629/1000 finished | loss=0.424913 | dice_loss=0.414154 | bce=0.009180 | mse=0.001579 | lr=4.09672e-05 | epoch_time=00:01:07 | elapsed=12:42:46 | ETA=07:29:54 | estimated_finish=2026-06-17 19:55:37
+Epoch 630/1000 finished | loss=0.448741 | dice_loss=0.438561 | bce=0.008642 | mse=0.001538 | lr=4.08678e-05 | epoch_time=00:01:03 | elapsed=12:43:50 | ETA=07:28:36 | estimated_finish=2026-06-17 19:55:23
+Quick validation epoch=630 | pseudo_dice=0.417560 | val_time=00:00:07
+Epoch 631/1000 finished | loss=0.404894 | dice_loss=0.395651 | bce=0.007819 | mse=0.001424 | lr=4.07684e-05 | epoch_time=00:01:05 | elapsed=12:45:03 | ETA=07:27:23 | estimated_finish=2026-06-17 19:55:24
+Epoch 632/1000 finished | loss=0.390299 | dice_loss=0.380459 | bce=0.008326 | mse=0.001514 | lr=4.0669e-05 | epoch_time=00:01:08 | elapsed=12:46:12 | ETA=07:26:08 | estimated_finish=2026-06-17 19:55:17
+Epoch 633/1000 finished | loss=0.388320 | dice_loss=0.378760 | bce=0.008124 | mse=0.001436 | lr=4.05695e-05 | epoch_time=00:01:05 | elapsed=12:47:18 | ETA=07:24:51 | estimated_finish=2026-06-17 19:55:06
+Epoch 634/1000 finished | loss=0.424769 | dice_loss=0.414452 | bce=0.008717 | mse=0.001600 | lr=4.047e-05 | epoch_time=00:01:05 | elapsed=12:48:24 | ETA=07:23:35 | estimated_finish=2026-06-17 19:54:56
+Epoch 635/1000 finished | loss=0.446554 | dice_loss=0.436563 | bce=0.008492 | mse=0.001499 | lr=4.03704e-05 | epoch_time=00:01:08 | elapsed=12:49:32 | ETA=07:22:20 | estimated_finish=2026-06-17 19:54:49
+Quick validation epoch=635 | pseudo_dice=0.398195 | val_time=00:00:07
+Epoch 636/1000 finished | loss=0.392827 | dice_loss=0.384189 | bce=0.007287 | mse=0.001350 | lr=4.02709e-05 | epoch_time=00:01:06 | elapsed=12:50:46 | ETA=07:21:08 | estimated_finish=2026-06-17 19:54:51
+Epoch 637/1000 finished | loss=0.416042 | dice_loss=0.403413 | bce=0.010767 | mse=0.001861 | lr=4.01713e-05 | epoch_time=00:01:03 | elapsed=12:51:50 | ETA=07:19:50 | estimated_finish=2026-06-17 19:54:36
+Epoch 638/1000 finished | loss=0.419818 | dice_loss=0.408328 | bce=0.009773 | mse=0.001717 | lr=4.00717e-05 | epoch_time=00:01:01 | elapsed=12:52:51 | ETA=07:18:31 | estimated_finish=2026-06-17 19:54:19
+Epoch 639/1000 finished | loss=0.437799 | dice_loss=0.428049 | bce=0.008315 | mse=0.001435 | lr=3.99721e-05 | epoch_time=00:01:03 | elapsed=12:53:54 | ETA=07:17:13 | estimated_finish=2026-06-17 19:54:04
+Epoch 640/1000 finished | loss=0.413187 | dice_loss=0.403201 | bce=0.008485 | mse=0.001501 | lr=3.98724e-05 | epoch_time=00:01:03 | elapsed=12:54:58 | ETA=07:15:55 | estimated_finish=2026-06-17 19:53:50
+Quick validation epoch=640 | pseudo_dice=0.444423 | val_time=00:00:07
+Epoch 641/1000 finished | loss=0.411223 | dice_loss=0.402574 | bce=0.007332 | mse=0.001317 | lr=3.97727e-05 | epoch_time=00:01:07 | elapsed=12:56:13 | ETA=07:14:43 | estimated_finish=2026-06-17 19:53:54
+Epoch 642/1000 finished | loss=0.423910 | dice_loss=0.415271 | bce=0.007411 | mse=0.001228 | lr=3.9673e-05 | epoch_time=00:01:05 | elapsed=12:57:19 | ETA=07:13:27 | estimated_finish=2026-06-17 19:53:43
+Epoch 643/1000 finished | loss=0.427612 | dice_loss=0.416742 | bce=0.009206 | mse=0.001665 | lr=3.95732e-05 | epoch_time=00:01:03 | elapsed=12:58:23 | ETA=07:12:10 | estimated_finish=2026-06-17 19:53:29
+Epoch 644/1000 finished | loss=0.434339 | dice_loss=0.424203 | bce=0.008581 | mse=0.001555 | lr=3.94734e-05 | epoch_time=00:01:02 | elapsed=12:59:26 | ETA=07:10:52 | estimated_finish=2026-06-17 19:53:14
+Epoch 645/1000 finished | loss=0.407859 | dice_loss=0.395049 | bce=0.010825 | mse=0.001985 | lr=3.93736e-05 | epoch_time=00:01:03 | elapsed=13:00:29 | ETA=07:09:34 | estimated_finish=2026-06-17 19:53:00
+Quick validation epoch=645 | pseudo_dice=0.293478 | val_time=00:00:07
+Epoch 646/1000 finished | loss=0.419405 | dice_loss=0.408661 | bce=0.009011 | mse=0.001732 | lr=3.92738e-05 | epoch_time=00:01:04 | elapsed=13:01:41 | ETA=07:08:21 | estimated_finish=2026-06-17 19:52:59
+Epoch 647/1000 finished | loss=0.481029 | dice_loss=0.472587 | bce=0.007172 | mse=0.001271 | lr=3.91739e-05 | epoch_time=00:01:06 | elapsed=13:02:47 | ETA=07:07:05 | estimated_finish=2026-06-17 19:52:49
+Epoch 648/1000 finished | loss=0.405067 | dice_loss=0.395055 | bce=0.008518 | mse=0.001494 | lr=3.9074e-05 | epoch_time=00:01:04 | elapsed=13:03:51 | ETA=07:05:48 | estimated_finish=2026-06-17 19:52:36
+Epoch 649/1000 finished | loss=0.425810 | dice_loss=0.415668 | bce=0.008554 | mse=0.001587 | lr=3.89741e-05 | epoch_time=00:01:03 | elapsed=13:04:55 | ETA=07:04:30 | estimated_finish=2026-06-17 19:52:23
+Epoch 650/1000 finished | loss=0.484461 | dice_loss=0.475580 | bce=0.007530 | mse=0.001351 | lr=3.88742e-05 | epoch_time=00:01:02 | elapsed=13:05:57 | ETA=07:03:12 | estimated_finish=2026-06-17 19:52:07
+Quick validation epoch=650 | pseudo_dice=0.420741 | val_time=00:00:07
+Epoch 651/1000 finished | loss=0.446336 | dice_loss=0.438780 | bce=0.006408 | mse=0.001148 | lr=3.87742e-05 | epoch_time=00:01:04 | elapsed=13:07:10 | ETA=07:01:59 | estimated_finish=2026-06-17 19:52:06
+Epoch 652/1000 finished | loss=0.430165 | dice_loss=0.418448 | bce=0.010073 | mse=0.001644 | lr=3.86742e-05 | epoch_time=00:01:07 | elapsed=13:08:17 | ETA=07:00:44 | estimated_finish=2026-06-17 19:51:59
+Epoch 653/1000 finished | loss=0.422612 | dice_loss=0.412845 | bce=0.008240 | mse=0.001527 | lr=3.85742e-05 | epoch_time=00:01:04 | elapsed=13:09:22 | ETA=06:59:28 | estimated_finish=2026-06-17 19:51:47
+Epoch 654/1000 finished | loss=0.435416 | dice_loss=0.426197 | bce=0.007820 | mse=0.001399 | lr=3.84741e-05 | epoch_time=00:01:03 | elapsed=13:10:26 | ETA=06:58:10 | estimated_finish=2026-06-17 19:51:33
+Epoch 655/1000 finished | loss=0.432743 | dice_loss=0.423596 | bce=0.007701 | mse=0.001447 | lr=3.8374e-05 | epoch_time=00:01:01 | elapsed=13:11:28 | ETA=06:56:53 | estimated_finish=2026-06-17 19:51:18
+Quick validation epoch=655 | pseudo_dice=0.476310 | val_time=00:00:07
+Epoch 656/1000 finished | loss=0.412847 | dice_loss=0.402257 | bce=0.008998 | mse=0.001592 | lr=3.82739e-05 | epoch_time=00:01:05 | elapsed=13:12:41 | ETA=06:55:40 | estimated_finish=2026-06-17 19:51:19
+Epoch 657/1000 finished | loss=0.406788 | dice_loss=0.397311 | bce=0.008023 | mse=0.001454 | lr=3.81737e-05 | epoch_time=00:01:04 | elapsed=13:13:46 | ETA=06:54:24 | estimated_finish=2026-06-17 19:51:07
+Epoch 658/1000 finished | loss=0.390076 | dice_loss=0.381826 | bce=0.007001 | mse=0.001249 | lr=3.80736e-05 | epoch_time=00:01:02 | elapsed=13:14:48 | ETA=06:53:06 | estimated_finish=2026-06-17 19:50:52
+Epoch 659/1000 finished | loss=0.447324 | dice_loss=0.436074 | bce=0.009535 | mse=0.001715 | lr=3.79734e-05 | epoch_time=00:01:02 | elapsed=13:15:51 | ETA=06:51:48 | estimated_finish=2026-06-17 19:50:37
+Epoch 660/1000 finished | loss=0.418804 | dice_loss=0.409740 | bce=0.007661 | mse=0.001403 | lr=3.78731e-05 | epoch_time=00:01:02 | elapsed=13:16:53 | ETA=06:50:31 | estimated_finish=2026-06-17 19:50:21
+Quick validation epoch=660 | pseudo_dice=0.534085 | val_time=00:00:07
+Epoch 661/1000 finished | loss=0.415684 | dice_loss=0.404743 | bce=0.009343 | mse=0.001598 | lr=3.77728e-05 | epoch_time=00:01:04 | elapsed=13:18:05 | ETA=06:49:18 | estimated_finish=2026-06-17 19:50:21
+Epoch 662/1000 finished | loss=0.406405 | dice_loss=0.395871 | bce=0.008931 | mse=0.001602 | lr=3.76726e-05 | epoch_time=00:01:05 | elapsed=13:19:11 | ETA=06:48:02 | estimated_finish=2026-06-17 19:50:10
+Epoch 663/1000 finished | loss=0.511952 | dice_loss=0.502890 | bce=0.007689 | mse=0.001372 | lr=3.75722e-05 | epoch_time=00:01:03 | elapsed=13:20:15 | ETA=06:46:45 | estimated_finish=2026-06-17 19:49:58
+Epoch 664/1000 finished | loss=0.442037 | dice_loss=0.433322 | bce=0.007418 | mse=0.001297 | lr=3.74719e-05 | epoch_time=00:01:03 | elapsed=13:21:19 | ETA=06:45:29 | estimated_finish=2026-06-17 19:49:45
+Epoch 665/1000 finished | loss=0.438860 | dice_loss=0.428842 | bce=0.008463 | mse=0.001554 | lr=3.73715e-05 | epoch_time=00:01:02 | elapsed=13:22:22 | ETA=06:44:12 | estimated_finish=2026-06-17 19:49:31
+Quick validation epoch=665 | pseudo_dice=0.576806 | val_time=00:00:07
+Epoch 666/1000 finished | loss=0.474812 | dice_loss=0.462707 | bce=0.010272 | mse=0.001833 | lr=3.72711e-05 | epoch_time=00:01:04 | elapsed=13:23:34 | ETA=06:42:59 | estimated_finish=2026-06-17 19:49:30
+Epoch 667/1000 finished | loss=0.421072 | dice_loss=0.411818 | bce=0.007852 | mse=0.001402 | lr=3.71706e-05 | epoch_time=00:01:03 | elapsed=13:24:37 | ETA=06:41:42 | estimated_finish=2026-06-17 19:49:16
+Epoch 668/1000 finished | loss=0.472049 | dice_loss=0.461412 | bce=0.009093 | mse=0.001544 | lr=3.70701e-05 | epoch_time=00:01:03 | elapsed=13:25:41 | ETA=06:40:25 | estimated_finish=2026-06-17 19:49:04
+Epoch 669/1000 finished | loss=0.378528 | dice_loss=0.366268 | bce=0.010366 | mse=0.001894 | lr=3.69696e-05 | epoch_time=00:01:03 | elapsed=13:26:44 | ETA=06:39:09 | estimated_finish=2026-06-17 19:48:50
+Epoch 670/1000 finished | loss=0.457225 | dice_loss=0.450167 | bce=0.005988 | mse=0.001069 | lr=3.68691e-05 | epoch_time=00:01:02 | elapsed=13:27:47 | ETA=06:37:52 | estimated_finish=2026-06-17 19:48:36
+Quick validation epoch=670 | pseudo_dice=0.460329 | val_time=00:00:07
+Epoch 671/1000 finished | loss=0.433880 | dice_loss=0.424463 | bce=0.007933 | mse=0.001484 | lr=3.67685e-05 | epoch_time=00:01:04 | elapsed=13:28:59 | ETA=06:36:39 | estimated_finish=2026-06-17 19:48:35
+Epoch 672/1000 finished | loss=0.417200 | dice_loss=0.405346 | bce=0.010035 | mse=0.001819 | lr=3.66679e-05 | epoch_time=00:01:03 | elapsed=13:30:03 | ETA=06:35:22 | estimated_finish=2026-06-17 19:48:22
+Epoch 673/1000 finished | loss=0.396016 | dice_loss=0.386110 | bce=0.008425 | mse=0.001482 | lr=3.65673e-05 | epoch_time=00:01:05 | elapsed=13:31:09 | ETA=06:34:07 | estimated_finish=2026-06-17 19:48:13
+Epoch 674/1000 finished | loss=0.355879 | dice_loss=0.347693 | bce=0.006940 | mse=0.001246 | lr=3.64666e-05 | epoch_time=00:01:03 | elapsed=13:32:12 | ETA=06:32:51 | estimated_finish=2026-06-17 19:48:00
+Epoch 675/1000 finished | loss=0.409377 | dice_loss=0.399728 | bce=0.008130 | mse=0.001518 | lr=3.6366e-05 | epoch_time=00:01:03 | elapsed=13:33:16 | ETA=06:31:34 | estimated_finish=2026-06-17 19:47:47
+Quick validation epoch=675 | pseudo_dice=0.516494 | val_time=00:00:07
+Epoch 676/1000 finished | loss=0.416828 | dice_loss=0.406912 | bce=0.008411 | mse=0.001506 | lr=3.62652e-05 | epoch_time=00:01:02 | elapsed=13:34:26 | ETA=06:30:21 | estimated_finish=2026-06-17 19:47:44
+Epoch 677/1000 finished | loss=0.400619 | dice_loss=0.388030 | bce=0.010783 | mse=0.001806 | lr=3.61645e-05 | epoch_time=00:01:04 | elapsed=13:35:31 | ETA=06:29:05 | estimated_finish=2026-06-17 19:47:33
+Epoch 678/1000 finished | loss=0.431212 | dice_loss=0.420929 | bce=0.008668 | mse=0.001615 | lr=3.60637e-05 | epoch_time=00:01:12 | elapsed=13:36:44 | ETA=06:27:53 | estimated_finish=2026-06-17 19:47:34
+Epoch 679/1000 finished | loss=0.407317 | dice_loss=0.396115 | bce=0.009471 | mse=0.001730 | lr=3.59629e-05 | epoch_time=00:01:04 | elapsed=13:37:48 | ETA=06:26:37 | estimated_finish=2026-06-17 19:47:22
+Epoch 680/1000 finished | loss=0.429999 | dice_loss=0.419060 | bce=0.009259 | mse=0.001680 | lr=3.5862e-05 | epoch_time=00:01:02 | elapsed=13:38:50 | ETA=06:25:20 | estimated_finish=2026-06-17 19:47:08
+Quick validation epoch=680 | pseudo_dice=0.402524 | val_time=00:00:07
+Epoch 681/1000 finished | loss=0.402099 | dice_loss=0.391935 | bce=0.008519 | mse=0.001645 | lr=3.57612e-05 | epoch_time=00:01:03 | elapsed=13:40:01 | ETA=06:24:07 | estimated_finish=2026-06-17 19:47:05
+Epoch 682/1000 finished | loss=0.392268 | dice_loss=0.384221 | bce=0.006835 | mse=0.001212 | lr=3.56603e-05 | epoch_time=00:01:01 | elapsed=13:41:03 | ETA=06:22:50 | estimated_finish=2026-06-17 19:46:50
+Epoch 683/1000 finished | loss=0.418682 | dice_loss=0.409582 | bce=0.007707 | mse=0.001393 | lr=3.55593e-05 | epoch_time=00:01:02 | elapsed=13:42:06 | ETA=06:21:33 | estimated_finish=2026-06-17 19:46:36
+Epoch 684/1000 finished | loss=0.501292 | dice_loss=0.489592 | bce=0.009934 | mse=0.001767 | lr=3.54583e-05 | epoch_time=00:01:06 | elapsed=13:43:13 | ETA=06:20:19 | estimated_finish=2026-06-17 19:46:29
+Epoch 685/1000 finished | loss=0.404262 | dice_loss=0.393571 | bce=0.009075 | mse=0.001615 | lr=3.53573e-05 | epoch_time=00:01:01 | elapsed=13:44:15 | ETA=06:19:02 | estimated_finish=2026-06-17 19:46:14
+Quick validation epoch=685 | pseudo_dice=0.344952 | val_time=00:00:07
+Epoch 686/1000 finished | loss=0.444561 | dice_loss=0.431808 | bce=0.010688 | mse=0.002065 | lr=3.52563e-05 | epoch_time=00:01:03 | elapsed=13:45:26 | ETA=06:17:49 | estimated_finish=2026-06-17 19:46:12
+Epoch 687/1000 finished | loss=0.396819 | dice_loss=0.387654 | bce=0.007784 | mse=0.001381 | lr=3.51552e-05 | epoch_time=00:01:08 | elapsed=13:46:34 | ETA=06:16:35 | estimated_finish=2026-06-17 19:46:07
+Epoch 688/1000 finished | loss=0.433190 | dice_loss=0.424127 | bce=0.007696 | mse=0.001367 | lr=3.50541e-05 | epoch_time=00:01:05 | elapsed=13:47:40 | ETA=06:15:20 | estimated_finish=2026-06-17 19:45:57
+Epoch 689/1000 finished | loss=0.402758 | dice_loss=0.394746 | bce=0.006751 | mse=0.001262 | lr=3.4953e-05 | epoch_time=00:01:05 | elapsed=13:48:46 | ETA=06:14:05 | estimated_finish=2026-06-17 19:45:48
+Epoch 690/1000 finished | loss=0.407444 | dice_loss=0.396471 | bce=0.009311 | mse=0.001662 | lr=3.48518e-05 | epoch_time=00:01:05 | elapsed=13:49:51 | ETA=06:12:50 | estimated_finish=2026-06-17 19:45:39
+Quick validation epoch=690 | pseudo_dice=0.406098 | val_time=00:00:07
+Epoch 691/1000 finished | loss=0.401898 | dice_loss=0.392194 | bce=0.008166 | mse=0.001538 | lr=3.47506e-05 | epoch_time=00:01:02 | elapsed=13:51:02 | ETA=06:11:37 | estimated_finish=2026-06-17 19:45:36
+Epoch 692/1000 finished | loss=0.451698 | dice_loss=0.441598 | bce=0.008735 | mse=0.001365 | lr=3.46494e-05 | epoch_time=00:01:02 | elapsed=13:52:05 | ETA=06:10:21 | estimated_finish=2026-06-17 19:45:23
+Epoch 693/1000 finished | loss=0.445673 | dice_loss=0.436628 | bce=0.007651 | mse=0.001394 | lr=3.45481e-05 | epoch_time=00:01:02 | elapsed=13:53:08 | ETA=06:09:04 | estimated_finish=2026-06-17 19:45:09
+Epoch 694/1000 finished | loss=0.422729 | dice_loss=0.413465 | bce=0.007854 | mse=0.001410 | lr=3.44468e-05 | epoch_time=00:01:03 | elapsed=13:54:11 | ETA=06:07:48 | estimated_finish=2026-06-17 19:44:57
+Epoch 695/1000 finished | loss=0.382752 | dice_loss=0.372805 | bce=0.008431 | mse=0.001516 | lr=3.43455e-05 | epoch_time=00:01:03 | elapsed=13:55:15 | ETA=06:06:33 | estimated_finish=2026-06-17 19:44:45
+Quick validation epoch=695 | pseudo_dice=0.259628 | val_time=00:00:07
+Epoch 696/1000 finished | loss=0.444545 | dice_loss=0.435187 | bce=0.007926 | mse=0.001432 | lr=3.42441e-05 | epoch_time=00:01:02 | elapsed=13:56:25 | ETA=06:05:19 | estimated_finish=2026-06-17 19:44:42
+Epoch 697/1000 finished | loss=0.462310 | dice_loss=0.453142 | bce=0.007743 | mse=0.001425 | lr=3.41427e-05 | epoch_time=00:01:02 | elapsed=13:57:28 | ETA=06:04:03 | estimated_finish=2026-06-17 19:44:28
+Epoch 698/1000 finished | loss=0.402146 | dice_loss=0.391619 | bce=0.008914 | mse=0.001614 | lr=3.40413e-05 | epoch_time=00:01:03 | elapsed=13:58:32 | ETA=06:02:48 | estimated_finish=2026-06-17 19:44:17
+Epoch 699/1000 finished | loss=0.425171 | dice_loss=0.415888 | bce=0.007826 | mse=0.001457 | lr=3.39398e-05 | epoch_time=00:01:04 | elapsed=13:59:36 | ETA=06:01:33 | estimated_finish=2026-06-17 19:44:06
+Epoch 700/1000 finished | loss=0.435823 | dice_loss=0.424710 | bce=0.009443 | mse=0.001669 | lr=3.38383e-05 | epoch_time=00:01:05 | elapsed=14:00:42 | ETA=06:00:18 | estimated_finish=2026-06-17 19:43:57
+Quick validation epoch=700 | pseudo_dice=0.470905 | val_time=00:00:07
+Full validation epoch=700 | mean_dice=0.256711 | val_time=00:14:01
+New best full-validation model saved | dice=0.256711 | epoch=700
+Epoch 701/1000 finished | loss=0.389710 | dice_loss=0.379390 | bce=0.008774 | mse=0.001546 | lr=3.37368e-05 | epoch_time=00:01:05 | elapsed=14:15:57 | ETA=06:05:05 | estimated_finish=2026-06-17 20:03:59
+Epoch 702/1000 finished | loss=0.432562 | dice_loss=0.421038 | bce=0.009691 | mse=0.001833 | lr=3.36352e-05 | epoch_time=00:01:01 | elapsed=14:16:59 | ETA=06:03:47 | estimated_finish=2026-06-17 20:03:43
+Epoch 703/1000 finished | loss=0.417056 | dice_loss=0.406869 | bce=0.008598 | mse=0.001590 | lr=3.35336e-05 | epoch_time=00:01:04 | elapsed=14:18:04 | ETA=06:02:30 | estimated_finish=2026-06-17 20:03:31
+Epoch 704/1000 finished | loss=0.409796 | dice_loss=0.402487 | bce=0.006194 | mse=0.001115 | lr=3.3432e-05 | epoch_time=00:01:02 | elapsed=14:19:07 | ETA=06:01:13 | estimated_finish=2026-06-17 20:03:17
+Epoch 705/1000 finished | loss=0.422969 | dice_loss=0.410348 | bce=0.010741 | mse=0.001880 | lr=3.33303e-05 | epoch_time=00:01:01 | elapsed=14:20:08 | ETA=05:59:55 | estimated_finish=2026-06-17 20:03:00
+Quick validation epoch=705 | pseudo_dice=0.363069 | val_time=00:00:07
+Epoch 706/1000 finished | loss=0.372543 | dice_loss=0.363435 | bce=0.007707 | mse=0.001400 | lr=3.32286e-05 | epoch_time=00:01:05 | elapsed=14:21:21 | ETA=05:58:41 | estimated_finish=2026-06-17 20:02:59
+Epoch 707/1000 finished | loss=0.459730 | dice_loss=0.449808 | bce=0.008392 | mse=0.001530 | lr=3.31269e-05 | epoch_time=00:01:04 | elapsed=14:22:25 | ETA=05:57:24 | estimated_finish=2026-06-17 20:02:47
+Epoch 708/1000 finished | loss=0.423915 | dice_loss=0.414702 | bce=0.007817 | mse=0.001397 | lr=3.30251e-05 | epoch_time=00:01:02 | elapsed=14:23:28 | ETA=05:56:07 | estimated_finish=2026-06-17 20:02:32
+Epoch 709/1000 finished | loss=0.457024 | dice_loss=0.449937 | bce=0.006012 | mse=0.001075 | lr=3.29233e-05 | epoch_time=00:01:02 | elapsed=14:24:31 | ETA=05:54:50 | estimated_finish=2026-06-17 20:02:18
+Epoch 710/1000 finished | loss=0.436281 | dice_loss=0.424979 | bce=0.009568 | mse=0.001734 | lr=3.28215e-05 | epoch_time=00:01:02 | elapsed=14:25:34 | ETA=05:53:32 | estimated_finish=2026-06-17 20:02:04
+Quick validation epoch=710 | pseudo_dice=0.565485 | val_time=00:00:07
+Epoch 711/1000 finished | loss=0.475530 | dice_loss=0.466658 | bce=0.007529 | mse=0.001343 | lr=3.27196e-05 | epoch_time=00:01:02 | elapsed=14:26:45 | ETA=05:52:18 | estimated_finish=2026-06-17 20:02:00
+Epoch 712/1000 finished | loss=0.425697 | dice_loss=0.415097 | bce=0.008976 | mse=0.001624 | lr=3.26177e-05 | epoch_time=00:01:03 | elapsed=14:27:48 | ETA=05:51:01 | estimated_finish=2026-06-17 20:01:47
+Epoch 713/1000 finished | loss=0.421264 | dice_loss=0.411445 | bce=0.008351 | mse=0.001468 | lr=3.25157e-05 | epoch_time=00:01:02 | elapsed=14:28:51 | ETA=05:49:44 | estimated_finish=2026-06-17 20:01:32
+Epoch 714/1000 finished | loss=0.470642 | dice_loss=0.459666 | bce=0.009278 | mse=0.001698 | lr=3.24138e-05 | epoch_time=00:01:03 | elapsed=14:29:54 | ETA=05:48:27 | estimated_finish=2026-06-17 20:01:18
+Epoch 715/1000 finished | loss=0.331782 | dice_loss=0.322136 | bce=0.008110 | mse=0.001536 | lr=3.23117e-05 | epoch_time=00:01:03 | elapsed=14:30:58 | ETA=05:47:10 | estimated_finish=2026-06-17 20:01:05
+Quick validation epoch=715 | pseudo_dice=0.395157 | val_time=00:00:07
+Epoch 716/1000 finished | loss=0.438648 | dice_loss=0.428307 | bce=0.008756 | mse=0.001585 | lr=3.22097e-05 | epoch_time=00:01:03 | elapsed=14:32:09 | ETA=05:45:56 | estimated_finish=2026-06-17 20:01:02
+Epoch 717/1000 finished | loss=0.394634 | dice_loss=0.384803 | bce=0.008288 | mse=0.001543 | lr=3.21076e-05 | epoch_time=00:01:01 | elapsed=14:33:11 | ETA=05:44:38 | estimated_finish=2026-06-17 20:00:47
+Epoch 718/1000 finished | loss=0.468814 | dice_loss=0.461088 | bce=0.006547 | mse=0.001179 | lr=3.20055e-05 | epoch_time=00:01:05 | elapsed=14:34:17 | ETA=05:43:22 | estimated_finish=2026-06-17 20:00:36
+Epoch 719/1000 finished | loss=0.422977 | dice_loss=0.412668 | bce=0.008752 | mse=0.001557 | lr=3.19033e-05 | epoch_time=00:01:02 | elapsed=14:35:19 | ETA=05:42:05 | estimated_finish=2026-06-17 20:00:22
+Epoch 720/1000 finished | loss=0.426173 | dice_loss=0.415982 | bce=0.008610 | mse=0.001581 | lr=3.18011e-05 | epoch_time=00:01:03 | elapsed=14:36:23 | ETA=05:40:49 | estimated_finish=2026-06-17 20:00:09
+Quick validation epoch=720 | pseudo_dice=0.440146 | val_time=00:00:08
+Epoch 721/1000 finished | loss=0.436530 | dice_loss=0.425590 | bce=0.009192 | mse=0.001749 | lr=3.16989e-05 | epoch_time=00:01:04 | elapsed=14:37:36 | ETA=05:39:35 | estimated_finish=2026-06-17 20:00:08
+Epoch 722/1000 finished | loss=0.419909 | dice_loss=0.407796 | bce=0.010261 | mse=0.001852 | lr=3.15966e-05 | epoch_time=00:01:02 | elapsed=14:38:38 | ETA=05:38:18 | estimated_finish=2026-06-17 19:59:54
+Epoch 723/1000 finished | loss=0.441510 | dice_loss=0.431258 | bce=0.008675 | mse=0.001577 | lr=3.14943e-05 | epoch_time=00:01:03 | elapsed=14:39:42 | ETA=05:37:02 | estimated_finish=2026-06-17 19:59:42
+Epoch 724/1000 finished | loss=0.440652 | dice_loss=0.428769 | bce=0.010021 | mse=0.001862 | lr=3.13919e-05 | epoch_time=00:01:02 | elapsed=14:40:46 | ETA=05:35:45 | estimated_finish=2026-06-17 19:59:28
+Epoch 725/1000 finished | loss=0.406582 | dice_loss=0.394750 | bce=0.010148 | mse=0.001684 | lr=3.12896e-05 | epoch_time=00:01:01 | elapsed=14:41:48 | ETA=05:34:28 | estimated_finish=2026-06-17 19:59:13
+Quick validation epoch=725 | pseudo_dice=0.391281 | val_time=00:00:07
+Epoch 726/1000 finished | loss=0.500820 | dice_loss=0.492602 | bce=0.006935 | mse=0.001284 | lr=3.11871e-05 | epoch_time=00:01:03 | elapsed=14:42:59 | ETA=05:33:15 | estimated_finish=2026-06-17 19:59:11
+Epoch 727/1000 finished | loss=0.410650 | dice_loss=0.401590 | bce=0.007636 | mse=0.001423 | lr=3.10847e-05 | epoch_time=00:01:01 | elapsed=14:44:01 | ETA=05:31:57 | estimated_finish=2026-06-17 19:58:56
+Epoch 728/1000 finished | loss=0.440274 | dice_loss=0.432447 | bce=0.006590 | mse=0.001237 | lr=3.09822e-05 | epoch_time=00:01:05 | elapsed=14:45:07 | ETA=05:30:42 | estimated_finish=2026-06-17 19:58:46
+Epoch 729/1000 finished | loss=0.372183 | dice_loss=0.362437 | bce=0.008282 | mse=0.001464 | lr=3.08796e-05 | epoch_time=00:01:01 | elapsed=14:46:09 | ETA=05:29:25 | estimated_finish=2026-06-17 19:58:31
+Epoch 730/1000 finished | loss=0.390213 | dice_loss=0.377571 | bce=0.010704 | mse=0.001938 | lr=3.07771e-05 | epoch_time=00:01:02 | elapsed=14:47:11 | ETA=05:28:08 | estimated_finish=2026-06-17 19:58:17
+Quick validation epoch=730 | pseudo_dice=0.491378 | val_time=00:00:07
+Epoch 731/1000 finished | loss=0.429342 | dice_loss=0.421138 | bce=0.006894 | mse=0.001310 | lr=3.06745e-05 | epoch_time=00:01:10 | elapsed=14:48:30 | ETA=05:26:57 | estimated_finish=2026-06-17 19:58:24
+Epoch 732/1000 finished | loss=0.363777 | dice_loss=0.353011 | bce=0.009139 | mse=0.001626 | lr=3.05718e-05 | epoch_time=00:01:06 | elapsed=14:49:36 | ETA=05:25:42 | estimated_finish=2026-06-17 19:58:16
+Epoch 733/1000 finished | loss=0.420191 | dice_loss=0.408890 | bce=0.009549 | mse=0.001753 | lr=3.04691e-05 | epoch_time=00:01:03 | elapsed=14:50:41 | ETA=05:24:26 | estimated_finish=2026-06-17 19:58:04
+Epoch 734/1000 finished | loss=0.430462 | dice_loss=0.420491 | bce=0.008415 | mse=0.001556 | lr=3.03664e-05 | epoch_time=00:01:02 | elapsed=14:51:43 | ETA=05:23:09 | estimated_finish=2026-06-17 19:57:49
+Epoch 735/1000 finished | loss=0.397693 | dice_loss=0.387850 | bce=0.008339 | mse=0.001504 | lr=3.02636e-05 | epoch_time=00:01:02 | elapsed=14:52:46 | ETA=05:21:53 | estimated_finish=2026-06-17 19:57:36
+Quick validation epoch=735 | pseudo_dice=0.445387 | val_time=00:00:07
+Epoch 736/1000 finished | loss=0.456224 | dice_loss=0.446668 | bce=0.008106 | mse=0.001450 | lr=3.01608e-05 | epoch_time=00:01:04 | elapsed=14:53:58 | ETA=05:20:39 | estimated_finish=2026-06-17 19:57:35
+Epoch 737/1000 finished | loss=0.388649 | dice_loss=0.376974 | bce=0.009879 | mse=0.001795 | lr=3.0058e-05 | epoch_time=00:01:05 | elapsed=14:55:03 | ETA=05:19:24 | estimated_finish=2026-06-17 19:57:25
+Epoch 738/1000 finished | loss=0.427878 | dice_loss=0.418176 | bce=0.008170 | mse=0.001532 | lr=2.99551e-05 | epoch_time=00:01:01 | elapsed=14:56:05 | ETA=05:18:07 | estimated_finish=2026-06-17 19:57:10
+Epoch 739/1000 finished | loss=0.450266 | dice_loss=0.440273 | bce=0.008452 | mse=0.001542 | lr=2.98522e-05 | epoch_time=00:01:03 | elapsed=14:57:09 | ETA=05:16:51 | estimated_finish=2026-06-17 19:56:57
+Epoch 740/1000 finished | loss=0.352972 | dice_loss=0.341863 | bce=0.009409 | mse=0.001699 | lr=2.97492e-05 | epoch_time=00:01:02 | elapsed=14:58:11 | ETA=05:15:34 | estimated_finish=2026-06-17 19:56:43
+Quick validation epoch=740 | pseudo_dice=0.647090 | val_time=00:00:07
+New best model saved by quick validation | pseudo_dice=0.647090 | epoch=740
+Epoch 741/1000 finished | loss=0.395074 | dice_loss=0.386634 | bce=0.007137 | mse=0.001303 | lr=2.96463e-05 | epoch_time=00:01:03 | elapsed=14:59:22 | ETA=05:14:21 | estimated_finish=2026-06-17 19:56:40
+Epoch 742/1000 finished | loss=0.384625 | dice_loss=0.372437 | bce=0.010352 | mse=0.001836 | lr=2.95432e-05 | epoch_time=00:01:02 | elapsed=15:00:24 | ETA=05:13:04 | estimated_finish=2026-06-17 19:56:26
+Epoch 743/1000 finished | loss=0.449190 | dice_loss=0.439438 | bce=0.008250 | mse=0.001502 | lr=2.94401e-05 | epoch_time=00:01:01 | elapsed=15:01:26 | ETA=05:11:48 | estimated_finish=2026-06-17 19:56:11
+Epoch 744/1000 finished | loss=0.405256 | dice_loss=0.396857 | bce=0.007081 | mse=0.001318 | lr=2.9337e-05 | epoch_time=00:01:01 | elapsed=15:02:28 | ETA=05:10:31 | estimated_finish=2026-06-17 19:55:57
+Epoch 745/1000 finished | loss=0.436196 | dice_loss=0.426484 | bce=0.008263 | mse=0.001450 | lr=2.92339e-05 | epoch_time=00:01:04 | elapsed=15:03:33 | ETA=05:09:16 | estimated_finish=2026-06-17 19:55:46
+Quick validation epoch=745 | pseudo_dice=0.387032 | val_time=00:00:07
+Epoch 746/1000 finished | loss=0.393252 | dice_loss=0.381851 | bce=0.009637 | mse=0.001764 | lr=2.91307e-05 | epoch_time=00:01:05 | elapsed=15:04:45 | ETA=05:08:03 | estimated_finish=2026-06-17 19:55:46
+Epoch 747/1000 finished | loss=0.424661 | dice_loss=0.413905 | bce=0.009150 | mse=0.001605 | lr=2.90274e-05 | epoch_time=00:01:02 | elapsed=15:05:49 | ETA=05:06:47 | estimated_finish=2026-06-17 19:55:33
+Epoch 748/1000 finished | loss=0.497174 | dice_loss=0.489428 | bce=0.006558 | mse=0.001188 | lr=2.89241e-05 | epoch_time=00:01:02 | elapsed=15:06:51 | ETA=05:05:31 | estimated_finish=2026-06-17 19:55:20
+Epoch 749/1000 finished | loss=0.384124 | dice_loss=0.371591 | bce=0.010637 | mse=0.001896 | lr=2.88208e-05 | epoch_time=00:01:03 | elapsed=15:07:55 | ETA=05:04:15 | estimated_finish=2026-06-17 19:55:08
+Epoch 750/1000 finished | loss=0.414262 | dice_loss=0.403685 | bce=0.008999 | mse=0.001578 | lr=2.87175e-05 | epoch_time=00:01:03 | elapsed=15:09:00 | ETA=05:03:00 | estimated_finish=2026-06-17 19:54:56
+Quick validation epoch=750 | pseudo_dice=0.575941 | val_time=00:00:07
+Epoch 751/1000 finished | loss=0.366636 | dice_loss=0.358655 | bce=0.006755 | mse=0.001226 | lr=2.86141e-05 | epoch_time=00:01:03 | elapsed=15:10:10 | ETA=05:01:46 | estimated_finish=2026-06-17 19:54:53
+Epoch 752/1000 finished | loss=0.426045 | dice_loss=0.414837 | bce=0.009527 | mse=0.001681 | lr=2.85106e-05 | epoch_time=00:01:01 | elapsed=15:11:12 | ETA=05:00:30 | estimated_finish=2026-06-17 19:54:39
+Epoch 753/1000 finished | loss=0.420405 | dice_loss=0.412907 | bce=0.006324 | mse=0.001175 | lr=2.84071e-05 | epoch_time=00:01:04 | elapsed=15:12:17 | ETA=04:59:14 | estimated_finish=2026-06-17 19:54:28
+Epoch 754/1000 finished | loss=0.457718 | dice_loss=0.446113 | bce=0.009890 | mse=0.001715 | lr=2.83036e-05 | epoch_time=00:01:01 | elapsed=15:13:18 | ETA=04:57:58 | estimated_finish=2026-06-17 19:54:14
+Epoch 755/1000 finished | loss=0.446654 | dice_loss=0.437204 | bce=0.008027 | mse=0.001423 | lr=2.82e-05 | epoch_time=00:01:05 | elapsed=15:14:24 | ETA=04:56:43 | estimated_finish=2026-06-17 19:54:05
+Quick validation epoch=755 | pseudo_dice=0.422759 | val_time=00:00:07
+Epoch 756/1000 finished | loss=0.416517 | dice_loss=0.406821 | bce=0.008146 | mse=0.001549 | lr=2.80964e-05 | epoch_time=00:01:03 | elapsed=15:15:35 | ETA=04:55:30 | estimated_finish=2026-06-17 19:54:02
+Epoch 757/1000 finished | loss=0.390904 | dice_loss=0.381408 | bce=0.008061 | mse=0.001435 | lr=2.79928e-05 | epoch_time=00:01:01 | elapsed=15:16:37 | ETA=04:54:14 | estimated_finish=2026-06-17 19:53:48
+Epoch 758/1000 finished | loss=0.449035 | dice_loss=0.439966 | bce=0.007654 | mse=0.001415 | lr=2.78891e-05 | epoch_time=00:01:02 | elapsed=15:17:40 | ETA=04:52:58 | estimated_finish=2026-06-17 19:53:36
+Epoch 759/1000 finished | loss=0.468894 | dice_loss=0.459325 | bce=0.008046 | mse=0.001523 | lr=2.77853e-05 | epoch_time=00:01:02 | elapsed=15:18:43 | ETA=04:51:42 | estimated_finish=2026-06-17 19:53:23
+Epoch 760/1000 finished | loss=0.413044 | dice_loss=0.402790 | bce=0.008674 | mse=0.001579 | lr=2.76815e-05 | epoch_time=00:01:03 | elapsed=15:19:47 | ETA=04:50:27 | estimated_finish=2026-06-17 19:53:11
+Quick validation epoch=760 | pseudo_dice=0.499898 | val_time=00:00:07
+Epoch 761/1000 finished | loss=0.414741 | dice_loss=0.404874 | bce=0.008287 | mse=0.001579 | lr=2.75777e-05 | epoch_time=00:01:03 | elapsed=15:20:58 | ETA=04:49:14 | estimated_finish=2026-06-17 19:53:10
+Epoch 762/1000 finished | loss=0.382390 | dice_loss=0.371453 | bce=0.009297 | mse=0.001640 | lr=2.74738e-05 | epoch_time=00:01:01 | elapsed=15:22:00 | ETA=04:47:58 | estimated_finish=2026-06-17 19:52:55
+Epoch 763/1000 finished | loss=0.422181 | dice_loss=0.412562 | bce=0.008156 | mse=0.001462 | lr=2.73699e-05 | epoch_time=00:01:01 | elapsed=15:23:02 | ETA=04:46:42 | estimated_finish=2026-06-17 19:52:41
+Epoch 764/1000 finished | loss=0.411656 | dice_loss=0.400521 | bce=0.009393 | mse=0.001742 | lr=2.7266e-05 | epoch_time=00:01:03 | elapsed=15:24:06 | ETA=04:45:27 | estimated_finish=2026-06-17 19:52:30
+Epoch 765/1000 finished | loss=0.399416 | dice_loss=0.389097 | bce=0.008757 | mse=0.001562 | lr=2.7162e-05 | epoch_time=00:01:03 | elapsed=15:25:09 | ETA=04:44:12 | estimated_finish=2026-06-17 19:52:18
+Quick validation epoch=765 | pseudo_dice=0.405780 | val_time=00:00:07
+Epoch 766/1000 finished | loss=0.372509 | dice_loss=0.360717 | bce=0.010046 | mse=0.001745 | lr=2.70579e-05 | epoch_time=00:01:04 | elapsed=15:26:21 | ETA=04:42:59 | estimated_finish=2026-06-17 19:52:17
+Epoch 767/1000 finished | loss=0.437330 | dice_loss=0.427332 | bce=0.008432 | mse=0.001565 | lr=2.69538e-05 | epoch_time=00:01:03 | elapsed=15:27:25 | ETA=04:41:44 | estimated_finish=2026-06-17 19:52:06
+Epoch 768/1000 finished | loss=0.418678 | dice_loss=0.407748 | bce=0.009224 | mse=0.001706 | lr=2.68497e-05 | epoch_time=00:01:02 | elapsed=15:28:28 | ETA=04:40:28 | estimated_finish=2026-06-17 19:51:54
+Epoch 769/1000 finished | loss=0.429270 | dice_loss=0.417548 | bce=0.009945 | mse=0.001776 | lr=2.67455e-05 | epoch_time=00:01:01 | elapsed=15:29:30 | ETA=04:39:12 | estimated_finish=2026-06-17 19:51:40
+Epoch 770/1000 finished | loss=0.408222 | dice_loss=0.396520 | bce=0.009884 | mse=0.001818 | lr=2.66413e-05 | epoch_time=00:01:01 | elapsed=15:30:32 | ETA=04:37:57 | estimated_finish=2026-06-17 19:51:26
+Quick validation epoch=770 | pseudo_dice=0.306944 | val_time=00:00:07
+Epoch 771/1000 finished | loss=0.406466 | dice_loss=0.398495 | bce=0.006707 | mse=0.001264 | lr=2.6537e-05 | epoch_time=00:01:01 | elapsed=15:31:41 | ETA=04:36:43 | estimated_finish=2026-06-17 19:51:22
+Epoch 772/1000 finished | loss=0.378006 | dice_loss=0.366764 | bce=0.009487 | mse=0.001755 | lr=2.64327e-05 | epoch_time=00:01:02 | elapsed=15:32:44 | ETA=04:35:28 | estimated_finish=2026-06-17 19:51:09
+Epoch 773/1000 finished | loss=0.417814 | dice_loss=0.406999 | bce=0.009176 | mse=0.001639 | lr=2.63283e-05 | epoch_time=00:01:02 | elapsed=15:33:46 | ETA=04:34:12 | estimated_finish=2026-06-17 19:50:56
+Epoch 774/1000 finished | loss=0.407058 | dice_loss=0.398445 | bce=0.007260 | mse=0.001354 | lr=2.62239e-05 | epoch_time=00:01:02 | elapsed=15:34:50 | ETA=04:32:57 | estimated_finish=2026-06-17 19:50:44
+Epoch 775/1000 finished | loss=0.406657 | dice_loss=0.395768 | bce=0.009160 | mse=0.001729 | lr=2.61195e-05 | epoch_time=00:01:02 | elapsed=15:35:52 | ETA=04:31:42 | estimated_finish=2026-06-17 19:50:32
+Quick validation epoch=775 | pseudo_dice=0.416609 | val_time=00:00:06
+Epoch 776/1000 finished | loss=0.423148 | dice_loss=0.412784 | bce=0.008721 | mse=0.001643 | lr=2.6015e-05 | epoch_time=00:01:05 | elapsed=15:37:05 | ETA=04:30:30 | estimated_finish=2026-06-17 19:50:32
+Epoch 777/1000 finished | loss=0.409036 | dice_loss=0.398232 | bce=0.009119 | mse=0.001685 | lr=2.59104e-05 | epoch_time=00:01:09 | elapsed=15:38:15 | ETA=04:29:16 | estimated_finish=2026-06-17 19:50:28
+Epoch 778/1000 finished | loss=0.452154 | dice_loss=0.442248 | bce=0.008427 | mse=0.001478 | lr=2.58058e-05 | epoch_time=00:01:03 | elapsed=15:39:19 | ETA=04:28:01 | estimated_finish=2026-06-17 19:50:18
+Epoch 779/1000 finished | loss=0.401637 | dice_loss=0.391054 | bce=0.009000 | mse=0.001583 | lr=2.57012e-05 | epoch_time=00:01:03 | elapsed=15:40:23 | ETA=04:26:47 | estimated_finish=2026-06-17 19:50:07
+Epoch 780/1000 finished | loss=0.341003 | dice_loss=0.330320 | bce=0.009021 | mse=0.001662 | lr=2.55965e-05 | epoch_time=00:01:03 | elapsed=15:41:27 | ETA=04:25:32 | estimated_finish=2026-06-17 19:49:56
+Quick validation epoch=780 | pseudo_dice=0.378181 | val_time=00:00:06
+Epoch 781/1000 finished | loss=0.380675 | dice_loss=0.369755 | bce=0.009240 | mse=0.001680 | lr=2.54918e-05 | epoch_time=00:01:04 | elapsed=15:42:38 | ETA=04:24:19 | estimated_finish=2026-06-17 19:49:54
+Epoch 782/1000 finished | loss=0.419351 | dice_loss=0.410518 | bce=0.007512 | mse=0.001321 | lr=2.5387e-05 | epoch_time=00:01:01 | elapsed=15:43:40 | ETA=04:23:04 | estimated_finish=2026-06-17 19:49:41
+Epoch 783/1000 finished | loss=0.401516 | dice_loss=0.390757 | bce=0.009117 | mse=0.001643 | lr=2.52821e-05 | epoch_time=00:01:05 | elapsed=15:44:45 | ETA=04:21:49 | estimated_finish=2026-06-17 19:49:32
+Epoch 784/1000 finished | loss=0.405997 | dice_loss=0.397595 | bce=0.007136 | mse=0.001266 | lr=2.51773e-05 | epoch_time=00:01:03 | elapsed=15:45:49 | ETA=04:20:35 | estimated_finish=2026-06-17 19:49:21
+Epoch 785/1000 finished | loss=0.398858 | dice_loss=0.389308 | bce=0.008048 | mse=0.001502 | lr=2.50723e-05 | epoch_time=00:01:03 | elapsed=15:46:53 | ETA=04:19:20 | estimated_finish=2026-06-17 19:49:10
+Quick validation epoch=785 | pseudo_dice=0.517613 | val_time=00:00:06
+Epoch 786/1000 finished | loss=0.426134 | dice_loss=0.414618 | bce=0.009782 | mse=0.001734 | lr=2.49673e-05 | epoch_time=00:01:03 | elapsed=15:48:03 | ETA=04:18:07 | estimated_finish=2026-06-17 19:49:08
+Epoch 787/1000 finished | loss=0.413347 | dice_loss=0.402082 | bce=0.009512 | mse=0.001754 | lr=2.48623e-05 | epoch_time=00:01:05 | elapsed=15:49:09 | ETA=04:16:53 | estimated_finish=2026-06-17 19:48:59
+Epoch 788/1000 finished | loss=0.422719 | dice_loss=0.412614 | bce=0.008597 | mse=0.001508 | lr=2.47572e-05 | epoch_time=00:01:03 | elapsed=15:50:13 | ETA=04:15:38 | estimated_finish=2026-06-17 19:48:49
+Epoch 789/1000 finished | loss=0.445694 | dice_loss=0.434778 | bce=0.009215 | mse=0.001701 | lr=2.46521e-05 | epoch_time=00:01:02 | elapsed=15:51:16 | ETA=04:14:23 | estimated_finish=2026-06-17 19:48:37
+Epoch 790/1000 finished | loss=0.510196 | dice_loss=0.501276 | bce=0.007496 | mse=0.001424 | lr=2.45469e-05 | epoch_time=00:01:01 | elapsed=15:52:18 | ETA=04:13:08 | estimated_finish=2026-06-17 19:48:24
+Quick validation epoch=790 | pseudo_dice=0.324918 | val_time=00:00:07
+Epoch 791/1000 finished | loss=0.402531 | dice_loss=0.389195 | bce=0.011239 | mse=0.002097 | lr=2.44417e-05 | epoch_time=00:01:02 | elapsed=15:53:28 | ETA=04:11:55 | estimated_finish=2026-06-17 19:48:21
+Epoch 792/1000 finished | loss=0.445888 | dice_loss=0.436520 | bce=0.007910 | mse=0.001458 | lr=2.43364e-05 | epoch_time=00:01:03 | elapsed=15:54:32 | ETA=04:10:41 | estimated_finish=2026-06-17 19:48:10
+Epoch 793/1000 finished | loss=0.421342 | dice_loss=0.414431 | bce=0.005869 | mse=0.001042 | lr=2.42311e-05 | epoch_time=00:01:03 | elapsed=15:55:36 | ETA=04:09:26 | estimated_finish=2026-06-17 19:47:59
+Epoch 794/1000 finished | loss=0.371485 | dice_loss=0.360855 | bce=0.008991 | mse=0.001639 | lr=2.41257e-05 | epoch_time=00:01:00 | elapsed=15:56:37 | ETA=04:08:11 | estimated_finish=2026-06-17 19:47:45
+Epoch 795/1000 finished | loss=0.441003 | dice_loss=0.431268 | bce=0.008224 | mse=0.001511 | lr=2.40203e-05 | epoch_time=00:01:02 | elapsed=15:57:40 | ETA=04:06:56 | estimated_finish=2026-06-17 19:47:33
+Quick validation epoch=795 | pseudo_dice=0.261856 | val_time=00:00:07
+Epoch 796/1000 finished | loss=0.431256 | dice_loss=0.419853 | bce=0.009669 | mse=0.001734 | lr=2.39148e-05 | epoch_time=00:01:01 | elapsed=15:58:49 | ETA=04:05:43 | estimated_finish=2026-06-17 19:47:29
+Epoch 797/1000 finished | loss=0.422914 | dice_loss=0.413247 | bce=0.008116 | mse=0.001551 | lr=2.38093e-05 | epoch_time=00:01:01 | elapsed=15:59:50 | ETA=04:04:28 | estimated_finish=2026-06-17 19:47:16
+Epoch 798/1000 finished | loss=0.397944 | dice_loss=0.388625 | bce=0.007877 | mse=0.001442 | lr=2.37037e-05 | epoch_time=00:01:00 | elapsed=16:00:51 | ETA=04:03:13 | estimated_finish=2026-06-17 19:47:02
+Epoch 799/1000 finished | loss=0.375967 | dice_loss=0.367681 | bce=0.007031 | mse=0.001254 | lr=2.35981e-05 | epoch_time=00:01:03 | elapsed=16:01:55 | ETA=04:01:59 | estimated_finish=2026-06-17 19:46:51
+Epoch 800/1000 finished | loss=0.394238 | dice_loss=0.385349 | bce=0.007497 | mse=0.001392 | lr=2.34924e-05 | epoch_time=00:01:02 | elapsed=16:02:58 | ETA=04:00:44 | estimated_finish=2026-06-17 19:46:39
+Quick validation epoch=800 | pseudo_dice=0.507708 | val_time=00:00:07
+Full validation epoch=800 | mean_dice=0.260786 | val_time=00:14:01
+New best full-validation model saved | dice=0.260786 | epoch=800
+Epoch 801/1000 finished | loss=0.383756 | dice_loss=0.372825 | bce=0.009250 | mse=0.001680 | lr=2.33866e-05 | epoch_time=00:01:02 | elapsed=16:18:09 | ETA=04:03:00 | estimated_finish=2026-06-17 20:04:06
+Epoch 802/1000 finished | loss=0.389460 | dice_loss=0.381105 | bce=0.007036 | mse=0.001319 | lr=2.32808e-05 | epoch_time=00:01:01 | elapsed=16:19:10 | ETA=04:01:44 | estimated_finish=2026-06-17 20:03:52
+Epoch 803/1000 finished | loss=0.362081 | dice_loss=0.352542 | bce=0.008108 | mse=0.001431 | lr=2.3175e-05 | epoch_time=00:01:05 | elapsed=16:20:16 | ETA=04:00:29 | estimated_finish=2026-06-17 20:03:42
+Epoch 804/1000 finished | loss=0.371230 | dice_loss=0.362701 | bce=0.007218 | mse=0.001312 | lr=2.30691e-05 | epoch_time=00:01:04 | elapsed=16:21:21 | ETA=03:59:14 | estimated_finish=2026-06-17 20:03:31
+Epoch 805/1000 finished | loss=0.426110 | dice_loss=0.415465 | bce=0.008984 | mse=0.001661 | lr=2.29631e-05 | epoch_time=00:01:02 | elapsed=16:22:23 | ETA=03:57:58 | estimated_finish=2026-06-17 20:03:18
+Quick validation epoch=805 | pseudo_dice=0.370762 | val_time=00:00:07
+Epoch 806/1000 finished | loss=0.389063 | dice_loss=0.379704 | bce=0.007900 | mse=0.001458 | lr=2.28571e-05 | epoch_time=00:01:02 | elapsed=16:23:33 | ETA=03:56:44 | estimated_finish=2026-06-17 20:03:15
+Epoch 807/1000 finished | loss=0.377589 | dice_loss=0.369737 | bce=0.006678 | mse=0.001173 | lr=2.27511e-05 | epoch_time=00:01:03 | elapsed=16:24:37 | ETA=03:55:28 | estimated_finish=2026-06-17 20:03:02
+Epoch 808/1000 finished | loss=0.403268 | dice_loss=0.395075 | bce=0.006982 | mse=0.001210 | lr=2.26449e-05 | epoch_time=00:01:00 | elapsed=16:25:37 | ETA=03:54:12 | estimated_finish=2026-06-17 20:02:47
+Epoch 809/1000 finished | loss=0.407298 | dice_loss=0.397085 | bce=0.008698 | mse=0.001515 | lr=2.25388e-05 | epoch_time=00:01:02 | elapsed=16:26:40 | ETA=03:52:56 | estimated_finish=2026-06-17 20:02:33
+Epoch 810/1000 finished | loss=0.413133 | dice_loss=0.403936 | bce=0.007801 | mse=0.001396 | lr=2.24325e-05 | epoch_time=00:01:04 | elapsed=16:27:45 | ETA=03:51:41 | estimated_finish=2026-06-17 20:02:23
+Quick validation epoch=810 | pseudo_dice=0.282027 | val_time=00:00:07
+Epoch 811/1000 finished | loss=0.386091 | dice_loss=0.376891 | bce=0.007784 | mse=0.001416 | lr=2.23262e-05 | epoch_time=00:01:03 | elapsed=16:28:56 | ETA=03:50:28 | estimated_finish=2026-06-17 20:02:21
+Epoch 812/1000 finished | loss=0.396427 | dice_loss=0.386278 | bce=0.008591 | mse=0.001558 | lr=2.22199e-05 | epoch_time=00:01:04 | elapsed=16:30:00 | ETA=03:49:12 | estimated_finish=2026-06-17 20:02:10
+Epoch 813/1000 finished | loss=0.436619 | dice_loss=0.428688 | bce=0.006722 | mse=0.001209 | lr=2.21135e-05 | epoch_time=00:01:05 | elapsed=16:31:06 | ETA=03:47:58 | estimated_finish=2026-06-17 20:02:01
+Epoch 814/1000 finished | loss=0.405785 | dice_loss=0.394383 | bce=0.009687 | mse=0.001714 | lr=2.2007e-05 | epoch_time=00:01:04 | elapsed=16:32:11 | ETA=03:46:42 | estimated_finish=2026-06-17 20:01:51
+Epoch 815/1000 finished | loss=0.433266 | dice_loss=0.423839 | bce=0.007904 | mse=0.001523 | lr=2.19005e-05 | epoch_time=00:01:02 | elapsed=16:33:14 | ETA=03:45:27 | estimated_finish=2026-06-17 20:01:38
+Quick validation epoch=815 | pseudo_dice=0.457461 | val_time=00:00:07
+Epoch 816/1000 finished | loss=0.433751 | dice_loss=0.425467 | bce=0.007006 | mse=0.001278 | lr=2.1794e-05 | epoch_time=00:01:01 | elapsed=16:34:23 | ETA=03:44:13 | estimated_finish=2026-06-17 20:01:33
+Epoch 817/1000 finished | loss=0.382204 | dice_loss=0.373238 | bce=0.007577 | mse=0.001389 | lr=2.16873e-05 | epoch_time=00:01:02 | elapsed=16:35:26 | ETA=03:42:58 | estimated_finish=2026-06-17 20:01:21
+Epoch 818/1000 finished | loss=0.407541 | dice_loss=0.397465 | bce=0.008546 | mse=0.001529 | lr=2.15806e-05 | epoch_time=00:01:05 | elapsed=16:36:31 | ETA=03:41:43 | estimated_finish=2026-06-17 20:01:11
+Epoch 819/1000 finished | loss=0.439755 | dice_loss=0.430528 | bce=0.007805 | mse=0.001422 | lr=2.14739e-05 | epoch_time=00:01:03 | elapsed=16:37:35 | ETA=03:40:28 | estimated_finish=2026-06-17 20:01:00
+Epoch 820/1000 finished | loss=0.404696 | dice_loss=0.396764 | bce=0.006701 | mse=0.001231 | lr=2.13671e-05 | epoch_time=00:01:02 | elapsed=16:38:37 | ETA=03:39:12 | estimated_finish=2026-06-17 20:00:47
+Quick validation epoch=820 | pseudo_dice=0.324313 | val_time=00:00:07
+Epoch 821/1000 finished | loss=0.404005 | dice_loss=0.394280 | bce=0.008293 | mse=0.001433 | lr=2.12602e-05 | epoch_time=00:01:01 | elapsed=16:39:47 | ETA=03:37:58 | estimated_finish=2026-06-17 20:00:42
+Epoch 822/1000 finished | loss=0.410901 | dice_loss=0.401739 | bce=0.007704 | mse=0.001458 | lr=2.11533e-05 | epoch_time=00:01:04 | elapsed=16:40:51 | ETA=03:36:43 | estimated_finish=2026-06-17 20:00:32
+Epoch 823/1000 finished | loss=0.454547 | dice_loss=0.444635 | bce=0.008438 | mse=0.001474 | lr=2.10463e-05 | epoch_time=00:01:02 | elapsed=16:41:54 | ETA=03:35:28 | estimated_finish=2026-06-17 20:00:19
+Epoch 824/1000 finished | loss=0.404814 | dice_loss=0.396405 | bce=0.007149 | mse=0.001260 | lr=2.09393e-05 | epoch_time=00:01:02 | elapsed=16:42:56 | ETA=03:34:13 | estimated_finish=2026-06-17 20:00:07
+Epoch 825/1000 finished | loss=0.449055 | dice_loss=0.439907 | bce=0.007729 | mse=0.001419 | lr=2.08322e-05 | epoch_time=00:01:01 | elapsed=16:43:59 | ETA=03:32:57 | estimated_finish=2026-06-17 19:59:53
+Quick validation epoch=825 | pseudo_dice=0.342864 | val_time=00:00:07
+Epoch 826/1000 finished | loss=0.429655 | dice_loss=0.419423 | bce=0.008660 | mse=0.001571 | lr=2.0725e-05 | epoch_time=00:01:03 | elapsed=16:45:09 | ETA=03:31:44 | estimated_finish=2026-06-17 19:59:51
+Epoch 827/1000 finished | loss=0.377178 | dice_loss=0.368277 | bce=0.007539 | mse=0.001361 | lr=2.06178e-05 | epoch_time=00:01:09 | elapsed=16:46:19 | ETA=03:30:30 | estimated_finish=2026-06-17 19:59:46
+Epoch 828/1000 finished | loss=0.371958 | dice_loss=0.361351 | bce=0.008989 | mse=0.001618 | lr=2.05105e-05 | epoch_time=00:01:06 | elapsed=16:47:26 | ETA=03:29:16 | estimated_finish=2026-06-17 19:59:39
+Epoch 829/1000 finished | loss=0.364836 | dice_loss=0.356431 | bce=0.007133 | mse=0.001272 | lr=2.04031e-05 | epoch_time=00:01:06 | elapsed=16:48:32 | ETA=03:28:02 | estimated_finish=2026-06-17 19:59:31
+Epoch 830/1000 finished | loss=0.380102 | dice_loss=0.368756 | bce=0.009569 | mse=0.001777 | lr=2.02957e-05 | epoch_time=00:01:05 | elapsed=16:49:38 | ETA=03:26:47 | estimated_finish=2026-06-17 19:59:22
+Quick validation epoch=830 | pseudo_dice=0.405526 | val_time=00:00:07
+Epoch 831/1000 finished | loss=0.432889 | dice_loss=0.424644 | bce=0.007046 | mse=0.001199 | lr=2.01882e-05 | epoch_time=00:01:01 | elapsed=16:50:47 | ETA=03:25:33 | estimated_finish=2026-06-17 19:59:18

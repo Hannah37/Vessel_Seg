@@ -1,0 +1,503 @@
+OK: 3D-GCCN imports
+==========================================
+3D-GCCN SBO vessel training
+Fold: 0
+JSON: /vf/users/drdcad/Hyuna/projects/vessel_seg/code/train_3D-GCCN/jsons/sbo_vessel_5fold.json
+OUT_DIR: ./runs/fold0
+CUDA_VISIBLE_DEVICES: 0
+Start time: Tue Jun 16 21:05:56 EDT 2026
+==========================================
+Fold: 0
+Train cases: 92
+Val cases: 25
+Quick val cases: 25
+Preprocessed dir: /data/drdcad/datasets_nnUNet/nnUNet_preprocessed/Dataset101_SBOvessel/nnUNetPlans_3d_fullres
+Output dir: runs/fold0
+Graph stride: 12
+Edge dist: 16.0
+Effective patch batch: 2
+Total epochs: 1000
+Steps per epoch: 92
+Training started at: 2026-06-16 21:06:11
+Epoch 1/1000 finished | loss=1.093155 | cnn_loss=0.943205 | gnn_loss=0.149950 | lr=0.0009991 | epoch_time=00:01:15 | elapsed=00:01:15 | ETA=20:53:52 | estimated_finish=2026-06-17 18:01:19
+Epoch 2/1000 finished | loss=1.034330 | cnn_loss=0.949793 | gnn_loss=0.084537 | lr=0.0009982 | epoch_time=00:01:11 | elapsed=00:02:27 | ETA=20:24:04 | estimated_finish=2026-06-17 17:32:43
+Epoch 3/1000 finished | loss=0.998242 | cnn_loss=0.932567 | gnn_loss=0.065676 | lr=0.0009973 | epoch_time=00:01:08 | elapsed=00:03:35 | ETA=19:54:57 | estimated_finish=2026-06-17 17:04:44
+Epoch 4/1000 finished | loss=0.930724 | cnn_loss=0.874808 | gnn_loss=0.055916 | lr=0.000996399 | epoch_time=00:01:07 | elapsed=00:04:43 | ETA=19:36:40 | estimated_finish=2026-06-17 16:47:35
+Epoch 5/1000 finished | loss=0.899392 | cnn_loss=0.845985 | gnn_loss=0.053408 | lr=0.000995499 | epoch_time=00:01:07 | elapsed=00:05:50 | ETA=19:23:07 | estimated_finish=2026-06-17 16:35:10
+Quick validation epoch=5 | pseudo_dice=0.128108 | val_time=00:00:31
+New best model saved by quick validation | pseudo_dice=0.128108 | epoch=5
+Epoch 6/1000 finished | loss=0.797588 | cnn_loss=0.749416 | gnn_loss=0.048172 | lr=0.000994598 | epoch_time=00:01:10 | elapsed=00:07:32 | ETA=20:49:48 | estimated_finish=2026-06-17 18:03:32
+Epoch 7/1000 finished | loss=0.713941 | cnn_loss=0.670042 | gnn_loss=0.043899 | lr=0.000993698 | epoch_time=00:01:06 | elapsed=00:08:39 | ETA=20:28:10 | estimated_finish=2026-06-17 17:43:01
+Epoch 8/1000 finished | loss=0.770627 | cnn_loss=0.732596 | gnn_loss=0.038031 | lr=0.000992797 | epoch_time=00:01:06 | elapsed=00:09:45 | ETA=20:10:23 | estimated_finish=2026-06-17 17:26:20
+Epoch 9/1000 finished | loss=0.769827 | cnn_loss=0.727934 | gnn_loss=0.041893 | lr=0.000991896 | epoch_time=00:01:06 | elapsed=00:10:51 | ETA=19:56:19 | estimated_finish=2026-06-17 17:13:22
+Epoch 10/1000 finished | loss=0.795601 | cnn_loss=0.753900 | gnn_loss=0.041701 | lr=0.000990995 | epoch_time=00:01:07 | elapsed=00:11:59 | ETA=19:46:39 | estimated_finish=2026-06-17 17:04:50
+Quick validation epoch=10 | pseudo_dice=0.370697 | val_time=00:00:29
+New best model saved by quick validation | pseudo_dice=0.370697 | epoch=10
+Epoch 11/1000 finished | loss=0.766069 | cnn_loss=0.726015 | gnn_loss=0.040054 | lr=0.000990095 | epoch_time=00:01:05 | elapsed=00:13:34 | ETA=20:21:14 | estimated_finish=2026-06-17 17:41:01
+Epoch 12/1000 finished | loss=0.721347 | cnn_loss=0.684515 | gnn_loss=0.036832 | lr=0.000989193 | epoch_time=00:01:07 | elapsed=00:14:42 | ETA=20:10:37 | estimated_finish=2026-06-17 17:31:31
+Epoch 13/1000 finished | loss=0.708382 | cnn_loss=0.672758 | gnn_loss=0.035625 | lr=0.000988292 | epoch_time=00:01:07 | elapsed=00:15:49 | ETA=20:01:49 | estimated_finish=2026-06-17 17:23:50
+Epoch 14/1000 finished | loss=0.765894 | cnn_loss=0.729564 | gnn_loss=0.036329 | lr=0.000987391 | epoch_time=00:01:05 | elapsed=00:16:55 | ETA=19:52:00 | estimated_finish=2026-06-17 17:15:07
+Epoch 15/1000 finished | loss=0.672747 | cnn_loss=0.638369 | gnn_loss=0.034378 | lr=0.00098649 | epoch_time=00:01:07 | elapsed=00:18:02 | ETA=19:44:55 | estimated_finish=2026-06-17 17:09:10
+Quick validation epoch=15 | pseudo_dice=0.208453 | val_time=00:00:29
+Epoch 16/1000 finished | loss=0.730095 | cnn_loss=0.694947 | gnn_loss=0.035148 | lr=0.000985588 | epoch_time=00:01:06 | elapsed=00:19:38 | ETA=20:07:33 | estimated_finish=2026-06-17 17:33:22
+Epoch 17/1000 finished | loss=0.736022 | cnn_loss=0.701761 | gnn_loss=0.034261 | lr=0.000984687 | epoch_time=00:01:11 | elapsed=00:20:49 | ETA=20:03:49 | estimated_finish=2026-06-17 17:30:50
+Epoch 18/1000 finished | loss=0.756273 | cnn_loss=0.718183 | gnn_loss=0.038089 | lr=0.000983785 | epoch_time=00:01:07 | elapsed=00:21:57 | ETA=19:57:33 | estimated_finish=2026-06-17 17:25:42
+Epoch 19/1000 finished | loss=0.695051 | cnn_loss=0.660572 | gnn_loss=0.034479 | lr=0.000982884 | epoch_time=00:01:07 | elapsed=00:23:04 | ETA=19:51:07 | estimated_finish=2026-06-17 17:20:22
+Epoch 20/1000 finished | loss=0.727499 | cnn_loss=0.693054 | gnn_loss=0.034445 | lr=0.000981982 | epoch_time=00:01:08 | elapsed=00:24:12 | ETA=19:46:22 | estimated_finish=2026-06-17 17:16:46
+Quick validation epoch=20 | pseudo_dice=0.353238 | val_time=00:00:29
+Epoch 21/1000 finished | loss=0.686682 | cnn_loss=0.650213 | gnn_loss=0.036470 | lr=0.00098108 | epoch_time=00:01:08 | elapsed=00:25:50 | ETA=20:04:58 | estimated_finish=2026-06-17 17:37:01
+Epoch 22/1000 finished | loss=0.622828 | cnn_loss=0.591358 | gnn_loss=0.031470 | lr=0.000980178 | epoch_time=00:01:13 | elapsed=00:27:03 | ETA=20:03:12 | estimated_finish=2026-06-17 17:36:27
+Epoch 23/1000 finished | loss=0.747379 | cnn_loss=0.711406 | gnn_loss=0.035973 | lr=0.000979276 | epoch_time=00:01:05 | elapsed=00:28:09 | ETA=19:56:09 | estimated_finish=2026-06-17 17:30:30
+Epoch 24/1000 finished | loss=0.692924 | cnn_loss=0.659777 | gnn_loss=0.033147 | lr=0.000978374 | epoch_time=00:01:06 | elapsed=00:29:15 | ETA=19:49:58 | estimated_finish=2026-06-17 17:25:25
+Epoch 25/1000 finished | loss=0.686179 | cnn_loss=0.653978 | gnn_loss=0.032201 | lr=0.000977472 | epoch_time=00:01:05 | elapsed=00:30:20 | ETA=19:43:38 | estimated_finish=2026-06-17 17:20:10
+Quick validation epoch=25 | pseudo_dice=0.348072 | val_time=00:00:28
+Epoch 26/1000 finished | loss=0.692937 | cnn_loss=0.658631 | gnn_loss=0.034305 | lr=0.000976569 | epoch_time=00:01:05 | elapsed=00:31:55 | ETA=19:56:01 | estimated_finish=2026-06-17 17:34:08
+Epoch 27/1000 finished | loss=0.714544 | cnn_loss=0.676063 | gnn_loss=0.038481 | lr=0.000975667 | epoch_time=00:01:04 | elapsed=00:33:00 | ETA=19:49:14 | estimated_finish=2026-06-17 17:28:25
+Epoch 28/1000 finished | loss=0.709934 | cnn_loss=0.676633 | gnn_loss=0.033301 | lr=0.000974764 | epoch_time=00:01:08 | elapsed=00:34:08 | ETA=19:45:24 | estimated_finish=2026-06-17 17:25:45
+Epoch 29/1000 finished | loss=0.703834 | cnn_loss=0.666516 | gnn_loss=0.037318 | lr=0.000973862 | epoch_time=00:01:05 | elapsed=00:35:14 | ETA=19:40:01 | estimated_finish=2026-06-17 17:21:27
+Epoch 30/1000 finished | loss=0.702471 | cnn_loss=0.669613 | gnn_loss=0.032857 | lr=0.000972959 | epoch_time=00:01:06 | elapsed=00:36:21 | ETA=19:35:25 | estimated_finish=2026-06-17 17:17:58
+Quick validation epoch=30 | pseudo_dice=0.430257 | val_time=00:00:29
+New best model saved by quick validation | pseudo_dice=0.430257 | epoch=30
+Epoch 31/1000 finished | loss=0.703118 | cnn_loss=0.667394 | gnn_loss=0.035725 | lr=0.000972056 | epoch_time=00:01:07 | elapsed=00:37:57 | ETA=19:46:31 | estimated_finish=2026-06-17 17:30:40
+Epoch 32/1000 finished | loss=0.702683 | cnn_loss=0.667439 | gnn_loss=0.035244 | lr=0.000971153 | epoch_time=00:01:06 | elapsed=00:39:04 | ETA=19:41:54 | estimated_finish=2026-06-17 17:27:10
+Epoch 33/1000 finished | loss=0.695273 | cnn_loss=0.658962 | gnn_loss=0.036311 | lr=0.00097025 | epoch_time=00:01:06 | elapsed=00:40:10 | ETA=19:37:12 | estimated_finish=2026-06-17 17:23:34
+Epoch 34/1000 finished | loss=0.701289 | cnn_loss=0.668443 | gnn_loss=0.032846 | lr=0.000969347 | epoch_time=00:01:06 | elapsed=00:41:17 | ETA=19:32:57 | estimated_finish=2026-06-17 17:20:26
+Epoch 35/1000 finished | loss=0.635533 | cnn_loss=0.599409 | gnn_loss=0.036124 | lr=0.000968444 | epoch_time=00:01:07 | elapsed=00:42:24 | ETA=19:29:12 | estimated_finish=2026-06-17 17:17:47
+Quick validation epoch=35 | pseudo_dice=0.270286 | val_time=00:00:30
+Epoch 36/1000 finished | loss=0.681404 | cnn_loss=0.646342 | gnn_loss=0.035062 | lr=0.000967541 | epoch_time=00:01:07 | elapsed=00:44:02 | ETA=19:39:12 | estimated_finish=2026-06-17 17:29:26
+Epoch 37/1000 finished | loss=0.730123 | cnn_loss=0.694869 | gnn_loss=0.035253 | lr=0.000966638 | epoch_time=00:01:09 | elapsed=00:45:11 | ETA=19:36:06 | estimated_finish=2026-06-17 17:27:29
+Epoch 38/1000 finished | loss=0.649497 | cnn_loss=0.619752 | gnn_loss=0.029745 | lr=0.000965734 | epoch_time=00:01:05 | elapsed=00:46:17 | ETA=19:31:46 | estimated_finish=2026-06-17 17:24:15
+Epoch 39/1000 finished | loss=0.703046 | cnn_loss=0.670343 | gnn_loss=0.032703 | lr=0.000964831 | epoch_time=00:01:05 | elapsed=00:47:22 | ETA=19:27:26 | estimated_finish=2026-06-17 17:21:00
+Epoch 40/1000 finished | loss=0.682352 | cnn_loss=0.649506 | gnn_loss=0.032845 | lr=0.000963927 | epoch_time=00:01:06 | elapsed=00:48:29 | ETA=19:23:37 | estimated_finish=2026-06-17 17:18:18
+Quick validation epoch=40 | pseudo_dice=0.392770 | val_time=00:00:28
+Epoch 41/1000 finished | loss=0.664878 | cnn_loss=0.631093 | gnn_loss=0.033785 | lr=0.000963023 | epoch_time=00:01:06 | elapsed=00:50:03 | ETA=19:31:01 | estimated_finish=2026-06-17 17:27:17
+Epoch 42/1000 finished | loss=0.698052 | cnn_loss=0.662622 | gnn_loss=0.035430 | lr=0.000962119 | epoch_time=00:01:07 | elapsed=00:51:11 | ETA=19:27:44 | estimated_finish=2026-06-17 17:25:07
+Epoch 43/1000 finished | loss=0.663214 | cnn_loss=0.628686 | gnn_loss=0.034528 | lr=0.000961215 | epoch_time=00:01:03 | elapsed=00:52:15 | ETA=19:23:06 | estimated_finish=2026-06-17 17:21:33
+Epoch 44/1000 finished | loss=0.686370 | cnn_loss=0.652925 | gnn_loss=0.033445 | lr=0.000960311 | epoch_time=00:01:06 | elapsed=00:53:22 | ETA=19:19:36 | estimated_finish=2026-06-17 17:19:10
+Epoch 45/1000 finished | loss=0.650325 | cnn_loss=0.620045 | gnn_loss=0.030280 | lr=0.000959407 | epoch_time=00:01:05 | elapsed=00:54:27 | ETA=19:15:43 | estimated_finish=2026-06-17 17:16:22
+Quick validation epoch=45 | pseudo_dice=0.443618 | val_time=00:00:29
+New best model saved by quick validation | pseudo_dice=0.443618 | epoch=45
+Epoch 46/1000 finished | loss=0.684904 | cnn_loss=0.654317 | gnn_loss=0.030586 | lr=0.000958503 | epoch_time=00:01:05 | elapsed=00:56:02 | ETA=19:22:23 | estimated_finish=2026-06-17 17:24:37
+Epoch 47/1000 finished | loss=0.700220 | cnn_loss=0.668518 | gnn_loss=0.031702 | lr=0.000957599 | epoch_time=00:01:04 | elapsed=00:57:07 | ETA=19:18:17 | estimated_finish=2026-06-17 17:21:36
+Epoch 48/1000 finished | loss=0.686863 | cnn_loss=0.652531 | gnn_loss=0.034332 | lr=0.000956694 | epoch_time=00:01:05 | elapsed=00:58:13 | ETA=19:14:43 | estimated_finish=2026-06-17 17:19:08
+Epoch 49/1000 finished | loss=0.600441 | cnn_loss=0.569055 | gnn_loss=0.031386 | lr=0.00095579 | epoch_time=00:01:06 | elapsed=00:59:19 | ETA=19:11:21 | estimated_finish=2026-06-17 17:16:52
+Epoch 50/1000 finished | loss=0.649453 | cnn_loss=0.617080 | gnn_loss=0.032373 | lr=0.000954885 | epoch_time=00:01:05 | elapsed=01:00:25 | ETA=19:08:00 | estimated_finish=2026-06-17 17:14:36
+Quick validation epoch=50 | pseudo_dice=0.498976 | val_time=00:00:28
+New best model saved by quick validation | pseudo_dice=0.498976 | epoch=50
+Epoch 51/1000 finished | loss=0.698574 | cnn_loss=0.668167 | gnn_loss=0.030407 | lr=0.000953981 | epoch_time=00:01:06 | elapsed=01:02:00 | ETA=19:13:50 | estimated_finish=2026-06-17 17:22:02
+Epoch 52/1000 finished | loss=0.638968 | cnn_loss=0.606152 | gnn_loss=0.032815 | lr=0.000953076 | epoch_time=00:01:06 | elapsed=01:03:07 | ETA=19:10:41 | estimated_finish=2026-06-17 17:20:00
+Epoch 53/1000 finished | loss=0.656166 | cnn_loss=0.625503 | gnn_loss=0.030662 | lr=0.000952171 | epoch_time=00:01:06 | elapsed=01:04:13 | ETA=19:07:30 | estimated_finish=2026-06-17 17:17:55
+Epoch 54/1000 finished | loss=0.660736 | cnn_loss=0.629664 | gnn_loss=0.031072 | lr=0.000951266 | epoch_time=00:01:04 | elapsed=01:05:17 | ETA=19:03:57 | estimated_finish=2026-06-17 17:15:27
+Epoch 55/1000 finished | loss=0.630975 | cnn_loss=0.600501 | gnn_loss=0.030473 | lr=0.000950361 | epoch_time=00:01:04 | elapsed=01:06:22 | ETA=19:00:35 | estimated_finish=2026-06-17 17:13:09
+Quick validation epoch=55 | pseudo_dice=0.439512 | val_time=00:00:28
+Epoch 56/1000 finished | loss=0.657212 | cnn_loss=0.625950 | gnn_loss=0.031263 | lr=0.000949456 | epoch_time=00:01:05 | elapsed=01:07:57 | ETA=19:05:32 | estimated_finish=2026-06-17 17:19:41
+Epoch 57/1000 finished | loss=0.630866 | cnn_loss=0.597617 | gnn_loss=0.033249 | lr=0.000948551 | epoch_time=00:01:06 | elapsed=01:09:03 | ETA=19:02:30 | estimated_finish=2026-06-17 17:17:45
+Epoch 58/1000 finished | loss=0.674986 | cnn_loss=0.642052 | gnn_loss=0.032934 | lr=0.000947645 | epoch_time=00:01:06 | elapsed=01:10:09 | ETA=18:59:31 | estimated_finish=2026-06-17 17:15:52
+Epoch 59/1000 finished | loss=0.664246 | cnn_loss=0.631467 | gnn_loss=0.032779 | lr=0.00094674 | epoch_time=00:01:06 | elapsed=01:11:16 | ETA=18:56:43 | estimated_finish=2026-06-17 17:14:11
+Epoch 60/1000 finished | loss=0.667137 | cnn_loss=0.634626 | gnn_loss=0.032511 | lr=0.000945834 | epoch_time=00:01:05 | elapsed=01:12:22 | ETA=18:53:47 | estimated_finish=2026-06-17 17:12:21
+Quick validation epoch=60 | pseudo_dice=0.308797 | val_time=00:00:29
+Epoch 61/1000 finished | loss=0.665235 | cnn_loss=0.633236 | gnn_loss=0.031999 | lr=0.000944929 | epoch_time=00:01:05 | elapsed=01:13:56 | ETA=18:58:17 | estimated_finish=2026-06-17 17:18:25
+Epoch 62/1000 finished | loss=0.650543 | cnn_loss=0.617410 | gnn_loss=0.033133 | lr=0.000944023 | epoch_time=00:01:06 | elapsed=01:15:03 | ETA=18:55:27 | estimated_finish=2026-06-17 17:16:42
+Epoch 63/1000 finished | loss=0.632312 | cnn_loss=0.598253 | gnn_loss=0.034059 | lr=0.000943117 | epoch_time=00:01:05 | elapsed=01:16:08 | ETA=18:52:29 | estimated_finish=2026-06-17 17:14:49
+Epoch 64/1000 finished | loss=0.631492 | cnn_loss=0.599625 | gnn_loss=0.031867 | lr=0.000942211 | epoch_time=00:01:05 | elapsed=01:17:14 | ETA=18:49:34 | estimated_finish=2026-06-17 17:13:00
+Epoch 65/1000 finished | loss=0.663524 | cnn_loss=0.627689 | gnn_loss=0.035835 | lr=0.000941305 | epoch_time=00:01:06 | elapsed=01:18:20 | ETA=18:46:51 | estimated_finish=2026-06-17 17:11:22
+Quick validation epoch=65 | pseudo_dice=0.424886 | val_time=00:00:29
+Epoch 66/1000 finished | loss=0.653827 | cnn_loss=0.620975 | gnn_loss=0.032852 | lr=0.000940399 | epoch_time=00:01:03 | elapsed=01:19:53 | ETA=18:50:30 | estimated_finish=2026-06-17 17:16:34
+Epoch 67/1000 finished | loss=0.628343 | cnn_loss=0.596704 | gnn_loss=0.031640 | lr=0.000939493 | epoch_time=00:01:04 | elapsed=01:20:57 | ETA=18:47:23 | estimated_finish=2026-06-17 17:14:32
+Epoch 68/1000 finished | loss=0.688913 | cnn_loss=0.657056 | gnn_loss=0.031857 | lr=0.000938587 | epoch_time=00:01:09 | elapsed=01:22:06 | ETA=18:45:23 | estimated_finish=2026-06-17 17:13:41
+Epoch 69/1000 finished | loss=0.660989 | cnn_loss=0.629993 | gnn_loss=0.030996 | lr=0.00093768 | epoch_time=00:01:09 | elapsed=01:23:15 | ETA=18:43:28 | estimated_finish=2026-06-17 17:12:56
+Epoch 70/1000 finished | loss=0.629231 | cnn_loss=0.598513 | gnn_loss=0.030718 | lr=0.000936774 | epoch_time=00:01:07 | elapsed=01:24:23 | ETA=18:41:06 | estimated_finish=2026-06-17 17:11:40
+Quick validation epoch=70 | pseudo_dice=0.502302 | val_time=00:00:30
+New best model saved by quick validation | pseudo_dice=0.502302 | epoch=70
+Epoch 71/1000 finished | loss=0.621194 | cnn_loss=0.590345 | gnn_loss=0.030849 | lr=0.000935867 | epoch_time=00:01:05 | elapsed=01:25:58 | ETA=18:45:02 | estimated_finish=2026-06-17 17:17:13
+Epoch 72/1000 finished | loss=0.631563 | cnn_loss=0.597951 | gnn_loss=0.033612 | lr=0.00093496 | epoch_time=00:01:05 | elapsed=01:27:04 | ETA=18:42:24 | estimated_finish=2026-06-17 17:15:40
+Epoch 73/1000 finished | loss=0.648177 | cnn_loss=0.616578 | gnn_loss=0.031599 | lr=0.000934054 | epoch_time=00:01:05 | elapsed=01:28:10 | ETA=18:39:46 | estimated_finish=2026-06-17 17:14:09
+Epoch 74/1000 finished | loss=0.640987 | cnn_loss=0.609375 | gnn_loss=0.031612 | lr=0.000933147 | epoch_time=00:01:04 | elapsed=01:29:15 | ETA=18:36:51 | estimated_finish=2026-06-17 17:12:18
+Epoch 75/1000 finished | loss=0.641022 | cnn_loss=0.609303 | gnn_loss=0.031719 | lr=0.00093224 | epoch_time=00:01:07 | elapsed=01:30:22 | ETA=18:34:40 | estimated_finish=2026-06-17 17:11:14
+Quick validation epoch=75 | pseudo_dice=0.336347 | val_time=00:00:28
+Epoch 76/1000 finished | loss=0.663535 | cnn_loss=0.628503 | gnn_loss=0.035032 | lr=0.000931333 | epoch_time=00:01:06 | elapsed=01:31:57 | ETA=18:38:02 | estimated_finish=2026-06-17 17:16:11
+Epoch 77/1000 finished | loss=0.688541 | cnn_loss=0.653713 | gnn_loss=0.034829 | lr=0.000930425 | epoch_time=00:01:05 | elapsed=01:33:02 | ETA=18:35:20 | estimated_finish=2026-06-17 17:14:34
+Epoch 78/1000 finished | loss=0.651717 | cnn_loss=0.618069 | gnn_loss=0.033648 | lr=0.000929518 | epoch_time=00:01:05 | elapsed=01:34:08 | ETA=18:32:43 | estimated_finish=2026-06-17 17:13:03
+Epoch 79/1000 finished | loss=0.654229 | cnn_loss=0.621249 | gnn_loss=0.032979 | lr=0.000928611 | epoch_time=00:01:06 | elapsed=01:35:14 | ETA=18:30:23 | estimated_finish=2026-06-17 17:11:49
+Epoch 80/1000 finished | loss=0.633083 | cnn_loss=0.598112 | gnn_loss=0.034971 | lr=0.000927703 | epoch_time=00:01:05 | elapsed=01:36:20 | ETA=18:27:54 | estimated_finish=2026-06-17 17:10:26
+Quick validation epoch=80 | pseudo_dice=0.458686 | val_time=00:00:28
+Epoch 81/1000 finished | loss=0.667457 | cnn_loss=0.630558 | gnn_loss=0.036898 | lr=0.000926796 | epoch_time=00:01:06 | elapsed=01:37:55 | ETA=18:31:04 | estimated_finish=2026-06-17 17:15:11
+Epoch 82/1000 finished | loss=0.597982 | cnn_loss=0.566841 | gnn_loss=0.031141 | lr=0.000925888 | epoch_time=00:01:06 | elapsed=01:39:02 | ETA=18:28:41 | estimated_finish=2026-06-17 17:13:55
+Epoch 83/1000 finished | loss=0.654063 | cnn_loss=0.620962 | gnn_loss=0.033102 | lr=0.00092498 | epoch_time=00:01:04 | elapsed=01:40:06 | ETA=18:25:58 | estimated_finish=2026-06-17 17:12:16
+Epoch 84/1000 finished | loss=0.628708 | cnn_loss=0.597654 | gnn_loss=0.031053 | lr=0.000924072 | epoch_time=00:01:06 | elapsed=01:41:12 | ETA=18:23:42 | estimated_finish=2026-06-17 17:11:07
+Epoch 85/1000 finished | loss=0.620979 | cnn_loss=0.586675 | gnn_loss=0.034304 | lr=0.000923164 | epoch_time=00:01:05 | elapsed=01:42:18 | ETA=18:21:21 | estimated_finish=2026-06-17 17:09:51
+Quick validation epoch=85 | pseudo_dice=0.378946 | val_time=00:00:29
+Epoch 86/1000 finished | loss=0.601005 | cnn_loss=0.568663 | gnn_loss=0.032341 | lr=0.000922256 | epoch_time=00:01:05 | elapsed=01:43:53 | ETA=18:24:04 | estimated_finish=2026-06-17 17:14:08
+Epoch 87/1000 finished | loss=0.657731 | cnn_loss=0.624756 | gnn_loss=0.032975 | lr=0.000921348 | epoch_time=00:01:05 | elapsed=01:44:59 | ETA=18:21:43 | estimated_finish=2026-06-17 17:12:53
+Epoch 88/1000 finished | loss=0.633041 | cnn_loss=0.603948 | gnn_loss=0.029093 | lr=0.00092044 | epoch_time=00:01:06 | elapsed=01:46:05 | ETA=18:19:32 | estimated_finish=2026-06-17 17:11:49
+Epoch 89/1000 finished | loss=0.615705 | cnn_loss=0.587380 | gnn_loss=0.028326 | lr=0.000919531 | epoch_time=00:01:04 | elapsed=01:47:10 | ETA=18:17:04 | estimated_finish=2026-06-17 17:10:26
+Epoch 90/1000 finished | loss=0.654768 | cnn_loss=0.621192 | gnn_loss=0.033575 | lr=0.000918623 | epoch_time=00:01:05 | elapsed=01:48:16 | ETA=18:14:47 | estimated_finish=2026-06-17 17:09:15
+Quick validation epoch=90 | pseudo_dice=0.472159 | val_time=00:00:28
+Epoch 91/1000 finished | loss=0.604094 | cnn_loss=0.571361 | gnn_loss=0.032733 | lr=0.000917714 | epoch_time=00:01:08 | elapsed=01:49:53 | ETA=18:17:44 | estimated_finish=2026-06-17 17:13:50
+Epoch 92/1000 finished | loss=0.619487 | cnn_loss=0.587604 | gnn_loss=0.031883 | lr=0.000916806 | epoch_time=00:01:05 | elapsed=01:50:58 | ETA=18:15:19 | estimated_finish=2026-06-17 17:12:29
+Epoch 93/1000 finished | loss=0.655601 | cnn_loss=0.619337 | gnn_loss=0.036264 | lr=0.000915897 | epoch_time=00:01:05 | elapsed=01:52:04 | ETA=18:13:04 | estimated_finish=2026-06-17 17:11:20
+Epoch 94/1000 finished | loss=0.638700 | cnn_loss=0.609127 | gnn_loss=0.029573 | lr=0.000914988 | epoch_time=00:01:04 | elapsed=01:53:09 | ETA=18:10:37 | estimated_finish=2026-06-17 17:09:58
+Epoch 95/1000 finished | loss=0.607873 | cnn_loss=0.576340 | gnn_loss=0.031533 | lr=0.000914079 | epoch_time=00:01:04 | elapsed=01:54:14 | ETA=18:08:16 | estimated_finish=2026-06-17 17:08:42
+Quick validation epoch=95 | pseudo_dice=0.266363 | val_time=00:00:28
+Epoch 96/1000 finished | loss=0.658704 | cnn_loss=0.624341 | gnn_loss=0.034363 | lr=0.00091317 | epoch_time=00:01:05 | elapsed=01:55:48 | ETA=18:10:32 | estimated_finish=2026-06-17 17:12:32
+Epoch 97/1000 finished | loss=0.593101 | cnn_loss=0.562121 | gnn_loss=0.030980 | lr=0.000912261 | epoch_time=00:01:06 | elapsed=01:56:54 | ETA=18:08:24 | estimated_finish=2026-06-17 17:11:30
+Epoch 98/1000 finished | loss=0.636056 | cnn_loss=0.601831 | gnn_loss=0.034225 | lr=0.000911351 | epoch_time=00:01:05 | elapsed=01:58:00 | ETA=18:06:11 | estimated_finish=2026-06-17 17:10:24
+Epoch 99/1000 finished | loss=0.594324 | cnn_loss=0.565498 | gnn_loss=0.028826 | lr=0.000910442 | epoch_time=00:01:07 | elapsed=01:59:08 | ETA=18:04:20 | estimated_finish=2026-06-17 17:09:40
+Epoch 100/1000 finished | loss=0.617575 | cnn_loss=0.585958 | gnn_loss=0.031617 | lr=0.000909533 | epoch_time=00:01:06 | elapsed=02:00:15 | ETA=18:02:19 | estimated_finish=2026-06-17 17:08:46
+Quick validation epoch=100 | pseudo_dice=0.498429 | val_time=00:00:28
+Full validation epoch=100 | mean_dice=0.188283 | val_time=00:01:09
+New best full-validation model saved | dice=0.188283 | epoch=100
+Epoch 101/1000 finished | loss=0.688361 | cnn_loss=0.652111 | gnn_loss=0.036251 | lr=0.000908623 | epoch_time=00:27:59 | elapsed=02:29:53 | ETA=22:14:06 | estimated_finish=2026-06-17 21:50:11
+Epoch 102/1000 finished | loss=0.583680 | cnn_loss=0.555406 | gnn_loss=0.028274 | lr=0.000907713 | epoch_time=00:24:12 | elapsed=02:54:05 | ETA=25:32:39 | estimated_finish=2026-06-18 01:32:56
+Epoch 103/1000 finished | loss=0.577552 | cnn_loss=0.548054 | gnn_loss=0.029498 | lr=0.000906804 | epoch_time=00:29:32 | elapsed=03:23:38 | ETA=29:33:25 | estimated_finish=2026-06-18 06:03:15
+Epoch 104/1000 finished | loss=0.683432 | cnn_loss=0.650977 | gnn_loss=0.032455 | lr=0.000905894 | epoch_time=00:24:58 | elapsed=03:48:36 | ETA=32:49:36 | estimated_finish=2026-06-18 09:44:24
+Epoch 105/1000 finished | loss=0.652518 | cnn_loss=0.619408 | gnn_loss=0.033110 | lr=0.000904984 | epoch_time=00:33:21 | elapsed=04:21:58 | ETA=37:12:59 | estimated_finish=2026-06-18 14:41:09
+Quick validation epoch=105 | pseudo_dice=0.384601 | val_time=00:01:22
+Epoch 106/1000 finished | loss=0.623488 | cnn_loss=0.590733 | gnn_loss=0.032755 | lr=0.000904074 | epoch_time=00:25:10 | elapsed=04:48:30 | ETA=40:33:16 | estimated_finish=2026-06-18 18:27:59
+Epoch 107/1000 finished | loss=0.646820 | cnn_loss=0.612567 | gnn_loss=0.034253 | lr=0.000903163 | epoch_time=00:44:49 | elapsed=05:33:20 | ETA=46:22:01 | estimated_finish=2026-06-19 01:01:33
+Epoch 108/1000 finished | loss=0.612150 | cnn_loss=0.584866 | gnn_loss=0.027285 | lr=0.000902253 | epoch_time=00:19:21 | elapsed=05:52:42 | ETA=48:33:03 | estimated_finish=2026-06-19 03:31:57
+Epoch 109/1000 finished | loss=0.651520 | cnn_loss=0.619343 | gnn_loss=0.032177 | lr=0.000901343 | epoch_time=00:01:08 | elapsed=05:53:50 | ETA=48:12:28 | estimated_finish=2026-06-19 03:12:31
+Epoch 110/1000 finished | loss=0.611851 | cnn_loss=0.579239 | gnn_loss=0.032612 | lr=0.000900432 | epoch_time=00:01:21 | elapsed=05:55:12 | ETA=47:53:55 | estimated_finish=2026-06-19 02:55:19
+Quick validation epoch=110 | pseudo_dice=0.332391 | val_time=00:00:32
+Epoch 111/1000 finished | loss=0.674983 | cnn_loss=0.641712 | gnn_loss=0.033271 | lr=0.000899522 | epoch_time=00:01:33 | elapsed=05:57:18 | ETA=47:41:38 | estimated_finish=2026-06-19 02:45:08
+Epoch 112/1000 finished | loss=0.600789 | cnn_loss=0.569913 | gnn_loss=0.030876 | lr=0.000898611 | epoch_time=00:10:48 | elapsed=06:08:06 | ETA=48:38:37 | estimated_finish=2026-06-19 03:52:56
+Epoch 113/1000 finished | loss=0.593914 | cnn_loss=0.561642 | gnn_loss=0.032272 | lr=0.0008977 | epoch_time=00:18:22 | elapsed=06:26:29 | ETA=50:33:47 | estimated_finish=2026-06-19 06:06:28
+Epoch 114/1000 finished | loss=0.637023 | cnn_loss=0.606053 | gnn_loss=0.030971 | lr=0.000896789 | epoch_time=00:10:47 | elapsed=06:37:16 | ETA=51:27:36 | estimated_finish=2026-06-19 07:11:04
+Epoch 115/1000 finished | loss=0.636073 | cnn_loss=0.602632 | gnn_loss=0.033440 | lr=0.000895878 | epoch_time=00:09:55 | elapsed=06:47:12 | ETA=52:13:43 | estimated_finish=2026-06-19 08:07:07
+Quick validation epoch=115 | pseudo_dice=0.458981 | val_time=00:00:32
+Epoch 116/1000 finished | loss=0.605694 | cnn_loss=0.573283 | gnn_loss=0.032411 | lr=0.000894967 | epoch_time=00:03:55 | elapsed=06:51:39 | ETA=52:17:08 | estimated_finish=2026-06-19 08:15:00
+Epoch 117/1000 finished | loss=0.667379 | cnn_loss=0.633072 | gnn_loss=0.034306 | lr=0.000894056 | epoch_time=00:01:29 | elapsed=06:53:09 | ETA=51:58:07 | estimated_finish=2026-06-19 07:57:28
+Epoch 118/1000 finished | loss=0.623968 | cnn_loss=0.585997 | gnn_loss=0.037971 | lr=0.000893144 | epoch_time=00:03:51 | elapsed=06:57:01 | ETA=51:57:03 | estimated_finish=2026-06-19 08:00:16
+Epoch 119/1000 finished | loss=0.652240 | cnn_loss=0.617136 | gnn_loss=0.035104 | lr=0.000892233 | epoch_time=00:03:30 | elapsed=07:00:32 | ETA=51:53:22 | estimated_finish=2026-06-19 08:00:05
+Epoch 120/1000 finished | loss=0.654259 | cnn_loss=0.619684 | gnn_loss=0.034576 | lr=0.000891322 | epoch_time=00:01:05 | elapsed=07:01:37 | ETA=51:31:54 | estimated_finish=2026-06-19 07:39:43
+Quick validation epoch=120 | pseudo_dice=0.510483 | val_time=00:00:32
+New best model saved by quick validation | pseudo_dice=0.510483 | epoch=120
+Epoch 121/1000 finished | loss=0.640573 | cnn_loss=0.603504 | gnn_loss=0.037069 | lr=0.00089041 | epoch_time=00:03:13 | elapsed=07:05:24 | ETA=51:30:18 | estimated_finish=2026-06-19 07:41:54
+Epoch 122/1000 finished | loss=0.594442 | cnn_loss=0.567065 | gnn_loss=0.027377 | lr=0.000889498 | epoch_time=00:01:06 | elapsed=07:06:30 | ETA=51:09:30 | estimated_finish=2026-06-19 07:22:13
+Epoch 123/1000 finished | loss=0.616764 | cnn_loss=0.583461 | gnn_loss=0.033303 | lr=0.000888586 | epoch_time=00:02:21 | elapsed=07:08:52 | ETA=50:57:54 | estimated_finish=2026-06-19 07:12:58
+Epoch 124/1000 finished | loss=0.606117 | cnn_loss=0.570882 | gnn_loss=0.035234 | lr=0.000887674 | epoch_time=00:01:28 | elapsed=07:10:21 | ETA=50:40:14 | estimated_finish=2026-06-19 06:56:46
+Epoch 125/1000 finished | loss=0.637200 | cnn_loss=0.605870 | gnn_loss=0.031330 | lr=0.000886762 | epoch_time=00:03:04 | elapsed=07:13:25 | ETA=50:33:56 | estimated_finish=2026-06-19 06:53:33
+Quick validation epoch=125 | pseudo_dice=0.491842 | val_time=00:00:32
+Epoch 126/1000 finished | loss=0.596095 | cnn_loss=0.565489 | gnn_loss=0.030607 | lr=0.00088585 | epoch_time=00:01:37 | elapsed=07:15:35 | ETA=50:21:26 | estimated_finish=2026-06-19 06:43:13
+Epoch 127/1000 finished | loss=0.608950 | cnn_loss=0.578417 | gnn_loss=0.030532 | lr=0.000884938 | epoch_time=00:04:08 | elapsed=07:19:43 | ETA=50:22:43 | estimated_finish=2026-06-19 06:48:38
+Epoch 128/1000 finished | loss=0.611615 | cnn_loss=0.581287 | gnn_loss=0.030328 | lr=0.000884026 | epoch_time=00:02:07 | elapsed=07:21:51 | ETA=50:10:10 | estimated_finish=2026-06-19 06:38:13
+Epoch 129/1000 finished | loss=0.623438 | cnn_loss=0.593722 | gnn_loss=0.029715 | lr=0.000883113 | epoch_time=00:04:51 | elapsed=07:26:43 | ETA=50:16:13 | estimated_finish=2026-06-19 06:49:07
+Epoch 130/1000 finished | loss=0.627814 | cnn_loss=0.595592 | gnn_loss=0.032221 | lr=0.000882201 | epoch_time=00:03:47 | elapsed=07:30:30 | ETA=50:14:58 | estimated_finish=2026-06-19 06:51:41
+Quick validation epoch=130 | pseudo_dice=0.414674 | val_time=00:00:32
+Epoch 131/1000 finished | loss=0.634793 | cnn_loss=0.601301 | gnn_loss=0.033492 | lr=0.000881288 | epoch_time=00:05:51 | elapsed=07:36:55 | ETA=50:31:00 | estimated_finish=2026-06-19 07:14:07
+Epoch 132/1000 finished | loss=0.594337 | cnn_loss=0.560730 | gnn_loss=0.033607 | lr=0.000880375 | epoch_time=00:04:51 | elapsed=07:41:46 | ETA=50:36:32 | estimated_finish=2026-06-19 07:24:30
+Epoch 133/1000 finished | loss=0.632089 | cnn_loss=0.595274 | gnn_loss=0.036815 | lr=0.000879462 | epoch_time=00:01:59 | elapsed=07:43:46 | ETA=50:23:14 | estimated_finish=2026-06-19 07:13:11
+Epoch 134/1000 finished | loss=0.613806 | cnn_loss=0.580130 | gnn_loss=0.033676 | lr=0.000878549 | epoch_time=00:01:19 | elapsed=07:45:05 | ETA=50:05:45 | estimated_finish=2026-06-19 06:57:03
+Epoch 135/1000 finished | loss=0.605897 | cnn_loss=0.572060 | gnn_loss=0.033837 | lr=0.000877636 | epoch_time=00:01:30 | elapsed=07:46:35 | ETA=49:49:40 | estimated_finish=2026-06-19 06:42:27
+Quick validation epoch=135 | pseudo_dice=0.520036 | val_time=00:00:33
+New best model saved by quick validation | pseudo_dice=0.520036 | epoch=135
+Epoch 136/1000 finished | loss=0.609235 | cnn_loss=0.576676 | gnn_loss=0.032559 | lr=0.000876723 | epoch_time=00:30:36 | elapsed=08:17:45 | ETA=52:42:14 | estimated_finish=2026-06-19 10:06:11
+Epoch 137/1000 finished | loss=0.578096 | cnn_loss=0.545403 | gnn_loss=0.032693 | lr=0.00087581 | epoch_time=00:09:56 | elapsed=08:27:42 | ETA=53:18:11 | estimated_finish=2026-06-19 10:52:05
+Epoch 138/1000 finished | loss=0.617176 | cnn_loss=0.585053 | gnn_loss=0.032123 | lr=0.000874896 | epoch_time=00:57:53 | elapsed=09:25:36 | ETA=58:52:57 | estimated_finish=2026-06-19 17:24:45
+Epoch 139/1000 finished | loss=0.582116 | cnn_loss=0.551986 | gnn_loss=0.030130 | lr=0.000873983 | epoch_time=02:06:12 | elapsed=11:31:48 | ETA=71:25:16 | estimated_finish=2026-06-20 08:03:16
+Epoch 140/1000 finished | loss=0.606820 | cnn_loss=0.571595 | gnn_loss=0.035225 | lr=0.000873069 | epoch_time=00:01:08 | elapsed=11:32:57 | ETA=70:56:43 | estimated_finish=2026-06-20 07:35:52
+Quick validation epoch=140 | pseudo_dice=0.484572 | val_time=00:00:30
+Epoch 141/1000 finished | loss=0.638583 | cnn_loss=0.603228 | gnn_loss=0.035354 | lr=0.000872155 | epoch_time=00:01:06 | elapsed=11:34:34 | ETA=70:31:31 | estimated_finish=2026-06-20 07:12:17
+Epoch 142/1000 finished | loss=0.654360 | cnn_loss=0.622345 | gnn_loss=0.032015 | lr=0.000871242 | epoch_time=00:01:05 | elapsed=11:35:40 | ETA=70:03:25 | estimated_finish=2026-06-20 06:45:17
+Epoch 143/1000 finished | loss=0.613299 | cnn_loss=0.582716 | gnn_loss=0.030583 | lr=0.000870328 | epoch_time=00:01:05 | elapsed=11:36:46 | ETA=69:35:44 | estimated_finish=2026-06-20 06:18:42
+Epoch 144/1000 finished | loss=0.628235 | cnn_loss=0.597841 | gnn_loss=0.030394 | lr=0.000869414 | epoch_time=00:01:06 | elapsed=11:37:52 | ETA=69:08:28 | estimated_finish=2026-06-20 05:52:32
+Epoch 145/1000 finished | loss=0.628572 | cnn_loss=0.597903 | gnn_loss=0.030670 | lr=0.000868499 | epoch_time=00:54:00 | elapsed=12:31:53 | ETA=73:53:33 | estimated_finish=2026-06-20 11:31:38
+Quick validation epoch=145 | pseudo_dice=0.502481 | val_time=00:05:57
+Epoch 146/1000 finished | loss=0.616335 | cnn_loss=0.583921 | gnn_loss=0.032414 | lr=0.000867585 | epoch_time=00:27:41 | elapsed=13:05:32 | ETA=76:34:51 | estimated_finish=2026-06-20 14:46:35
+Epoch 147/1000 finished | loss=0.619021 | cnn_loss=0.586856 | gnn_loss=0.032165 | lr=0.000866671 | epoch_time=01:01:22 | elapsed=14:06:54 | ETA=81:54:24 | estimated_finish=2026-06-20 21:07:31
+Epoch 148/1000 finished | loss=0.596440 | cnn_loss=0.565982 | gnn_loss=0.030458 | lr=0.000865756 | epoch_time=00:01:13 | elapsed=14:08:08 | ETA=81:22:34 | estimated_finish=2026-06-20 20:36:54
+Epoch 149/1000 finished | loss=0.620451 | cnn_loss=0.583144 | gnn_loss=0.037307 | lr=0.000864842 | epoch_time=00:12:43 | elapsed=14:20:52 | ETA=81:56:46 | estimated_finish=2026-06-20 21:23:50
+Epoch 150/1000 finished | loss=0.611380 | cnn_loss=0.576901 | gnn_loss=0.034479 | lr=0.000863927 | epoch_time=00:01:08 | elapsed=14:22:00 | ETA=81:24:42 | estimated_finish=2026-06-20 20:52:54
+Quick validation epoch=150 | pseudo_dice=0.483934 | val_time=00:00:35
+Epoch 151/1000 finished | loss=0.588257 | cnn_loss=0.557540 | gnn_loss=0.030717 | lr=0.000863012 | epoch_time=00:01:08 | elapsed=14:23:43 | ETA=80:56:19 | estimated_finish=2026-06-20 20:26:14
+Epoch 152/1000 finished | loss=0.595662 | cnn_loss=0.563803 | gnn_loss=0.031858 | lr=0.000862097 | epoch_time=00:01:08 | elapsed=14:24:52 | ETA=80:25:05 | estimated_finish=2026-06-20 19:56:09
+Epoch 153/1000 finished | loss=0.630988 | cnn_loss=0.598236 | gnn_loss=0.032752 | lr=0.000861182 | epoch_time=00:01:08 | elapsed=14:26:00 | ETA=79:54:13 | estimated_finish=2026-06-20 19:26:25
+Epoch 154/1000 finished | loss=0.635011 | cnn_loss=0.603054 | gnn_loss=0.031956 | lr=0.000860267 | epoch_time=00:01:07 | elapsed=14:27:08 | ETA=79:23:38 | estimated_finish=2026-06-20 18:56:58
+Epoch 155/1000 finished | loss=0.572367 | cnn_loss=0.538993 | gnn_loss=0.033375 | lr=0.000859352 | epoch_time=00:01:08 | elapsed=14:28:16 | ETA=78:53:31 | estimated_finish=2026-06-20 18:27:59
+Quick validation epoch=155 | pseudo_dice=0.597441 | val_time=00:00:29
+New best model saved by quick validation | pseudo_dice=0.597441 | epoch=155
+Epoch 156/1000 finished | loss=0.584124 | cnn_loss=0.551308 | gnn_loss=0.032815 | lr=0.000858437 | epoch_time=00:01:07 | elapsed=14:29:54 | ETA=78:26:23 | estimated_finish=2026-06-20 18:02:29
+Epoch 157/1000 finished | loss=0.605464 | cnn_loss=0.579044 | gnn_loss=0.026420 | lr=0.000857521 | epoch_time=00:01:08 | elapsed=14:31:02 | ETA=77:56:58 | estimated_finish=2026-06-20 17:34:12
+Epoch 158/1000 finished | loss=0.604340 | cnn_loss=0.569284 | gnn_loss=0.035056 | lr=0.000856606 | epoch_time=00:01:08 | elapsed=14:32:10 | ETA=77:27:56 | estimated_finish=2026-06-20 17:06:18
+Epoch 159/1000 finished | loss=0.604825 | cnn_loss=0.572665 | gnn_loss=0.032159 | lr=0.00085569 | epoch_time=00:01:08 | elapsed=14:33:18 | ETA=76:59:14 | estimated_finish=2026-06-20 16:38:44
+Epoch 160/1000 finished | loss=0.580417 | cnn_loss=0.547920 | gnn_loss=0.032497 | lr=0.000854774 | epoch_time=00:01:13 | elapsed=14:34:32 | ETA=76:31:18 | estimated_finish=2026-06-20 16:12:01
+Quick validation epoch=160 | pseudo_dice=0.423209 | val_time=00:00:29
+Epoch 161/1000 finished | loss=0.586632 | cnn_loss=0.551048 | gnn_loss=0.035584 | lr=0.000853858 | epoch_time=00:01:06 | elapsed=14:36:08 | ETA=76:05:42 | estimated_finish=2026-06-20 15:48:02
+Epoch 162/1000 finished | loss=0.575200 | cnn_loss=0.545521 | gnn_loss=0.029680 | lr=0.000852942 | epoch_time=00:01:07 | elapsed=14:37:15 | ETA=75:37:56 | estimated_finish=2026-06-20 15:21:24
+Epoch 163/1000 finished | loss=0.584285 | cnn_loss=0.551187 | gnn_loss=0.033098 | lr=0.000852026 | epoch_time=00:01:07 | elapsed=14:38:22 | ETA=75:10:27 | estimated_finish=2026-06-20 14:55:02
+Epoch 164/1000 finished | loss=0.599836 | cnn_loss=0.566663 | gnn_loss=0.033173 | lr=0.00085111 | epoch_time=00:01:07 | elapsed=14:39:30 | ETA=74:43:18 | estimated_finish=2026-06-20 14:29:00
+Epoch 165/1000 finished | loss=0.565319 | cnn_loss=0.533056 | gnn_loss=0.032263 | lr=0.000850194 | epoch_time=00:01:09 | elapsed=14:40:39 | ETA=74:16:40 | estimated_finish=2026-06-20 14:03:32
+Quick validation epoch=165 | pseudo_dice=0.541396 | val_time=00:00:29
+Epoch 166/1000 finished | loss=0.567496 | cnn_loss=0.537989 | gnn_loss=0.029507 | lr=0.000849277 | epoch_time=00:01:07 | elapsed=14:42:16 | ETA=73:52:40 | estimated_finish=2026-06-20 13:41:08
+Epoch 167/1000 finished | loss=0.589754 | cnn_loss=0.558957 | gnn_loss=0.030796 | lr=0.000848361 | epoch_time=00:01:08 | elapsed=14:43:24 | ETA=73:26:29 | estimated_finish=2026-06-20 13:16:06
+Epoch 168/1000 finished | loss=0.621588 | cnn_loss=0.587648 | gnn_loss=0.033940 | lr=0.000847444 | epoch_time=00:01:06 | elapsed=14:44:31 | ETA=73:00:32 | estimated_finish=2026-06-20 12:51:15
+Epoch 169/1000 finished | loss=0.574206 | cnn_loss=0.539847 | gnn_loss=0.034359 | lr=0.000846527 | epoch_time=00:01:09 | elapsed=14:45:41 | ETA=72:35:05 | estimated_finish=2026-06-20 12:26:58
+Epoch 170/1000 finished | loss=0.586702 | cnn_loss=0.556047 | gnn_loss=0.030655 | lr=0.00084561 | epoch_time=00:01:09 | elapsed=14:46:51 | ETA=72:09:55 | estimated_finish=2026-06-20 12:02:57
+Quick validation epoch=170 | pseudo_dice=0.514772 | val_time=00:00:29
+Epoch 171/1000 finished | loss=0.616784 | cnn_loss=0.584086 | gnn_loss=0.032699 | lr=0.000844693 | epoch_time=00:01:09 | elapsed=14:48:30 | ETA=71:47:24 | estimated_finish=2026-06-20 11:42:06
+Epoch 172/1000 finished | loss=0.622242 | cnn_loss=0.587623 | gnn_loss=0.034619 | lr=0.000843776 | epoch_time=00:01:07 | elapsed=14:49:37 | ETA=71:22:38 | estimated_finish=2026-06-20 11:18:27
+Epoch 173/1000 finished | loss=0.584947 | cnn_loss=0.553152 | gnn_loss=0.031795 | lr=0.000842859 | epoch_time=00:01:10 | elapsed=14:50:48 | ETA=70:58:20 | estimated_finish=2026-06-20 10:55:19
+Epoch 174/1000 finished | loss=0.614043 | cnn_loss=0.585631 | gnn_loss=0.028412 | lr=0.000841942 | epoch_time=00:01:08 | elapsed=14:51:56 | ETA=70:34:09 | estimated_finish=2026-06-20 10:32:17
+Epoch 175/1000 finished | loss=0.570550 | cnn_loss=0.538738 | gnn_loss=0.031812 | lr=0.000841024 | epoch_time=00:01:06 | elapsed=14:53:03 | ETA=70:10:06 | estimated_finish=2026-06-20 10:09:20
+Quick validation epoch=175 | pseudo_dice=0.460639 | val_time=00:00:29
+Epoch 176/1000 finished | loss=0.656304 | cnn_loss=0.622894 | gnn_loss=0.033410 | lr=0.000840107 | epoch_time=00:01:06 | elapsed=14:54:39 | ETA=69:48:39 | estimated_finish=2026-06-20 09:49:30
+Epoch 177/1000 finished | loss=0.593103 | cnn_loss=0.562003 | gnn_loss=0.031100 | lr=0.000839189 | epoch_time=00:01:10 | elapsed=14:55:50 | ETA=69:25:23 | estimated_finish=2026-06-20 09:27:24
+Epoch 178/1000 finished | loss=0.604016 | cnn_loss=0.571295 | gnn_loss=0.032721 | lr=0.000838271 | epoch_time=00:01:09 | elapsed=14:56:59 | ETA=69:02:18 | estimated_finish=2026-06-20 09:05:29
+Epoch 179/1000 finished | loss=0.611573 | cnn_loss=0.578535 | gnn_loss=0.033039 | lr=0.000837354 | epoch_time=00:01:10 | elapsed=14:58:10 | ETA=68:39:33 | estimated_finish=2026-06-20 08:43:55
+Epoch 180/1000 finished | loss=0.631257 | cnn_loss=0.601373 | gnn_loss=0.029884 | lr=0.000836436 | epoch_time=00:01:07 | elapsed=14:59:18 | ETA=68:16:50 | estimated_finish=2026-06-20 08:22:20
+Quick validation epoch=180 | pseudo_dice=0.497124 | val_time=00:00:29
+Epoch 181/1000 finished | loss=0.582983 | cnn_loss=0.554162 | gnn_loss=0.028821 | lr=0.000835517 | epoch_time=00:01:07 | elapsed=15:00:55 | ETA=67:56:33 | estimated_finish=2026-06-20 08:03:40
+Epoch 182/1000 finished | loss=0.643639 | cnn_loss=0.608637 | gnn_loss=0.035002 | lr=0.000834599 | epoch_time=00:01:07 | elapsed=15:02:03 | ETA=67:34:18 | estimated_finish=2026-06-20 07:42:33
+Epoch 183/1000 finished | loss=0.603286 | cnn_loss=0.568565 | gnn_loss=0.034722 | lr=0.000833681 | epoch_time=00:01:08 | elapsed=15:03:11 | ETA=67:12:17 | estimated_finish=2026-06-20 07:21:40
+Epoch 184/1000 finished | loss=0.591104 | cnn_loss=0.556251 | gnn_loss=0.034853 | lr=0.000832762 | epoch_time=00:01:11 | elapsed=15:04:22 | ETA=66:50:44 | estimated_finish=2026-06-20 07:01:18
+Epoch 185/1000 finished | loss=0.603341 | cnn_loss=0.569672 | gnn_loss=0.033669 | lr=0.000831844 | epoch_time=00:01:09 | elapsed=15:05:32 | ETA=66:29:15 | estimated_finish=2026-06-20 06:40:59
+Quick validation epoch=185 | pseudo_dice=0.549018 | val_time=00:00:29
+Epoch 186/1000 finished | loss=0.624770 | cnn_loss=0.596215 | gnn_loss=0.028555 | lr=0.000830925 | epoch_time=00:01:08 | elapsed=15:07:10 | ETA=66:10:08 | estimated_finish=2026-06-20 06:23:31
+Epoch 187/1000 finished | loss=0.556111 | cnn_loss=0.529228 | gnn_loss=0.026883 | lr=0.000830006 | epoch_time=00:01:09 | elapsed=15:08:20 | ETA=65:49:08 | estimated_finish=2026-06-20 06:03:40
+Epoch 188/1000 finished | loss=0.604345 | cnn_loss=0.572270 | gnn_loss=0.032075 | lr=0.000829088 | epoch_time=00:01:08 | elapsed=15:09:29 | ETA=65:28:13 | estimated_finish=2026-06-20 05:43:54
+Epoch 189/1000 finished | loss=0.618566 | cnn_loss=0.586041 | gnn_loss=0.032525 | lr=0.000828169 | epoch_time=00:01:09 | elapsed=15:10:39 | ETA=65:07:36 | estimated_finish=2026-06-20 05:24:26
+Epoch 190/1000 finished | loss=0.536744 | cnn_loss=0.506042 | gnn_loss=0.030701 | lr=0.00082725 | epoch_time=00:01:10 | elapsed=15:11:49 | ETA=64:47:14 | estimated_finish=2026-06-20 05:05:15
+Quick validation epoch=190 | pseudo_dice=0.498692 | val_time=00:00:30
+Epoch 191/1000 finished | loss=0.597646 | cnn_loss=0.564370 | gnn_loss=0.033275 | lr=0.00082633 | epoch_time=00:01:14 | elapsed=15:13:34 | ETA=64:29:30 | estimated_finish=2026-06-20 04:49:16
+Epoch 192/1000 finished | loss=0.600338 | cnn_loss=0.572431 | gnn_loss=0.027907 | lr=0.000825411 | epoch_time=00:01:10 | elapsed=15:14:44 | ETA=64:09:31 | estimated_finish=2026-06-20 04:30:27
+Epoch 193/1000 finished | loss=0.538797 | cnn_loss=0.508003 | gnn_loss=0.030794 | lr=0.000824491 | epoch_time=00:01:07 | elapsed=15:15:52 | ETA=63:49:33 | estimated_finish=2026-06-20 04:11:37
+Epoch 194/1000 finished | loss=0.591923 | cnn_loss=0.560315 | gnn_loss=0.031608 | lr=0.000823572 | epoch_time=00:01:09 | elapsed=15:17:01 | ETA=63:29:54 | estimated_finish=2026-06-20 03:53:07
+Epoch 195/1000 finished | loss=0.601574 | cnn_loss=0.567359 | gnn_loss=0.034216 | lr=0.000822652 | epoch_time=00:01:10 | elapsed=15:18:12 | ETA=63:10:32 | estimated_finish=2026-06-20 03:34:55
+Quick validation epoch=195 | pseudo_dice=0.454496 | val_time=00:00:30
+Epoch 196/1000 finished | loss=0.593430 | cnn_loss=0.556935 | gnn_loss=0.036495 | lr=0.000821732 | epoch_time=00:02:33 | elapsed=15:21:16 | ETA=62:59:06 | estimated_finish=2026-06-20 03:26:34
+Epoch 197/1000 finished | loss=0.567285 | cnn_loss=0.536664 | gnn_loss=0.030621 | lr=0.000820813 | epoch_time=00:01:43 | elapsed=15:22:59 | ETA=62:42:15 | estimated_finish=2026-06-20 03:11:27
+Epoch 198/1000 finished | loss=0.576283 | cnn_loss=0.541811 | gnn_loss=0.034472 | lr=0.000819893 | epoch_time=00:01:35 | elapsed=15:24:35 | ETA=62:25:03 | estimated_finish=2026-06-20 02:55:50
+Epoch 199/1000 finished | loss=0.584589 | cnn_loss=0.550057 | gnn_loss=0.034532 | lr=0.000818972 | epoch_time=00:01:16 | elapsed=15:25:51 | ETA=62:06:42 | estimated_finish=2026-06-20 02:38:46
+Epoch 200/1000 finished | loss=0.562673 | cnn_loss=0.532855 | gnn_loss=0.029819 | lr=0.000818052 | epoch_time=00:01:08 | elapsed=15:26:59 | ETA=61:47:59 | estimated_finish=2026-06-20 02:21:10
+Quick validation epoch=200 | pseudo_dice=0.502446 | val_time=00:00:32
+Full validation epoch=200 | mean_dice=0.190942 | val_time=00:01:03
+New best full-validation model saved | dice=0.190942 | epoch=200
+Epoch 201/1000 finished | loss=0.586270 | cnn_loss=0.551311 | gnn_loss=0.034960 | lr=0.000817132 | epoch_time=00:01:24 | elapsed=15:30:01 | ETA=61:36:56 | estimated_finish=2026-06-20 02:13:08
+Epoch 202/1000 finished | loss=0.594159 | cnn_loss=0.563139 | gnn_loss=0.031020 | lr=0.000816211 | epoch_time=00:01:08 | elapsed=15:31:09 | ETA=61:18:30 | estimated_finish=2026-06-20 01:55:51
+Epoch 203/1000 finished | loss=0.581590 | cnn_loss=0.550692 | gnn_loss=0.030898 | lr=0.000815291 | epoch_time=00:01:09 | elapsed=15:32:18 | ETA=61:00:20 | estimated_finish=2026-06-20 01:38:49
+Epoch 204/1000 finished | loss=0.624021 | cnn_loss=0.591797 | gnn_loss=0.032224 | lr=0.00081437 | epoch_time=00:01:09 | elapsed=15:33:27 | ETA=60:42:18 | estimated_finish=2026-06-20 01:21:57
+Epoch 205/1000 finished | loss=0.606011 | cnn_loss=0.569611 | gnn_loss=0.036400 | lr=0.000813449 | epoch_time=00:01:07 | elapsed=15:34:35 | ETA=60:24:22 | estimated_finish=2026-06-20 01:05:09
+Quick validation epoch=205 | pseudo_dice=0.352526 | val_time=00:00:29
+Epoch 206/1000 finished | loss=0.559019 | cnn_loss=0.527261 | gnn_loss=0.031758 | lr=0.000812528 | epoch_time=00:01:05 | elapsed=15:36:10 | ETA=60:08:22 | estimated_finish=2026-06-20 00:50:44
+Epoch 207/1000 finished | loss=0.609288 | cnn_loss=0.576197 | gnn_loss=0.033092 | lr=0.000811607 | epoch_time=00:01:06 | elapsed=15:37:17 | ETA=59:50:41 | estimated_finish=2026-06-20 00:34:11
+Epoch 208/1000 finished | loss=0.547019 | cnn_loss=0.515886 | gnn_loss=0.031133 | lr=0.000810686 | epoch_time=00:01:07 | elapsed=15:38:25 | ETA=59:33:13 | estimated_finish=2026-06-20 00:17:50
+Epoch 209/1000 finished | loss=0.574368 | cnn_loss=0.541827 | gnn_loss=0.032541 | lr=0.000809765 | epoch_time=00:01:08 | elapsed=15:39:33 | ETA=59:15:56 | estimated_finish=2026-06-20 00:01:41
+Epoch 210/1000 finished | loss=0.596544 | cnn_loss=0.563734 | gnn_loss=0.032810 | lr=0.000808843 | epoch_time=00:01:08 | elapsed=15:40:42 | ETA=58:58:50 | estimated_finish=2026-06-19 23:45:44
+Quick validation epoch=210 | pseudo_dice=0.448493 | val_time=00:00:29
+Epoch 211/1000 finished | loss=0.587198 | cnn_loss=0.557001 | gnn_loss=0.030197 | lr=0.000807922 | epoch_time=00:01:07 | elapsed=15:42:20 | ETA=58:43:42 | estimated_finish=2026-06-19 23:32:13
+Epoch 212/1000 finished | loss=0.586446 | cnn_loss=0.557076 | gnn_loss=0.029370 | lr=0.000807 | epoch_time=00:01:09 | elapsed=15:43:29 | ETA=58:26:55 | estimated_finish=2026-06-19 23:16:36
+Epoch 213/1000 finished | loss=0.581672 | cnn_loss=0.548339 | gnn_loss=0.033332 | lr=0.000806078 | epoch_time=00:01:07 | elapsed=15:44:37 | ETA=58:10:12 | estimated_finish=2026-06-19 23:01:00
+Epoch 214/1000 finished | loss=0.611419 | cnn_loss=0.579045 | gnn_loss=0.032374 | lr=0.000805156 | epoch_time=00:01:09 | elapsed=15:45:46 | ETA=57:53:43 | estimated_finish=2026-06-19 22:45:42
+Epoch 215/1000 finished | loss=0.564828 | cnn_loss=0.535693 | gnn_loss=0.029135 | lr=0.000804234 | epoch_time=00:01:06 | elapsed=15:46:52 | ETA=57:37:12 | estimated_finish=2026-06-19 22:30:17
+Quick validation epoch=215 | pseudo_dice=0.511768 | val_time=00:00:29
+Epoch 216/1000 finished | loss=0.574475 | cnn_loss=0.546956 | gnn_loss=0.027519 | lr=0.000803312 | epoch_time=00:01:08 | elapsed=15:48:31 | ETA=57:22:47 | estimated_finish=2026-06-19 22:17:30
+Epoch 217/1000 finished | loss=0.587286 | cnn_loss=0.555462 | gnn_loss=0.031823 | lr=0.00080239 | epoch_time=00:01:14 | elapsed=15:49:46 | ETA=57:07:03 | estimated_finish=2026-06-19 22:03:00
+Epoch 218/1000 finished | loss=0.572252 | cnn_loss=0.544712 | gnn_loss=0.027540 | lr=0.000801468 | epoch_time=00:01:09 | elapsed=15:50:55 | ETA=56:51:07 | estimated_finish=2026-06-19 21:48:15
+Epoch 219/1000 finished | loss=0.566516 | cnn_loss=0.536828 | gnn_loss=0.029688 | lr=0.000800545 | epoch_time=00:01:07 | elapsed=15:52:02 | ETA=56:35:11 | estimated_finish=2026-06-19 21:33:26
+Epoch 220/1000 finished | loss=0.609926 | cnn_loss=0.578484 | gnn_loss=0.031442 | lr=0.000799623 | epoch_time=00:01:07 | elapsed=15:53:10 | ETA=56:19:26 | estimated_finish=2026-06-19 21:18:49
+Quick validation epoch=220 | pseudo_dice=0.608196 | val_time=00:00:30
+New best model saved by quick validation | pseudo_dice=0.608196 | epoch=220
+Epoch 221/1000 finished | loss=0.602720 | cnn_loss=0.570740 | gnn_loss=0.031981 | lr=0.0007987 | epoch_time=00:01:08 | elapsed=15:54:49 | ETA=56:05:39 | estimated_finish=2026-06-19 21:06:40
+Epoch 222/1000 finished | loss=0.561478 | cnn_loss=0.529559 | gnn_loss=0.031919 | lr=0.000797777 | epoch_time=00:01:22 | elapsed=15:56:12 | ETA=55:51:02 | estimated_finish=2026-06-19 20:53:26
+Epoch 223/1000 finished | loss=0.595733 | cnn_loss=0.563986 | gnn_loss=0.031748 | lr=0.000796854 | epoch_time=00:01:13 | elapsed=15:57:26 | ETA=55:35:59 | estimated_finish=2026-06-19 20:39:37
+Epoch 224/1000 finished | loss=0.507363 | cnn_loss=0.479019 | gnn_loss=0.028344 | lr=0.000795931 | epoch_time=00:01:09 | elapsed=15:58:35 | ETA=55:20:50 | estimated_finish=2026-06-19 20:25:37
+Epoch 225/1000 finished | loss=0.556597 | cnn_loss=0.524658 | gnn_loss=0.031939 | lr=0.000795008 | epoch_time=00:01:08 | elapsed=15:59:43 | ETA=55:05:44 | estimated_finish=2026-06-19 20:11:40
+Quick validation epoch=225 | pseudo_dice=0.554980 | val_time=00:00:30
+Epoch 226/1000 finished | loss=0.612152 | cnn_loss=0.577247 | gnn_loss=0.034905 | lr=0.000794085 | epoch_time=00:01:07 | elapsed=16:01:22 | ETA=54:52:28 | estimated_finish=2026-06-19 20:00:01
+Epoch 227/1000 finished | loss=0.553705 | cnn_loss=0.521080 | gnn_loss=0.032625 | lr=0.000793161 | epoch_time=00:01:11 | elapsed=16:02:33 | ETA=54:37:46 | estimated_finish=2026-06-19 19:46:31
+Epoch 228/1000 finished | loss=0.585758 | cnn_loss=0.554708 | gnn_loss=0.031051 | lr=0.000792238 | epoch_time=00:01:08 | elapsed=16:03:42 | ETA=54:23:03 | estimated_finish=2026-06-19 19:32:57
+Epoch 229/1000 finished | loss=0.595286 | cnn_loss=0.560329 | gnn_loss=0.034956 | lr=0.000791314 | epoch_time=00:01:09 | elapsed=16:04:51 | ETA=54:08:31 | estimated_finish=2026-06-19 19:19:35
+Epoch 230/1000 finished | loss=0.553851 | cnn_loss=0.519109 | gnn_loss=0.034742 | lr=0.00079039 | epoch_time=00:01:08 | elapsed=16:06:00 | ETA=53:54:00 | estimated_finish=2026-06-19 19:06:11
+Quick validation epoch=230 | pseudo_dice=0.463810 | val_time=00:00:30
+Epoch 231/1000 finished | loss=0.578175 | cnn_loss=0.547709 | gnn_loss=0.030466 | lr=0.000789466 | epoch_time=00:01:08 | elapsed=16:07:39 | ETA=53:41:19 | estimated_finish=2026-06-19 18:55:10
+Epoch 232/1000 finished | loss=0.592483 | cnn_loss=0.561987 | gnn_loss=0.030496 | lr=0.000788542 | epoch_time=00:01:10 | elapsed=16:08:50 | ETA=53:27:11 | estimated_finish=2026-06-19 18:42:12
+Epoch 233/1000 finished | loss=0.592897 | cnn_loss=0.560509 | gnn_loss=0.032388 | lr=0.000787618 | epoch_time=00:01:10 | elapsed=16:10:01 | ETA=53:13:09 | estimated_finish=2026-06-19 18:29:21
+Epoch 234/1000 finished | loss=0.574298 | cnn_loss=0.541156 | gnn_loss=0.033142 | lr=0.000786694 | epoch_time=00:01:09 | elapsed=16:11:10 | ETA=52:59:10 | estimated_finish=2026-06-19 18:16:32
+Epoch 235/1000 finished | loss=0.562431 | cnn_loss=0.532557 | gnn_loss=0.029874 | lr=0.00078577 | epoch_time=00:01:09 | elapsed=16:12:20 | ETA=52:45:15 | estimated_finish=2026-06-19 18:03:47
+Quick validation epoch=235 | pseudo_dice=0.468847 | val_time=00:00:31
+Epoch 236/1000 finished | loss=0.571044 | cnn_loss=0.538593 | gnn_loss=0.032451 | lr=0.000784845 | epoch_time=00:01:15 | elapsed=16:14:06 | ETA=52:33:28 | estimated_finish=2026-06-19 17:53:46
+Epoch 237/1000 finished | loss=0.588331 | cnn_loss=0.556847 | gnn_loss=0.031483 | lr=0.000783921 | epoch_time=00:01:10 | elapsed=16:15:17 | ETA=52:19:51 | estimated_finish=2026-06-19 17:41:20
+Epoch 238/1000 finished | loss=0.566955 | cnn_loss=0.535196 | gnn_loss=0.031758 | lr=0.000782996 | epoch_time=00:01:10 | elapsed=16:16:28 | ETA=52:06:20 | estimated_finish=2026-06-19 17:28:59
+Epoch 239/1000 finished | loss=0.557694 | cnn_loss=0.524164 | gnn_loss=0.033530 | lr=0.000782071 | epoch_time=00:01:09 | elapsed=16:17:37 | ETA=51:52:50 | estimated_finish=2026-06-19 17:16:39
+Epoch 240/1000 finished | loss=0.592439 | cnn_loss=0.560305 | gnn_loss=0.032133 | lr=0.000781146 | epoch_time=00:01:11 | elapsed=16:18:48 | ETA=51:39:34 | estimated_finish=2026-06-19 17:04:35
+Quick validation epoch=240 | pseudo_dice=0.333972 | val_time=00:00:31
+Epoch 241/1000 finished | loss=0.585150 | cnn_loss=0.554368 | gnn_loss=0.030782 | lr=0.000780221 | epoch_time=00:01:15 | elapsed=16:20:36 | ETA=51:28:17 | estimated_finish=2026-06-19 16:55:05
+Epoch 242/1000 finished | loss=0.546815 | cnn_loss=0.512681 | gnn_loss=0.034133 | lr=0.000779296 | epoch_time=00:01:10 | elapsed=16:21:46 | ETA=51:15:10 | estimated_finish=2026-06-19 16:43:08
+Epoch 243/1000 finished | loss=0.580190 | cnn_loss=0.545601 | gnn_loss=0.034589 | lr=0.00077837 | epoch_time=00:01:10 | elapsed=16:22:57 | ETA=51:02:08 | estimated_finish=2026-06-19 16:31:17
+Epoch 244/1000 finished | loss=0.593651 | cnn_loss=0.560985 | gnn_loss=0.032666 | lr=0.000777445 | epoch_time=00:01:07 | elapsed=16:24:05 | ETA=50:49:04 | estimated_finish=2026-06-19 16:19:21
+Epoch 245/1000 finished | loss=0.599371 | cnn_loss=0.570072 | gnn_loss=0.029299 | lr=0.000776519 | epoch_time=00:01:06 | elapsed=16:25:12 | ETA=50:36:02 | estimated_finish=2026-06-19 16:07:26
+Quick validation epoch=245 | pseudo_dice=0.555091 | val_time=00:00:31
+Epoch 246/1000 finished | loss=0.567849 | cnn_loss=0.530885 | gnn_loss=0.036964 | lr=0.000775594 | epoch_time=00:01:09 | elapsed=16:26:53 | ETA=50:24:52 | estimated_finish=2026-06-19 15:57:57
+Epoch 247/1000 finished | loss=0.579925 | cnn_loss=0.548249 | gnn_loss=0.031676 | lr=0.000774668 | epoch_time=00:01:08 | elapsed=16:28:02 | ETA=50:12:07 | estimated_finish=2026-06-19 15:46:21
+Epoch 248/1000 finished | loss=0.557931 | cnn_loss=0.523779 | gnn_loss=0.034152 | lr=0.000773742 | epoch_time=00:01:06 | elapsed=16:29:08 | ETA=49:59:20 | estimated_finish=2026-06-19 15:34:40
+Epoch 249/1000 finished | loss=0.535342 | cnn_loss=0.509235 | gnn_loss=0.026107 | lr=0.000772816 | epoch_time=00:01:05 | elapsed=16:30:14 | ETA=49:46:36 | estimated_finish=2026-06-19 15:23:02
+Epoch 250/1000 finished | loss=0.581178 | cnn_loss=0.548240 | gnn_loss=0.032938 | lr=0.00077189 | epoch_time=00:01:09 | elapsed=16:31:23 | ETA=49:34:09 | estimated_finish=2026-06-19 15:11:44
+Quick validation epoch=250 | pseudo_dice=0.533454 | val_time=00:00:29
+Epoch 251/1000 finished | loss=0.551126 | cnn_loss=0.519250 | gnn_loss=0.031876 | lr=0.000770963 | epoch_time=00:01:08 | elapsed=16:33:01 | ETA=49:23:15 | estimated_finish=2026-06-19 15:02:28
+Epoch 252/1000 finished | loss=0.598660 | cnn_loss=0.566747 | gnn_loss=0.031913 | lr=0.000770037 | epoch_time=00:01:09 | elapsed=16:34:10 | ETA=49:10:59 | estimated_finish=2026-06-19 14:51:21
+Epoch 253/1000 finished | loss=0.572309 | cnn_loss=0.542034 | gnn_loss=0.030275 | lr=0.00076911 | epoch_time=00:01:08 | elapsed=16:35:19 | ETA=48:58:45 | estimated_finish=2026-06-19 14:40:16
+Epoch 254/1000 finished | loss=0.558107 | cnn_loss=0.524382 | gnn_loss=0.033725 | lr=0.000768183 | epoch_time=00:01:06 | elapsed=16:36:26 | ETA=48:46:33 | estimated_finish=2026-06-19 14:29:11
+Epoch 255/1000 finished | loss=0.553789 | cnn_loss=0.521635 | gnn_loss=0.032154 | lr=0.000767257 | epoch_time=00:01:07 | elapsed=16:37:33 | ETA=48:34:27 | estimated_finish=2026-06-19 14:18:13
+Quick validation epoch=255 | pseudo_dice=0.460983 | val_time=00:00:29
+Epoch 256/1000 finished | loss=0.554644 | cnn_loss=0.525624 | gnn_loss=0.029020 | lr=0.00076633 | epoch_time=00:01:08 | elapsed=16:39:11 | ETA=48:23:55 | estimated_finish=2026-06-19 14:09:18
+Epoch 257/1000 finished | loss=0.547648 | cnn_loss=0.515287 | gnn_loss=0.032361 | lr=0.000765403 | epoch_time=00:01:06 | elapsed=16:40:18 | ETA=48:11:55 | estimated_finish=2026-06-19 13:58:25
+Epoch 258/1000 finished | loss=0.567777 | cnn_loss=0.535758 | gnn_loss=0.032019 | lr=0.000764475 | epoch_time=00:01:06 | elapsed=16:41:24 | ETA=48:00:01 | estimated_finish=2026-06-19 13:47:37
+Epoch 259/1000 finished | loss=0.568020 | cnn_loss=0.536102 | gnn_loss=0.031918 | lr=0.000763548 | epoch_time=00:01:09 | elapsed=16:42:34 | ETA=47:48:22 | estimated_finish=2026-06-19 13:37:08
+Epoch 260/1000 finished | loss=0.585477 | cnn_loss=0.547128 | gnn_loss=0.038349 | lr=0.000762621 | epoch_time=00:01:09 | elapsed=16:43:44 | ETA=47:36:47 | estimated_finish=2026-06-19 13:26:43
+Quick validation epoch=260 | pseudo_dice=0.555240 | val_time=00:00:29
+Epoch 261/1000 finished | loss=0.610021 | cnn_loss=0.575188 | gnn_loss=0.034833 | lr=0.000761693 | epoch_time=00:01:08 | elapsed=16:45:22 | ETA=47:26:37 | estimated_finish=2026-06-19 13:18:11
+Epoch 262/1000 finished | loss=0.574870 | cnn_loss=0.544111 | gnn_loss=0.030760 | lr=0.000760765 | epoch_time=00:01:07 | elapsed=16:46:30 | ETA=47:15:07 | estimated_finish=2026-06-19 13:07:48
+Epoch 263/1000 finished | loss=0.582250 | cnn_loss=0.553474 | gnn_loss=0.028776 | lr=0.000759838 | epoch_time=00:01:08 | elapsed=16:47:38 | ETA=47:03:43 | estimated_finish=2026-06-19 12:57:33
+Epoch 264/1000 finished | loss=0.588900 | cnn_loss=0.561842 | gnn_loss=0.027058 | lr=0.00075891 | epoch_time=00:01:12 | elapsed=16:48:51 | ETA=46:52:33 | estimated_finish=2026-06-19 12:47:36
+Epoch 265/1000 finished | loss=0.581877 | cnn_loss=0.546303 | gnn_loss=0.035574 | lr=0.000757981 | epoch_time=00:01:08 | elapsed=16:49:59 | ETA=46:41:18 | estimated_finish=2026-06-19 12:37:30
+Quick validation epoch=265 | pseudo_dice=0.423736 | val_time=00:00:29
+Epoch 266/1000 finished | loss=0.577250 | cnn_loss=0.544990 | gnn_loss=0.032260 | lr=0.000757053 | epoch_time=00:01:07 | elapsed=16:51:36 | ETA=46:31:26 | estimated_finish=2026-06-19 12:29:15
+Epoch 267/1000 finished | loss=0.535214 | cnn_loss=0.505959 | gnn_loss=0.029254 | lr=0.000756125 | epoch_time=00:01:09 | elapsed=16:52:46 | ETA=46:20:23 | estimated_finish=2026-06-19 12:19:21
+Epoch 268/1000 finished | loss=0.552174 | cnn_loss=0.519242 | gnn_loss=0.032932 | lr=0.000755197 | epoch_time=00:01:10 | elapsed=16:53:56 | ETA=46:09:26 | estimated_finish=2026-06-19 12:09:34
+Epoch 269/1000 finished | loss=0.569853 | cnn_loss=0.536737 | gnn_loss=0.033116 | lr=0.000754268 | epoch_time=00:01:12 | elapsed=16:55:09 | ETA=45:58:39 | estimated_finish=2026-06-19 12:00:00
+Epoch 270/1000 finished | loss=0.589874 | cnn_loss=0.555941 | gnn_loss=0.033933 | lr=0.000753339 | epoch_time=00:01:10 | elapsed=16:56:20 | ETA=45:47:52 | estimated_finish=2026-06-19 11:50:23
+Quick validation epoch=270 | pseudo_dice=0.395218 | val_time=00:00:29
+Epoch 271/1000 finished | loss=0.592321 | cnn_loss=0.563118 | gnn_loss=0.029203 | lr=0.00075241 | epoch_time=00:01:11 | elapsed=16:58:01 | ETA=45:38:31 | estimated_finish=2026-06-19 11:42:45
+Epoch 272/1000 finished | loss=0.550612 | cnn_loss=0.521910 | gnn_loss=0.028702 | lr=0.000751481 | epoch_time=00:01:08 | elapsed=16:59:09 | ETA=45:27:45 | estimated_finish=2026-06-19 11:33:07
+Epoch 273/1000 finished | loss=0.624522 | cnn_loss=0.590780 | gnn_loss=0.033742 | lr=0.000750552 | epoch_time=00:01:09 | elapsed=17:00:19 | ETA=45:17:07 | estimated_finish=2026-06-19 11:23:39
+Epoch 274/1000 finished | loss=0.563982 | cnn_loss=0.530784 | gnn_loss=0.033199 | lr=0.000749623 | epoch_time=00:01:11 | elapsed=17:01:30 | ETA=45:06:38 | estimated_finish=2026-06-19 11:14:20
+Epoch 275/1000 finished | loss=0.615665 | cnn_loss=0.581337 | gnn_loss=0.034329 | lr=0.000748694 | epoch_time=00:01:12 | elapsed=17:02:43 | ETA=44:56:16 | estimated_finish=2026-06-19 11:05:11
+Quick validation epoch=275 | pseudo_dice=0.570100 | val_time=00:00:30
+Epoch 276/1000 finished | loss=0.573912 | cnn_loss=0.540295 | gnn_loss=0.033617 | lr=0.000747764 | epoch_time=00:01:10 | elapsed=17:04:24 | ETA=44:47:12 | estimated_finish=2026-06-19 10:57:48
+Epoch 277/1000 finished | loss=0.523796 | cnn_loss=0.494082 | gnn_loss=0.029713 | lr=0.000746835 | epoch_time=00:01:10 | elapsed=17:05:34 | ETA=44:36:52 | estimated_finish=2026-06-19 10:48:38
+Epoch 278/1000 finished | loss=0.552256 | cnn_loss=0.521047 | gnn_loss=0.031209 | lr=0.000745905 | epoch_time=00:01:10 | elapsed=17:06:45 | ETA=44:26:36 | estimated_finish=2026-06-19 10:39:32
+Epoch 279/1000 finished | loss=0.552343 | cnn_loss=0.520749 | gnn_loss=0.031594 | lr=0.000744975 | epoch_time=00:01:12 | elapsed=17:07:57 | ETA=44:16:29 | estimated_finish=2026-06-19 10:30:39
+Epoch 280/1000 finished | loss=0.550245 | cnn_loss=0.516577 | gnn_loss=0.033668 | lr=0.000744045 | epoch_time=00:01:09 | elapsed=17:09:07 | ETA=44:06:19 | estimated_finish=2026-06-19 10:21:38
+Quick validation epoch=280 | pseudo_dice=0.547216 | val_time=00:00:30
+Epoch 281/1000 finished | loss=0.559852 | cnn_loss=0.528168 | gnn_loss=0.031684 | lr=0.000743115 | epoch_time=00:01:07 | elapsed=17:10:45 | ETA=43:57:25 | estimated_finish=2026-06-19 10:14:22
+Epoch 282/1000 finished | loss=0.558687 | cnn_loss=0.527318 | gnn_loss=0.031370 | lr=0.000742185 | epoch_time=00:01:11 | elapsed=17:11:57 | ETA=43:47:28 | estimated_finish=2026-06-19 10:05:37
+Epoch 283/1000 finished | loss=0.593674 | cnn_loss=0.561447 | gnn_loss=0.032228 | lr=0.000741254 | epoch_time=00:01:11 | elapsed=17:13:08 | ETA=43:37:32 | estimated_finish=2026-06-19 09:56:52
+Epoch 284/1000 finished | loss=0.562308 | cnn_loss=0.528580 | gnn_loss=0.033728 | lr=0.000740324 | epoch_time=00:01:11 | elapsed=17:14:20 | ETA=43:27:42 | estimated_finish=2026-06-19 09:48:14
+Epoch 285/1000 finished | loss=0.556979 | cnn_loss=0.525497 | gnn_loss=0.031483 | lr=0.000739393 | epoch_time=00:01:11 | elapsed=17:15:32 | ETA=43:17:55 | estimated_finish=2026-06-19 09:39:38
+Quick validation epoch=285 | pseudo_dice=0.497944 | val_time=00:00:30
+Epoch 286/1000 finished | loss=0.554911 | cnn_loss=0.521832 | gnn_loss=0.033079 | lr=0.000738462 | epoch_time=00:01:10 | elapsed=17:17:12 | ETA=43:09:24 | estimated_finish=2026-06-19 09:32:49
+Epoch 287/1000 finished | loss=0.607206 | cnn_loss=0.577051 | gnn_loss=0.030155 | lr=0.000737532 | epoch_time=00:01:10 | elapsed=17:18:23 | ETA=42:59:42 | estimated_finish=2026-06-19 09:24:17
+Epoch 288/1000 finished | loss=0.576424 | cnn_loss=0.542108 | gnn_loss=0.034315 | lr=0.0007366 | epoch_time=00:01:09 | elapsed=17:19:33 | ETA=42:50:00 | estimated_finish=2026-06-19 09:15:45
+Epoch 289/1000 finished | loss=0.546201 | cnn_loss=0.515508 | gnn_loss=0.030692 | lr=0.000735669 | epoch_time=00:01:06 | elapsed=17:20:40 | ETA=42:40:15 | estimated_finish=2026-06-19 09:07:07
+Epoch 290/1000 finished | loss=0.559388 | cnn_loss=0.524592 | gnn_loss=0.034796 | lr=0.000734738 | epoch_time=00:01:11 | elapsed=17:21:52 | ETA=42:30:46 | estimated_finish=2026-06-19 08:58:50
+Quick validation epoch=290 | pseudo_dice=0.543867 | val_time=00:00:29
+Epoch 291/1000 finished | loss=0.529953 | cnn_loss=0.499112 | gnn_loss=0.030841 | lr=0.000733807 | epoch_time=00:01:07 | elapsed=17:23:29 | ETA=42:22:22 | estimated_finish=2026-06-19 08:52:03
+Epoch 292/1000 finished | loss=0.600981 | cnn_loss=0.567900 | gnn_loss=0.033081 | lr=0.000732875 | epoch_time=00:01:09 | elapsed=17:24:38 | ETA=42:12:54 | estimated_finish=2026-06-19 08:43:44
+Epoch 293/1000 finished | loss=0.600246 | cnn_loss=0.565691 | gnn_loss=0.034555 | lr=0.000731943 | epoch_time=00:01:08 | elapsed=17:25:47 | ETA=42:03:27 | estimated_finish=2026-06-19 08:35:26
+Epoch 294/1000 finished | loss=0.556981 | cnn_loss=0.527238 | gnn_loss=0.029743 | lr=0.000731012 | epoch_time=00:01:07 | elapsed=17:26:54 | ETA=41:54:00 | estimated_finish=2026-06-19 08:27:06
+Epoch 295/1000 finished | loss=0.593736 | cnn_loss=0.560900 | gnn_loss=0.032836 | lr=0.00073008 | epoch_time=00:01:06 | elapsed=17:28:01 | ETA=41:44:36 | estimated_finish=2026-06-19 08:18:49
+Quick validation epoch=295 | pseudo_dice=0.496423 | val_time=00:00:30
+Epoch 296/1000 finished | loss=0.554244 | cnn_loss=0.521215 | gnn_loss=0.033030 | lr=0.000729148 | epoch_time=00:01:08 | elapsed=17:29:40 | ETA=41:36:31 | estimated_finish=2026-06-19 08:12:23
+Epoch 297/1000 finished | loss=0.553984 | cnn_loss=0.522239 | gnn_loss=0.031746 | lr=0.000728215 | epoch_time=00:01:08 | elapsed=17:30:48 | ETA=41:27:16 | estimated_finish=2026-06-19 08:04:17
+Epoch 298/1000 finished | loss=0.567943 | cnn_loss=0.533536 | gnn_loss=0.034407 | lr=0.000727283 | epoch_time=00:01:06 | elapsed=17:31:55 | ETA=41:18:01 | estimated_finish=2026-06-19 07:56:08
+Epoch 299/1000 finished | loss=0.543961 | cnn_loss=0.513774 | gnn_loss=0.030187 | lr=0.00072635 | epoch_time=00:01:08 | elapsed=17:33:04 | ETA=41:08:53 | estimated_finish=2026-06-19 07:48:09
+Epoch 300/1000 finished | loss=0.529603 | cnn_loss=0.497476 | gnn_loss=0.032127 | lr=0.000725418 | epoch_time=00:01:07 | elapsed=17:34:11 | ETA=40:59:47 | estimated_finish=2026-06-19 07:40:11
+Quick validation epoch=300 | pseudo_dice=0.573586 | val_time=00:00:29
+Full validation epoch=300 | mean_dice=0.246721 | val_time=00:01:03
+New best full-validation model saved | dice=0.246721 | epoch=300
+Epoch 301/1000 finished | loss=0.558371 | cnn_loss=0.523742 | gnn_loss=0.034629 | lr=0.000724485 | epoch_time=00:01:09 | elapsed=17:36:55 | ETA=40:54:26 | estimated_finish=2026-06-19 07:37:32
+Epoch 302/1000 finished | loss=0.578432 | cnn_loss=0.544912 | gnn_loss=0.033521 | lr=0.000723552 | epoch_time=00:02:49 | elapsed=17:39:44 | ETA=40:49:20 | estimated_finish=2026-06-19 07:35:17
+Epoch 303/1000 finished | loss=0.549102 | cnn_loss=0.518513 | gnn_loss=0.030589 | lr=0.000722619 | epoch_time=00:01:09 | elapsed=17:40:53 | ETA=40:40:25 | estimated_finish=2026-06-19 07:27:30
+Epoch 304/1000 finished | loss=0.587808 | cnn_loss=0.553766 | gnn_loss=0.034042 | lr=0.000721686 | epoch_time=00:01:08 | elapsed=17:42:02 | ETA=40:31:32 | estimated_finish=2026-06-19 07:19:46
+Epoch 305/1000 finished | loss=0.561338 | cnn_loss=0.528619 | gnn_loss=0.032719 | lr=0.000720753 | epoch_time=00:01:08 | elapsed=17:43:11 | ETA=40:22:41 | estimated_finish=2026-06-19 07:12:05
+Quick validation epoch=305 | pseudo_dice=0.438602 | val_time=00:00:29
+Epoch 306/1000 finished | loss=0.581192 | cnn_loss=0.547328 | gnn_loss=0.033864 | lr=0.000719819 | epoch_time=00:01:10 | elapsed=17:44:52 | ETA=40:15:06 | estimated_finish=2026-06-19 07:06:09
+Epoch 307/1000 finished | loss=0.564577 | cnn_loss=0.530772 | gnn_loss=0.033806 | lr=0.000718886 | epoch_time=00:01:10 | elapsed=17:46:02 | ETA=40:06:24 | estimated_finish=2026-06-19 06:58:38
+Epoch 308/1000 finished | loss=0.537115 | cnn_loss=0.508088 | gnn_loss=0.029027 | lr=0.000717952 | epoch_time=00:01:11 | elapsed=17:47:13 | ETA=39:57:47 | estimated_finish=2026-06-19 06:51:12
+Epoch 309/1000 finished | loss=0.548638 | cnn_loss=0.518597 | gnn_loss=0.030041 | lr=0.000717018 | epoch_time=00:01:09 | elapsed=17:48:22 | ETA=39:49:10 | estimated_finish=2026-06-19 06:43:44
+Epoch 310/1000 finished | loss=0.533353 | cnn_loss=0.500444 | gnn_loss=0.032909 | lr=0.000716084 | epoch_time=00:01:05 | elapsed=17:49:28 | ETA=39:40:26 | estimated_finish=2026-06-19 06:36:06
+Quick validation epoch=310 | pseudo_dice=0.590676 | val_time=00:00:29
+Epoch 311/1000 finished | loss=0.563321 | cnn_loss=0.530046 | gnn_loss=0.033275 | lr=0.00071515 | epoch_time=00:01:07 | elapsed=17:51:05 | ETA=39:32:56 | estimated_finish=2026-06-19 06:30:14
+Epoch 312/1000 finished | loss=0.558433 | cnn_loss=0.527953 | gnn_loss=0.030481 | lr=0.000714216 | epoch_time=00:01:08 | elapsed=17:52:14 | ETA=39:24:25 | estimated_finish=2026-06-19 06:22:50
+Epoch 313/1000 finished | loss=0.555145 | cnn_loss=0.521626 | gnn_loss=0.033519 | lr=0.000713282 | epoch_time=00:01:07 | elapsed=17:53:21 | ETA=39:15:54 | estimated_finish=2026-06-19 06:15:28
+Epoch 314/1000 finished | loss=0.570330 | cnn_loss=0.537726 | gnn_loss=0.032604 | lr=0.000712347 | epoch_time=00:01:08 | elapsed=17:54:30 | ETA=39:07:29 | estimated_finish=2026-06-19 06:08:12
+Epoch 315/1000 finished | loss=0.539881 | cnn_loss=0.506169 | gnn_loss=0.033712 | lr=0.000711413 | epoch_time=00:01:09 | elapsed=17:55:40 | ETA=38:59:09 | estimated_finish=2026-06-19 06:01:01
+Quick validation epoch=315 | pseudo_dice=0.521413 | val_time=00:00:30
+Epoch 316/1000 finished | loss=0.571745 | cnn_loss=0.539981 | gnn_loss=0.031764 | lr=0.000710478 | epoch_time=00:01:06 | elapsed=17:57:17 | ETA=38:51:51 | estimated_finish=2026-06-19 05:55:21
+Epoch 317/1000 finished | loss=0.579580 | cnn_loss=0.540857 | gnn_loss=0.038724 | lr=0.000709543 | epoch_time=00:01:06 | elapsed=17:58:24 | ETA=38:43:30 | estimated_finish=2026-06-19 05:48:06
+Epoch 318/1000 finished | loss=0.555822 | cnn_loss=0.523703 | gnn_loss=0.032118 | lr=0.000708608 | epoch_time=00:01:06 | elapsed=17:59:30 | ETA=38:35:11 | estimated_finish=2026-06-19 05:40:53
+Epoch 319/1000 finished | loss=0.587536 | cnn_loss=0.555725 | gnn_loss=0.031812 | lr=0.000707673 | epoch_time=00:01:08 | elapsed=18:00:39 | ETA=38:26:58 | estimated_finish=2026-06-19 05:33:49
+Epoch 320/1000 finished | loss=0.546206 | cnn_loss=0.513622 | gnn_loss=0.032583 | lr=0.000706737 | epoch_time=00:01:07 | elapsed=18:01:47 | ETA=38:18:47 | estimated_finish=2026-06-19 05:26:46
+Quick validation epoch=320 | pseudo_dice=0.551733 | val_time=00:00:29
+Epoch 321/1000 finished | loss=0.562894 | cnn_loss=0.531367 | gnn_loss=0.031526 | lr=0.000705802 | epoch_time=00:01:08 | elapsed=18:03:25 | ETA=38:11:44 | estimated_finish=2026-06-19 05:21:21
+Epoch 322/1000 finished | loss=0.557397 | cnn_loss=0.526548 | gnn_loss=0.030850 | lr=0.000704866 | epoch_time=00:01:08 | elapsed=18:04:34 | ETA=38:03:39 | estimated_finish=2026-06-19 05:14:25
+Epoch 323/1000 finished | loss=0.569624 | cnn_loss=0.535619 | gnn_loss=0.034005 | lr=0.000703931 | epoch_time=00:01:09 | elapsed=18:05:44 | ETA=37:55:40 | estimated_finish=2026-06-19 05:07:36
+Epoch 324/1000 finished | loss=0.585411 | cnn_loss=0.553018 | gnn_loss=0.032392 | lr=0.000702995 | epoch_time=00:01:08 | elapsed=18:06:53 | ETA=37:47:41 | estimated_finish=2026-06-19 05:00:46
+Epoch 325/1000 finished | loss=0.545105 | cnn_loss=0.517180 | gnn_loss=0.027925 | lr=0.000702059 | epoch_time=00:01:05 | elapsed=18:07:58 | ETA=37:39:38 | estimated_finish=2026-06-19 04:53:49
+Quick validation epoch=325 | pseudo_dice=0.516197 | val_time=00:00:31
+Epoch 326/1000 finished | loss=0.563253 | cnn_loss=0.528358 | gnn_loss=0.034895 | lr=0.000701123 | epoch_time=00:01:09 | elapsed=18:09:39 | ETA=37:32:50 | estimated_finish=2026-06-19 04:48:41
+Epoch 327/1000 finished | loss=0.512593 | cnn_loss=0.485621 | gnn_loss=0.026972 | lr=0.000700186 | epoch_time=00:01:09 | elapsed=18:10:48 | ETA=37:24:59 | estimated_finish=2026-06-19 04:41:59
+Epoch 328/1000 finished | loss=0.545050 | cnn_loss=0.510974 | gnn_loss=0.034075 | lr=0.00069925 | epoch_time=00:01:08 | elapsed=18:11:57 | ETA=37:17:10 | estimated_finish=2026-06-19 04:35:18
+Epoch 329/1000 finished | loss=0.494796 | cnn_loss=0.462791 | gnn_loss=0.032005 | lr=0.000698313 | epoch_time=00:01:06 | elapsed=18:13:03 | ETA=37:09:18 | estimated_finish=2026-06-19 04:28:33
+Epoch 330/1000 finished | loss=0.579298 | cnn_loss=0.545266 | gnn_loss=0.034032 | lr=0.000697377 | epoch_time=00:01:08 | elapsed=18:14:11 | ETA=37:01:33 | estimated_finish=2026-06-19 04:21:56
+Quick validation epoch=330 | pseudo_dice=0.578099 | val_time=00:00:29
+Epoch 331/1000 finished | loss=0.523598 | cnn_loss=0.491568 | gnn_loss=0.032030 | lr=0.00069644 | epoch_time=00:01:06 | elapsed=18:15:48 | ETA=36:54:46 | estimated_finish=2026-06-19 04:16:46
+Epoch 332/1000 finished | loss=0.542012 | cnn_loss=0.509827 | gnn_loss=0.032186 | lr=0.000695503 | epoch_time=00:01:10 | elapsed=18:16:58 | ETA=36:47:10 | estimated_finish=2026-06-19 04:10:20
+Epoch 333/1000 finished | loss=0.543513 | cnn_loss=0.511250 | gnn_loss=0.032263 | lr=0.000694566 | epoch_time=00:01:07 | elapsed=18:18:06 | ETA=36:39:31 | estimated_finish=2026-06-19 04:03:49
+Epoch 334/1000 finished | loss=0.542333 | cnn_loss=0.509616 | gnn_loss=0.032717 | lr=0.000693628 | epoch_time=00:01:08 | elapsed=18:19:15 | ETA=36:31:55 | estimated_finish=2026-06-19 03:57:22
+Epoch 335/1000 finished | loss=0.616604 | cnn_loss=0.583447 | gnn_loss=0.033157 | lr=0.000692691 | epoch_time=00:01:07 | elapsed=18:20:23 | ETA=36:24:20 | estimated_finish=2026-06-19 03:50:55
+Quick validation epoch=335 | pseudo_dice=0.566410 | val_time=00:00:29
+Epoch 336/1000 finished | loss=0.568100 | cnn_loss=0.536008 | gnn_loss=0.032091 | lr=0.000691753 | epoch_time=00:01:12 | elapsed=18:22:05 | ETA=36:17:56 | estimated_finish=2026-06-19 03:46:13
+Epoch 337/1000 finished | loss=0.574677 | cnn_loss=0.542443 | gnn_loss=0.032234 | lr=0.000690816 | epoch_time=00:01:08 | elapsed=18:23:14 | ETA=36:10:27 | estimated_finish=2026-06-19 03:39:53
+Epoch 338/1000 finished | loss=0.561281 | cnn_loss=0.530769 | gnn_loss=0.030512 | lr=0.000689878 | epoch_time=00:01:09 | elapsed=18:24:23 | ETA=36:03:03 | estimated_finish=2026-06-19 03:33:38
+Epoch 339/1000 finished | loss=0.559917 | cnn_loss=0.525882 | gnn_loss=0.034034 | lr=0.00068894 | epoch_time=00:01:08 | elapsed=18:25:32 | ETA=35:55:39 | estimated_finish=2026-06-19 03:27:23
+Epoch 340/1000 finished | loss=0.551091 | cnn_loss=0.517762 | gnn_loss=0.033329 | lr=0.000688002 | epoch_time=00:01:08 | elapsed=18:26:40 | ETA=35:48:15 | estimated_finish=2026-06-19 03:21:08
+Quick validation epoch=340 | pseudo_dice=0.499899 | val_time=00:00:30
+Epoch 341/1000 finished | loss=0.554448 | cnn_loss=0.518840 | gnn_loss=0.035607 | lr=0.000687063 | epoch_time=00:01:07 | elapsed=18:28:18 | ETA=35:41:51 | estimated_finish=2026-06-19 03:16:21
+Epoch 342/1000 finished | loss=0.528351 | cnn_loss=0.496604 | gnn_loss=0.031747 | lr=0.000686125 | epoch_time=00:01:07 | elapsed=18:29:25 | ETA=35:34:31 | estimated_finish=2026-06-19 03:10:08
+Epoch 343/1000 finished | loss=0.536941 | cnn_loss=0.505328 | gnn_loss=0.031614 | lr=0.000685187 | epoch_time=00:01:08 | elapsed=18:30:34 | ETA=35:27:15 | estimated_finish=2026-06-19 03:04:01
+Epoch 344/1000 finished | loss=0.548787 | cnn_loss=0.517280 | gnn_loss=0.031507 | lr=0.000684248 | epoch_time=00:01:06 | elapsed=18:31:41 | ETA=35:19:57 | estimated_finish=2026-06-19 02:57:50
+Epoch 345/1000 finished | loss=0.559714 | cnn_loss=0.525829 | gnn_loss=0.033885 | lr=0.000683309 | epoch_time=00:01:08 | elapsed=18:32:50 | ETA=35:12:46 | estimated_finish=2026-06-19 02:51:48
+Quick validation epoch=345 | pseudo_dice=0.451550 | val_time=00:00:29
+Epoch 346/1000 finished | loss=0.514222 | cnn_loss=0.486941 | gnn_loss=0.027281 | lr=0.00068237 | epoch_time=00:01:10 | elapsed=18:34:30 | ETA=35:06:36 | estimated_finish=2026-06-19 02:47:18
+Epoch 347/1000 finished | loss=0.543314 | cnn_loss=0.512075 | gnn_loss=0.031239 | lr=0.000681431 | epoch_time=00:01:07 | elapsed=18:35:37 | ETA=34:59:25 | estimated_finish=2026-06-19 02:41:14
+Epoch 348/1000 finished | loss=0.596867 | cnn_loss=0.564540 | gnn_loss=0.032327 | lr=0.000680492 | epoch_time=00:01:08 | elapsed=18:36:45 | ETA=34:52:19 | estimated_finish=2026-06-19 02:35:16
+Epoch 349/1000 finished | loss=0.560985 | cnn_loss=0.529258 | gnn_loss=0.031728 | lr=0.000679552 | epoch_time=00:01:06 | elapsed=18:37:52 | ETA=34:45:12 | estimated_finish=2026-06-19 02:29:16
+Epoch 350/1000 finished | loss=0.557369 | cnn_loss=0.528876 | gnn_loss=0.028493 | lr=0.000678613 | epoch_time=00:01:05 | elapsed=18:38:58 | ETA=34:38:05 | estimated_finish=2026-06-19 02:23:15
+Quick validation epoch=350 | pseudo_dice=0.538739 | val_time=00:00:29
+Epoch 351/1000 finished | loss=0.561980 | cnn_loss=0.528765 | gnn_loss=0.033215 | lr=0.000677673 | epoch_time=00:01:10 | elapsed=18:40:38 | ETA=34:32:04 | estimated_finish=2026-06-19 02:18:54
+Epoch 352/1000 finished | loss=0.539082 | cnn_loss=0.505866 | gnn_loss=0.033216 | lr=0.000676733 | epoch_time=00:01:10 | elapsed=18:41:48 | ETA=34:25:09 | estimated_finish=2026-06-19 02:13:09
+Epoch 353/1000 finished | loss=0.551352 | cnn_loss=0.520211 | gnn_loss=0.031141 | lr=0.000675793 | epoch_time=00:01:06 | elapsed=18:42:55 | ETA=34:18:10 | estimated_finish=2026-06-19 02:07:17
+Epoch 354/1000 finished | loss=0.548657 | cnn_loss=0.516578 | gnn_loss=0.032079 | lr=0.000674853 | epoch_time=00:01:06 | elapsed=18:44:02 | ETA=34:11:12 | estimated_finish=2026-06-19 02:01:26
+Epoch 355/1000 finished | loss=0.554209 | cnn_loss=0.523266 | gnn_loss=0.030944 | lr=0.000673913 | epoch_time=00:01:08 | elapsed=18:45:11 | ETA=34:04:20 | estimated_finish=2026-06-19 01:55:43
+Quick validation epoch=355 | pseudo_dice=0.464810 | val_time=00:00:29
+Epoch 356/1000 finished | loss=0.492738 | cnn_loss=0.464137 | gnn_loss=0.028601 | lr=0.000672972 | epoch_time=00:01:10 | elapsed=18:46:50 | ETA=33:58:27 | estimated_finish=2026-06-19 01:51:29
+Epoch 357/1000 finished | loss=0.601805 | cnn_loss=0.568163 | gnn_loss=0.033642 | lr=0.000672032 | epoch_time=00:01:07 | elapsed=18:47:58 | ETA=33:51:37 | estimated_finish=2026-06-19 01:45:47
+Epoch 358/1000 finished | loss=0.512865 | cnn_loss=0.482402 | gnn_loss=0.030463 | lr=0.000671091 | epoch_time=00:01:06 | elapsed=18:49:05 | ETA=33:44:47 | estimated_finish=2026-06-19 01:40:04
+Epoch 359/1000 finished | loss=0.565688 | cnn_loss=0.532691 | gnn_loss=0.032997 | lr=0.00067015 | epoch_time=00:01:06 | elapsed=18:50:11 | ETA=33:37:58 | estimated_finish=2026-06-19 01:34:22
+Epoch 360/1000 finished | loss=0.577050 | cnn_loss=0.545547 | gnn_loss=0.031503 | lr=0.000669209 | epoch_time=00:01:09 | elapsed=18:51:21 | ETA=33:31:18 | estimated_finish=2026-06-19 01:28:51
+Quick validation epoch=360 | pseudo_dice=0.588197 | val_time=00:00:29
+Epoch 361/1000 finished | loss=0.540934 | cnn_loss=0.507426 | gnn_loss=0.033508 | lr=0.000668268 | epoch_time=00:01:08 | elapsed=18:52:59 | ETA=33:25:29 | estimated_finish=2026-06-19 01:24:41
+Epoch 362/1000 finished | loss=0.563604 | cnn_loss=0.527994 | gnn_loss=0.035611 | lr=0.000667327 | epoch_time=00:01:07 | elapsed=18:54:07 | ETA=33:18:49 | estimated_finish=2026-06-19 01:19:08
+Epoch 363/1000 finished | loss=0.528160 | cnn_loss=0.495247 | gnn_loss=0.032913 | lr=0.000666385 | epoch_time=00:01:06 | elapsed=18:55:13 | ETA=33:12:07 | estimated_finish=2026-06-19 01:13:33
+Epoch 364/1000 finished | loss=0.584306 | cnn_loss=0.548805 | gnn_loss=0.035501 | lr=0.000665444 | epoch_time=00:01:08 | elapsed=18:56:22 | ETA=33:05:31 | estimated_finish=2026-06-19 01:08:04
+Epoch 365/1000 finished | loss=0.569348 | cnn_loss=0.535981 | gnn_loss=0.033367 | lr=0.000664502 | epoch_time=00:01:07 | elapsed=18:57:29 | ETA=32:58:55 | estimated_finish=2026-06-19 01:02:36
+Quick validation epoch=365 | pseudo_dice=0.566638 | val_time=00:00:29
+Epoch 366/1000 finished | loss=0.539256 | cnn_loss=0.508655 | gnn_loss=0.030600 | lr=0.00066356 | epoch_time=00:01:07 | elapsed=18:59:06 | ETA=32:53:12 | estimated_finish=2026-06-19 00:58:30
+Epoch 367/1000 finished | loss=0.557565 | cnn_loss=0.522959 | gnn_loss=0.034606 | lr=0.000662618 | epoch_time=00:01:09 | elapsed=19:00:15 | ETA=32:46:43 | estimated_finish=2026-06-19 00:53:10
+Epoch 368/1000 finished | loss=0.518160 | cnn_loss=0.486231 | gnn_loss=0.031928 | lr=0.000661676 | epoch_time=00:01:07 | elapsed=19:01:23 | ETA=32:40:12 | estimated_finish=2026-06-19 00:47:47
+Epoch 369/1000 finished | loss=0.498560 | cnn_loss=0.463392 | gnn_loss=0.035167 | lr=0.000660734 | epoch_time=00:01:08 | elapsed=19:02:31 | ETA=32:33:45 | estimated_finish=2026-06-19 00:42:28
+Epoch 370/1000 finished | loss=0.525279 | cnn_loss=0.491971 | gnn_loss=0.033308 | lr=0.000659791 | epoch_time=00:01:08 | elapsed=19:03:40 | ETA=32:27:20 | estimated_finish=2026-06-19 00:37:12
+Quick validation epoch=370 | pseudo_dice=0.664103 | val_time=00:00:29
+New best model saved by quick validation | pseudo_dice=0.664103 | epoch=370
+Epoch 371/1000 finished | loss=0.547078 | cnn_loss=0.509648 | gnn_loss=0.037430 | lr=0.000658849 | epoch_time=00:01:07 | elapsed=19:05:17 | ETA=32:21:44 | estimated_finish=2026-06-19 00:33:13
+Epoch 372/1000 finished | loss=0.582933 | cnn_loss=0.548400 | gnn_loss=0.034533 | lr=0.000657906 | epoch_time=00:01:09 | elapsed=19:06:26 | ETA=32:15:23 | estimated_finish=2026-06-19 00:28:01
+Epoch 373/1000 finished | loss=0.554536 | cnn_loss=0.521450 | gnn_loss=0.033087 | lr=0.000656963 | epoch_time=00:01:06 | elapsed=19:07:32 | ETA=32:08:59 | estimated_finish=2026-06-19 00:22:43
+Epoch 374/1000 finished | loss=0.528554 | cnn_loss=0.494929 | gnn_loss=0.033625 | lr=0.00065602 | epoch_time=00:01:08 | elapsed=19:08:40 | ETA=32:02:39 | estimated_finish=2026-06-19 00:17:31
+Epoch 375/1000 finished | loss=0.526294 | cnn_loss=0.492767 | gnn_loss=0.033527 | lr=0.000655076 | epoch_time=00:01:07 | elapsed=19:09:48 | ETA=31:56:20 | estimated_finish=2026-06-19 00:12:21
+Quick validation epoch=375 | pseudo_dice=0.542294 | val_time=00:00:29
+Epoch 376/1000 finished | loss=0.523673 | cnn_loss=0.489484 | gnn_loss=0.034189 | lr=0.000654133 | epoch_time=00:01:07 | elapsed=19:11:25 | ETA=31:50:52 | estimated_finish=2026-06-19 00:08:30
+Epoch 377/1000 finished | loss=0.560353 | cnn_loss=0.530714 | gnn_loss=0.029639 | lr=0.00065319 | epoch_time=00:01:05 | elapsed=19:12:31 | ETA=31:44:33 | estimated_finish=2026-06-19 00:03:16
+Epoch 378/1000 finished | loss=0.549677 | cnn_loss=0.515137 | gnn_loss=0.034540 | lr=0.000652246 | epoch_time=00:01:05 | elapsed=19:13:36 | ETA=31:38:16 | estimated_finish=2026-06-18 23:58:04
+Epoch 379/1000 finished | loss=0.513915 | cnn_loss=0.481298 | gnn_loss=0.032617 | lr=0.000651302 | epoch_time=00:01:07 | elapsed=19:14:44 | ETA=31:32:03 | estimated_finish=2026-06-18 23:52:59
+Epoch 380/1000 finished | loss=0.591921 | cnn_loss=0.554859 | gnn_loss=0.037062 | lr=0.000650358 | epoch_time=00:01:06 | elapsed=19:15:50 | ETA=31:25:50 | estimated_finish=2026-06-18 23:47:52
+Quick validation epoch=380 | pseudo_dice=0.585681 | val_time=00:00:29
+Epoch 381/1000 finished | loss=0.520531 | cnn_loss=0.488763 | gnn_loss=0.031768 | lr=0.000649414 | epoch_time=00:01:07 | elapsed=19:17:27 | ETA=31:20:28 | estimated_finish=2026-06-18 23:44:07
+Epoch 382/1000 finished | loss=0.584426 | cnn_loss=0.549756 | gnn_loss=0.034670 | lr=0.00064847 | epoch_time=00:01:08 | elapsed=19:18:35 | ETA=31:14:23 | estimated_finish=2026-06-18 23:39:10
+Epoch 383/1000 finished | loss=0.609952 | cnn_loss=0.575412 | gnn_loss=0.034540 | lr=0.000647525 | epoch_time=00:01:07 | elapsed=19:19:43 | ETA=31:08:17 | estimated_finish=2026-06-18 23:34:12
+Epoch 384/1000 finished | loss=0.543174 | cnn_loss=0.512032 | gnn_loss=0.031142 | lr=0.000646581 | epoch_time=00:01:07 | elapsed=19:20:51 | ETA=31:02:12 | estimated_finish=2026-06-18 23:29:15
+Epoch 385/1000 finished | loss=0.554803 | cnn_loss=0.528890 | gnn_loss=0.025913 | lr=0.000645636 | epoch_time=00:01:09 | elapsed=19:22:00 | ETA=30:56:11 | estimated_finish=2026-06-18 23:24:24
+Quick validation epoch=385 | pseudo_dice=0.574276 | val_time=00:00:30
+Epoch 386/1000 finished | loss=0.578033 | cnn_loss=0.544180 | gnn_loss=0.033852 | lr=0.000644691 | epoch_time=00:01:09 | elapsed=19:23:40 | ETA=30:51:01 | estimated_finish=2026-06-18 23:20:53
+Epoch 387/1000 finished | loss=0.559842 | cnn_loss=0.523976 | gnn_loss=0.035866 | lr=0.000643746 | epoch_time=00:01:06 | elapsed=19:24:47 | ETA=30:44:59 | estimated_finish=2026-06-18 23:15:58
+Epoch 388/1000 finished | loss=0.534103 | cnn_loss=0.498484 | gnn_loss=0.035619 | lr=0.000642801 | epoch_time=00:01:08 | elapsed=19:25:55 | ETA=30:39:02 | estimated_finish=2026-06-18 23:11:10
