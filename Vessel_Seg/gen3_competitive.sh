@@ -15,7 +15,7 @@ cd /vf/users/drdcad/Hyuna/projects/vessel_seg/code/Vessel_Seg
 # =========================
 # Change only here
 # =========================
-SUBJECT_ID="00004"
+SUBJECT_ID="00001"
 STUDY_ID="00001"
 SERIES_ID="3"
 
@@ -26,10 +26,10 @@ CASE_ID="${SUBJECT_ID}_${STUDY_ID}_${SERIES_ID}"
 
 CT="/data/drdcad/datasets/private/SmallBowelObstruction_7Apr2026/Data/anon_niftis/${SUBJECT_ID}/${STUDY_ID}/${CASE_ID}.nii.gz"
 SEG="${CASE_ID}_sma_smv.nii.gz"
-OUT="${CASE_ID}_gt_algo_2.nii.gz"
-BOWEL_SEG="${CASE_ID}_small_bowel.nii.gz"
+OUT="${CASE_ID}_gt_algo_3_competitive.nii.gz"
+BOWEL_SEG="/data/drdcad/Hyuna/projects/vessel_seg/data/totalseg_output/${CASE_ID}_small_bowel.nii.gz"
 
-python -u gen_vessels_2.py \
+python -u gen_vessels_3_competitive.py \
   --ct "$CT" \
   --seg "$SEG" \
   --out "$OUT" \

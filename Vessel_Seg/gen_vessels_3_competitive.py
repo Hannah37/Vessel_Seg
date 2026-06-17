@@ -17,7 +17,118 @@ def load_nifti(path):
     nii = nib.load(path)
     arr = np.asanyarray(nii.dataobj)
     return arr, nii.affine, nii.header
+def make_competitive_vessel_candidate(
+    ct_crop,
+    sma_valid,
+    vein_valid,
+    hu_min=95,
+    hu_max=370,
+    vesselness_thr=0.0012,
+    use_frangi=True,
+    territory_ratio=2.0,
+    vein_territory_ratio=2.0,
+    dilate_radius=1,
+    air_hu=-500,
+    air_radius=2,
+):
+    """
+    Make shared vessel candidate for true SMA-vs-SMV competitive growing.
 
+    Returns:
+        candidate_core_artery: strict artery-side candidate for later cleanup
+        candidate_grow_artery: relaxed artery-side candidate for branch connection
+        candidate_comp: shared candidate where SMA and SMV both can grow
+        artery_territory: distance-based artery-side territory
+        vein_territory: distance-based vein-side territory
+    """
+
+    ct_f = ct_crop.astype(np.float32)
+
+    # Base vascular candidate: do NOT apply artery_territory yet.
+    candidate_core_shared = (ct_f >= hu_min) & (ct_f <= hu_max)
+
+    if use_frangi:
+        print("Computing Frangi vesselness...")
+        vness = frangi(
+            ct_f,
+            sigmas=[0.2, 0.3, 0.5, 0.8, 1.2],
+            black_ridges=False,
+        )
+        candidate_core_shared = candidate_core_shared & (vness >= vesselness_thr)
+
+    # Distance maps
+    dist_to_sma = ndi.distance_transform_edt(~sma_valid)
+    dist_to_vein = ndi.distance_transform_edt(~vein_valid)
+
+    # Artery-side territory for final SMA extraction
+    artery_territory = dist_to_sma < (dist_to_vein * territory_ratio)
+
+    # Vein-side territory for allowing SMV to grow
+    vein_territory = dist_to_vein < (dist_to_sma * vein_territory_ratio)
+
+    # Shared competition domain:
+    # allow both artery-side and vein-side territories.
+    competition_domain = artery_territory | vein_territory | sma_valid | vein_valid
+
+    # Protect both SMA and SMV seeds from bowel-boundary cleanup.
+    protected_seeds = sma_valid | vein_valid
+
+    candidate_core_shared = remove_bowel_boundary_like_components(
+        mask=candidate_core_shared,
+        ct_crop=ct_crop,
+        protected=protected_seeds,
+        air_hu=air_hu,
+        air_radius=air_radius,
+        min_area=20,
+        min_long_axis=12,
+        min_aspect=2.5,
+        axis=2,
+    )
+
+    # Ensure both seeds are inside the candidate.
+    candidate_core_shared = candidate_core_shared | sma_valid | vein_valid
+
+    # Relaxed shared candidate for growing
+    candidate_grow_shared = candidate_core_shared.copy()
+
+    if dilate_radius > 0:
+        candidate_grow_shared = binary_dilation(candidate_grow_shared, ball(dilate_radius))
+        candidate_grow_shared = ndi.binary_closing(candidate_grow_shared, structure=ball(1))
+        candidate_grow_shared = candidate_grow_shared & competition_domain
+
+        candidate_grow_shared = remove_bowel_boundary_like_components(
+            mask=candidate_grow_shared,
+            ct_crop=ct_crop,
+            protected=protected_seeds,
+            air_hu=air_hu,
+            air_radius=air_radius,
+            min_area=20,
+            min_long_axis=12,
+            min_aspect=2.5,
+            axis=2,
+        )
+
+        candidate_grow_shared = candidate_grow_shared | sma_valid | vein_valid
+
+    # This is the actual mask passed into competitive_grow_gpu.
+    # Important: no vein_exclude here.
+    candidate_comp = candidate_grow_shared & competition_domain
+    candidate_comp = candidate_comp | sma_valid | vein_valid
+
+    # Artery-specific candidates for later cleanup / branch connection.
+    candidate_core_artery = candidate_core_shared & artery_territory
+    candidate_core_artery = candidate_core_artery | sma_valid
+
+    candidate_grow_artery = candidate_grow_shared & artery_territory
+    candidate_grow_artery = candidate_grow_artery | sma_valid
+
+    return (
+        candidate_core_artery.astype(bool),
+        candidate_grow_artery.astype(bool),
+        candidate_comp.astype(bool),
+        artery_territory.astype(bool),
+        vein_territory.astype(bool),
+    )
 
 def save_nifti(arr, affine, header, out_path):
     out = nib.Nifti1Image(arr.astype(np.uint8), affine, header)
@@ -819,6 +930,55 @@ def connect_detached_large_components(
                         f"  direct short bridge rejected, "
                         f"pass_ratio={pass_ratio:.2f}, required={required_ratio:.2f}"
                     )
+                    # Last resort even when direct pass_ratio is low.
+                    # For extremely close detached components, allow a local bridge
+                    # if it does not cross vein or bowel interior.
+                    if min_dist <= 2.0 and comp_size >= 100:
+                        # Use a slightly thicker local bridge for extremely short gaps.
+                        # This is not global dilation; it is restricted to the local line zone.
+                        bridge_radius = 3 if min_dist <= 2.0 else 2
+
+                        line_zone = binary_dilation(line_mask, ball(bridge_radius + 1))
+
+                        force_safe = (
+                            (ct_crop >= -80) &
+                            (ct_crop <= direct_bridge_hu_max) &
+                            artery_territory &
+                            (~vein_exclude) &
+                            (~hard_forbid)
+                        )
+
+                        # Initial bridge tube
+                        force_tube = binary_dilation(line_mask, ball(bridge_radius))
+                        force_tube = force_tube & force_safe
+
+                        # Local closing: fill the small lumen-like gap between main and detached branch
+                        local_obj = (out | comp | force_tube) & line_zone
+                        local_closed = ndi.binary_closing(local_obj, structure=ball(2))
+
+                        # Keep only safe voxels in the very local bridge zone
+                        local_closed = local_closed & line_zone & force_safe
+
+                        test_out4 = out | comp | force_tube | local_closed
+                        test_out4 = test_out4 | sma_valid
+
+                        test_main4 = keep_connected_to_seed_6(test_out4, sma_valid)
+
+                        if np.any(comp & test_main4):
+                            print("  forced ultra-short bridge accepted despite low pass_ratio")
+
+                            out = test_out4
+                            main = test_main4
+                            main_coords = np.argwhere(main)
+
+                            connected += 1
+
+                            if connected >= max_components:
+                                break
+
+                            continue
+                        else:
+                            print("  forced ultra-short bridge failed")
 
         if cost_val > allowed_cost:
             print(f"  skipped: path cost too high > {allowed_cost:.2f}")
@@ -1494,7 +1654,7 @@ def main():
     print("Artery seed voxels:", int(sma_valid.sum()))
     print("Vein seed voxels:", int(vein_valid.sum()))
 
-    candidate_core, candidate, artery_territory = make_vessel_candidate(
+    candidate_core, candidate, candidate_comp, artery_territory, vein_territory = make_competitive_vessel_candidate(
         ct_crop=ct_crop,
         sma_valid=sma_valid,
         vein_valid=vein_valid,
@@ -1503,32 +1663,51 @@ def main():
         vesselness_thr=args.vesselness_thr,
         use_frangi=True,
         territory_ratio=2.0,
+        vein_territory_ratio=2.0,
         dilate_radius=1,
         air_hu=args.air_hu,
         air_radius=args.air_radius,
     )
 
-    print("Candidate core voxels:", int(candidate_core.sum()))
-    print("Candidate grow voxels:", int(candidate.sum()))
+    print("Artery candidate core voxels:", int(candidate_core.sum()))
+    print("Artery candidate grow voxels:", int(candidate.sum()))
+    print("Competitive shared candidate voxels:", int(candidate_comp.sum()))
 
-    vein_exclude = binary_dilation(vein_valid, ball(args.vein_block_radius))
-    vein_exclude = vein_exclude & (~sma_valid)
-    print("Vein-exclude voxels:", int(vein_exclude.sum()))
-
-    candidate = candidate & (~vein_exclude)
-    candidate = candidate | sma_valid
-
-    candidate_core = candidate_core & (~vein_exclude)
-    candidate_core = candidate_core | sma_valid
-
-    print("Growing SMA arterial tree with competitive vein growth...")
+    # Do NOT apply vein_exclude before competitive growing.
+    # SMV must remain inside candidate_comp so that it can grow.
+    print("Growing SMA and SMV with true competitive growth...")
     artery_tree, vein_tree = competitive_grow_gpu(
-        candidate=candidate,
+        candidate=candidate_comp,
         sma_seed=sma_valid,
         vein_seed=vein_valid,
         max_iter=args.max_iter,
         device=args.device,
     )
+
+    print("Raw artery tree voxels:", int(artery_tree.sum()))
+    print("Raw vein tree voxels:", int(vein_tree.sum()))
+
+    # Now build vein exclusion from the grown SMV tree, not only the seed.
+    vein_exclude = binary_dilation(vein_tree | vein_valid, ball(args.vein_block_radius))
+    vein_exclude = vein_exclude & (~sma_valid)
+    print("Vein-exclude voxels from grown SMV:", int(vein_exclude.sum()))
+
+    # Keep artery result only on artery side.
+    artery_tree = artery_tree & artery_territory
+
+    # Remove anything claimed by SMV.
+    artery_tree = artery_tree & (~vein_tree)
+    artery_tree = artery_tree & (~vein_exclude)
+
+    # Preserve SMA seed.
+    artery_tree = artery_tree | sma_valid
+
+    # Later branch-connection candidates should also avoid grown SMV.
+    candidate = candidate & (~vein_exclude) & (~vein_tree)
+    candidate = candidate | sma_valid
+
+    candidate_core = candidate_core & (~vein_exclude) & (~vein_tree)
+    candidate_core = candidate_core | sma_valid
 
     print("Raw artery tree voxels:", int(artery_tree.sum()))
     print("Raw vein tree voxels:", int(vein_tree.sum()))
@@ -1903,25 +2082,45 @@ def main():
     _, n6 = ndi.label(artery_tree, structure=structure6)
     print("Final connected components 6-connectivity:", n6)
 
+
+    # ============================================================
+    # Save original result for analysis / training
+    # ============================================================
     result = np.zeros(sma.shape, dtype=np.uint8)
     result[slices] = artery_tree.astype(np.uint8)
     save_nifti(result, affine, header, args.out)
 
+    # ============================================================
+    # Save visualization-only result
+    # This makes thin/diagonal branches look connected in 3D.
+    # Do NOT use this for quantitative evaluation or training GT.
+    # ============================================================
+    vis_tree = artery_tree.astype(bool).copy()
 
-    debug_core = np.zeros(sma.shape, dtype=np.uint8)
-    debug_core[slices] = candidate_core.astype(np.uint8)
-    save_nifti(debug_core, affine, header, "debug_candidate_core.nii.gz")
+    # 1 voxel closing fills tiny visual cracks
+    vis_tree = ndi.binary_closing(vis_tree, structure=ball(1))
 
-    debug_grow = np.zeros(sma.shape, dtype=np.uint8)
-    debug_grow[slices] = candidate.astype(np.uint8)
-    save_nifti(debug_grow, affine, header, "debug_candidate_grow.nii.gz")
+    # 1 voxel dilation makes thin vessels visible as connected tubes
+    vis_tree = binary_dilation(vis_tree, ball(1))
 
-    debug_final = np.zeros(sma.shape, dtype=np.uint8)
-    debug_final[slices] = final_connect_candidate.astype(np.uint8)
-    save_nifti(debug_final, affine, header, "debug_final_connect_candidate.nii.gz")
+    # optional safety: do not let visualization mask invade obvious vein territory
+    vis_tree = vis_tree & artery_territory
+    vis_tree = vis_tree & (~vein_exclude)
+    vis_tree = vis_tree | sma_valid
 
-    print("DEBUG artery_tree at cursor:", bool(artery_tree[x, y, z]))
-    print("DEBUG final_connect_candidate:", bool(final_connect_candidate[x, y, z]))
+    # keep only SMA-connected part
+    vis_tree = keep_connected_to_seed_6(vis_tree, sma_valid)
+
+    result_vis = np.zeros(sma.shape, dtype=np.uint8)
+    result_vis[slices] = vis_tree.astype(np.uint8)
+
+    vis_out = args.out.replace(".nii.gz", "_vis.nii.gz")
+    save_nifti(result_vis, affine, header, vis_out)
+
+    print("Saved original:", args.out)
+    print("Saved visualization:", vis_out)
+    print("Original voxels:", int(result.sum()))
+    print("Visualization voxels:", int(result_vis.sum()))
 
     print("Saved:", args.out)
     print("Output voxels:", int(result.sum()))

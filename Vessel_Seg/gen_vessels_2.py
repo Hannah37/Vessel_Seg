@@ -1952,25 +1952,45 @@ def main():
     _, n6 = ndi.label(artery_tree, structure=structure6)
     print("Final connected components 6-connectivity:", n6)
 
+
+    # ============================================================
+    # Save original result for analysis / training
+    # ============================================================
     result = np.zeros(sma.shape, dtype=np.uint8)
     result[slices] = artery_tree.astype(np.uint8)
     save_nifti(result, affine, header, args.out)
 
+    # ============================================================
+    # Save visualization-only result
+    # This makes thin/diagonal branches look connected in 3D.
+    # Do NOT use this for quantitative evaluation or training GT.
+    # ============================================================
+    vis_tree = artery_tree.astype(bool).copy()
 
-    debug_core = np.zeros(sma.shape, dtype=np.uint8)
-    debug_core[slices] = candidate_core.astype(np.uint8)
-    save_nifti(debug_core, affine, header, "debug_candidate_core.nii.gz")
+    # 1 voxel closing fills tiny visual cracks
+    vis_tree = ndi.binary_closing(vis_tree, structure=ball(1))
 
-    debug_grow = np.zeros(sma.shape, dtype=np.uint8)
-    debug_grow[slices] = candidate.astype(np.uint8)
-    save_nifti(debug_grow, affine, header, "debug_candidate_grow.nii.gz")
+    # 1 voxel dilation makes thin vessels visible as connected tubes
+    vis_tree = binary_dilation(vis_tree, ball(1))
 
-    debug_final = np.zeros(sma.shape, dtype=np.uint8)
-    debug_final[slices] = final_connect_candidate.astype(np.uint8)
-    save_nifti(debug_final, affine, header, "debug_final_connect_candidate.nii.gz")
+    # optional safety: do not let visualization mask invade obvious vein territory
+    vis_tree = vis_tree & artery_territory
+    vis_tree = vis_tree & (~vein_exclude)
+    vis_tree = vis_tree | sma_valid
 
-    print("DEBUG artery_tree at cursor:", bool(artery_tree[x, y, z]))
-    print("DEBUG final_connect_candidate:", bool(final_connect_candidate[x, y, z]))
+    # keep only SMA-connected part
+    vis_tree = keep_connected_to_seed_6(vis_tree, sma_valid)
+
+    result_vis = np.zeros(sma.shape, dtype=np.uint8)
+    result_vis[slices] = vis_tree.astype(np.uint8)
+
+    vis_out = args.out.replace(".nii.gz", "_vis.nii.gz")
+    save_nifti(result_vis, affine, header, vis_out)
+
+    print("Saved original:", args.out)
+    print("Saved visualization:", vis_out)
+    print("Original voxels:", int(result.sum()))
+    print("Visualization voxels:", int(result_vis.sum()))
 
     print("Saved:", args.out)
     print("Output voxels:", int(result.sum()))
