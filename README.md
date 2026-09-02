@@ -1,7 +1,7 @@
 # Mesenteric Artery Segmentation
 Official code repository for "Mesenteric Arterial Vessel Segmentation in Abdominal CT with Small Bowel Obstruction" published at the MICCAI-AMAI workshop 2026.
 
-## Running Experiments
+## Running the Algorithm
 The code is implemented for single-GPU running. 
 
 To run the algorithm, use the following command:
